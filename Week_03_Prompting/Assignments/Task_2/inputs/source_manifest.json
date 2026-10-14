@@ -1,0 +1,23 @@
+{
+  "prompt_templates_match_task1": {
+    "icio": true,
+    "rtf": true,
+    "co_star": true
+  },
+  "files": {
+    "inputs/co_star_v1.txt": "be7eeba392dd8b2388d98b78bd6072f0f1f3b5afe910a574556039f7758961d2",
+    "inputs/evaluate_retrieval_predictions.py": "2788c88a7f1c77e5bbb9bde4d63f1380c98a9d0f1e3f47c8dd9b59e111f176f6",
+    "inputs/icio_v1.txt": "aea57ccd5f6f877565f0d3411129b97526ec5bbaae563d323c6af741d0118106",
+    "inputs/questions.json": "ad0f6c5f1b3f103026518155488c204ffe6a9f1a98b078fa7a2b1fe9913c5413",
+    "inputs/restaurants-db.txt": "8c02cf462aa4a5776b29f65b8b8b8ea688106dcc202882414648c54e584dda03",
+    "inputs/restaurants-schema.csv": "19269c42625eb352c2ac5feab6f6fd17f12eea3373478e83a60b2e053da3241c",
+    "inputs/restaurants_dataset.csv": "117be92ad11a638e3253a125765995c2a93404651f1bd93e1bc1983e951cb61b",
+    "inputs/rtf_v1.txt": "b46d79c57ce044c429cbe8f1352a1cd75555484eb2380b6edc2f66e5c70e36dd",
+    "predictions/predictions_co_star.csv": "e73447f974a91f453a5b0da70368c00796a49a9c2dadfe1b88875fc5a31543d6",
+    "predictions/predictions_icio.csv": "3199412d8816ff33e9c97d5523b7e0b2b41449a9381d59cdd7b4285439f66e26",
+    "predictions/predictions_rtf.csv": "53fccf9c35493161742eec5017074d80a962a2c7fdf414af750a2446496a8f06",
+    "timings/timing_co_star.json": "176aceee90c5b382bb19752d19cff2e76e053009173080e0b25fdbf7a927e9ad",
+    "timings/timing_icio.json": "30073daac492c9b7722310bf85b29a7bbdc1f3cc416a7d984602a0dd2ef520d7",
+    "timings/timing_rtf.json": "58d4076b422ddbd26ec53a094bfd0d8caf52b2340c35aa0d8fe1fe4558ea0c3e"
+  }
+}

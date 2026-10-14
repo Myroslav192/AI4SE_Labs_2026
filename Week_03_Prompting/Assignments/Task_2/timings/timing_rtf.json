@@ -1,0 +1,11 @@
+{
+   "duration_label" : "end-to-end agent elapsed time, including tool and file operations",
+   "elapsed_seconds" : 264.462608031,
+   "end" : "2026-10-14T21:44:59.347077370Z",
+   "model" : "GPT-6.1 Sol",
+   "note" : "Pure model inference time is unavailable. No per-question timings were measured.",
+   "prompt_id" : "rtf_v1",
+   "pure_model_inference_time" : null,
+   "reasoning" : "Medium",
+   "start" : "2026-10-14T21:40:34.884469339Z"
+}

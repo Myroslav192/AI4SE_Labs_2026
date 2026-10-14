@@ -1,0 +1,768 @@
+{
+  "summaries": {
+    "icio": {
+      "prompt": "icio",
+      "total": 155,
+      "correct": 43,
+      "accuracy": 0.27741935483870966,
+      "execution_errors": 0,
+      "elapsed_agent_seconds": 320.252479,
+      "empty_correct": 43,
+      "empty_total": 43,
+      "nonempty_correct": 0,
+      "nonempty_total": 112
+    },
+    "rtf": {
+      "prompt": "rtf",
+      "total": 155,
+      "correct": 43,
+      "accuracy": 0.27741935483870966,
+      "execution_errors": 0,
+      "elapsed_agent_seconds": 264.462608031,
+      "empty_correct": 43,
+      "empty_total": 43,
+      "nonempty_correct": 0,
+      "nonempty_total": 112
+    },
+    "co_star": {
+      "prompt": "co_star",
+      "total": 155,
+      "correct": 43,
+      "accuracy": 0.27741935483870966,
+      "execution_errors": 0,
+      "elapsed_agent_seconds": 176.217517,
+      "empty_correct": 43,
+      "empty_total": 43,
+      "nonempty_correct": 0,
+      "nonempty_total": 112
+    }
+  },
+  "validation": {
+    "icio": {
+      "questions_verified": 155,
+      "question_text_order_and_ids_match": true,
+      "metadata_verified": true,
+      "timestamps_verified": true,
+      "teacher_cli_agreement": true
+    },
+    "rtf": {
+      "questions_verified": 155,
+      "question_text_order_and_ids_match": true,
+      "metadata_verified": true,
+      "timestamps_verified": true,
+      "teacher_cli_agreement": true
+    },
+    "co_star": {
+      "questions_verified": 155,
+      "question_text_order_and_ids_match": true,
+      "metadata_verified": true,
+      "timestamps_verified": true,
+      "teacher_cli_agreement": true
+    }
+  },
+  "prediction_hashes": {
+    "icio": {
+      "sql_text_sha256": "f21245db29c86a6bd20198d33bfd7cf78f31a1c7e46e6fa8335668611113f17d"
+    },
+    "rtf": {
+      "sql_text_sha256": "f21245db29c86a6bd20198d33bfd7cf78f31a1c7e46e6fa8335668611113f17d"
+    },
+    "co_star": {
+      "sql_text_sha256": "f21245db29c86a6bd20198d33bfd7cf78f31a1c7e46e6fa8335668611113f17d"
+    }
+  },
+  "pairwise_agreement": {
+    "icio_vs_rtf": {
+      "identical_sql_text": 155,
+      "same_executed_result": 155
+    },
+    "icio_vs_co_star": {
+      "identical_sql_text": 155,
+      "same_executed_result": 155
+    },
+    "rtf_vs_co_star": {
+      "identical_sql_text": 155,
+      "same_executed_result": 155
+    }
+  },
+  "reference_diagnostics": [
+    {
+      "question_id": 6,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 9,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 11,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 12,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    },
+    {
+      "question_id": 13,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 14,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 15,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 22,
+      "reference_rows": 10,
+      "id_name_pairs_absent_from_restaurant": 10,
+      "names_present_in_restaurant": 10
+    },
+    {
+      "question_id": 23,
+      "reference_rows": 62,
+      "id_name_pairs_absent_from_restaurant": 62,
+      "names_present_in_restaurant": 62
+    },
+    {
+      "question_id": 26,
+      "reference_rows": 154,
+      "id_name_pairs_absent_from_restaurant": 154,
+      "names_present_in_restaurant": 154
+    },
+    {
+      "question_id": 27,
+      "reference_rows": 5,
+      "id_name_pairs_absent_from_restaurant": 5,
+      "names_present_in_restaurant": 5
+    },
+    {
+      "question_id": 28,
+      "reference_rows": 62,
+      "id_name_pairs_absent_from_restaurant": 62,
+      "names_present_in_restaurant": 62
+    },
+    {
+      "question_id": 29,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 30,
+      "reference_rows": 37,
+      "id_name_pairs_absent_from_restaurant": 37,
+      "names_present_in_restaurant": 37
+    },
+    {
+      "question_id": 31,
+      "reference_rows": 6,
+      "id_name_pairs_absent_from_restaurant": 6,
+      "names_present_in_restaurant": 6
+    },
+    {
+      "question_id": 33,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 34,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 35,
+      "reference_rows": 18,
+      "id_name_pairs_absent_from_restaurant": 18,
+      "names_present_in_restaurant": 18
+    },
+    {
+      "question_id": 36,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 37,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 39,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 41,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 42,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 43,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 44,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 45,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 46,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 47,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 48,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 49,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 50,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 51,
+      "reference_rows": 6,
+      "id_name_pairs_absent_from_restaurant": 6,
+      "names_present_in_restaurant": 6
+    },
+    {
+      "question_id": 52,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 53,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 54,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 55,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 56,
+      "reference_rows": 3,
+      "id_name_pairs_absent_from_restaurant": 3,
+      "names_present_in_restaurant": 3
+    },
+    {
+      "question_id": 57,
+      "reference_rows": 6,
+      "id_name_pairs_absent_from_restaurant": 6,
+      "names_present_in_restaurant": 6
+    },
+    {
+      "question_id": 58,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 59,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 60,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 61,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 62,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 63,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 64,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 65,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 66,
+      "reference_rows": 2696,
+      "id_name_pairs_absent_from_restaurant": 2696,
+      "names_present_in_restaurant": 2696
+    },
+    {
+      "question_id": 68,
+      "reference_rows": 8,
+      "id_name_pairs_absent_from_restaurant": 8,
+      "names_present_in_restaurant": 8
+    },
+    {
+      "question_id": 69,
+      "reference_rows": 5,
+      "id_name_pairs_absent_from_restaurant": 5,
+      "names_present_in_restaurant": 5
+    },
+    {
+      "question_id": 70,
+      "reference_rows": 40,
+      "id_name_pairs_absent_from_restaurant": 40,
+      "names_present_in_restaurant": 40
+    },
+    {
+      "question_id": 81,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 86,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 87,
+      "reference_rows": 9171,
+      "id_name_pairs_absent_from_restaurant": 9168,
+      "names_present_in_restaurant": 9171
+    },
+    {
+      "question_id": 88,
+      "reference_rows": 42,
+      "id_name_pairs_absent_from_restaurant": 42,
+      "names_present_in_restaurant": 42
+    },
+    {
+      "question_id": 89,
+      "reference_rows": 46,
+      "id_name_pairs_absent_from_restaurant": 46,
+      "names_present_in_restaurant": 46
+    },
+    {
+      "question_id": 90,
+      "reference_rows": 8,
+      "id_name_pairs_absent_from_restaurant": 8,
+      "names_present_in_restaurant": 8
+    },
+    {
+      "question_id": 91,
+      "reference_rows": 192,
+      "id_name_pairs_absent_from_restaurant": 192,
+      "names_present_in_restaurant": 192
+    },
+    {
+      "question_id": 92,
+      "reference_rows": 8,
+      "id_name_pairs_absent_from_restaurant": 8,
+      "names_present_in_restaurant": 8
+    },
+    {
+      "question_id": 93,
+      "reference_rows": 63,
+      "id_name_pairs_absent_from_restaurant": 63,
+      "names_present_in_restaurant": 63
+    },
+    {
+      "question_id": 94,
+      "reference_rows": 6,
+      "id_name_pairs_absent_from_restaurant": 6,
+      "names_present_in_restaurant": 6
+    },
+    {
+      "question_id": 95,
+      "reference_rows": 4,
+      "id_name_pairs_absent_from_restaurant": 4,
+      "names_present_in_restaurant": 4
+    },
+    {
+      "question_id": 96,
+      "reference_rows": 8,
+      "id_name_pairs_absent_from_restaurant": 8,
+      "names_present_in_restaurant": 8
+    },
+    {
+      "question_id": 97,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 98,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    },
+    {
+      "question_id": 99,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 100,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 101,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 102,
+      "reference_rows": 159,
+      "id_name_pairs_absent_from_restaurant": 159,
+      "names_present_in_restaurant": 159
+    },
+    {
+      "question_id": 104,
+      "reference_rows": 3,
+      "id_name_pairs_absent_from_restaurant": 3,
+      "names_present_in_restaurant": 3
+    },
+    {
+      "question_id": 105,
+      "reference_rows": 9,
+      "id_name_pairs_absent_from_restaurant": 9,
+      "names_present_in_restaurant": 9
+    },
+    {
+      "question_id": 106,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 107,
+      "reference_rows": 3,
+      "id_name_pairs_absent_from_restaurant": 3,
+      "names_present_in_restaurant": 3
+    },
+    {
+      "question_id": 108,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 109,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 110,
+      "reference_rows": 14,
+      "id_name_pairs_absent_from_restaurant": 14,
+      "names_present_in_restaurant": 14
+    },
+    {
+      "question_id": 111,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 112,
+      "reference_rows": 3,
+      "id_name_pairs_absent_from_restaurant": 3,
+      "names_present_in_restaurant": 3
+    },
+    {
+      "question_id": 113,
+      "reference_rows": 11,
+      "id_name_pairs_absent_from_restaurant": 11,
+      "names_present_in_restaurant": 11
+    },
+    {
+      "question_id": 114,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 115,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 116,
+      "reference_rows": 30,
+      "id_name_pairs_absent_from_restaurant": 30,
+      "names_present_in_restaurant": 30
+    },
+    {
+      "question_id": 117,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 118,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 119,
+      "reference_rows": 201,
+      "id_name_pairs_absent_from_restaurant": 201,
+      "names_present_in_restaurant": 201
+    },
+    {
+      "question_id": 120,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 121,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    },
+    {
+      "question_id": 122,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 123,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 124,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 125,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 126,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    },
+    {
+      "question_id": 128,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 129,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 130,
+      "reference_rows": 37,
+      "id_name_pairs_absent_from_restaurant": 37,
+      "names_present_in_restaurant": 37
+    },
+    {
+      "question_id": 131,
+      "reference_rows": 3,
+      "id_name_pairs_absent_from_restaurant": 3,
+      "names_present_in_restaurant": 3
+    },
+    {
+      "question_id": 132,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    },
+    {
+      "question_id": 134,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 135,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 136,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 137,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 138,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 140,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 141,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 142,
+      "reference_rows": 13,
+      "id_name_pairs_absent_from_restaurant": 13,
+      "names_present_in_restaurant": 13
+    },
+    {
+      "question_id": 143,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    },
+    {
+      "question_id": 144,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    },
+    {
+      "question_id": 145,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 146,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 147,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 148,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 149,
+      "reference_rows": 1,
+      "id_name_pairs_absent_from_restaurant": 1,
+      "names_present_in_restaurant": 1
+    },
+    {
+      "question_id": 150,
+      "reference_rows": 2,
+      "id_name_pairs_absent_from_restaurant": 2,
+      "names_present_in_restaurant": 2
+    }
+  ],
+  "reference_diagnostic_summary": {
+    "nonempty_restaurant_pair_questions": 112,
+    "questions_with_any_absent_reference_pair": 112,
+    "reference_pairs_total": 13235,
+    "reference_pairs_absent": 13232
+  }
+}

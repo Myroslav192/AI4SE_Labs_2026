@@ -1,0 +1,133 @@
+{
+  "question_count": 155,
+  "alpha": 0.05,
+  "multiplicity": "Holm adjustment across all six tests (three pairs, two metrics)",
+  "comparisons": [
+    {
+      "prompt_a": "ICIO",
+      "prompt_b": "RTF",
+      "metric": "accuracy",
+      "difference_a_minus_b": 0.0,
+      "test": "two-sided exact McNemar",
+      "a_only_correct": 0,
+      "b_only_correct": 0,
+      "p_value": 1.0,
+      "difference_ci": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "confidence": 0.95,
+        "method": "paired percentile bootstrap",
+        "repetitions": 10000,
+        "seed": 20261014
+      },
+      "p_value_holm": 1.0,
+      "significant_at_0_05": false
+    },
+    {
+      "prompt_a": "ICIO",
+      "prompt_b": "RTF",
+      "metric": "balanced_row_f1",
+      "difference_a_minus_b": 0.0,
+      "test": "two-sided paired permutation",
+      "p_value": 1.0,
+      "method": "exact paired permutation",
+      "permutations": 1,
+      "difference_ci": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "confidence": 0.95,
+        "method": "paired percentile bootstrap stratified by reference emptiness",
+        "repetitions": 10000,
+        "seed": 20261014
+      },
+      "p_value_holm": 1.0,
+      "significant_at_0_05": false
+    },
+    {
+      "prompt_a": "ICIO",
+      "prompt_b": "CO-STAR",
+      "metric": "accuracy",
+      "difference_a_minus_b": 0.0,
+      "test": "two-sided exact McNemar",
+      "a_only_correct": 0,
+      "b_only_correct": 0,
+      "p_value": 1.0,
+      "difference_ci": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "confidence": 0.95,
+        "method": "paired percentile bootstrap",
+        "repetitions": 10000,
+        "seed": 20261014
+      },
+      "p_value_holm": 1.0,
+      "significant_at_0_05": false
+    },
+    {
+      "prompt_a": "ICIO",
+      "prompt_b": "CO-STAR",
+      "metric": "balanced_row_f1",
+      "difference_a_minus_b": 0.0,
+      "test": "two-sided paired permutation",
+      "p_value": 1.0,
+      "method": "exact paired permutation",
+      "permutations": 1,
+      "difference_ci": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "confidence": 0.95,
+        "method": "paired percentile bootstrap stratified by reference emptiness",
+        "repetitions": 10000,
+        "seed": 20261014
+      },
+      "p_value_holm": 1.0,
+      "significant_at_0_05": false
+    },
+    {
+      "prompt_a": "RTF",
+      "prompt_b": "CO-STAR",
+      "metric": "accuracy",
+      "difference_a_minus_b": 0.0,
+      "test": "two-sided exact McNemar",
+      "a_only_correct": 0,
+      "b_only_correct": 0,
+      "p_value": 1.0,
+      "difference_ci": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "confidence": 0.95,
+        "method": "paired percentile bootstrap",
+        "repetitions": 10000,
+        "seed": 20261014
+      },
+      "p_value_holm": 1.0,
+      "significant_at_0_05": false
+    },
+    {
+      "prompt_a": "RTF",
+      "prompt_b": "CO-STAR",
+      "metric": "balanced_row_f1",
+      "difference_a_minus_b": 0.0,
+      "test": "two-sided paired permutation",
+      "p_value": 1.0,
+      "method": "exact paired permutation",
+      "permutations": 1,
+      "difference_ci": {
+        "lower": 0.0,
+        "upper": 0.0,
+        "confidence": 0.95,
+        "method": "paired percentile bootstrap stratified by reference emptiness",
+        "repetitions": 10000,
+        "seed": 20261014
+      },
+      "p_value_holm": 1.0,
+      "significant_at_0_05": false
+    }
+  ],
+  "limitations": [
+    "Question-level tests do not measure variation between independent agent runs.",
+    "Related question templates may violate independent-question assumptions.",
+    "No significance test of timings: one observed duration per prompt.",
+    "Percentile intervals are unadjusted descriptive 95% intervals; significance uses Holm-adjusted p-values."
+  ]
+}

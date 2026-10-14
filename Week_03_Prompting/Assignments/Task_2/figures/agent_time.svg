@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="760" height="430" preserveAspectRatio="xMinYMin meet" viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="760" height="430"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-430)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="50" y="402" style="font-family: Helvetica-Bold; font-size: 18px;fill: rgb(9%,16%,28%); stroke:none;" transform="translate(0,804) scale(1,-1)">End-to-end agent elapsed time (seconds)</text>
+			<text x="50" y="379" style="font-family: Helvetica; font-size: 10px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,758) scale(1,-1)">One run per prompt | includes tools and file operations | not pure inference time</text>
+			<g transform="">
+				<path d="M 75,74 L 695,74 Z" style="stroke: rgb(89%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 75,139 L 695,139 Z" style="stroke: rgb(89%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 75,204 L 695,204 Z" style="stroke: rgb(89%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 75,269 L 695,269 Z" style="stroke: rgb(89%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 75,334 L 695,334 Z" style="stroke: rgb(89%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<g transform="">
+					<rect x="109.44444444444444" y="74.0" width="137.77777777777777" height="208.16411134999998" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(15%,47%,70%); fill-rule: evenodd;"/>
+					<rect x="316.1111111111111" y="74.0" width="137.77777777777777" height="171.90069522015" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(15%,47%,70%); fill-rule: evenodd;"/>
+					<rect x="522.7777777777777" y="74.0" width="137.77777777777771" height="114.54138605" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(15%,47%,70%); fill-rule: evenodd;"/>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,178.333333,291.164111)">
+							<text x="-16.5" y="-4.800000000000001" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-9) scale(1,-1)">320.25</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,385,254.900695)">
+							<text x="-16.5" y="-4.800000000000001" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-9) scale(1,-1)">264.46</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,591.666667,197.541386)">
+							<text x="-16.5" y="-4.800000000000001" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-9) scale(1,-1)">176.22</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 75,74 L 695,74 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 75,74 L 75,69 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 281.666667,74 L 281.666667,69 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 488.333333,74 L 488.333333,69 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 695,74 L 695,69 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,178.333333,69)">
+							<text x="-12.330000000000002" y="-12.0" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-24) scale(1,-1)">ICIO</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,385,69)">
+							<text x="-11.004000000000001" y="-12.0" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-24) scale(1,-1)">RTF</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,591.666667,69)">
+							<text x="-25.668000000000003" y="-12.0" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-24) scale(1,-1)">CO-STAR</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 75,74 L 75,334 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 75,74 L 70,74 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 75,139 L 70,139 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 75,204 L 70,204 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 75,269 L 70,269 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 75,334 L 70,334 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,70,74)">
+							<text x="-5.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,70,139)">
+							<text x="-15.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">100</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,70,204)">
+							<text x="-15.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">200</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,70,269)">
+							<text x="-15.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">300</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,70,334)">
+							<text x="-15.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">400</text>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

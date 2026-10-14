@@ -1,0 +1,10 @@
+{
+   "duration_label" : "end-to-end agent elapsed time, including tool and file operations",
+   "elapsed_seconds" : 320.252479,
+   "end" : "2026-10-14T21:39:50.747788148Z",
+   "model" : "GPT-6.1 Sol",
+   "prompt_id" : "icio_v1",
+   "pure_model_inference_time" : null,
+   "reasoning" : "Medium",
+   "start" : "2026-10-14T21:34:30.495309518Z"
+}
