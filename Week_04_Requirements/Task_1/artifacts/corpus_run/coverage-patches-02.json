@@ -1,0 +1,430 @@
+[
+  {
+    "pending_ids": [
+      "CAND-00016",
+      "CAND-00017",
+      "CAND-00018",
+      "CAND-00019",
+      "CAND-00020",
+      "CAND-00021",
+      "CAND-00022",
+      "CAND-00023",
+      "CAND-00024",
+      "CAND-00025",
+      "CAND-00026",
+      "CAND-00027",
+      "CAND-00028",
+      "CAND-00029",
+      "CAND-00030",
+      "CAND-00031",
+      "CAND-00060",
+      "CAND-00083",
+      "CAND-00085",
+      "CAND-00086",
+      "CAND-00090",
+      "CAND-00098",
+      "CAND-00117",
+      "CAND-00118"
+    ],
+    "patch": {
+      "requirements": [
+        {
+          "target_index": 3,
+          "name": "Batch item transfer utility",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Multiple cataloging and branch staff identified this as critical for outreach, mobile services, and routine redistribution; technical staff noted batch/transaction safety is essential.",
+          "candidate_ids": [
+            "CAND-00016",
+            "CAND-00017",
+            "CAND-00018",
+            "CAND-00019",
+            "CAND-00020",
+            "CAND-00021",
+            "CAND-00022",
+            "CAND-00023",
+            "CAND-00024",
+            "CAND-00025",
+            "CAND-00026",
+            "CAND-00027",
+            "CAND-00028",
+            "CAND-00029",
+            "CAND-00030",
+            "CAND-00031",
+            "CAND-00098"
+          ],
+          "replacements": [],
+          "append_explanation": ""
+        },
+        {
+          "target_index": 8,
+          "name": "Inactive patrons reporting and outreach export",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Multiple libraries run these reports routinely for database cleanup and outreach; performance concerns require background processing.",
+          "candidate_ids": [
+            "CAND-00060"
+          ],
+          "replacements": [],
+          "append_explanation": "When executed at System scope the inactive-patron report shall provide aggregated counts grouped by patrons' Home Library and shall support ranking/sorting of those aggregates (for example: \"top N branches by inactive-patron count\"); these group-level aggregates shall be included in exported outputs. Additionally, a Home-Library scoped inactive-patron report shall support creating or recording cleanup assignments from the report UI or export/workflow mechanism (for example: assign a cleanup task to a branch or specific staff member, set an optional due date and track assignment status); assignments created from the report must be auditable (recording who created the assignment, timestamp, assignee and any due date) and queryable for follow-up."
+        },
+        {
+          "target_index": 13,
+          "name": "Report templates, permissions and shared folders",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "High priority across stakeholders for consistent board reports, controlled templates, and easy admin of permissions.",
+          "candidate_ids": [
+            "CAND-00083"
+          ],
+          "replacements": [],
+          "append_explanation": "Administrators shall be able to configure template restrictions that prevent templates available to front-line staff from exposing deleted or purged records or other restricted data fields; templates intended for front-line staff must not allow enabling display of deleted/purged records unless an administrator with appropriate privilege explicitly grants that capability and documents that grant in the administrative UI."
+        },
+        {
+          "target_index": 19,
+          "name": "Canned, on-demand and open-template report interfaces",
+          "kind": "functional",
+          "priority": "P2",
+          "priority_reason": "Stakeholders asked for distinct modes (canned, on-demand, open-template) to cover common and ad-hoc needs; canned/pre-defined board reports were repeatedly requested for governance and external consumption.",
+          "candidate_ids": [
+            "CAND-00085",
+            "CAND-00086",
+            "CAND-00090",
+            "CAND-00117",
+            "CAND-00118"
+          ],
+          "replacements": [],
+          "append_explanation": "The shipped product shall include a delivered set of pre-defined canned report templates (installable with the product) implementing Appendix A and shall include the explicitly enumerated canned reports from the source materials, including at minimum: Checkout Count; Renewals Count; Non-Cataloged Count; Circulation Count by Shelving Location; Items Added Count; Items Deleted Count; Items Currently Checked Out; Items Overdue by X Days; Bib Records Count; Bib Records with No Volumes Attached; Patron Count; Patron Count by Home Library; Bills Currently Owed by Patrons; and Detailed Payments Received. Canned reports shall support immediate (ASAP) execution and recurring schedules and shall support selecting common past-data ranges (for example: yesterday, last week, last month, last year) as described in the source. The system shall also support on-demand reports for pre-selected criteria (for maintenance, collection development and similar uses) that authorized users may run as needed."
+        }
+      ],
+      "blacklist": []
+    }
+  },
+  {
+    "pending_ids": [
+      "CAND-00133",
+      "CAND-00135",
+      "CAND-00147",
+      "CAND-00148",
+      "CAND-00168",
+      "CAND-00169",
+      "CAND-00170",
+      "CAND-00171",
+      "CAND-00172",
+      "CAND-00178",
+      "CAND-00180",
+      "CAND-00229",
+      "CAND-00261",
+      "CAND-00276",
+      "CAND-00277",
+      "CAND-00278",
+      "CAND-00279",
+      "CAND-00280",
+      "CAND-00281",
+      "CAND-00282",
+      "CAND-00283",
+      "CAND-00284",
+      "CAND-00285",
+      "CAND-00286"
+    ],
+    "patch": {
+      "requirements": [
+        {
+          "target_index": 13,
+          "name": "Report templates, permissions and shared folders",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "High priority across stakeholders for consistent board reports, controlled templates, and easy admin of permissions.",
+          "candidate_ids": [
+            "CAND-00133",
+            "CAND-00280"
+          ],
+          "replacements": [],
+          "append_explanation": "Administrators shall be able to prevent templates and cloned templates from exposing deleted or purged records or other protected status fields by configuring an administrator-controlled deny-list of display fields; the administrative UI shall make protected/blocked fields visible to administrators when authoring or editing templates and require an explicit administrative override to expose those fields."
+        },
+        {
+          "target_index": 19,
+          "name": "Canned, on-demand and open-template report interfaces",
+          "kind": "functional",
+          "priority": "P2",
+          "priority_reason": "Stakeholders asked for distinct modes (canned, on-demand, open-template) to cover common and ad-hoc needs; canned/pre-defined board reports were repeatedly requested for governance and external consumption.",
+          "candidate_ids": [
+            "CAND-00135",
+            "CAND-00180",
+            "CAND-00285",
+            "CAND-00286"
+          ],
+          "replacements": [],
+          "append_explanation": "Delivered board/executive templates shall include activity metrics (checkouts, check-ins, holds placed and holds filled) and support cross-tabulation of those metrics by terminal, branch, system, hour, patron age range, patron type and patron location to meet director-level reporting needs; the shipped product shall include the named canned report examples (including Checkout Count and Renewals Count) within the delivered template set."
+        },
+        {
+          "target_index": 20,
+          "name": "Uncataloged material inventory and counting",
+          "kind": "functional",
+          "priority": "P2",
+          "priority_reason": "Multiple branches identified uncataloged material handling as a practical need for rapid distribution and counting.",
+          "candidate_ids": [
+            "CAND-00147"
+          ],
+          "replacements": [],
+          "append_explanation": "The uncataloged-material workflow shall minimize per-item processing time so branches can distribute these items rapidly, be operable with minimal branch labor, capture how uncataloged materials are being used, and ensure transactions for uncataloged items are counted and included in circulation statistics and exports (for example via a lightweight item-type or flag).  (Source wording preserved: \"quick distribution (we need to process these fast), minimal branch labor (we can't spend a lot of time per item), and ability to identify how the material is being used. We also need to count transactions and include them in circulation statistics and reports.\")"
+        },
+        {
+          "target_index": 3,
+          "name": "Batch item transfer utility",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Multiple cataloging and branch staff identified this as critical for outreach, mobile services, and routine redistribution; technical staff noted batch/transaction safety is essential.",
+          "candidate_ids": [
+            "CAND-00148",
+            "CAND-00229"
+          ],
+          "replacements": [],
+          "append_explanation": "In particular, the auto-revert behavior described for saved transfers may be implemented as a configurable scheduled task that periodically evaluates transfer records and applies time- or status-based reversion per the saved-transfer definition; implementers shall support configuring the scheduled frequency and document the scheduled-task behavior."
+        },
+        {
+          "target_index": 11,
+          "name": "Developer-provided data specifications, process descriptions and help",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Staff need documentation and meaningful error feedback to author and troubleshoot reports; developer-provided specs, process descriptions and help were repeatedly required.",
+          "candidate_ids": [
+            "CAND-00168"
+          ],
+          "replacements": [],
+          "append_explanation": "The online hierarchical HTML help system shall be full-text searchable and organized for ease of navigation (for example: index/table-of-contents, breadcrumbing and cross-links) so administrators and authors can locate topics quickly and reliably."
+        },
+        {
+          "target_index": 24,
+          "name": "Holds purchase alert",
+          "kind": "functional",
+          "priority": "P2",
+          "priority_reason": "Assists selectors and acquisitions staff in addressing unmet patron demand; operationally useful though not safety-critical.",
+          "candidate_ids": [
+            "CAND-00261"
+          ],
+          "replacements": [],
+          "append_explanation": ""
+        },
+        {
+          "target_index": 1,
+          "name": "System capacity interface",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Expressed as a system-level need for cross-branch planning and explicitly requested by multiple stakeholders; branch-capacity analysis is an operational priority.",
+          "candidate_ids": [
+            "CAND-00276",
+            "CAND-00277"
+          ],
+          "replacements": [],
+          "append_explanation": "The capacity overview shall support grouping or aggregation of locations (for example by region or administrator-defined groups) and provide summarized/rolled-up views to avoid overcrowded displays when many branches are present; the interface shall also provide operational-planning views that help managers decide redistribution or resource-allocation across branches (for example summaries highlighting over- and under-utilized locations to support redistribution decisions)."
+        },
+        {
+          "target_index": 8,
+          "name": "Inactive patrons reporting and outreach export",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Multiple libraries run these reports routinely for database cleanup and outreach; performance concerns require background processing.",
+          "candidate_ids": [
+            "CAND-00278",
+            "CAND-00279"
+          ],
+          "replacements": [],
+          "append_explanation": "When run at System scope the inactive-patron report shall provide aggregated counts grouped by patrons' Home Library and shall support ranking/sorting of those aggregates so operators can identify branches with the most inactive patrons; when scoped to a Home Library the report shall support creating or recording cleanup assignments (assignee and optional due date) from the report UI and shall record assignment audit fields (creator, timestamp, assignee and any due date) so assignments are queryable and auditable."
+        },
+        {
+          "target_index": 22,
+          "name": "Authentication and role-based access control",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Operational security, auditability and local administrative ease were emphasized repeatedly; ease of role administration and flexible access groups are essential for day-to-day operations.",
+          "candidate_ids": [
+            "CAND-00281",
+            "CAND-00282"
+          ],
+          "replacements": [],
+          "append_explanation": "The system shall include session-security measures (for example: configurable inactivity timeouts, automatic screen-lock or explicit logout reminders) to reduce the risk of unattended logged-in terminals; streamlined login mechanisms (for example card-swipe) shall provide immediate access for the staff user but must still result in individual authentication/identification and be recorded in the audit trail so each action remains attributable to a specific individual."
+        },
+        {
+          "target_index": 9,
+          "name": "Operating environment and scalability",
+          "kind": "constraint",
+          "priority": "P1",
+          "priority_reason": "Technical constraints and scale were repeatedly called out by IT stakeholders and working-group materials; non-disruption of OPAC is essential to operations.",
+          "candidate_ids": [
+            "CAND-00283",
+            "CAND-00284"
+          ],
+          "replacements": [],
+          "append_explanation": "Record the observed deployment-scale and product-version assumptions for operators: PINES currently operates the system across 286 library locations serving approximately 3.5 million patrons with a collection of approximately 9.6 million items, and the deployment note for the PINES environment records the production application version in use as 1.4.0.4; these figures shall be preserved as deployment-assumption documentation alongside the other historical environment details."
+        }
+      ],
+      "blacklist": [
+        {
+          "name": "Document Reports Functionality",
+          "statement": "- Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+          "category": "out_of_scope",
+          "reason": "This is a project/working-group task (documenting future functionality) rather than a runtime software requirement. Project tasks belong in project-management artifacts (roadmap, work items) not in the product requirements; if a runtime capability is intended it must be specified as a concrete software requirement.",
+          "candidate_ids": [
+            "CAND-00169"
+          ]
+        },
+        {
+          "name": "Reports Testing Group",
+          "statement": "- Become the Reports testing group, through which all new Reports development would be filtered.",
+          "category": "out_of_scope",
+          "reason": "This is an organizational/governance assignment (testing-group role) rather than a software capability; it should be recorded in governance or project-plan documents, not as a runtime product requirement.",
+          "candidate_ids": [
+            "CAND-00170"
+          ]
+        },
+        {
+          "name": "Compile Executive Reports",
+          "statement": "- Compile a list of reports needed for an Executive Reports Interface.",
+          "category": "out_of_scope",
+          "reason": "This is a project deliverable / analysis task (compiling a list) rather than a software runtime obligation. If the intent is to require delivered executive templates, that should be expressed as concrete delivered-template requirements instead.",
+          "candidate_ids": [
+            "CAND-00171"
+          ]
+        },
+        {
+          "name": "Determine Templates",
+          "statement": "- Determine and create templates needed for all PINES libraries.",
+          "category": "out_of_scope",
+          "reason": "This is a project-authoring/operational task (creating templates for PINES) rather than a software behavior. If a shipped product obligation is intended (deliver templates), express that as a concrete requirement with the template list and fields.",
+          "candidate_ids": [
+            "CAND-00172"
+          ]
+        },
+        {
+          "name": "Iterative UI Specification",
+          "statement": "She mentioned that UI and data structures would require further specification using an iterative, prototype- oriented methodology.",
+          "category": "out_of_scope",
+          "reason": "This prescribes a design process/methodology rather than a runtime software requirement. Process and design-method guidance belong in project/process documentation; if a runtime deliverable is required (for example interactive prototypes), specify those deliverables explicitly.",
+          "candidate_ids": [
+            "CAND-00178"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "pending_ids": [
+      "CAND-00287",
+      "CAND-00288",
+      "CAND-00289",
+      "CAND-00290",
+      "CAND-00291",
+      "CAND-00292",
+      "CAND-00293",
+      "CAND-00294",
+      "CAND-00295",
+      "CAND-00296",
+      "CAND-00297",
+      "CAND-00298",
+      "CAND-00299",
+      "CAND-00300",
+      "CAND-00301",
+      "CAND-00302",
+      "CAND-00303",
+      "CAND-00304",
+      "CAND-00305",
+      "CAND-00306",
+      "CAND-00307",
+      "CAND-00308"
+    ],
+    "patch": {
+      "requirements": [
+        {
+          "target_index": 19,
+          "name": "Canned, on-demand and open-template report interfaces",
+          "kind": "functional",
+          "priority": "P2",
+          "priority_reason": "Stakeholders asked for distinct modes (canned, on-demand, open-template) to cover common and ad-hoc needs; canned/pre-defined board reports were repeatedly requested for governance and external consumption.",
+          "candidate_ids": [
+            "CAND-00287",
+            "CAND-00288",
+            "CAND-00289",
+            "CAND-00290",
+            "CAND-00291",
+            "CAND-00292",
+            "CAND-00293",
+            "CAND-00294",
+            "CAND-00295",
+            "CAND-00296",
+            "CAND-00297",
+            "CAND-00298"
+          ],
+          "replacements": [],
+          "append_explanation": ""
+        },
+        {
+          "target_index": 14,
+          "name": "Report scheduling, queue visibility, prioritization and cancellation",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Queue visibility and prioritization were repeatedly reported as operational needs to prevent user confusion and support directors' reporting needs; background processing to avoid disruption is high priority.",
+          "candidate_ids": [
+            "CAND-00299"
+          ],
+          "replacements": [],
+          "append_explanation": "The report scheduling UI shall permit users to multi-select multiple canned or saved reports and queue them to run together as background jobs; each queued job shall have its own queue position and status visible to the requestor and be cancelable individually. The queue display and job-status model shall show each job's submission timestamp and explicit numeric counts of reports ahead of that job, and queued multi-report submissions shall participate in the same prioritization, cancellation and cancellation-latency semantics documented for single-report jobs."
+        },
+        {
+          "target_index": 22,
+          "name": "Authentication and role-based access control",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Operational security, auditability and local administrative ease were emphasized repeatedly; ease of role administration and flexible access groups are essential for day-to-day operations.",
+          "candidate_ids": [
+            "CAND-00300"
+          ],
+          "replacements": [],
+          "append_explanation": ""
+        },
+        {
+          "target_index": 9,
+          "name": "Operating environment and scalability",
+          "kind": "constraint",
+          "priority": "P1",
+          "priority_reason": "Technical constraints and scale were repeatedly called out by IT stakeholders and working-group materials; non-disruption of OPAC is essential to operations.",
+          "candidate_ids": [
+            "CAND-00301",
+            "CAND-00303",
+            "CAND-00304",
+            "CAND-00307"
+          ],
+          "replacements": [],
+          "append_explanation": "Deployment documentation shall record the operational assumption that implementers may rely on the consortium's enterprise infrastructure (for example: redundant servers, backup systems and network connectivity) to meet availability and redundancy requirements; this assumption must be documented so operators understand where additional infrastructure investment may be required. (Source material supplied the numeric example scale and throughput figures and the requirement retains and documents those figures as deployment/operational assumptions.)"
+        },
+        {
+          "target_index": 10,
+          "name": "Accessibility, standards and platform constraints",
+          "kind": "constraint",
+          "priority": "P1",
+          "priority_reason": "Legal accessibility obligations and architectural constraints were explicitly stated by multiple stakeholders and technical staff; compliance is essential.",
+          "candidate_ids": [
+            "CAND-00302",
+            "CAND-00308"
+          ],
+          "replacements": [],
+          "append_explanation": "The system shall comply with Section 508 accessibility requirements; the developer documentation shall list representative assistive technologies used during testing (for example: JAWS and NVDA screen readers and ZoomText screen-magnification software), describe accessible export formats, and document any known limitations so administrators and accessibility testers can reproduce and verify compliance."
+        },
+        {
+          "target_index": 17,
+          "name": "Transaction reporting and types",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Detailed transaction counting and grouping are core reporting needs used daily by branches and managers, and staff-productivity analysis is operationally important for staffing and workflow decisions.",
+          "candidate_ids": [
+            "CAND-00305",
+            "CAND-00306"
+          ],
+          "replacements": [],
+          "append_explanation": "Transaction reporting shall include fines collected and patron registration events among the transaction event types available for grouping and reporting. The system shall provide reports on pre-overdue notices, overdue notices and holds notices sent (runnable at branch and system scope and exportable) so operational staff can audit and follow up on notice delivery activities."
+        }
+      ],
+      "blacklist": []
+    }
+  }
+]

@@ -1,0 +1,27 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	load_documents(load_documents)
+	extract_requirements(extract_requirements)
+	refine_requirements(refine_requirements)
+	review_requirements(review_requirements)
+	audit_traceability(audit_traceability)
+	validate_structure(validate_structure)
+	export_document(export_document)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> load_documents;
+	audit_traceability --> validate_structure;
+	extract_requirements --> refine_requirements;
+	load_documents --> extract_requirements;
+	refine_requirements --> review_requirements;
+	review_requirements --> audit_traceability;
+	validate_structure -. &nbsp;export&nbsp; .-> export_document;
+	validate_structure -. &nbsp;revise&nbsp; .-> refine_requirements;
+	export_document --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

@@ -1,0 +1,1358 @@
+[
+  {
+    "candidate_id": "CAND-00001",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00002",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00003",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00004",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00005",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00006",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00007",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00008",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00009",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00010",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00011",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00012",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00013",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00014",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00015",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00016",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00017",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00018",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00019",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00020",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00021",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00022",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00023",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00024",
+    "verdict": "missing_detail",
+    "reason": "The source expresses a clear need for an undo function. The assigned paragraph weakens this to “an undo mechanism where feasible,” which does not preserve the source's mandatory wording and omits scope/conditions for undo (what operations are undoable, time window, authorization).",
+    "suggested_fix": "Make the undo requirement explicit in the batch-transfer entry. Example fix text: “The utility shall provide an undo capability for batch transfer operations that allows authorized staff to reverse applied batch location changes; if full immediate reversal is not feasible, the system shall provide an explicit rollback operation or a configurable undo window and document limitations. The undo operation must be recorded in the audit trail.” (Preserve historical context; if implementers cannot guarantee full undo, replace with precise, explicitly-stated fallback behavior.)"
+  },
+  {
+    "candidate_id": "CAND-00025",
+    "verdict": "missing_detail",
+    "reason": "The source names specific roles (managers, administrators, transfer coordinators) that should be restricted from performing transfers. The assigned paragraph uses the generic phrase “staff with appropriate permissions” but does not preserve the source's requested role names or specify whether defaults are required/configurable.",
+    "suggested_fix": "Explicitly state role-based restriction and preserve named roles from source. Example fix text: “Access to the batch transfer utility shall be restricted via role-based permissions. Default authorized roles include managers, administrators and transfer coordinators; the set of authorized roles shall be configurable by administrators.”"
+  },
+  {
+    "candidate_id": "CAND-00026",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00027",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00028",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00029",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00030",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00031",
+    "verdict": "missing_detail",
+    "reason": "The source explicitly recommends processing in smaller batches to avoid locking the database. The assigned paragraph requires batch updates be “efficient for very large collections” but does not preserve the specific mitigation (chunked/smaller-batch processing) requested in the source.",
+    "suggested_fix": "Add an explicit nonfunctional requirement preserving the requested mitigation. Example fix text: “Batch update operations shall support chunked processing with a configurable batch size (i.e., process in smaller batches) and progress/retry reporting to avoid long-running table locks on large collections.”"
+  },
+  {
+    "candidate_id": "CAND-00032",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00033",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00034",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00035",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00036",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00037",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00038",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00039",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00040",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00041",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00042",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00043",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00044",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00045",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00046",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00047",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00048",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00049",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00050",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00051",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00052",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00053",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00054",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00055",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00056",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00057",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00058",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00059",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00060",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00061",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00062",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00063",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00064",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00065",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00066",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00067",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00068",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00069",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00070",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00071",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00072",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00073",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00074",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00075",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00076",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00077",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00078",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00079",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00080",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00081",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00082",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00083",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00084",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00085",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00086",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00087",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00088",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00089",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00090",
+    "verdict": "wrong_requirement",
+    "reason": "The candidate requests explicit support for the canned/report examples described in Appendix A (8.10). The assigned paragraph (data-quality/bibliographic integrity reports) does not state that the system must implement or be able to run the Appendix A report definitions; it addresses data-quality reporting instead. This turns a canned-report/Appendix-A need into a different obligation.",
+    "suggested_fix": "Move CAND-00090 into the canned/on-demand/open-template reporting requirement or add an explicit clause to the canned-report entry: “The system shall support the reporting definitions described in Appendix A and shall ship with delivered templates that implement those definitions (runnable/as-scheduled).” If Appendix A contains machine-readable definitions, require compatibility or mapping guidance in the spec."
+  },
+  {
+    "candidate_id": "CAND-00091",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00092",
+    "verdict": "missing_detail",
+    "reason": "The source asks for statistics to understand and predict patron behavior with concrete examples (average return time, renewal likelihood, percent renewals). The assigned paragraph focuses on demographic filters and groupings for program planning but does not explicitly preserve the behavioral/ predictive metrics and examples described in the source.",
+    "suggested_fix": "Add explicit behavioral metrics to the obligation, e.g.: “The reporting capability shall produce patron-behavior metrics such as average time-to-return per title/branch, renewal rates and renewal likelihood per title/branch, percent of check-outs that are renewals, and similar predictive aggregates; these metrics must be available with grouping and time-series options (per branch, per patron cohort) and exportable for further analysis.”"
+  },
+  {
+    "candidate_id": "CAND-00093",
+    "verdict": "missing_detail",
+    "reason": "The source explicitly requires that demographic statistics be anonymized (identifying information deleted). The assigned paragraph mandates demographic-analysis facilities and configurable buckets but does not explicitly include the anonymization / deletion requirement from the source text.",
+    "suggested_fix": "Add an explicit privacy requirement to the demographic-reporting paragraph: “Data used to generate demographic statistics must be anonymized prior to export or reporting; personally identifying information must be removed or aggregated so individuals cannot be re-identified, per applicable law/policy.”"
+  },
+  {
+    "candidate_id": "CAND-00094",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00095",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00096",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00097",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00098",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00099",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00100",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00101",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00102",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00103",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00104",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00105",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00106",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00107",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00108",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00109",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00110",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00111",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00112",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00113",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00114",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00115",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00116",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00117",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00118",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00119",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00120",
+    "verdict": "missing_detail",
+    "reason": "The source evidence for this candidate explicitly requested output formats (Excel, HTML, CSV), the ability to email reports (including an address-book of recipients), and the ability to edit recurring reports; the assigned paragraph documents hover/pop-up discoverability and scheduling but omits these concrete output/delivery/editing details.",
+    "suggested_fix": "Extend the paragraph to explicitly require supported report output formats (at minimum Excel, HTML and CSV), the ability to enter/email reports to addresses (and optionally maintain an address book of regular recipients), and UI controls to edit recurring reports (add/remove report selections). Cite the quoted lines (15.5 Quick Access Interface) as the source for these delivery and output details."
+  },
+  {
+    "candidate_id": "CAND-00121",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00122",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00123",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00124",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00125",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00126",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00127",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00128",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00129",
+    "verdict": "missing_detail",
+    "reason": "The source explicitly requests that payments made at the front desk be reflected 'immediately.' The assigned merged paragraph requires an auditable ledger and end-to-end tracking but does not assert that payments must be applied and become visible in the system (UI/reports) immediately when taken. That timing is a material qualifier of the original need.",
+    "suggested_fix": "Add an explicit clause requiring financial transactions (payments) to be applied and visible immediately when processed (for example: 'When a payment is processed at the front desk or other channels, the system shall apply the payment and update the patron's account balance and related reports immediately (near real-time) so staff see the updated state without manual refresh or delay).'"
+  },
+  {
+    "candidate_id": "CAND-00130",
+    "verdict": "missing_detail",
+    "reason": "The source requests tracking of payments by library/branch (each branch must see payments collected at their location). The merged paragraph covers payments by period and payment method and branch-level balances but does not explicitly require reporting of payments collected per library/location as a distinct, filterable report dimension.",
+    "suggested_fix": "Explicitly include 'payments collected per library/branch' in the reporting obligations and require the ability to filter/aggregate payments by library (e.g., 'The system shall report payments collected per library/branch and allow filtering and aggregation by branch and time period')."
+  },
+  {
+    "candidate_id": "CAND-00131",
+    "verdict": "missing_detail",
+    "reason": "The source calls for the system to 'enforce retention policies' and gives a concrete example that 'some data needs to be retained for 7 years for audit purposes.' The merged paragraph requires compliance with accounting/archival retention policies but does not state that the system must enforce retention rules or reference the 7-year audit retention example as a configurable/enforceable policy.",
+    "suggested_fix": "Add an enforcement requirement and preserve the 7-year example from the source. For example: 'The system shall support and enforce configurable data-retention policies (including retention, archival and deletion workflows) and shall be capable of retaining specified financial/audit data for 7 years where required by state or local law; administrators must be able to configure retention durations and the system must prevent premature deletion of retained records.'"
+  },
+  {
+    "candidate_id": "CAND-00132",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00133",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00134",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00135",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00136",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00137",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00138",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00139",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00140",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00141",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00142",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00143",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00144",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00145",
+    "verdict": "missing_detail",
+    "reason": "The source explicitly mentions a web-based report writer interface; the assigned requirement describes a user-friendly query/report designer and open-template mode but does not explicitly require the interface to be web-based or state supported client types.",
+    "suggested_fix": "Add an explicit clause that the report/query designer shall be accessible via a web-based interface (or enumerate supported client types/browsers). For example: 'The report/query designer shall be available via a web-based interface (compatible with the supported browsers listed in the operating-environment requirements).' "
+  },
+  {
+    "candidate_id": "CAND-00146",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00147",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00148",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00149",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00150",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00151",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00152",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00153",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00154",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00155",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00156",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00157",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00158",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00159",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00160",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00161",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00162",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00163",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00164",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00165",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00166",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00167",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00168",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00169",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00170",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00171",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00172",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00173",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00174",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00175",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00176",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00177",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00178",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00179",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00180",
+    "verdict": "missing_detail",
+    "reason": "The assigned paragraph (System capacity interface) documents capacity/dashboard features but does not preserve the candidate's explicit need that board/executive reports be pre-defined. The source context specifically requested that board/executive reports be pre-defined; that material condition is absent from the paragraph.",
+    "suggested_fix": "Add an explicit clause requiring pre-defined board/executive report templates. For example: \"The system shall provide a set of pre-defined board/executive report templates (documented and installable) targeted to director-level needs, including scope, typical filters, and supported export formats, and these templates shall be readily discoverable and schedulable by authorized users.\" (Preserve the historical request; do not invent additional metrics.)"
+  },
+  {
+    "candidate_id": "CAND-00181",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00182",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00183",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00184",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00185",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00186",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00187",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00188",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00189",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00190",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00191",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00192",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00193",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00194",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00195",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00196",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00197",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00198",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00199",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00200",
+    "verdict": "missing_detail",
+    "reason": "The source requires that Management Processes interface with vendor websites via published APIs and/or automated transfer of standard-format data files (e.g., USMARC21, EDIFACT). The assigned merged paragraph documents developer-supplied data specifications, help and error reporting but does not state the requirement to support those external vendor interfaces or the file/API formats/methods.",
+    "suggested_fix": "Augment the developer/documentation requirement paragraph to explicitly state that Management Processes shall interface with external vendor systems using published APIs and/or automated transfers of standard-format data files (for example USMARC21, EDIFACT), and require the developer to document supported integration methods, file formats, authentication approaches and any expected synchronization/ingest behaviors."
+  },
+  {
+    "candidate_id": "CAND-00201",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00202",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00203",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00204",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00205",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00206",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00207",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00208",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00209",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00210",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00211",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00212",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00213",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00214",
+    "verdict": "wrong_requirement",
+    "reason": "The source explicitly requires the ability to filter by survey name (and notes this requires internal name→ID resolution). The assigned paragraph (Miscellaneous quick-access and fine-grained features) does not include this capability or the internal name-to-ID resolution behavior, so the candidate's need is not preserved in that paragraph.",
+    "suggested_fix": "Add an explicit requirement to the miscellaneous/features paragraph: \"Support filtering by survey name (not only survey ID). The system shall resolve survey names to internal IDs internally for UI and API filters. Document behavior for duplicate names, case-sensitivity, and error handling when a name cannot be resolved.\""
+  },
+  {
+    "candidate_id": "CAND-00215",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00216",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00217",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00218",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00219",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00220",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00221",
+    "verdict": "missing_detail",
+    "reason": "The source explicitly requires that demographic statistics 'Data must be anonymized.' The assigned merged paragraph (Patron characteristics and demographic queries) captures limiting/grouping and demographic-analysis capabilities but omits the anonymization requirement — a material qualifier affecting how demographic reports are produced and displayed.",
+    "suggested_fix": "Add an explicit anonymization requirement to the demographic reporting paragraph. For example: 'Reports or statistics that include demographic breakdowns (e.g., transactions by geographical region and age ranges) must present data in an anonymized manner so individual patrons cannot be identified.' Also reference a follow-on item to specify exact anonymization/suppression rules (aggregation thresholds, cell suppression, or de-identification procedures) so implementers have the needed operational detail."
+  },
+  {
+    "candidate_id": "CAND-00222",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00223",
+    "verdict": "missing_detail",
+    "reason": "The source states 'Report templates can be created by administrators and run as-is or modified.' The assigned paragraph (Query tool and open-template reporting) describes a query/report designer, saved queries and an open-template mode and notes admin restrictions on tables/fields, but it does not explicitly require that administrators can create/publish report templates that staff can run as-is or clone for modification.",
+    "suggested_fix": "Explicitly state that administrators must be able to create, publish and manage report templates that staff can either run as-is or clone/modify. If applicable, include the admin controls over which parts of a template (filters/display fields) may be modified by staff."
+  },
+  {
+    "candidate_id": "CAND-00224",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00225",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00226",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  }
+]

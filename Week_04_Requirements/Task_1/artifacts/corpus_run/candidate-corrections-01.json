@@ -1,0 +1,650 @@
+[
+  {
+    "before": {
+      "name": "Utility for Transferring Items",
+      "statement": "The system should provide a utility for transferring batches of items between branches.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "The system should provide a utility for transferring batches of items between branches.",
+      "id": "CAND-00016",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 154,
+      "end_line": 155
+    },
+    "after": {
+      "name": "Utility for Transferring Items",
+      "statement": "The system should provide a utility for transferring batches of items between branches.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "The system should provide a utility for transferring batches of items between branches.",
+      "id": "CAND-00016",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 154,
+      "end_line": 155
+    },
+    "reason": "The exact quoted requirement appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error (e.g. referencing the wrong source document), the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Query for Candidate Materials",
+      "statement": "Ability to query for candidate materials.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to query for candidate materials",
+      "id": "CAND-00017",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 157,
+      "end_line": 157
+    },
+    "after": {
+      "name": "Query for Candidate Materials",
+      "statement": "Ability to query for candidate materials.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to query for candidate materials",
+      "id": "CAND-00017",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 157,
+      "end_line": 157
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Save Queries for Repeated Use",
+      "statement": "Ability to save queries for repeated use.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to save queries for repeated use",
+      "id": "CAND-00018",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 158,
+      "end_line": 158
+    },
+    "after": {
+      "name": "Save Queries for Repeated Use",
+      "statement": "Ability to save queries for repeated use.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to save queries for repeated use",
+      "id": "CAND-00018",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 158,
+      "end_line": 158
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Manual Selection of Titles",
+      "statement": "Ability to manually select titles from query results.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to manually select titles from query results",
+      "id": "CAND-00019",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 159,
+      "end_line": 159
+    },
+    "after": {
+      "name": "Manual Selection of Titles",
+      "statement": "Ability to manually select titles from query results.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to manually select titles from query results",
+      "id": "CAND-00019",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 159,
+      "end_line": 159
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Change Records of Selected Items",
+      "statement": "Ability to change records of selected items to move to new location.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to change records of selected items to move to new location",
+      "id": "CAND-00020",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 160,
+      "end_line": 160
+    },
+    "after": {
+      "name": "Change Records of Selected Items",
+      "statement": "Ability to change records of selected items to move to new location.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to change records of selected items to move to new location",
+      "id": "CAND-00020",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 160,
+      "end_line": 160
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Change Location Field",
+      "statement": "Ability to change location field and generate pull lists.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Mechanisms: changing location field, generating pull lists",
+      "id": "CAND-00021",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 15,
+      "end_line": 15
+    },
+    "after": {
+      "name": "Change Location Field",
+      "statement": "Ability to change location field and generate pull lists.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Mechanisms: changing location field, generating pull lists",
+      "id": "CAND-00021",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 15,
+      "end_line": 15
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Revert Items to Original Location",
+      "statement": "Ability to revert items to original location after a set period of time and/or based on other criteria.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to revert items to original location after a set period of time and/or based on other criteria",
+      "id": "CAND-00022",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 162,
+      "end_line": 163
+    },
+    "after": {
+      "name": "Revert Items to Original Location",
+      "statement": "Ability to revert items to original location after a set period of time and/or based on other criteria.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "Ability to revert items to original location after a set period of time and/or based on other criteria",
+      "id": "CAND-00022",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 162,
+      "end_line": 163
+    },
+    "reason": "The exact quoted requirement appears in DOC-004 (combining time-based and other-criteria reversion discussed in the thread). No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Preview Before Changes",
+      "statement": "Utility should show a preview before making changes.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "utility should show a preview before making changes.",
+      "id": "CAND-00023",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 104,
+      "end_line": 104
+    },
+    "after": {
+      "name": "Preview Before Changes",
+      "statement": "Utility should show a preview before making changes.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "utility should show a preview before making changes.",
+      "id": "CAND-00023",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 104,
+      "end_line": 104
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Undo Function",
+      "statement": "The utility must provide an undo function.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "And we need an undo function!",
+      "id": "CAND-00024",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 108,
+      "end_line": 108
+    },
+    "after": {
+      "name": "Undo Function",
+      "statement": "The utility must provide an undo function.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "And we need an undo function!",
+      "id": "CAND-00024",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 108,
+      "end_line": 108
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Permission Control",
+      "statement": "Limited permission control for item transfers to certain roles.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Not every staff member should be able to transfer items between branches.",
+      "id": "CAND-00025",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 100,
+      "end_line": 101
+    },
+    "after": {
+      "name": "Permission Control",
+      "statement": "Limited permission control for item transfers to certain roles.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Not every staff member should be able to transfer items between branches.",
+      "id": "CAND-00025",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 100,
+      "end_line": 101
+    },
+    "reason": "The exact quoted phrase appears in DOC-004 expressing the permission concern. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Transfer History Tracking",
+      "statement": "Ability to track transfer history for items.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Can we track transfer history?",
+      "id": "CAND-00026",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 135,
+      "end_line": 135
+    },
+    "after": {
+      "name": "Transfer History Tracking",
+      "statement": "Ability to track transfer history for items.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Can we track transfer history?",
+      "id": "CAND-00026",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 135,
+      "end_line": 135
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Auto-Revert Mechanism",
+      "statement": "Implement time-based and event-based auto-revert mechanisms.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Event-based and time-based auto-revert",
+      "id": "CAND-00027",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 170,
+      "end_line": 170
+    },
+    "after": {
+      "name": "Auto-Revert Mechanism",
+      "statement": "Implement time-based and event-based auto-revert mechanisms.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Event-based and time-based auto-revert",
+      "id": "CAND-00027",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 170,
+      "end_line": 170
+    },
+    "reason": "The exact quoted phrase appears in DOC-004. No change to the candidate text is needed; if there is a separate provenance or requirement-paragraph error, the editor must correct that requirement paragraph instead."
+  },
+  {
+    "before": {
+      "name": "Printable Transit Labels",
+      "statement": "Need to generate printable transit labels for transferred items.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Also, can we generate transit labels?",
+      "id": "CAND-00028",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 89,
+      "end_line": 89
+    },
+    "after": {
+      "name": "Printable Transit Labels",
+      "statement": "Also, can we generate transit labels?",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Also, can we generate transit labels?",
+      "id": "CAND-00028",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 89,
+      "end_line": 89
+    },
+    "reason": "The quoted question appears verbatim in DOC-004 (George Tuttle asking for printable transit labels). The candidate's paraphrase is supported by that quote; I replaced the paraphrase with the exact contiguous quotation from the source. If this is intended to be a binding software requirement rather than a stakeholder request, the editor should convert the quote into a concrete functional requirement (with acceptance criteria) in the requirements text."
+  },
+  {
+    "before": {
+      "name": "Transfer Delay Alerts",
+      "statement": "Set up alerts for delays or issues in item transfers.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "If an item transfer is delayed or has issues, notify me.",
+      "id": "CAND-00029",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 122,
+      "end_line": 123
+    },
+    "after": {
+      "name": "Transfer Delay Alerts",
+      "statement": "If an item transfer is delayed or has issues, notify me.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "If an item transfer is delayed or has issues, notify me.",
+      "id": "CAND-00029",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 122,
+      "end_line": 123
+    },
+    "reason": "The exact sentence is present in DOC-004 (Jennifer Durham requesting alerts). I replaced the paraphrased statement with the document's contiguous quotation. If this should be a formal system requirement, the editor should restate it with scope, recipients, and delivery channels."
+  },
+  {
+    "before": {
+      "name": "Batch Update of Location Field",
+      "statement": "Implement batch update for location fields through transactions, with safety measures.",
+      "kind": "functional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "Batch update of location field - straightforward database update with transaction safety.",
+      "id": "CAND-00030",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 59,
+      "end_line": 60
+    },
+    "after": {
+      "name": "Batch Update of Location Field",
+      "statement": "Batch update of location field - straightforward database update with transaction safety.",
+      "kind": "functional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "Batch update of location field - straightforward database update with transaction safety.",
+      "id": "CAND-00030",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 59,
+      "end_line": 60
+    },
+    "reason": "The candidate's intent is supported by the contiguous sentence in DOC-004 (Robert Chen describing batch update with transaction safety). I substituted the exact source quotation as the statement. If this is to become a precise requirement, the editor should expand it to specify atomicity, rollback behavior, and performance constraints."
+  },
+  {
+    "before": {
+      "name": "Efficient Batch Processing",
+      "statement": "Ensure efficient batch processing to avoid database locking.",
+      "kind": "nonfunctional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "We should process in smaller batches to avoid locking the database.",
+      "id": "CAND-00031",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-CH-001",
+      "start_line": 70,
+      "end_line": 70
+    },
+    "after": {
+      "name": "Efficient Batch Processing",
+      "statement": "We should process in smaller batches to avoid locking the database.",
+      "kind": "nonfunctional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "We should process in smaller batches to avoid locking the database.",
+      "id": "CAND-00031",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 70,
+      "end_line": 70
+    },
+    "reason": "The sentence appears verbatim in DOC-004 (Robert Chen noting chunked processing to avoid locks). I replaced the paraphrase with the contiguous source quotation. This is a nonfunctional performance consideration; the editor should convert it into measurable performance criteria if required."
+  },
+  {
+    "before": {
+      "name": "Cross-Branch Item Transfer Utility",
+      "statement": "System should provide a utility for transferring batches of items between branches.",
+      "kind": "functional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "System should provide a utility for transferring batches of items between branches.",
+      "id": "CAND-00098",
+      "document_id": "DOC-010",
+      "chunk_id": "DOC-010-CH-002",
+      "start_line": 355,
+      "end_line": 356
+    },
+    "after": {
+      "name": "Cross-Branch Item Transfer Utility",
+      "statement": "System should provide a utility for transferring batches of items between branches.",
+      "kind": "functional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "System should provide a utility for transferring batches of items between branches.",
+      "id": "CAND-00098",
+      "document_id": "DOC-010",
+      "chunk_id": "DOC-010-SEMANTIC-01",
+      "start_line": 355,
+      "end_line": 356
+    },
+    "reason": "The statement is an exact contiguous sentence in DOC-010 (SRS draft, section 10.5). The candidate is supported by the source; I used the literal quotation. Note: the source records this as a desired system capability; the editor should ensure it is captured as a concrete functional requirement with acceptance criteria."
+  },
+  {
+    "before": {
+      "name": "Item Transfer Utility",
+      "statement": "The item transfer utility is crucial for us and needs several capabilities: query for candidate materials, save queries, manually select titles, change records, and revert items after a set period.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "The utility needs several capabilities: First, we need to query for candidate materials. Maybe we want all items in the children's section that haven't circulated in 6 months. Second, we need to save these queries for repeated use - we do this monthly. Third, we need to manually select titles from query results if we want to be more targeted. Fourth, we need to change records of selected items to move them to a new location. And there should be mechanisms for reverting items back to their original location after a set period of time - like when a mobile library returns to base.",
+      "id": "CAND-00148",
+      "document_id": "DOC-015",
+      "chunk_id": "DOC-015-CH-001",
+      "start_line": 44,
+      "end_line": 55
+    },
+    "after": {
+      "name": "Item Transfer Utility",
+      "statement": "The utility needs several capabilities: First, we need to query for candidate materials. Maybe we want all items in the children's section that haven't circulated in 6 months. Second, we need to save these queries for repeated use - we do this monthly. Third, we need to manually select titles from query results if we want to be more targeted. Fourth, we need to change records of selected items to move them to a new location. And there should be mechanisms for reverting items back to their original location after a set period of time - like when a mobile library returns to base.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "The utility needs several capabilities: First, we need to query for candidate materials. Maybe we want all items in the children's section that haven't circulated in 6 months. Second, we need to save these queries for repeated use - we do this monthly. Third, we need to manually select titles from query results if we want to be more targeted. Fourth, we need to change records of selected items to move them to a new location. And there should be mechanisms for reverting items back to their original location after a set period of time - like when a mobile library returns to base.",
+      "id": "CAND-00148",
+      "document_id": "DOC-015",
+      "chunk_id": "DOC-015-SEMANTIC-01",
+      "start_line": 44,
+      "end_line": 55
+    },
+    "reason": "The candidate's list of capabilities is directly supported by the contiguous paragraph in DOC-015 (interview with Thomas Wright). I replaced the paraphrase with the exact source quotation. This records stakeholder intent; the editor should convert these items into discrete, testable functional requirements (search syntax, saved-query behavior, selection UX, update semantics, revert policies) if they are to be implemented."
+  },
+  {
+    "before": {
+      "name": "Document Reports Functionality",
+      "statement": "Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "id": "CAND-00169",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 41,
+      "end_line": 42
+    },
+    "after": {
+      "name": "Document Reports Functionality",
+      "statement": "- Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "id": "CAND-00169",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-01",
+      "start_line": 41,
+      "end_line": 42
+    },
+    "reason": "The mission statement text appears verbatim in DOC-017 meeting minutes as a working-group action item. The candidate is supported by that contiguous quote, but the source is prescribing project work (documenting functionality), not a runtime software behavior. The editor should move this item to project/governance documentation or, if a software obligation is intended, restate it as a concrete deliverable for the product."
+  },
+  {
+    "before": {
+      "name": "Reports Testing Group",
+      "statement": "Become the Reports testing group, through which all new Reports development would be filtered.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Become the Reports testing group, through which all new Reports development would be filtered.",
+      "id": "CAND-00170",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 43,
+      "end_line": 44
+    },
+    "after": {
+      "name": "Reports Testing Group",
+      "statement": "- Become the Reports testing group, through which all new Reports development would be filtered.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Become the Reports testing group, through which all new Reports development would be filtered.",
+      "id": "CAND-00170",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-01",
+      "start_line": 43,
+      "end_line": 44
+    },
+    "reason": "This sentence is present verbatim in DOC-017 meeting minutes. It reflects a working-group role assignment rather than a software capability. I preserved the contiguous quotation; the editor should treat this as project governance (not a functional software requirement) or re-express any intended software workflow support explicitly."
+  },
+  {
+    "before": {
+      "name": "Compile Executive Reports",
+      "statement": "Compile a list of reports needed for an Executive Reports Interface.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Compile a list of reports needed for an Executive Reports Interface.",
+      "id": "CAND-00171",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 45,
+      "end_line": 45
+    },
+    "after": {
+      "name": "Compile Executive Reports",
+      "statement": "- Compile a list of reports needed for an Executive Reports Interface.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Compile a list of reports needed for an Executive Reports Interface.",
+      "id": "CAND-00171",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-01",
+      "start_line": 45,
+      "end_line": 45
+    },
+    "reason": "The quoted line is in DOC-017 meeting minutes as part of the group's mission. The candidate is supported by the source, but this is a project deliverable (analysis task) rather than an operational software requirement. The editor should capture it in project planning or convert it to specific product deliverables (predefined templates) if intended as a shipped feature."
+  },
+  {
+    "before": {
+      "name": "Determine Templates",
+      "statement": "Determine and create templates needed for all PINES libraries.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Determine and create templates needed for all PINES libraries.",
+      "id": "CAND-00172",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 46,
+      "end_line": 46
+    },
+    "after": {
+      "name": "Determine Templates",
+      "statement": "- Determine and create templates needed for all PINES libraries.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Determine and create templates needed for all PINES libraries.",
+      "id": "CAND-00172",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-01",
+      "start_line": 46,
+      "end_line": 46
+    },
+    "reason": "This line is verbatim in DOC-017 meeting minutes (group mission). It documents an action the working group will perform, not an explicit software runtime requirement. I retained the contiguous quote; the editor should record it as a project task or, if the product must ship templates, specify which templates and acceptance criteria."
+  },
+  {
+    "before": {
+      "name": "Iterative UI Specification",
+      "statement": "Specify user interface details using an iterative, prototype-oriented methodology as development progresses.",
+      "kind": "functional",
+      "priority_hint": "low",
+      "evidence_quote": "She mentioned that UI and data structures would require further specification using an iterative, prototype- oriented methodology.",
+      "id": "CAND-00178",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 73,
+      "end_line": 75
+    },
+    "after": {
+      "name": "Iterative UI Specification",
+      "statement": "She mentioned that UI and data structures would require further specification using an iterative, prototype- oriented methodology.",
+      "kind": "functional",
+      "priority_hint": "low",
+      "evidence_quote": "She mentioned that UI and data structures would require further specification using an iterative, prototype- oriented methodology.",
+      "id": "CAND-00178",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-01",
+      "start_line": 73,
+      "end_line": 75
+    },
+    "reason": "The sentence appears verbatim in DOC-017 meeting minutes describing the intended design process. This is a process/methodology statement rather than a functional software requirement. I preserved the contiguous quotation; the editor should move this to design-process documentation or, if specific deliverables are expected (prototypes), list them concretely."
+  },
+  {
+    "before": {
+      "name": "Scheduled task for auto-revert checks",
+      "statement": "An auto-revert implementation detail: a scheduled task/process that periodically checks transferred items and performs reversion based on elapsed time or configured event/status criteria.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Auto-revert mechanism - a scheduled task that checks transferred items and reverts them based on time or status criteria.",
+      "id": "CAND-00229",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-AUDIT",
+      "start_line": 64,
+      "end_line": 65
+    },
+    "after": {
+      "name": "Scheduled task for auto-revert checks",
+      "statement": "Auto-revert mechanism - a scheduled task that checks transferred items and reverts them based on time or status criteria.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Auto-revert mechanism - a scheduled task that checks transferred items and reverts them based on time or status criteria.",
+      "id": "CAND-00229",
+      "document_id": "DOC-004",
+      "chunk_id": "DOC-004-SEMANTIC-01",
+      "start_line": 64,
+      "end_line": 65
+    },
+    "reason": "The candidate's implementation detail is directly supported by the contiguous sentence in DOC-004 (Robert Chen describing an auto-revert scheduled task). I replaced the paraphrase with the exact source quotation. If this is to be specified as a formal requirement, the editor should define the scheduling granularity, configurable criteria, and expected side effects."
+  }
+]

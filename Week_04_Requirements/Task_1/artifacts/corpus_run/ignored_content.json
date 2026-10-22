@@ -1,0 +1,90 @@
+[
+  {
+    "chunk_id": "DOC-001-CH-001",
+    "summary": "Social comments and non-requirement related discussions have been ignored."
+  },
+  {
+    "chunk_id": "DOC-002-CH-001",
+    "summary": "Social comments and personal anecdotes were present but not relevant to software requirements."
+  },
+  {
+    "chunk_id": "DOC-003-CH-001",
+    "summary": "Ignored casual conversations and personal anecdotes unrelated to the software requirements."
+  },
+  {
+    "chunk_id": "DOC-004-CH-001",
+    "summary": "Ignored personal comments and anecdotes that do not pertain to software requirements."
+  },
+  {
+    "chunk_id": "DOC-005-CH-001",
+    "summary": "The emails contained personal comments and informal conversations that do not reflect actionable requirements, such as social remarks and unrelated chatter."
+  },
+  {
+    "chunk_id": "DOC-006-CH-001",
+    "summary": "There were informal comments and personal messages not related to software requirements, such as discussions about personal interests and logistics unrelated to item purging."
+  },
+  {
+    "chunk_id": "DOC-007-CH-001",
+    "summary": "Personal anecdotes and unrelated comments about pets and cooking were included in the conversation but do not pertain to the requirements for tracking deletions."
+  },
+  {
+    "chunk_id": "DOC-008-CH-001",
+    "summary": "Personal comments and anecdotes unrelated to software requirements were present in the conversation, including humorous remarks about cats and anecdotes about family."
+  },
+  {
+    "chunk_id": "DOC-009-CH-001",
+    "summary": "Personal chatter and unrelated remarks about non-software topics, such as skincare and personal life events, were ignored."
+  },
+  {
+    "chunk_id": "DOC-010-CH-001",
+    "summary": "The document includes contextual information about the organization, the purpose of the draft, and general operating statistics of the King County Library System, which do not constitute actionable requirements."
+  },
+  {
+    "chunk_id": "DOC-010-CH-002",
+    "summary": ""
+  },
+  {
+    "chunk_id": "DOC-010-CH-003",
+    "summary": "Ignored content primarily included miscellaneous counts and descriptive sections that did not denote specific software capabilities or requirements."
+  },
+  {
+    "chunk_id": "DOC-011-CH-001",
+    "summary": "The discussions included agreements on the initial requirements, supportive feedback on critical aspects like the audit trail, and suggestions for reports; however, these were not new requirements or modifications."
+  },
+  {
+    "chunk_id": "DOC-012-CH-001",
+    "summary": "The correspondence included discussions about enhancing existing features but did not provide new actionable requirements. There were also clarifications on existing requirements related to permissions and queuing that have already been encompassed in the actionable candidates."
+  },
+  {
+    "chunk_id": "DOC-013-CH-001",
+    "summary": ""
+  },
+  {
+    "chunk_id": "DOC-014-CH-001",
+    "summary": "The document contains detailed sections about existing reporting components, limitations, and identified gaps, but does not provide new actionable requirements or features outside of what is already stated."
+  },
+  {
+    "chunk_id": "DOC-015-CH-001",
+    "summary": "The interview contained conversational elements and administrative notes that do not constitute actionable requirements."
+  },
+  {
+    "chunk_id": "DOC-016-CH-001",
+    "summary": "The interview context, participant details, and general discussion around concerns such as report processing and technology considerations were omitted as they do not constitute actionable requirements."
+  },
+  {
+    "chunk_id": "DOC-017-CH-001",
+    "summary": "The meeting discussed user types, expectations for report functionality, collaborative development approaches, and outlined action items for future engagement."
+  },
+  {
+    "chunk_id": "DOC-018-CH-001",
+    "summary": "Content focused on meeting logistics, attendance, session reviews, and discussion points without actionable requirements."
+  },
+  {
+    "chunk_id": "DOC-019-CH-001",
+    "summary": "Meeting logistics, attendees, and action items regarding follow-up tasks were noted but are not actionable requirements."
+  },
+  {
+    "chunk_id": "DOC-020-CH-001",
+    "summary": "The document contained survey methodology, participant responses, and statistical data that provided context but did not constitute actionable software requirements."
+  }
+]

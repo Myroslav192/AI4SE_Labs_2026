@@ -1,0 +1,92 @@
+{
+  "revision": 3,
+  "passed": false,
+  "candidate_count": 308,
+  "requirement_count": 25,
+  "source_document_audits": 0,
+  "traceability_assessments": 308,
+  "issues": [
+    {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Shelf-space utilization reporting appears in multiple places with overlapping obligations (canonical: Shelf-space utilization report; candidate mappings include CAND-00011 and CAND-00156). This creates semantic duplicates and risk of divergent baselines.",
+      "suggested_fix": "Consolidate into a single canonical shelf-space reporting requirement and map related candidates to it; remove duplicate candidate proposals or unify under one canonical ID.",
+      "candidate_ids": [
+        "CAND-00011",
+        "CAND-00156"
+      ]
+    },
+    {
+      "category": "blacklist",
+      "severity": "warning",
+      "description": "Blacklisted candidate proposals are present in the ledger and could be mistakenly included in final requirements (examples: CAND-00169, CAND-00170, CAND-00171, CAND-00172, CAND-00178).",
+      "suggested_fix": "Remove blacklisted candidates from the requirements ledger or clearly mark them as out-of-scope so they are not considered in final baselining.",
+      "candidate_ids": [
+        "CAND-00169",
+        "CAND-00170",
+        "CAND-00171",
+        "CAND-00172",
+        "CAND-00178"
+      ]
+    },
+    {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Open-template reporting is referenced across multiple candidate entries (for example CAND-00081, CAND-00085, CAND-00119, CAND-00120) with overlapping scope. This may lead to inconsistent capabilities if not reconciled.",
+      "suggested_fix": "Consolidate open-template reporting into a single, canonical interface and map each candidate to that definition to avoid divergent baselines.",
+      "candidate_ids": [
+        "CAND-00081",
+        "CAND-00085",
+        "CAND-00119",
+        "CAND-00120"
+      ]
+    },
+    {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Default archival retention values are not consistently defined; while some references show configurable retention (e.g., 7 years), there is no single default policy documented.",
+      "suggested_fix": "Decide and publish a default data-retention policy (e.g., 7 years for financial/audit data) and mandate its use, with explicit overrides where required by law; ensure all related reports reference this default.",
+      "candidate_ids": [
+        "CAND-00131",
+        "CAND-00215"
+      ]
+    },
+    {
+      "category": "priority",
+      "severity": "warning",
+      "description": "Inactive-patrons reporting and outreach exports may include mailing addresses; this raises privacy considerations and requires clear anonymization/isolation rules.",
+      "suggested_fix": "Audit data exposure in inactive reports; apply data-minimization and anonymization for exports; restrict mailing addresses to authorized outreach use and document handling rules.",
+      "candidate_ids": [
+        "CAND-00061",
+        "CAND-00058",
+        "CAND-00221"
+      ]
+    },
+    {
+      "category": "structure",
+      "severity": "warning",
+      "description": "Data specifications and process descriptions are spread across multiple candidate entries (e.g., CAND-00077, CAND-00078, CAND-00079, CAND-00080, CAND-00206, CAND-00195, CAND-00196, CAND-00197, CAND-00198) with potential drift and divergence.",
+      "suggested_fix": "Consolidate into a single, authoritative data-model and process-document set; establish version-controlled references and cross-links to ensure consistency across modules.",
+      "candidate_ids": [
+        "CAND-00077",
+        "CAND-00078",
+        "CAND-00079",
+        "CAND-00080",
+        "CAND-00206",
+        "CAND-00195",
+        "CAND-00196",
+        "CAND-00197",
+        "CAND-00198"
+      ]
+    },
+    {
+      "category": "provenance",
+      "severity": "error",
+      "description": "CAND-00208 / missing_detail: The source_context explicitly includes a stakeholder comment that the help system \"needs to work with screen readers\" (accessibility). The assigned paragraph requires an online, hierarchical, cross-linked, searchable HTML help system and adds organization/searchability details, but it does not include an explicit accessibility/screen-reader requirement present in the source.",
+      "suggested_fix": "Extend the help-system obligation to explicitly require accessibility for assistive technologies: require the online HTML help system to work with screen readers and other common assistive technologies and document how accessibility is supported and where accessibility-related controls/landmarks are exposed in the UI. (Do not substitute a particular modern standard/version unless stakeholder policy specifies one.)",
+      "candidate_ids": [
+        "CAND-00208"
+      ]
+    }
+  ]
+}

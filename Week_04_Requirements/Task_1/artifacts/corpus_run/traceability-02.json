@@ -1,0 +1,1850 @@
+[
+  {
+    "candidate_id": "CAND-00001",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00002",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00003",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00004",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00005",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00006",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00007",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00008",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00009",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00010",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00011",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00012",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00013",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00014",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00015",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00016",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00017",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00018",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00019",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00020",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00021",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00022",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00023",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00024",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00025",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00026",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00027",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00028",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00029",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00030",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00031",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00032",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00033",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00034",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00035",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00036",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00037",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00038",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00039",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00040",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00041",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00042",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00043",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00044",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00045",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00046",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00047",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00048",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00049",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00050",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00051",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00052",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00053",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00054",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00055",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00056",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00057",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00058",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00059",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00060",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00061",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00062",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00063",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00064",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00065",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00066",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00067",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00068",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00069",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00070",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00071",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00072",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00073",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00074",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00075",
+    "verdict": "missing_detail",
+    "reason": "Source explicitly requires that user rights and privileges be controlled through security groups and/or 'roles' with control for individuals, workgroups and arbitrary staff groups. The assigned paragraph documents migration of permission settings and mentions access control generally, but does not explicitly state that access control must be implemented via security groups/roles nor preserve the specified granularity (individual, workgroup, arbitrary staff groups).",
+    "suggested_fix": "Update the assigned requirement text to explicitly state that user rights and privileges shall be implemented and documented using security groups and/or roles, and shall support assignment at the granularity named in the source (individual users, workgroups, and arbitrary staff groups). If there are constraints or alternate models allowed, list them and explain equivalence to roles (for example mapping to ACLs) and document migration/ export/import behavior for role/permission artifacts."
+  },
+  {
+    "candidate_id": "CAND-00076",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00077",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00078",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00079",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00080",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00081",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00082",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00083",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00084",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00085",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00086",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00087",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00088",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00089",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00090",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00091",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00092",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00093",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00094",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00095",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00096",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00097",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00098",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00099",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00100",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00101",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00102",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00103",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00104",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00105",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00106",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00107",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00108",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00109",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00110",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00111",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00112",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00113",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00114",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00115",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00116",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00117",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00118",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00119",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00120",
+    "verdict": "missing_detail",
+    "reason": "The assigned paragraph captures export formats, emailing/recipients, address-book and ability to edit recurring schedules but omits several material UI details requested in the candidate's source: (1) explicit hover-over descriptive pop-ups for canned-report titles, (2) the ability to 'check off any part of data you want' (fine-grained check/select UI for report fields), and (3) the explicit scheduling cadence list (Run ASAP, Hourly, Daily, Weekly, Monthly, Yearly) mentioned in the source.",
+    "suggested_fix": "Update the requirement paragraph to explicitly require: (a) hover-over descriptive pop-ups for canned-report/template titles showing human-readable descriptions; (b) a UI affordance to check/select arbitrary report fields/display sections ('check off any part of data you want'); and (c) support for the enumerated scheduling cadences (at minimum: Run ASAP, Hourly, Daily, Weekly, Monthly, Yearly) or otherwise state which cadence options are supported."
+  },
+  {
+    "candidate_id": "CAND-00121",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00122",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00123",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00124",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00125",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00126",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00127",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00128",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00129",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00130",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00131",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00132",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00133",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00134",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00135",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00136",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00137",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00138",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00139",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00140",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00141",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00142",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00143",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00144",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00145",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00146",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00147",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00148",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00149",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00150",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00151",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00152",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00153",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00154",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00155",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00156",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00157",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00158",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00159",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00160",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00161",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00162",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00163",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00164",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00165",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00166",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00167",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00168",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00173",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00174",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00175",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00176",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00177",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00179",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00180",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00181",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00182",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00183",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00184",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00185",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00186",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00187",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00188",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00189",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00190",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00191",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00192",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00193",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00194",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00195",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00196",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00197",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00198",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00199",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00200",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00201",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00202",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00203",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00204",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00205",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00206",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00207",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00208",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00209",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00210",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00211",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00212",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00213",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00214",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00215",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00216",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00217",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00218",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00219",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00220",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00221",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00222",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00223",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00224",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00225",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00226",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00227",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00228",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00229",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00230",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00231",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00232",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00233",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00234",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00235",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00236",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00237",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00238",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00239",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00240",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00241",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00242",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00243",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00244",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00245",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00246",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00247",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00248",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00249",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00250",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00251",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00252",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00253",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00254",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00255",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00256",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00257",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00258",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00259",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00260",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00261",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00262",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00263",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00264",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00265",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00266",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00267",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00268",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00269",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00270",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00271",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00272",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00273",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00274",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00275",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00276",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00277",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00278",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00279",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00280",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00281",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00282",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00283",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00284",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00285",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00286",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00287",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00288",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00289",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00290",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00291",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00292",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00293",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00294",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00295",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00296",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00297",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00298",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00299",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00300",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00301",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00302",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00303",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00304",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00305",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00306",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00307",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00308",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00169",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00170",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00171",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00172",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  },
+  {
+    "candidate_id": "CAND-00178",
+    "verdict": "covered",
+    "reason": "",
+    "suggested_fix": ""
+  }
+]

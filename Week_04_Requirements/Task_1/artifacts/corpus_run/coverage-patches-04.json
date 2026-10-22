@@ -1,0 +1,24 @@
+[
+  {
+    "pending_ids": [
+      "CAND-00208"
+    ],
+    "patch": {
+      "requirements": [
+        {
+          "target_index": 11,
+          "name": "Developer-provided data specifications, process descriptions and help",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Staff need documentation and meaningful error feedback to author and troubleshoot reports; developer-provided specs, process descriptions and help were repeatedly required.",
+          "candidate_ids": [
+            "CAND-00208"
+          ],
+          "replacements": [],
+          "append_explanation": "The online HTML help system shall be usable with common assistive technologies (for example: screen readers and screen-magnification software) and the developer documentation for the help system shall list which assistive technologies were used during testing and describe how accessibility is supported. The help-system documentation shall describe where accessibility-related controls, semantics or landmarks (for example ARIA roles/landmarks, labels or other assistive hooks) are exposed in the help UI so administrators and accessibility testers can locate and verify accessibility features."
+        }
+      ],
+      "blacklist": []
+    }
+  }
+]

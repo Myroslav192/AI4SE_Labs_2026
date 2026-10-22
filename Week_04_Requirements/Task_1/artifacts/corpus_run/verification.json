@@ -1,0 +1,16 @@
+{
+  "structural_checks_passed": true,
+  "automatic_review_passed": true,
+  "source_count": 20,
+  "grounded_candidate_count": 308,
+  "final_identifier_count": 30,
+  "semantic_bindings_assessed": 308,
+  "served_models": [
+    "gpt-4o-mini-2024-07-18",
+    "gpt-5-mini-2025-08-07",
+    "gpt-5-nano-2025-08-07"
+  ],
+  "completed_api_calls_in_trace": 225,
+  "errors": [],
+  "interpretation": "Structural verification and review status do not prove perfect semantic completeness."
+}

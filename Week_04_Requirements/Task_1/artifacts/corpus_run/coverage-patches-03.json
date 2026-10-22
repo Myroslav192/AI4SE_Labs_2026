@@ -1,0 +1,37 @@
+[
+  {
+    "pending_ids": [
+      "CAND-00075",
+      "CAND-00120"
+    ],
+    "patch": {
+      "requirements": [
+        {
+          "target_index": 22,
+          "name": "Authentication and role-based access control",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Operational security, auditability and local administrative ease were emphasized repeatedly; ease of role administration and flexible access groups are essential for day-to-day operations.",
+          "candidate_ids": [
+            "CAND-00075"
+          ],
+          "replacements": [],
+          "append_explanation": "Implementers shall implement and document user rights and privileges using security groups and/or roles; the system shall support assignment of those security groups/roles at the granularity of individual users, workgroups and arbitrary staff groups so administrators can target permissions to operational groupings. Role/permission artifacts (role definitions, group assignments and permission mappings) shall be exportable/importable as part of the migration/export/import mechanisms required elsewhere in this specification so role definitions and assignments can be moved between development, training and production environments and reproduced during deployments."
+        },
+        {
+          "target_index": 19,
+          "name": "Canned, on-demand and open-template report interfaces",
+          "kind": "functional",
+          "priority": "P2",
+          "priority_reason": "Stakeholders asked for distinct modes (canned, on-demand, open-template) to cover common and ad-hoc needs; canned/pre-defined board reports were repeatedly requested for governance and external consumption.",
+          "candidate_ids": [
+            "CAND-00120"
+          ],
+          "replacements": [],
+          "append_explanation": "The canned-templates/quick-access UI shall display a hover-over descriptive pop-up for each canned report/template title containing a human-readable description of the report so users can discover what each template produces before running it. The quick-access designer shall include a field-selection affordance (for example checkboxes or similar 'check off' controls) enabling users to select arbitrary report fields or display sections to include in a run. The scheduling UI for canned or quick-access reports shall explicitly support the cadences: Run ASAP, Hourly, Daily, Weekly, Monthly and Yearly."
+        }
+      ],
+      "blacklist": []
+    }
+  }
+]

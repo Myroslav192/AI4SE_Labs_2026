@@ -1,0 +1,138 @@
+[
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Open-template reporting obligations appear in two canonical requirements: CAND-00081 (Query tool and open-template reporting) and CAND-00119 (Open Template Reporting). The overlap risks conflicting scope and permissions; consider consolidating into a single open-template requirement.",
+      "suggested_fix": "Choose one canonical open-template requirement and merge scope/permissions; remove one of the duplicates; ensure a single, traceable ID for open-template reporting.",
+      "candidate_ids": [
+        "CAND-00081",
+        "CAND-00119"
+      ]
+    },
+    "issue_index": 0,
+    "retain": true,
+    "reason": "Open-template/reporting appears in multiple candidate statements (CAND-00081 and CAND-00119) with overlapping scope; the SRS must consolidate to a single canonical requirement to avoid inconsistent scope and permissions."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Audit/deletion auditing appears in multiple candidates (e.g., CAND-00043 Audit Trail for Purges; CAND-00049 Database Trigger for Deletions; CAND-00050 Deletion Interface). The duplication could cause inconsistent audit data or gaps.",
+      "suggested_fix": "Consolidate into a single deletion/audit requirement with explicit audit fields and a single mechanism (e.g., DB trigger + report interface) and map all related items to that canonical requirement.",
+      "candidate_ids": [
+        "CAND-00043",
+        "CAND-00049",
+        "CAND-00050"
+      ]
+    },
+    "issue_index": 1,
+    "retain": true,
+    "reason": "Deletion/audit capabilities are expressed across several candidates (e.g., CAND-00043, CAND-00049, CAND-00050) — the specification needs a single, authoritative deletion-audit requirement (mechanism, fields and UI) to prevent gaps or conflicts."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "In-transit reporting appears in several candidates with similar scope (CAND-00033; CAND-00100; CAND-00150): per-branch/system, configurable X days, and merging transit-to/from. This duplication may cause conflicting behavior.",
+      "suggested_fix": "Consolidate to a single In-Transit Items Report definition and reference it from related requirements; ensure the default detection rule and fields are consistent.",
+      "candidate_ids": [
+        "CAND-00033",
+        "CAND-00100",
+        "CAND-00150"
+      ]
+    },
+    "issue_index": 2,
+    "retain": true,
+    "reason": "In-transit reporting requirements recur in multiple candidates (CAND-00033, CAND-00100, CAND-00150) with the same but separately-worded expectations (X days, merged transit-to/from); the spec should consolidate to one definitive in-transit report definition and detection rule set."
+  },
+  {
+    "issue": {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Shelf-space reporting has a decided approach to estimation but the method is open to choices; CAND-00015 documents possible estimation methods but no fixed policy.",
+      "suggested_fix": "Decide and document a default shelf-space calculation method (e.g., use item-count proxies with documented estimation method) and mark alternatives as optional design options.",
+      "candidate_ids": [
+        "CAND-00015"
+      ]
+    },
+    "issue_index": 3,
+    "retain": false,
+    "reason": "Shelf-space estimation method is deliberately left as an implementation/choice question and the spec already permits calculated estimates and requires documenting the method used (CAND-00015); this open question is valid, not a defect to force a single algorithm."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "Historical reporting vs. real-time reporting architecture is unclear. The open-question references CAND-00121, CAND-00211, CAND-00215 about warehouse/snapshots vs real-time and retention; Decide and document an approach.",
+      "suggested_fix": "Select and document the historical reporting architecture, update to reflect either snapshot warehouse or real-time plus historical, and define data refresh and retention semantics; unify the historical reporting mode.",
+      "candidate_ids": [
+        "CAND-00121",
+        "CAND-00211",
+        "CAND-00215"
+      ]
+    },
+    "issue_index": 4,
+    "retain": false,
+    "reason": "Historical vs. real-time architecture is a documented design choice in the corpus (the SRS permits either replicas/warehouse or properly-written SQL and requires documenting the chosen approach), so leaving the architectural decision open is intentional and not a defect."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "Auto-revert precedence for item transfers is ambiguous; overlapping inputs CAND-00022 and CAND-00027 describe time-based and event-based reversion; define a clear precedence (e.g., time-based revert unless a qualifying event occurs).",
+      "suggested_fix": "Add explicit precedence rules to saved transfers; define event-trigger definitions and override behavior; ensure admin-configured overrides preserved.",
+      "candidate_ids": [
+        "CAND-00022",
+        "CAND-00027"
+      ]
+    },
+    "issue_index": 5,
+    "retain": false,
+    "reason": "Precedence between time-based and event-based auto-revert is already addressed in the transfer-utility text (explicit precedence rules and documentation required); the specification already requires documenting how overrides interact, so this is not an unresolved defect."
+  },
+  {
+    "issue": {
+      "category": "structure",
+      "severity": "warning",
+      "description": "Capacity-related requirements are described across multiple candidates with overlapping scope/naming (e.g., High-Level Overview, Drill-down, Trends, color-coding, grouping). Risk of inconsistent scope and duplication.",
+      "suggested_fix": "Consolidate into a single capacity analytics/dashboard definition with a clear set of features and traceability to related options; keep separate options as design-time variants but map to one canonical ID.",
+      "candidate_ids": [
+        "CAND-00006",
+        "CAND-00007",
+        "CAND-00008",
+        "CAND-00009",
+        "CAND-00095",
+        "CAND-00227",
+        "CAND-00276",
+        "CAND-00277"
+      ]
+    },
+    "issue_index": 6,
+    "retain": false,
+    "reason": "Capacity/dashboard concerns are already consolidated under the System capacity interface requirement (it aggregates drill-down, sorting, filters, color-coding and grouping); the corpus provides a single canonical requirement mapping the related candidate IDs, so no further defect to record here."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Inactive-patrons reporting appears in many candidates with overlapping scope (CAND-00059, CAND-00061, CAND-00062, CAND-00063, CAND-00103, CAND-00236, CAND-00259, CAND-00060, CAND-00278, CAND-00279); unify to a single inactive-patrons reporting capability with consistent scope and auditing.",
+      "suggested_fix": "Consolidate into a single inactive-patrons reporting feature with uniform scope levels and a single export/audit workflow.",
+      "candidate_ids": [
+        "CAND-00059",
+        "CAND-00061",
+        "CAND-00062",
+        "CAND-00063",
+        "CAND-00103",
+        "CAND-00236",
+        "CAND-00259",
+        "CAND-00060",
+        "CAND-00278",
+        "CAND-00279"
+      ]
+    },
+    "issue_index": 7,
+    "retain": false,
+    "reason": "Inactive-patrons reporting and outreach-export needs are consolidated in the dedicated Inactive patrons reporting requirement (covers configurable X, scopes, exports, exclusions and background processing); duplicates across candidates reflect provenance rather than a missing/contradictory requirement."
+  }
+]

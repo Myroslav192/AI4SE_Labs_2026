@@ -1,0 +1,39 @@
+{
+  "revision": 4,
+  "passed": true,
+  "candidate_count": 308,
+  "requirement_count": 25,
+  "source_document_audits": 0,
+  "traceability_assessments": 308,
+  "issues": [
+    {
+      "category": "description",
+      "severity": "warning",
+      "description": "Shelf-space calculation method is ambiguous; the spec permits estimation but lacks an agreed algorithm (matches CAND-00015).",
+      "suggested_fix": "Require explicit estimation algorithm for shelf-space (dimensions, proxies, or alternative) and document methodology.",
+      "candidate_ids": [
+        "CAND-00015"
+      ]
+    },
+    {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Capacity metrics definition is ambiguous (which physical or system capacity metrics to display). It is referenced by CAND-00067 and CAND-00008 lacking a single definition.",
+      "suggested_fix": "Define a single, concrete set of capacity metrics (e.g., shelf space, item-count thresholds, load factors) and align all capacity-related candidates.",
+      "candidate_ids": [
+        "CAND-00067",
+        "CAND-00008"
+      ]
+    },
+    {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Default archival retention policy values are not specified (CAND-00131 and CAND-00215 are open questions about policy defaults).",
+      "suggested_fix": "Decide and document default retention periods (e.g., 7 years for financial/audit data) and provide guidance for configuration.",
+      "candidate_ids": [
+        "CAND-00131",
+        "CAND-00215"
+      ]
+    }
+  ]
+}

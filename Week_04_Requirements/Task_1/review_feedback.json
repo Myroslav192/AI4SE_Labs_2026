@@ -1,0 +1,38 @@
+{
+  "apply_at_revision": 1,
+  "additions": [
+    {
+      "source_path": "early_draft_srs_galecia.txt",
+      "candidate": {
+        "name": "Notice delivery reports",
+        "statement": "The system shall provide reports on pre-overdue notices, overdue notices and holds notices sent.",
+        "kind": "functional",
+        "priority_hint": "unspecified",
+        "evidence_quote": "Ability to run reports for pre-overdue, overdue, and holds notices sent"
+      },
+      "reason": "The fine-grained request explicitly includes pre-overdue, overdue and holds-notice reports; preserve these in an accepted requirement paragraph."
+    },
+    {
+      "source_path": "early_draft_srs_galecia.txt",
+      "candidate": {
+        "name": "Explicit consortium processing capacity",
+        "statement": "The system shall support 286 locations, 17 million annual circulations and purchasing/processing over 900,000 items per year.",
+        "kind": "nonfunctional",
+        "priority_hint": "high",
+        "evidence_quote": "OE-1: The system must support a library consortium with 286 locations, 17 million\n      annual circulations, and purchasing/processing over 900,000 items per year."
+      },
+      "reason": "OE-1 gives actual required throughput, not only a request to document historical hardware; express the three numerical capacity obligations explicitly."
+    },
+    {
+      "source_path": "interview_sysadmin_2009-05-10.txt",
+      "candidate": {
+        "name": "Mandatory Section 508 accessibility",
+        "statement": "The system shall comply with Section 508 accessibility requirements and work with screen readers, screen magnification and other assistive technology.",
+        "kind": "nonfunctional",
+        "priority_hint": "high",
+        "evidence_quote": "ROBERTY: This is non-negotiable. As a public institution, we MUST comply with\nSection 508 accessibility requirements. The system needs to work with:\n  - Screen readers like JAWS and NVDA\n  - Screen magnification software like ZoomText\n  - Other assistive technology programs\n\nWe can't have blind staff members unable to run reports. The HTML output\nneeds to be properly structured with alt tags, ARIA labels, and proper\nsemantic HTML. And the system needs to produce standards-compliant HTML."
+      },
+      "reason": "The source explicitly makes Section 508 mandatory; the accepted paragraph must require system compliance, not merely record that stakeholders mentioned it."
+    }
+  ]
+}

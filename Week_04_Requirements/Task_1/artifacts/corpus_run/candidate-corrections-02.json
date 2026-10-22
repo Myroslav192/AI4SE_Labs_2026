@@ -1,0 +1,29 @@
+[
+  {
+    "before": {
+      "name": "Holds Purchase Alert",
+      "statement": "Holds Purchase Alert (not available)",
+      "kind": "functional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "- Holds Purchase Alert (not available)",
+      "id": "CAND-00261",
+      "document_id": "DOC-014",
+      "chunk_id": "DOC-014-AUDIT",
+      "start_line": 160,
+      "end_line": 160
+    },
+    "after": {
+      "name": "Holds Purchase Alert",
+      "statement": "Holds Purchase Alert (not available)",
+      "kind": "functional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "- Holds Purchase Alert (not available)",
+      "id": "CAND-00261",
+      "document_id": "DOC-014",
+      "chunk_id": "DOC-014-SEMANTIC-02",
+      "start_line": 160,
+      "end_line": 160
+    },
+    "reason": "The candidate's statement exactly matches the contiguous quoted line in the source document. The audit’s concern is that additional implementation details (thresholds, export formats, scheduling, scope, behavior when acquisitions/EDI data are missing) were asserted elsewhere in the requirement paragraph without supporting evidence; those details are not present in the quoted source. The editor should remove or re-source those extra specifics — the candidate itself should remain the simple, source-supported statement above."
+  }
+]

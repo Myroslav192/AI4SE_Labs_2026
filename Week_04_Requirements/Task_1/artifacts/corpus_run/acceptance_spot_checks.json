@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "286-location scale",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0002"
+      ]
+    },
+    {
+      "check": "17-million annual circulation scale",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0002"
+      ]
+    },
+    {
+      "check": "900000-item acquisition throughput",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0002"
+      ]
+    },
+    {
+      "check": "Named Section 508 requirement",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0001"
+      ]
+    },
+    {
+      "check": "Historical IE 6 compatibility",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0002"
+      ]
+    },
+    {
+      "check": "Historical Firefox 2 compatibility",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0002"
+      ]
+    },
+    {
+      "check": "Pre-overdue notices",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0024"
+      ]
+    },
+    {
+      "check": "Traditional password login",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0003"
+      ]
+    },
+    {
+      "check": "Optional streamlined login",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0003",
+        "REQ-0012",
+        "REQ-0013"
+      ]
+    },
+    {
+      "check": "Demographic privacy",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0001",
+        "REQ-0017",
+        "REQ-0024"
+      ]
+    },
+    {
+      "check": "USMARC21 integration",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0008"
+      ]
+    },
+    {
+      "check": "EDIFACT integration",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0008"
+      ]
+    },
+    {
+      "check": "Indefinite aggregate retention",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0024"
+      ]
+    },
+    {
+      "check": "Last-edit metadata",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0006"
+      ]
+    },
+    {
+      "check": "Survey name filtering",
+      "passed": true,
+      "requirement_ids": [
+        "REQ-0015"
+      ]
+    }
+  ],
+  "scope": "Targeted checks of known fine-grained corpus details in requirement paragraphs, excluding source quotations and the evidence ledger. These do not measure complete semantic recall."
+}

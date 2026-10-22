@@ -1,0 +1,135 @@
+[
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Shelf-space utilization reporting appears in multiple places with overlapping obligations (canonical: Shelf-space utilization report; candidate mappings include CAND-00011 and CAND-00156). This creates semantic duplicates and risk of divergent baselines.",
+      "suggested_fix": "Consolidate into a single canonical shelf-space reporting requirement and map related candidates to it; remove duplicate candidate proposals or unify under one canonical ID.",
+      "candidate_ids": [
+        "CAND-00011",
+        "CAND-00156"
+      ]
+    },
+    "issue_index": 0,
+    "retain": true,
+    "reason": "The corpus contains multiple overlapping shelf-space candidates (CAND-00011, CAND-00156 and others) with the same obligation. The SRS must consolidate these into a single canonical \"Shelf-space utilization\" requirement (referencing the supporting candidate IDs) to avoid divergent implementations and ensure one documented estimation method and system-average rules."
+  },
+  {
+    "issue": {
+      "category": "blacklist",
+      "severity": "warning",
+      "description": "Blacklisted candidate proposals are present in the ledger and could be mistakenly included in final requirements (examples: CAND-00169, CAND-00170, CAND-00171, CAND-00172, CAND-00178).",
+      "suggested_fix": "Remove blacklisted candidates from the requirements ledger or clearly mark them as out-of-scope so they are not considered in final baselining.",
+      "candidate_ids": [
+        "CAND-00169",
+        "CAND-00170",
+        "CAND-00171",
+        "CAND-00172",
+        "CAND-00178"
+      ]
+    },
+    "issue_index": 1,
+    "retain": true,
+    "reason": "Blacklisted candidate statements (CAND-00169, CAND-00170, CAND-00171, CAND-00172, CAND-00178) appear in the ledger; although flagged as out-of-scope in the blacklist, their presence risks accidental inclusion. The specification must explicitly exclude or remove these entries from the requirements baseline and mark them as governance/project tasks only."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Open-template reporting is referenced across multiple candidate entries (for example CAND-00081, CAND-00085, CAND-00119, CAND-00120) with overlapping scope. This may lead to inconsistent capabilities if not reconciled.",
+      "suggested_fix": "Consolidate open-template reporting into a single, canonical interface and map each candidate to that definition to avoid divergent baselines.",
+      "candidate_ids": [
+        "CAND-00081",
+        "CAND-00085",
+        "CAND-00119",
+        "CAND-00120"
+      ]
+    },
+    "issue_index": 2,
+    "retain": true,
+    "reason": "Open-template / advanced query reporting is described in multiple candidates (e.g., CAND-00081, CAND-00085, CAND-00119, CAND-00120) with overlapping scope. The SRS must consolidate into one definitive 'Open-template reporting' requirement (mapping the supporting candidates) and state precise attribute/permission boundaries to avoid inconsistent capabilities."
+  },
+  {
+    "issue": {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Capacity color-coding relies on administrator-configurable thresholds (green/yellow/red) but there is no defined default or guidance for threshold values, risking inconsistent interpretation across deployments.",
+      "suggested_fix": "Define default threshold values and document how colors map to capacity states; provide admin configuration options and governance documentation.",
+      "candidate_ids": [
+        "CAND-00227"
+      ]
+    },
+    "issue_index": 3,
+    "retain": false,
+    "reason": "The SRS already addresses the concern: it requires color mappings to be administrator-configurable and documented (System capacity interface text explicitly disallows implementers inventing numeric thresholds). Requesting default thresholds contradicts the documented intent to leave thresholds configurable and documented by administrators."
+  },
+  {
+    "issue": {
+      "category": "conflict",
+      "severity": "warning",
+      "description": "The specification appears to require both real-time and historical reporting (e.g., CAND-00121, CAND-00122, CAND-00211) without explicit governance on which reports use which mode, potentially impacting performance and data consistency.",
+      "suggested_fix": "Clarify per-report whether real-time or historical mode is used; decide and document an architecture policy (warehouse vs. real-time) and data-refresh semantics.",
+      "candidate_ids": [
+        "CAND-00121",
+        "CAND-00122",
+        "CAND-00211"
+      ]
+    },
+    "issue_index": 4,
+    "retain": false,
+    "reason": "The draft explicitly requires support for both real-time and historical modes and mandates that the system document which mode produced each result and identify reports that must be real-time (e.g., 'what's overdue today'). The corpus therefore already prescribes per-report identification of mode; the reported 'conflict' is already covered by existing text."
+  },
+  {
+    "issue": {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Default archival retention values are not consistently defined; while some references show configurable retention (e.g., 7 years), there is no single default policy documented.",
+      "suggested_fix": "Decide and publish a default data-retention policy (e.g., 7 years for financial/audit data) and mandate its use, with explicit overrides where required by law; ensure all related reports reference this default.",
+      "candidate_ids": [
+        "CAND-00131",
+        "CAND-00215"
+      ]
+    },
+    "issue_index": 5,
+    "retain": true,
+    "reason": "The corpus leaves retention defaults configurable but references examples (e.g., 7 years for finance) and poses an open question about defaults. This is a real omission: the SRS must state default archival/retention values (or a required governance action to set them) and where/how they may be overridden, and record which defaults apply to which data classes."
+  },
+  {
+    "issue": {
+      "category": "priority",
+      "severity": "warning",
+      "description": "Inactive-patrons reporting and outreach exports may include mailing addresses; this raises privacy considerations and requires clear anonymization/isolation rules.",
+      "suggested_fix": "Audit data exposure in inactive reports; apply data-minimization and anonymization for exports; restrict mailing addresses to authorized outreach use and document handling rules.",
+      "candidate_ids": [
+        "CAND-00061",
+        "CAND-00058",
+        "CAND-00221"
+      ]
+    },
+    "issue_index": 6,
+    "retain": true,
+    "reason": "The requirements both (a) mandate anonymization/aggregation for demographic outputs and (b) allow inactive-patron exports that may include current mailing addresses for outreach. This is a substantive privacy/PII conflict. The SRS must resolve it by specifying authorized-use exceptions, access controls/audit rules for PII exports, and explicit anonymization/handling rules for demographic vs. outreach exports."
+  },
+  {
+    "issue": {
+      "category": "structure",
+      "severity": "warning",
+      "description": "Data specifications and process descriptions are spread across multiple candidate entries (e.g., CAND-00077, CAND-00078, CAND-00079, CAND-00080, CAND-00206, CAND-00195, CAND-00196, CAND-00197, CAND-00198) with potential drift and divergence.",
+      "suggested_fix": "Consolidate into a single, authoritative data-model and process-document set; establish version-controlled references and cross-links to ensure consistency across modules.",
+      "candidate_ids": [
+        "CAND-00077",
+        "CAND-00078",
+        "CAND-00079",
+        "CAND-00080",
+        "CAND-00206",
+        "CAND-00195",
+        "CAND-00196",
+        "CAND-00197",
+        "CAND-00198"
+      ]
+    },
+    "issue_index": 7,
+    "retain": true,
+    "reason": "Data-specifications, process descriptions and help obligations are scattered across many candidate entries (e.g., CAND-00077..CAND-00080, CAND-00206, CAND-00195..CAND-00198). The SRS must consolidate these into a single, versioned developer documentation deliverable (data dictionary, process descriptions, help-system specification) and reference it centrally to avoid divergence."
+  }
+]

@@ -1,0 +1,164 @@
+[
+  {
+    "before": {
+      "name": "Query for High Balance Accounts",
+      "statement": "Staff should be able to query patron accounts with balances greater than X dollars, useful for identifying accounts that need attention.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "Regarding the \"value of items report\" - the data is already in the item records (purchase price field). We just need the system to be able to query and aggregate this. This should be straightforward.",
+      "id": "CAND-00128",
+      "document_id": "DOC-011",
+      "chunk_id": "DOC-011-CH-001",
+      "start_line": 52,
+      "end_line": 54
+    },
+    "after": {
+      "name": "Query for High Balance Accounts",
+      "statement": "Staff should be able to query patron accounts with balances greater than X dollars, useful for identifying accounts that need attention.",
+      "kind": "functional",
+      "priority_hint": "medium",
+      "evidence_quote": "- For fines and charges, the staff should be able to query patron accounts with balances greater than X dollars. This is useful for identifying accounts that need attention.",
+      "id": "CAND-00128",
+      "document_id": "DOC-011",
+      "chunk_id": "DOC-011-SEMANTIC-00",
+      "start_line": 73,
+      "end_line": 75
+    },
+    "reason": "The original evidence_quote pointed to a different topic (item purchase price). The candidate statement is supported in DOC-011 by Susan Sexton-Cooley's comment; I replaced the incorrect quote with the exact contiguous quotation from DOC-011 that supports the candidate statement."
+  },
+  {
+    "before": {
+      "name": "Document Reports Functionality",
+      "statement": "Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "id": "CAND-00169",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-CH-001",
+      "start_line": 41,
+      "end_line": 42
+    },
+    "after": {
+      "name": "Document Reports Functionality",
+      "statement": "Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "id": "CAND-00169",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 41,
+      "end_line": 42
+    },
+    "reason": "The candidate statement is present in DOC-017's mission text. I copied the exact contiguous quotation from DOC-017 to serve as the evidence_quote."
+  },
+  {
+    "before": {
+      "name": "Reports Testing Group",
+      "statement": "Become the Reports testing group, through which all new Reports development would be filtered.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Become the Reports testing group, through which all new Reports development would be filtered.",
+      "id": "CAND-00170",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-CH-001",
+      "start_line": 43,
+      "end_line": 44
+    },
+    "after": {
+      "name": "Reports Testing Group",
+      "statement": "Become the Reports testing group, through which all new Reports development would be filtered.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Become the Reports testing group, through which all new Reports development would be filtered.",
+      "id": "CAND-00170",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 43,
+      "end_line": 44
+    },
+    "reason": "The candidate statement matches the mission text in DOC-017. I copied the exact contiguous quotation from DOC-017 as the evidence_quote."
+  },
+  {
+    "before": {
+      "name": "Compile Executive Reports",
+      "statement": "Compile a list of reports needed for an Executive Reports Interface.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Compile a list of reports needed for an Executive Reports Interface.",
+      "id": "CAND-00171",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-CH-001",
+      "start_line": 45,
+      "end_line": 45
+    },
+    "after": {
+      "name": "Compile Executive Reports",
+      "statement": "Compile a list of reports needed for an Executive Reports Interface.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Compile a list of reports needed for an Executive Reports Interface.",
+      "id": "CAND-00171",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 45,
+      "end_line": 45
+    },
+    "reason": "The candidate statement is verbatim in DOC-017's mission text. I provided the exact contiguous quotation from DOC-017 as evidence."
+  },
+  {
+    "before": {
+      "name": "Determine Templates",
+      "statement": "Determine and create templates needed for all PINES libraries.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Determine and create templates needed for all PINES libraries.",
+      "id": "CAND-00172",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-CH-001",
+      "start_line": 46,
+      "end_line": 46
+    },
+    "after": {
+      "name": "Determine Templates",
+      "statement": "Determine and create templates needed for all PINES libraries.",
+      "kind": "functional",
+      "priority_hint": "high",
+      "evidence_quote": "- Determine and create templates needed for all PINES libraries.",
+      "id": "CAND-00172",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 46,
+      "end_line": 46
+    },
+    "reason": "The candidate statement is present in DOC-017's mission text. I copied the exact contiguous quotation from DOC-017 for the evidence_quote."
+  },
+  {
+    "before": {
+      "name": "Iterative UI Specification",
+      "statement": "Specify user interface details using an iterative, prototype-oriented methodology as development progresses.",
+      "kind": "functional",
+      "priority_hint": "low",
+      "evidence_quote": "Katherine noted that while UI would eventually need detailed specification, for now the focus should be on functional requirements.",
+      "id": "CAND-00178",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-CH-001",
+      "start_line": 71,
+      "end_line": 73
+    },
+    "after": {
+      "name": "Iterative UI Specification",
+      "statement": "Specify user interface details using an iterative, prototype-oriented methodology as development progresses.",
+      "kind": "functional",
+      "priority_hint": "low",
+      "evidence_quote": "She mentioned that UI and data structures would require further specification using an iterative, prototype- oriented methodology.",
+      "id": "CAND-00178",
+      "document_id": "DOC-017",
+      "chunk_id": "DOC-017-SEMANTIC-00",
+      "start_line": 73,
+      "end_line": 75
+    },
+    "reason": "The candidate's intent is supported by DOC-017 but the original evidence_quote in the candidate list did not match the literal source. I replaced it with the exact contiguous quotation from DOC-017 that describes iterative, prototype-oriented specification of UI and data structures."
+  }
+]

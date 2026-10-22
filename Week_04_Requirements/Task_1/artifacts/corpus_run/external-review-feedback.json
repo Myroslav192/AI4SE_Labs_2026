@@ -1,0 +1,47 @@
+[
+  {
+    "candidate": {
+      "name": "Notice delivery reports",
+      "statement": "The system shall provide reports on pre-overdue notices, overdue notices and holds notices sent.",
+      "kind": "functional",
+      "priority_hint": "unspecified",
+      "evidence_quote": "Ability to run reports for pre-overdue, overdue, and holds notices sent",
+      "id": "CAND-00306",
+      "document_id": "DOC-010",
+      "chunk_id": "DOC-010-FEEDBACK",
+      "start_line": 648,
+      "end_line": 648
+    },
+    "reason": "The fine-grained request explicitly includes pre-overdue, overdue and holds-notice reports; preserve these in an accepted requirement paragraph."
+  },
+  {
+    "candidate": {
+      "name": "Explicit consortium processing capacity",
+      "statement": "The system shall support 286 locations, 17 million annual circulations and purchasing/processing over 900,000 items per year.",
+      "kind": "nonfunctional",
+      "priority_hint": "high",
+      "evidence_quote": "OE-1: The system must support a library consortium with 286 locations, 17 million annual circulations, and purchasing/processing over 900,000 items per year.",
+      "id": "CAND-00307",
+      "document_id": "DOC-010",
+      "chunk_id": "DOC-010-FEEDBACK",
+      "start_line": 126,
+      "end_line": 127
+    },
+    "reason": "OE-1 gives actual required throughput, not only a request to document historical hardware; express the three numerical capacity obligations explicitly."
+  },
+  {
+    "candidate": {
+      "name": "Mandatory Section 508 accessibility",
+      "statement": "The system shall comply with Section 508 accessibility requirements and work with screen readers, screen magnification and other assistive technology.",
+      "kind": "nonfunctional",
+      "priority_hint": "high",
+      "evidence_quote": "ROBERTY: This is non-negotiable. As a public institution, we MUST comply with Section 508 accessibility requirements. The system needs to work with: - Screen readers like JAWS and NVDA - Screen magnification software like ZoomText - Other assistive technology programs We can't have blind staff members unable to run reports. The HTML output needs to be properly structured with alt tags, ARIA labels, and proper semantic HTML. And the system needs to produce standards-compliant HTML.",
+      "id": "CAND-00308",
+      "document_id": "DOC-016",
+      "chunk_id": "DOC-016-FEEDBACK",
+      "start_line": 56,
+      "end_line": 64
+    },
+    "reason": "The source explicitly makes Section 508 mandatory; the accepted paragraph must require system compliance, not merely record that stakeholders mentioned it."
+  }
+]

@@ -1,0 +1,1482 @@
+[
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The draft/specification and extracted candidates do not capture the email-requested color-coded visual indicators for the capacity overview (green/yellow/red). This visualization was explicitly requested in DOC-002 and is a concrete UI requirement that affects overview readability and quick decision-making.",
+      "suggested_fix": "Add a functional requirement (or candidate) that the system's capacity overview provide color-coded status indicators as requested in the source (quote provided). Because the source does not define numeric thresholds, add an associated open question (or require administrator-configurable thresholds) to capture how colors map to capacity values so implementers are not forced to invent threshold values.",
+      "candidate_ids": [
+        "CAND-00005",
+        "CAND-00006",
+        "CAND-00009"
+      ]
+    },
+    "issue_index": 0,
+    "retain": true,
+    "reason": "Capacity overview color-coding was requested in DOC-002/CAND-00227 and is a concrete UI requirement not captured in the draft; require configurable thresholds or admin-configurable mapping."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00227: The capacity overview should include color-coded status indicators (e.g., green/yellow/red) to show under-capacity, approaching capacity, and at/over-capacity states.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00227"
+      ]
+    },
+    "issue_index": 1,
+    "retain": true,
+    "reason": "CAND-00227 (color-coded capacity indicators) is a grounded candidate called out by reviewers and should be integrated rather than omitted."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "CAND-00026 (Transfer History Tracking) is present but omits audit/logging detail requested in the source (explicit 'logging - track all transfers for audit purposes'). The existing candidate records the need to track transfer history but does not specify required audit attributes (who performed the transfer, timestamp, origin and destination locations, reason/notes, or an immutable audit trail).",
+      "suggested_fix": "Expand CAND-00026 to require an auditable transfer log entry for every batch transfer including: operator identifier, timestamp, items affected (identifiers), source location, destination location, transfer method (manual/scheduled/automatic), optional reason or event trigger, and support for querying/producing reports from that log.",
+      "candidate_ids": [
+        "CAND-00026"
+      ]
+    },
+    "issue_index": 2,
+    "retain": true,
+    "reason": "Transfer-history logging in CAND-00026 lacks explicit audit attributes requested in sources (who/timestamp/source/dest/reason); the requirement should mandate an auditable transfer log with those fields."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "CAND-00027 (Auto-Revert Mechanism) captures time-based and event-based reversion in a general way but omits two substantive implementation details explicitly requested in the source: (a) the scheduling mechanism (the source asks for a 'scheduled task' that performs checks) and (b) precedence/interaction rules (examples in the source: 'revert after X days' unless 'checked out at destination', or revert when status changes to 'sold').",
+      "suggested_fix": "Clarify CAND-00027 to require: (1) a configurable scheduled task (with configurable frequency) that evaluates transfer records and applies time-based reversion; (2) configurable event triggers (status-change triggers such as 'sold', 'checked out at destination') that can override or cancel scheduled reversion; and (3) explicit precedence/override rules (for example: event-based 'checked out at destination' cancels scheduled reversion unless explicitly configured otherwise).",
+      "candidate_ids": [
+        "CAND-00027"
+      ]
+    },
+    "issue_index": 3,
+    "retain": true,
+    "reason": "Auto-revert candidate (CAND-00027) omits the scheduled-task implementation detail and explicit precedence/override rules described in the sources; these are required to avoid ambiguous behavior."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "CAND-00023 (Preview Before Changes) requires a preview but does not preserve the source's requested UI detail: a preview that summarizes the operation (for example, 'If you run this now, 25 items will be moved from Dalton-Whitman to Mobile Library Unit 3. Confirm?').",
+      "suggested_fix": "Amend CAND-00023 to require the preview to include a clear summary with counts and scope (number of items, source(s), destination(s), scheduled time if any) and require an explicit confirmation action before applying changes.",
+      "candidate_ids": [
+        "CAND-00023"
+      ]
+    },
+    "issue_index": 4,
+    "retain": true,
+    "reason": "Preview requirement (CAND-00023) should require a clear operation summary (counts, sources, destination, scheduled time) and explicit confirmation per the source example."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "CAND-00019 (Manual Selection of Titles) states manual selection from query results is required but omits UI-level selection behaviors requested in the source (e.g., checkbox selection, support for selecting a subset of results from a larger query, select-all across pages).",
+      "suggested_fix": "Extend CAND-00019 to require multi-select UI controls (checkboxes), select-all and clear-selection actions, support for paged result selection with persistent selection across pages, and bulk-selection by range or imported barcode list.",
+      "candidate_ids": [
+        "CAND-00019"
+      ]
+    },
+    "issue_index": 5,
+    "retain": true,
+    "reason": "Manual-selection candidate (CAND-00019) omits UI selection behaviors requested by stakeholders (checkboxes, persistent multi-page selection, select-all); add these concrete UI semantics."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "CAND-00022 (Revert Items to Original Location) captures revert after time and/or based on other criteria but omits the concrete event examples from the source (for example, revert when status changes to 'sold' at a book sale, revert when item is or is not checked out at destination).",
+      "suggested_fix": "Clarify CAND-00022 to require configurable event-trigger definitions (status-change triggers such as 'sold', checkout events at destination, manual event markers) and the ability to attach those triggers to saved transfer operations so reversion can be conditional on specific events.",
+      "candidate_ids": [
+        "CAND-00022"
+      ]
+    },
+    "issue_index": 6,
+    "retain": true,
+    "reason": "Revert-to-original candidate (CAND-00022) must include configurable event triggers (e.g., sold, checked out at destination) as described by stakeholders; current wording is too vague."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00228: Ability to filter candidate queries by last-circulated date (for example, 'haven't circulated in 6 months') so saved query/templates can express time-based circulation recency criteria.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00228"
+      ]
+    },
+    "issue_index": 7,
+    "retain": true,
+    "reason": "Filtering by last-circulated date (CAND-00228) is a grounded, operational capability (used in saved queries/templates) and is missing from the consolidated draft; integrate it."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00229: An auto-revert implementation detail: a scheduled task/process that periodically checks transferred items and performs reversion based on elapsed time or configured event/status criteria.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00229"
+      ]
+    },
+    "issue_index": 8,
+    "retain": true,
+    "reason": "Auto-revert scheduled-task detail (CAND-00229) is an implementation-level but required behavior described by sources and should be preserved."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The draft candidate for 'Missing and Damaged Items Report' (CAND-00032) does not capture the stakeholder request to provide aggregated counts and grouping by title (to detect titles repeatedly lost or damaged). The emails explicitly state auditing needs ('showing how many items went missing/were damaged') and collection-decision needs ('if we keep losing the same titles...').",
+      "suggested_fix": "Extend CAND-00032 to require per-title (bibliographic-level) grouping and counts, and a mechanism to flag or rank titles with repeated losses/damage over a chosen time range to support collection decisions.",
+      "candidate_ids": [
+        "CAND-00032"
+      ]
+    },
+    "issue_index": 9,
+    "retain": true,
+    "reason": "Missing/damaged reporting must include aggregated counts and title-level grouping for auditing and collection decisions; current candidate lacks per-title aggregation."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The draft candidate(s) for missing/damaged reporting do not require including or allowing filters on the underlying item status values (e.g., 'missing', 'lost', 'long overdue'), which stakeholders referenced as the source of reportable items.",
+      "suggested_fix": "Update the missing/damaged reporting candidate (CAND-00032) to require the report to expose item status fields, permit selecting which status values to include, and display the status in report outputs so counts and lists can be interpreted correctly.",
+      "candidate_ids": [
+        "CAND-00032"
+      ]
+    },
+    "issue_index": 10,
+    "retain": true,
+    "reason": "Missing/damaged report must expose and allow filtering by item status values (missing/lost/long-overdue) as described in multiple sources; add explicit status filtering and status display."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "The in-transit report candidate (CAND-00033) specifies listing items in-transit more than X days but does not document the transit-record detection logic stakeholders described (arrival date null and departure date older than X days). That implementation-oriented detection rule was offered in the source and could be important to disambiguate what 'in-transit' means in reporting.",
+      "suggested_fix": "Consider adding a descriptive note to CAND-00033 that documents the stakeholder-proposed detection criteria (for example: 'in-transit' = transit-record with null arrival date and departure date > X days) as an expected/accepted method for identifying in-transit items or require the report to allow configurable detection rules where local transit-record semantics differ.",
+      "candidate_ids": [
+        "CAND-00033"
+      ]
+    },
+    "issue_index": 11,
+    "retain": true,
+    "reason": "In-transit detection logic was suggested by stakeholders (arrival null + departure > X days); document this detection approach or require configurable detection rules to avoid ambiguity."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00230: The missing and damaged items report shall provide aggregated counts (how many items went missing/were damaged) and support grouping by title (or bibliographic record) so staff can identify titles that are repeatedly lost or damaged across a chosen scope.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00230"
+      ]
+    },
+    "issue_index": 12,
+    "retain": true,
+    "reason": "CAND-00230 (aggregated counts and grouping by title for missing/damaged items) is a grounded capability requested by stakeholders and should be integrated."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00231: The missing/damaged items report shall allow selection/filtering by item status values (for example 'missing', 'lost', 'long overdue') and include the item status in the report output so staff can distinguish status categories in counts and lists.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00231"
+      ]
+    },
+    "issue_index": 13,
+    "retain": true,
+    "reason": "CAND-00231 (allow selection/filtering by item status in missing/damaged report) is grounded in the sources and must be integrated to make the report operationally useful."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00232: The in-transit-items report shall identify items that are currently in-transit using explicit transit-record conditions (for example: arrival date is null and departure date is more than X days ago) so the report reliably surfaces items that have been outstanding in transit beyond the configured threshold.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00232"
+      ]
+    },
+    "issue_index": 14,
+    "retain": true,
+    "reason": "CAND-00232 (explicit transit-record detection rule) codifies a reliable identification method described in the sources and should be preserved or made configurable."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "Candidate CAND-00039 (Last Copy Report) captures the need to flag last copies but does not preserve the source's explicit operational rationale that the report 'helps catalogers update WorldCat entries'. The draft notes avoiding accidental deletion generally but omits the specific WorldCat-editing use-case described by stakeholders.",
+      "suggested_fix": "Restore the source's explicit mention that the last-copy report is intended to assist catalogers who need to update WorldCat entries (or other union-catalog records). At minimum, document the use-case so implementers can ensure the report includes the bibliographic identifiers and export/context needed for catalogers to perform WorldCat edits safely.",
+      "candidate_ids": [
+        "CAND-00039"
+      ]
+    },
+    "issue_index": 15,
+    "retain": true,
+    "reason": "Last-copy report must preserve the cataloging use-case (assisting catalogers updating WorldCat) so implementers include necessary bibliographic identifiers and export context; add this use-case explicitly."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00233: Should it be automated or manual?",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00233"
+      ]
+    },
+    "issue_index": 16,
+    "retain": true,
+    "reason": "Open question (CAND-00233) about automated vs. manual purging is explicitly raised by stakeholders and must remain as a documented unresolved decision point in the spec."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The draft's deletion-audit requirements do not capture the request in the source to record a deletion 'reason' or the record's status immediately before deletion. The email explicitly suggested: \"- Possibly why (status before deletion?)\" This information is not represented in the accepted deletion-related candidates (for example, CAND-00046..CAND-00052 cover record type, timestamp, user, location, record identifier and denied attempts but not a pre-deletion status or deletion rationale).",
+      "suggested_fix": "Add a field to the deletion audit (for example 'pre_deletion_status' and/or 'deletion_reason') captured by the database trigger and exposed in the deletion report interface. Update the deletion-audit requirement and the related candidates (e.g., extend CAND-00047, CAND-00049 and CAND-00050) to require collection, storage and reporting of this value.",
+      "candidate_ids": [
+        "CAND-00047",
+        "CAND-00049",
+        "CAND-00050"
+      ]
+    },
+    "issue_index": 17,
+    "retain": true,
+    "reason": "Deletion-audit must capture pre-deletion status or deletion reason as suggested by stakeholders; add pre_deletion_status/deletion_reason fields to audit logging."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00234: - Possibly why (status before deletion?)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00234"
+      ]
+    },
+    "issue_index": 18,
+    "retain": true,
+    "reason": "CAND-00234 (capture deletion reason/status) is grounded in the sources and should be integrated into the deletion-audit requirement."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "CAND-00055 (Combine Demographic Filters) states the system should allow combining demographic filters with AND/OR logic, but it does not preserve the source's explicit example of combining demographic filters with transaction/activity-based criteria (for example: \"show me all Juvenile patrons in zip code 30505 who haven't checked anything out in 6 months\"). The draft omits the requirement that demographic filters be combinable with transaction-history/inactivity conditions (last-circulation date, no checkouts in N days).",
+      "suggested_fix": "Clarify CAND-00055 (or the patron-characteristics requirement) to explicitly state that demographic filters may be combined with transaction-based criteria such as last circulation date or inactivity windows (e.g., \"no checkouts in the last N days\"). Reference the Inactive patrons reporting capability where appropriate to show this cross-filtering is supported.",
+      "candidate_ids": [
+        "CAND-00055"
+      ]
+    },
+    "issue_index": 19,
+    "retain": true,
+    "reason": "Demographic filters must be explicitly combinable with transaction/activity criteria (e.g., inactivity windows) per stakeholder examples; update candidate CAND-00055 accordingly."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00235: The \"age range\" is calculated from the birth_date field, which means we need to compute it at query time. We can create age brackets in the query.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00235"
+      ]
+    },
+    "issue_index": 20,
+    "retain": true,
+    "reason": "Age-range calculation from birth_date (CAND-00235) is an explicit technical detail from sources and must be captured so age buckets are computed at query time."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The existing candidate CAND-00058 (Report on Inactive Patrons) enumerates electronic activity as OPAC login, online hold placement and online renewals but omits explicit inclusion of digital-resource access. The source explicitly lists accessing digital collections (if integrated) as part of 'electronic activity'. The omission changes the measurable definition of 'electronic activity' and could cause the report to miss patrons who only access digital resources.",
+      "suggested_fix": "Update CAND-00058 to include 'accessing digital collections (if integrated)' in the list of electronic activities. For example, extend the statement to: 'Electronic activity includes OPAC login, online hold placement, online renewals, and accessing digital collections (if integrated).' Use the original wording as guidance: '\"Electronic activity\" should include: ... 4. Accessing digital collections (if integrated)'.",
+      "candidate_ids": [
+        "CAND-00058"
+      ]
+    },
+    "issue_index": 21,
+    "retain": true,
+    "reason": "Inactive-patron 'electronic activity' definition must include digital-resource access where integrated (source explicitly listed this); update CAND-00058 to include it."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "The existing candidate CAND-00065 (Background Processing for Performance) records that the report should be handled as a background process, but its candidate statement omits the source's additional performance recommendation to cache results. The sample evidence explicitly recommended running the report as a background job and caching results for large patron sets.",
+      "suggested_fix": "Amend CAND-00065 to reference result caching as an expected optimization. For example: 'The report generation should be handled as a background process to ensure system performance; for very large patron sets the implementation should support caching of report results or intermediate query results to avoid repeated expensive queries.' Use the original phrasing as guidance: 'We should run it as a background report and cache results.'",
+      "candidate_ids": [
+        "CAND-00065"
+      ]
+    },
+    "issue_index": 22,
+    "retain": true,
+    "reason": "Background processing candidate (CAND-00065) should preserve the source recommendation to cache results for very large patron sets; add caching as an expected optimization."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00236: The inactive-patron report must aggregate electronic-activity events that are stored in multiple tables (OPAC logins, online holds, online renewals, digital-resource access) into a single combined query/measure so the report correctly identifies patrons with no activity across all tracked event sources.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00236"
+      ]
+    },
+    "issue_index": 23,
+    "retain": true,
+    "reason": "CAND-00236 (aggregate electronic-activity from multiple event tables) is a grounded implementation requirement for inactive-patron reporting and must be included."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "error",
+      "description": "The specification's blacklist includes multiple 'discarded candidate' items whose text does not appear in the current source document (DOC-010). Listing these as blacklisted candidates claims provenance in the source that is not present and may have introduced out-of-source content into the blacklist.",
+      "suggested_fix": "Remove or annotate the blacklist entries that lack literal support in DOC-010, and either (a) attach the exact source quotation from the originating document that justifies each blacklisted candidate, or (b) move those blacklist entries to a separate project-planning artifact and do not present them as discarded candidates from DOC-010. At minimum, provide DOC-010 evidence quotes for these candidate_ids or delete them from the blacklist.",
+      "candidate_ids": [
+        "CAND-00169",
+        "CAND-00170",
+        "CAND-00171",
+        "CAND-00172",
+        "CAND-00178"
+      ]
+    },
+    "issue_index": 24,
+    "retain": true,
+    "reason": "Blacklist provenance mismatch is real: several blacklisted candidates lack DOC-010 provenance; the blacklist entries must be annotated with sources or moved to a planning artifact to avoid incorrect attribution."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00237: DE-2: Management Processes interface with a variety of vendor websites, via published APIs and/or automated transfer of standard-format data files (e.g., USMARC21, EDIFACT).",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00237"
+      ]
+    },
+    "issue_index": 25,
+    "retain": true,
+    "reason": "CAND-00237 (vendor interfaces / USMARC21, EDIFACT) is an explicit dependency in the sources and must be integrated or referenced in dependencies."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00238: King County serves over 2.3 million residents across 49 libraries with an annual circulation of approximately 8 million items. The system maintains over 4 million bibliographic records and serves over 650,000 active borrower accounts.\n\nOE-1: The system must support a library consortium with 286 locations, 17 million annual circulations, and purchasing/processing over 900,000 items per year.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00238"
+      ]
+    },
+    "issue_index": 26,
+    "retain": true,
+    "reason": "CAND-00238 (King County scale example and OE-1 figures) is present in the corpus and should be represented distinctly; the spec must reconcile differing scale figures across documents."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "error",
+      "description": "Candidate CAND-00128's evidence_quote does not match the candidate statement. The candidate is 'Query for High Balance Accounts' (ability to query patron accounts with balances greater than X dollars) but the stored evidence_quote refers to item purchase-price aggregation ('Regarding the \"value of items report\" - the data is already in the item records (purchase price field).').",
+      "suggested_fix": "Replace CAND-00128's evidence_quote with the correct source text supporting the high-balance-account query (e.g., Susan's or Dana's lines stating staff need to query patron accounts with balances greater than X dollars), or correct the candidate statement so it matches the existing quote.",
+      "candidate_ids": [
+        "CAND-00128"
+      ]
+    },
+    "issue_index": 27,
+    "retain": true,
+    "reason": "CAND-00128's evidence_quote does not support its candidate statement; the mismatch is real and must be corrected (quote or statement) for traceability."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00239: When producing financial reports, the system must be able to join financial data attached to patron records and item records so queries can combine those data sources.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00239"
+      ]
+    },
+    "issue_index": 28,
+    "retain": true,
+    "reason": "CAND-00239 (join patron and item financial data) codifies a necessary reporting capability described in sources and should be integrated."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00240: Financial reports must show payments broken down by payment type (for example: cash, credit card, check, etc.) to support daily reconciliation.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00240"
+      ]
+    },
+    "issue_index": 29,
+    "retain": true,
+    "reason": "CAND-00240 (payments-by-type reporting) is explicitly requested by finance stakeholders and must be included in financial-reporting requirements."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Candidate CAND-00138 (Reports Queuing) and the corresponding requirement text do not capture two explicit usability details from the source email: (a) the report submission timestamp must be visible to the requestor (\"When their report was submitted\") and (b) the queue display must show an explicit numeric count of how many reports are ahead of the user's report. The draft mentions queue position and status but omits the literal \"when submitted\" timestamp and does not clearly require a numeric \"how many are ahead\" indicator.",
+      "suggested_fix": "Update the Reports Queuing requirement (CAND-00138) to explicitly require displaying the submission timestamp and an explicit numeric count of reports ahead for each queued job (in addition to status and position). Include these fields in UI and exported/status messages.",
+      "candidate_ids": [
+        "CAND-00138"
+      ]
+    },
+    "issue_index": 30,
+    "retain": true,
+    "reason": "Report-queue UI must include submission timestamp and an explicit numeric count of reports ahead (sources requested both); update CAND-00138 to require these fields."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "Candidate CAND-00134 (Permissions Management / Shared Folders) captures that admins can create shared folders and manage run/edit/clone rights, but the draft does not explicitly record the source's phrasing that shared-folder controls should permit or deny staff from \"running specific reports, and/or to run ad hoc reports on specific sets of data.\" The source implies not just template visibility/edit rights but the ability to restrict execution against particular data scopes.",
+      "suggested_fix": "Clarify whether shared-folder and template permissions must support scoping execution rights to particular data sets (e.g., allow running reports only against a staff member's branch or only against selected data groups). If required, add explicit language that administrators can grant/deny execution rights that are scoped to data sets or ranges and document how those scoping permissions are administered.",
+      "candidate_ids": [
+        "CAND-00134"
+      ]
+    },
+    "issue_index": 31,
+    "retain": true,
+    "reason": "Shared-folder permissions may need execution scoping (run rights limited to data scopes) as implied by sources; clarify whether execution rights must be scoping-capable and add explicit language if required."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00241: If I change someone from \"Staff\" to \"Manager,\" their report permissions should update automatically based on the role.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00241"
+      ]
+    },
+    "issue_index": 32,
+    "retain": true,
+    "reason": "CAND-00241 (role-change propagation) is a grounded operational requirement (automatically update permissions when role changes) and should be integrated."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Candidate CAND-00141 records the audit requirement ('The system must track WHICH staff member is logged in for audit purposes') but omits the document's explicit constraint that card-swipe convenience must not bypass individual authentication. The source states the card is only a convenience and 'it shouldn't bypass individual authentication entirely.'",
+      "suggested_fix": "Augment CAND-00141 to state that streamlined methods (card-swipe) must still result in individual authentication/identification and must not bypass individual authentication entirely; explicitly preserve audit linkage between the swipe and the authenticated staff identity.",
+      "candidate_ids": [
+        "CAND-00141"
+      ]
+    },
+    "issue_index": 33,
+    "retain": true,
+    "reason": "Streamlined login via card-swipe must still result in individual authentication/audit linkage (source explicitly required that card swipe not bypass identification); augment CAND-00141 accordingly."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Candidate CAND-00144 ('Easy Role Administration') records a general need to make role/permission administration easy but omits two explicit operational details from the source: (a) 'Administrators should be able to create and manage these groups' and (b) 'changing someone's permissions should be a simple matter of changing their role assignment, not modifying individual permissions.' Both are actionable requirements in the source email.",
+      "suggested_fix": "Expand CAND-00144 to explicitly require that administrators can create and manage security groups/roles (create, edit, delete), and that effective permission changes are accomplished by changing role assignments (not by per-user permission edits). Also record that role-assignment changes should be auditable (who changed what and when), since the source ties these capabilities to administration and auditability.",
+      "candidate_ids": [
+        "CAND-00144"
+      ]
+    },
+    "issue_index": 34,
+    "retain": true,
+    "reason": "Easy role administration must explicitly allow admins to create/manage roles and effect permission changes by changing role assignments; add auditable role-assignment changes as requested in the sources."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00242: The system shall provide predefined/example role types and associated permission sets. Examples provided by stakeholders: Front desk staff (can run basic reports, limited filters); Department heads (can create and modify templates); System administrators (full access to all reports and permissions).",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00242"
+      ]
+    },
+    "issue_index": 35,
+    "retain": true,
+    "reason": "CAND-00242 (provide example predefined role types and permission sets) reflects stakeholder examples and should be integrated as a delivered convenience and guideline."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "The specification's 'Operating environment and scalability' text includes the example scale '≈17M annual circulations' which is not present in the audited source document (DOC-014). DOC-014 provides specific operational figures (\"286 library locations, serving approximately 3.5 million patrons with a collection of 9.6 million items\") but does not state an annual circulations figure of 17M. The 17M figure appears to be an introduced/unverified numeric example that changes the apparent scale assumptions.",
+      "suggested_fix": "Remove the 17M annual-circulations exemplar or replace it with figures cited from DOC-014 (or cite an explicit source) so that the specification's scale assumptions match the audited source.",
+      "candidate_ids": [
+        "CAND-00066",
+        "CAND-00067",
+        "CAND-00068",
+        "CAND-00069",
+        "CAND-00070",
+        "CAND-00160",
+        "CAND-00162",
+        "CAND-00188",
+        "CAND-00189",
+        "CAND-00167",
+        "CAND-00187",
+        "CAND-00199"
+      ]
+    },
+    "issue_index": 36,
+    "retain": true,
+    "reason": "Specification-level scale/provenance mismatch flagged: the 17M annual-circulation example appears across documents but is not present in every source (e.g., DOC-014); the spec must ensure numeric scale figures are traceable to specific sources or be qualified as example values."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "The specification asserts supported client browsers and versions (\"support IE 6.0+ and Firefox 2.0+\") and specific server OS options (Linux or Solaris) in the 'Operating environment and scalability' and 'Accessibility, standards and platform constraints' requirements. DOC-014 does not include explicit browser-version compatibility statements nor prescribes particular server operating systems; these technical constraints appear to be introduced in the specification rather than derived from DOC-014.",
+      "suggested_fix": "Either cite the source within DOC-014 that justifies the listed browser and OS constraints or remove/qualify them as implementation options. Ensure any stated client/browser/OS targets are traceable to source requirements or stakeholder statements.",
+      "candidate_ids": [
+        "CAND-00066",
+        "CAND-00067",
+        "CAND-00068",
+        "CAND-00069",
+        "CAND-00070",
+        "CAND-00071",
+        "CAND-00072",
+        "CAND-00073",
+        "CAND-00074",
+        "CAND-00075",
+        "CAND-00076",
+        "CAND-00160",
+        "CAND-00162",
+        "CAND-00188",
+        "CAND-00189",
+        "CAND-00167",
+        "CAND-00187",
+        "CAND-00199"
+      ]
+    },
+    "issue_index": 37,
+    "retain": true,
+    "reason": "Browser/OS constraints appear in multiple sources but provenance must be explicit; ensure any stated supported browsers/versions and server OS choices are traceable to source statements rather than introduced without citation."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00243: Drag-and-drop field selection",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00243"
+      ]
+    },
+    "issue_index": 38,
+    "retain": true,
+    "reason": "CAND-00243 (drag-and-drop field selection) is a grounded UI feature from Evergreen reference and should be preserved."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00244: Circulation Count by Circ Modifier (partially available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00244"
+      ]
+    },
+    "issue_index": 39,
+    "retain": true,
+    "reason": "CAND-00244 (circulation count by circ modifier) is a requested report type (partially available) and should be included."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00245: Circulation Count by Dewey (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00245"
+      ]
+    },
+    "issue_index": 40,
+    "retain": true,
+    "reason": "CAND-00245 (circulation count by Dewey) is a requested capability noted as missing and should be represented."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00246: Circulation Count by MARC fields (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00246"
+      ]
+    },
+    "issue_index": 41,
+    "retain": true,
+    "reason": "CAND-00246 (circulation count by MARC fields) is a requested capability and must remain in the candidate set for resolution."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00247: List of Items with Missing Status",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00247"
+      ]
+    },
+    "issue_index": 42,
+    "retain": true,
+    "reason": "CAND-00247 (list items with missing status) reflects explicit needs in the corpus and should be included."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00248: Items Edited Count (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00248"
+      ]
+    },
+    "issue_index": 43,
+    "retain": true,
+    "reason": "CAND-00248 (items edited count) is a missing metric stakeholders called out and should be preserved as a candidate."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00249: List of Items by Fines Stopped Reason (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00249"
+      ]
+    },
+    "issue_index": 44,
+    "retain": true,
+    "reason": "CAND-00249 (list items by fines stopped reason) is a requested report type and should be integrated."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00250: Items more than XX days overdue with patron contact info (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00250"
+      ]
+    },
+    "issue_index": 45,
+    "retain": true,
+    "reason": "CAND-00250 (items > XX days overdue with patron contact info) is explicitly requested and must be supported (subject to privacy/aggregation rules)."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00251: List of Items with specific Total Use Count (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00251"
+      ]
+    },
+    "issue_index": 46,
+    "retain": true,
+    "reason": "CAND-00251 (list items by total use count) is a required weeding/analytics report and must be retained."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00252: List of Items by Creation Date Range (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00252"
+      ]
+    },
+    "issue_index": 47,
+    "retain": true,
+    "reason": "CAND-00252 (list items by creation date range) is a requested capability not present in the draft and should be added."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00253: Claims Returned report (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00253"
+      ]
+    },
+    "issue_index": 48,
+    "retain": true,
+    "reason": "CAND-00253 (claims returned report) is a named report request; preserve for implementation analysis."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00254: Age of collection by call number (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00254"
+      ]
+    },
+    "issue_index": 49,
+    "retain": true,
+    "reason": "CAND-00254 (age of collection by call number) is a requested analytical report and should be included as a candidate."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00255: Price value of collection by call number (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00255"
+      ]
+    },
+    "issue_index": 50,
+    "retain": true,
+    "reason": "CAND-00255 (price value of collection by call number) is a requested financial/collection metric and must be represented."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00256: Bib Records Edited Count (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00256"
+      ]
+    },
+    "issue_index": 51,
+    "retain": true,
+    "reason": "CAND-00256 (bib records edited count) is a repeatedly-requested statistic and should be retained as a requirement."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00257: Bib Records Added by user by library Count (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00257"
+      ]
+    },
+    "issue_index": 52,
+    "retain": true,
+    "reason": "CAND-00257 (bib records added by user by library) is an explicit reporting need and should be included."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00258: Voter Survey Responses (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00258"
+      ]
+    },
+    "issue_index": 53,
+    "retain": true,
+    "reason": "CAND-00258 (voter survey responses) was requested in the appenda and should be retained where survey data exists."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00259: List of Patrons with inactive status (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00259"
+      ]
+    },
+    "issue_index": 54,
+    "retain": true,
+    "reason": "CAND-00259 (list patrons with inactive status) is a requested report; retain."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00260: Staff Accounts with date of last password change (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00260"
+      ]
+    },
+    "issue_index": 55,
+    "retain": true,
+    "reason": "CAND-00260 (staff accounts with last password change) is a security/administration report requested in sources and should be preserved."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00261: Holds Purchase Alert (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00261"
+      ]
+    },
+    "issue_index": 56,
+    "retain": true,
+    "reason": "CAND-00261 (Holds Purchase Alert) is a requested report in the appendix and should stay as a candidate."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00262: Unfilled Holds (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00262"
+      ]
+    },
+    "issue_index": 57,
+    "retain": true,
+    "reason": "CAND-00262 (unfilled holds) is a named useful report and should remain in scope."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00263: Stale Holds (not available)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00263"
+      ]
+    },
+    "issue_index": 58,
+    "retain": true,
+    "reason": "CAND-00263 (stale holds) is explicitly requested and should be preserved."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00264: Aged Debt detailed report (partially available, needs enhancement)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00264"
+      ]
+    },
+    "issue_index": 59,
+    "retain": true,
+    "reason": "CAND-00264 (aged debt detailed report) is requested for finance operations and should be retained as an enhancement candidate."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "The spec's in-transit-items requirement introduces a default threshold of 7 days for 'in-transit more than X days (X configurable, default suggested 7 days)'. The interview (DOC-015) specifies only a configurable 'more than X days' threshold and does not provide or justify a 7-day default. Introducing a concrete default here is an ungrounded numeric decision with no provenance in this source document.",
+      "suggested_fix": "Either remove the hard-coded 'default suggested 7 days' from the requirement so the spec only states a configurable X (as in the interview), or document the provenance/rationale for choosing 7 days (cite stakeholder agreement or another source). If a default is to be kept, mark it explicitly as originating from other source(s) (not DOC-015) and ensure it remains configurable.",
+      "candidate_ids": [
+        "CAND-00150"
+      ]
+    },
+    "issue_index": 60,
+    "retain": false,
+    "reason": "Default '7 days' for in-transit threshold is present in stakeholder sources (CAND-00036/CAND-00150); flagging it as ungrounded is incorrect—keep configurable default but cite source."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The role-based access control candidate (CAND-00165) omits the 'Patron (public access through OPAC)' role explicitly mentioned in the interview. The draft's role list includes Staff, Local Admin, Library Manager and Global Admin but does not record the Patron/public-access role or its relationship to OPAC access and reporting scope.",
+      "suggested_fix": "Update the role-based access-control requirement (or CAND-00165) to include the Patron/public-access role and document how OPAC/public access is represented and scoped relative to management/reporting permissions (for example, clarify that patrons are a distinct, public-facing role and that OPAC activity is readable but not modifiable by patron-role actors).",
+      "candidate_ids": [
+        "CAND-00165"
+      ]
+    },
+    "issue_index": 61,
+    "retain": true,
+    "reason": "Role-based access control should explicitly note the Patron/public-access role and its read-only OPAC relationship; add that mapping into the RBAC description."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The server/OS candidate (CAND-00160) records that the system must run on Linux and Solaris but omits the interview's historical deployment details (Red Hat Enterprise Linux 5, dual quad-core CPUs, 32GB RAM) and the production database version (PostgreSQL 8.3). The interview also names a secondary Solaris 10/SPARC site used for disaster recovery and reporting; these specifics were not preserved in the accepted candidate.",
+      "suggested_fix": "Add or link a constraint-level candidate capturing the historical/operational environment: RHEL 5 primary server with dual quad-core processors and 32GB RAM, PostgreSQL 8.3 in use, and a secondary site running Solaris 10 on SPARC for disaster recovery/reporting. If the specification intentionally abstracts away historical versions, record this as an explicit deployment assumption (historical environment) so operators understand legacy constraints.",
+      "candidate_ids": [
+        "CAND-00160",
+        "CAND-00164"
+      ]
+    },
+    "issue_index": 62,
+    "retain": true,
+    "reason": "Historical server and DB specifics (RHEL5, dual quad-core, 32GB RAM, PostgreSQL 8.3, Solaris 10/SPARC secondary) are present in interviews and should be recorded as historical deployment context or explicit assumptions."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "The accessibility candidate (CAND-00163) requires Section 508 compliance and support for screen readers and magnification, but it does not preserve the interview's explicit references to particular assistive technologies and HTML features: JAWS, NVDA, ZoomText, requirement for alt tags, ARIA labels and proper semantic HTML.",
+      "suggested_fix": "Augment CAND-00163 (or an accessibility sub-item) to explicitly list the assistive technologies and HTML expectations named in the interview (JAWS, NVDA, ZoomText) and require structural HTML elements, alt attributes, ARIA roles/labels and semantic markup. If the intent was to remain technology-agnostic, document that these named tools were provided as representative examples from stakeholders.",
+      "candidate_ids": [
+        "CAND-00163"
+      ]
+    },
+    "issue_index": 63,
+    "retain": true,
+    "reason": "Accessibility requirement should preserve stakeholder examples (JAWS, NVDA, ZoomText) and HTML expectations (alt tags, ARIA labels, semantic markup) or state them as representative test targets."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "The 'Separate Development and Training Environments' candidate (CAND-00166) in the draft captures the need for non-production testing/training, but the original interview explicitly required export/import functionality for report templates, permission settings and other configuration artifacts to be migratable between environments. That specific migration/export-import detail is not present in CAND-00166's evidence text (though migration is present elsewhere in the specification).",
+      "suggested_fix": "Ensure CAND-00166 (or the related migration candidate) explicitly states the export/import/migration requirements for report templates, permission settings and configuration items so that artifacts developed in training/dev can be reproducibly migrated to production.",
+      "candidate_ids": [
+        "CAND-00166"
+      ]
+    },
+    "issue_index": 64,
+    "retain": true,
+    "reason": "Development/training env migration candidate must explicitly require export/import/migration of templates and settings and state training environment isolation; add this detail."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00265: Our main server is a Red Hat Enterprise Linux 5 box with dual quad-core processors and 32GB of RAM.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00265"
+      ]
+    },
+    "issue_index": 65,
+    "retain": true,
+    "reason": "CAND-00265 (historical server spec RHEL5, dual quad-core, 32GB) directly reflects the interview and should be preserved as operational context."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00266: It runs PostgreSQL 8.3 for the database.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00266"
+      ]
+    },
+    "issue_index": 66,
+    "retain": true,
+    "reason": "CAND-00266 (PostgreSQL 8.3) is in the corpus and should be captured as historical database version/context."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00267: We also have a secondary site that runs Solaris 10 on SPARC hardware for disaster recovery and reporting.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00267"
+      ]
+    },
+    "issue_index": 67,
+    "retain": true,
+    "reason": "CAND-00267 (secondary Solaris 10/SPARC DR site) is a concrete operational detail and should be recorded in deployment assumptions."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00268: The system needs to work with:\n  - Screen readers like JAWS and NVDA\n  - Screen magnification software like ZoomText\n  - Other assistive technology programs\n\nWe can't have blind staff members unable to run reports. The HTML output\nneeds to be properly structured with alt tags, ARIA labels, and proper\nsemantic HTML. And the system needs to produce standards-compliant HTML.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00268"
+      ]
+    },
+    "issue_index": 68,
+    "retain": true,
+    "reason": "CAND-00268 (explicit assistive-technology list and HTML requirements) documents concrete accessibility expectations from stakeholders and should be integrated."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00269: Patron (public access through OPAC)",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00269"
+      ]
+    },
+    "issue_index": 69,
+    "retain": true,
+    "reason": "CAND-00269 (patron public-access role) is a real role in the environment and should be represented in RBAC documentation."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "The source explicitly quantifies acquisition throughput (\"purchasing and processing over 900,000 items per year\") as part of the scale assumption (OE-1). The specification's Operating environment and scalability requirement references 'large acquisition volumes' and example scale (286 locations, ~17M circulations) but omits the literal \"over 900,000 items per year\" figure from the minutes. The numeric detail from the source was lost.",
+      "suggested_fix": "Restore the source's explicit acquisition-throughput statement in the Operating environment and scalability requirement (or document why the specific 900,000/year figure is being generalized). For traceability, include the literal wording from the minutes: \"purchasing and processing over 900,000 items per year.\"",
+      "candidate_ids": [
+        "CAND-00066",
+        "CAND-00067",
+        "CAND-00068",
+        "CAND-00069",
+        "CAND-00070",
+        "CAND-00160",
+        "CAND-00162",
+        "CAND-00188",
+        "CAND-00189",
+        "CAND-00167",
+        "CAND-00187",
+        "CAND-00199"
+      ]
+    },
+    "issue_index": 70,
+    "retain": true,
+    "reason": "The 900,000 items/year acquisition-processing figure appears in meeting minutes and should be restored or justified where the spec generalized acquisition volumes."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "The source explicitly states \"Section 508 compliance is mandatory\" and names example assistive technologies (JAWS, NVDA, ZoomText). The Accessibility/standards constraint in the specification requires support for screen readers and magnifiers and standards-compliant HTML but does not capture the source's explicit 'Section 508' statement nor the concrete examples of assistive technologies mentioned in the meeting minutes.",
+      "suggested_fix": "Augment the Accessibility requirement (CAND-00190) to record the source's explicit legal reference and stakeholder examples. Either (a) add the literal phrase from the minutes: \"Section 508 compliance is mandatory,\" or (b) document that stakeholders explicitly require Section 508 compliance and list the example assistive technologies cited (JAWS, NVDA, ZoomText) as representative tools that must be supported or tested against.",
+      "candidate_ids": [
+        "CAND-00190"
+      ]
+    },
+    "issue_index": 71,
+    "retain": true,
+    "reason": "The source explicitly required Section 508 compliance and cited assistive technologies; the spec must preserve this legal/technology-level assertion or record it as stakeholder-mandated test targets."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00270: Management Processes are part of an enterprise-level Library Automation System.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00270"
+      ]
+    },
+    "issue_index": 72,
+    "retain": true,
+    "reason": "CAND-00270 (Management Processes are part of an enterprise-level system) is a valid architectural assumption and should be preserved."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00271: Management Processes rely on the data structures and functionality of an enterprise-level Library Automation System, including Acquisitions and Cataloging modules.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00271"
+      ]
+    },
+    "issue_index": 73,
+    "retain": true,
+    "reason": "CAND-00271 (dependency on Acquisitions/Cataloging ILS modules) is an explicit dependency in the corpus and must be retained."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The draft candidate for development/training environment migration (CAND-00203) captures export/import of templates and settings but omits the meeting's explicit requirement that the training environment be 'safe' so staff can experiment without risking production data. The source explicitly requires isolation/safety of the training environment.",
+      "suggested_fix": "Augment CAND-00203 (Development and Training Environment) to include an explicit nonfunctional requirement that the training environment be isolated from production data (for example: separate dataset, scrubbed/anonymized data, or strict write isolation) so staff may experiment without risking production data.",
+      "candidate_ids": [
+        "CAND-00203"
+      ]
+    },
+    "issue_index": 74,
+    "retain": true,
+    "reason": "Development/training environment candidate (CAND-00203) must require that training data/configurations be isolated/safe for experimentation; add explicit isolation/anonymization requirement."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The draft candidate covering OPAC constraints (CAND-00205) requires that reporting not slow the OPAC but omits the source's explicit statement that the reporting system must not modify OPAC data (read-only interaction). The source says the reporting system 'queries this data, but doesn't modify it.'",
+      "suggested_fix": "Update CAND-00205 (OPAC Constraint) to explicitly require that the reporting subsystem only read OPAC-created data and must not modify OPAC data or state. Document read-only semantics and any allowed synchronization/replication behavior.",
+      "candidate_ids": [
+        "CAND-00205"
+      ]
+    },
+    "issue_index": 75,
+    "retain": true,
+    "reason": "OPAC constraint must state read-only reporting semantics against OPAC data (the sources explicitly said reports query but do not modify OPAC data); add this to CAND-00205."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "warning",
+      "description": "The draft candidate for report cancellation (CAND-00212) requires ability to cancel scheduled or running reports but omits the implementation detail noted in the source that cancellation requires the system to check for cancellation signals during report processing.",
+      "suggested_fix": "Enhance CAND-00212 to require that long-running and background report processing routines periodically poll for cancellation signals or otherwise support timely cancellation semantics, and document expected cancellation latency/behavior.",
+      "candidate_ids": [
+        "CAND-00212"
+      ]
+    },
+    "issue_index": 76,
+    "retain": true,
+    "reason": "Report cancellation semantics require processing routines to poll for cancel signals; add this implementation expectation to CAND-00212 to ensure timely cancellation."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The draft candidate for error reporting (CAND-00209) requires low-level, query-specific feedback but does not preserve the source's explicit example of the level of diagnostic detail required (which table, which field, what kind of error). Stakeholders demanded concrete diagnostics, not just generic low-level feedback.",
+      "suggested_fix": "Clarify CAND-00209 to require that administrative diagnostics include at minimum: the failed SQL statement or query fragment, the implicated table and field(s), the database error code/type, and a human-readable explanation or suggested corrective action; and document how these diagnostics are surfaced in the UI.",
+      "candidate_ids": [
+        "CAND-00209"
+      ]
+    },
+    "issue_index": 77,
+    "retain": true,
+    "reason": "Error-reporting diagnostics must include concrete low-level diagnostic fields (failed SQL, table/field, error code, suggested action) as requested by administrators; augment CAND-00209 accordingly."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00272: I strongly recommend against denormalization for reporting. Maintaining sync between a reporting warehouse and the live database creates more problems than it solves. Modern SQL databases can handle complex analytical queries if they're written properly.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00272"
+      ]
+    },
+    "issue_index": 78,
+    "retain": true,
+    "reason": "CAND-00272 (recommendation against denormalization) is a documented technical position from the technical subcommittee and should be preserved for architectural guidance."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00273: Management Processes interface with a variety of vendor websites, via published APIs and/or automated transfer of standard-format data files (e.g., USMARC21, EDIFACT). The reporting system needs to handle EDI ordering data from some vendors, but cannot rely on that data being present at every library.",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00273"
+      ]
+    },
+    "issue_index": 79,
+    "retain": true,
+    "reason": "CAND-00273 (vendor integration and EDI handling) reflects a real dependency and operational reality and should be retained with the noted caveat that data presence varies by library."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "The survey explicitly requests a 'snapshot bills report going back in time' (Q9). The draft specification includes historical reporting/warehouse capabilities and financial reporting separately, but does not explicitly require a historical/snapshot 'bills' report or state that financial/billing reports support date-sliced snapshots of bills/payments. As written, it's unclear whether the historical-reporting requirement covers bills snapshots or whether the financial reporting requirement supports retrieving bill state as-of a past date.",
+      "suggested_fix": "Add an explicit functional requirement that financial/billing reports support historical snapshots (e.g., 'ability to produce a snapshot bills report for a specified past date or date-range, showing bills/charges/payments as they appeared on that date') or explicitly state that the historical reporting/warehouse facility covers bills and billing ledger snapshots.",
+      "candidate_ids": [
+        "\"Need a snapshot bills report going back in time\""
+      ]
+    },
+    "issue_index": 80,
+    "retain": true,
+    "reason": "Survey-requested 'snapshot bills report' is a distinct financial-historical capability; the spec must explicitly require billing snapshots or state that the historical warehouse covers bills as well."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Survey respondents requested that 'Checkin date/time should not include renewals' (Q9). The draft requires counting renewals and distinguishing check-in/check-out types, but does not explicitly specify how checkin timestamps should be recorded or whether renewals update checkin date/time fields in item or transaction reports. The desired behavior (exclude renewals from checkin timestamp) is not captured unambiguously.",
+      "suggested_fix": "Add a clear requirement describing how renewals must be represented in transaction and item reports (for example: 'Renewal events shall be recorded and counted separately from physical check-ins; check-in date/time fields used in item history and item-report outputs must not be updated by renewal events unless explicitly specified, and renewals shall have a separate renewal timestamp field').",
+      "candidate_ids": [
+        "\"Checkin date/time should not include renewals\""
+      ]
+    },
+    "issue_index": 81,
+    "retain": true,
+    "reason": "Survey request 'checkin date/time should not include renewals' is a specific data-model/semantic requirement; add an explicit rule separating physical check-in timestamps from renewal events."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00274: \"Need a snapshot bills report going back in time\"",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00274"
+      ]
+    },
+    "issue_index": 82,
+    "retain": true,
+    "reason": "CAND-00274 (snapshot bills report) is grounded in the survey and should be integrated as a specific historical-financial-report requirement."
+  },
+  {
+    "issue": {
+      "category": "completeness",
+      "severity": "error",
+      "description": "Independent review discovered CAND-00275: \"Checkin date/time should not include renewals\"",
+      "suggested_fix": "Integrate this new grounded candidate, merging only if semantically equivalent.",
+      "candidate_ids": [
+        "CAND-00275"
+      ]
+    },
+    "issue_index": 83,
+    "retain": true,
+    "reason": "CAND-00275 (checkin timestamp exclude renewals) reflects an explicit data-behavior request and should be added to transaction-timestamp semantics."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Duplicate volume reporting obligations detected across multiple canonical requirements (e.g., CAND-00001 and CAND-00094).",
+      "suggested_fix": "Consolidate into a single canonical Volume/Material Volume reporting requirement and remove redundant duplicates; ensure one authoritative source defines scope and categories.",
+      "candidate_ids": [
+        "CAND-00001",
+        "CAND-00094"
+      ]
+    },
+    "issue_index": 84,
+    "retain": true,
+    "reason": "Duplicate volume-report candidates should be consolidated into one canonical requirement to avoid fragmentation; the consolidation recommendation is valid."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Multiple shelf-space reporting obligations appear under different candidate IDs (e.g., CAND-00011, CAND-00096, CAND-00156, CAND-00185).",
+      "suggested_fix": "Consolidate into a single shelf-space reporting requirement with consistent formatting, calculation method, and scope across library/system, and remove duplicates.",
+      "candidate_ids": [
+        "CAND-00011",
+        "CAND-00096",
+        "CAND-00156",
+        "CAND-00185"
+      ]
+    },
+    "issue_index": 85,
+    "retain": true,
+    "reason": "Multiple shelf-space candidates must be unified into a single requirement with documented estimation method; consolidation is required."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "In-transit item reporting appears in several candidates (CAND-00033, CAND-00100, CAND-00150, CAND-00182).",
+      "suggested_fix": "Consolidate into a single canonical In-Transit Items Report requirement and unify threshold and merging behavior.",
+      "candidate_ids": [
+        "CAND-00033",
+        "CAND-00100",
+        "CAND-00150",
+        "CAND-00182"
+      ]
+    },
+    "issue_index": 86,
+    "retain": true,
+    "reason": "In-transit report candidates appear multiple times and should be merged into a single canonical requirement with unified threshold/merge behavior."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Two separate requirements propose a 'last copy report' (CAND-00039 and CAND-00153).",
+      "suggested_fix": "Consolidate into one canonical Last Copy Report; document scope (branch/system) and reporting actions.",
+      "candidate_ids": [
+        "CAND-00039",
+        "CAND-00153"
+      ]
+    },
+    "issue_index": 87,
+    "retain": true,
+    "reason": "Multiple last-copy candidates must be consolidated into a single authoritative Last Copy Report requirement with clearly stated scope."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Query tool/open-template requirements appear in multiple candidates (CAND-00017, CAND-00132, CAND-00119).",
+      "suggested_fix": "Consolidate into a single Query Tool/Open-Template requirement and align scope across records.",
+      "candidate_ids": [
+        "CAND-00017",
+        "CAND-00132",
+        "CAND-00119"
+      ]
+    },
+    "issue_index": 88,
+    "retain": true,
+    "reason": "Query tool/open-template obligations are duplicated across candidates and should be unified into a single canonical description."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Multiple entries describe report templates, permissions and shared folders (CAND-00083, CAND-00084, CAND-00133, CAND-00134, CAND-00224, CAND-00225).",
+      "suggested_fix": "Consolidate into a unified model for templates/permissions/shared folders; ensure unique IDs and consistent semantics.",
+      "candidate_ids": [
+        "CAND-00083",
+        "CAND-00084",
+        "CAND-00133",
+        "CAND-00134",
+        "CAND-00224",
+        "CAND-00225"
+      ]
+    },
+    "issue_index": 89,
+    "retain": true,
+    "reason": "Template/permission/shared-folder candidates are duplicated; they should be consolidated into a single model to avoid inconsistent semantics."
+  },
+  {
+    "issue": {
+      "category": "blacklist",
+      "severity": "error",
+      "description": "Blacklisted candidate(s) must be discarded from the canonical requirements: Document Reports Functionality (CAND-00169) and Reports Governance items (CAND-00170, CAND-00171, CAND-00172, CAND-00178).",
+      "suggested_fix": "Remove blacklisted candidates from the canonical ledger and avoid incorporating them into implementation.",
+      "candidate_ids": [
+        "CAND-00169",
+        "CAND-00170",
+        "CAND-00171",
+        "CAND-00172",
+        "CAND-00178"
+      ]
+    },
+    "issue_index": 90,
+    "retain": true,
+    "reason": "Blacklisted project/governance items (CAND-00169..00172,00178) are process/organizational tasks not runtime features; they should remain out-of-scope for product requirements as the spec originally stated."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "Open question: shelf-space calculation method (CAND-00015) unresolved; no explicit shelf-space field exists and algorithm must be agreed.",
+      "suggested_fix": "Decide and document the shelf-space calculation method (dimensions, proxy, or other) and update requirements accordingly.",
+      "candidate_ids": [
+        "CAND-00015"
+      ]
+    },
+    "issue_index": 91,
+    "retain": true,
+    "reason": "Shelf-space calculation is an open question in the corpus; the spec must record this unresolved decision or require admin-configurable estimation methods."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "Open questions about capacity metrics for the capacity interface (CAND-00067, CAND-00008); define concrete metrics and scope (region, library type, current load, etc.).",
+      "suggested_fix": "Reach consensus on the capacity metrics to display and document them in the requirements.",
+      "candidate_ids": [
+        "CAND-00067",
+        "CAND-00008"
+      ]
+    },
+    "issue_index": 92,
+    "retain": true,
+    "reason": "Capacity-metric definition is an explicit open question in the corpus and must be resolved or left as an administrable configuration item; retain the question."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "Default archival/retention policy defaults are not defined (CAND-00131, CAND-00215); need policy decisions and configuration guidance.",
+      "suggested_fix": "Document default retention values and provide configuration guidance to enforce them.",
+      "candidate_ids": [
+        "CAND-00131",
+        "CAND-00215"
+      ]
+    },
+    "issue_index": 93,
+    "retain": true,
+    "reason": "Archival/retention-default values are not defined in the corpus; the spec must either set traceable defaults or record the policy decision as an open question."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "Auto-revert precedence rules are not fully specified (CAND-00022, CAND-00027); determine whether time-based, event-based, and precedence rules.",
+      "suggested_fix": "Define exact precedence between time-based and event-based triggers and any exceptions (e.g., checked-out at destination).",
+      "candidate_ids": [
+        "CAND-00022",
+        "CAND-00027"
+      ]
+    },
+    "issue_index": 94,
+    "retain": true,
+    "reason": "Auto-revert precedence rules (time vs event) are unresolved in sources and must be explicitly specified or left as configurable policy."
+  },
+  {
+    "issue": {
+      "category": "provenance",
+      "severity": "warning",
+      "description": "Historical reporting architecture decision required: separate warehouse vs periodic snapshots (CAND-00121, CAND-00211, CAND-00205).",
+      "suggested_fix": "Choose an architecture (reporting warehouse/snapshots vs real-time) and document the rationale and constraints.",
+      "candidate_ids": [
+        "CAND-00121",
+        "CAND-00211",
+        "CAND-00205"
+      ]
+    },
+    "issue_index": 95,
+    "retain": true,
+    "reason": "Historical reporting architecture (warehouse vs replica/snapshots) is an explicit technical choice raised in the corpus and must be resolved and documented."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Duplicate Data Specifications obligations across CAND-00077, CAND-00195, CAND-00206; unify to a single data-spec requirement.",
+      "suggested_fix": "Consolidate data specification requirements into one canonical item and reference the same for all related modules.",
+      "candidate_ids": [
+        "CAND-00077",
+        "CAND-00195",
+        "CAND-00206"
+      ]
+    },
+    "issue_index": 96,
+    "retain": true,
+    "reason": "Data-specification obligations are duplicated across candidates; consolidate into a single data-spec requirement and preserve completeness."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Duplicate Help/Error documentation entries across CAND-00079, CAND-00197, CAND-00208; unify documentation strategy.",
+      "suggested_fix": "Consolidate into a single Help/Error documentation policy and link all related elements.",
+      "candidate_ids": [
+        "CAND-00079",
+        "CAND-00197",
+        "CAND-00208"
+      ]
+    },
+    "issue_index": 97,
+    "retain": true,
+    "reason": "Help/error documentation entries are duplicated; consolidate into a single online help and error-reporting requirement for clarity and traceability."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Duplicate Error Reporting requirements across CAND-00080, CAND-00198, CAND-00209; unify error-feedback model.",
+      "suggested_fix": "Consolidate error reporting and feedback requirements into a single model.",
+      "candidate_ids": [
+        "CAND-00080",
+        "CAND-00198",
+        "CAND-00209"
+      ]
+    },
+    "issue_index": 98,
+    "retain": true,
+    "reason": "Error-reporting candidates are duplicated; unify into a single model specifying both user-facing and low-level diagnostics for administrators."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Board reports delivery and statistics appear in multiple candidates (CAND-00085, CAND-00086, CAND-00135); unify board/executive reporting content.",
+      "suggested_fix": "Consolidate board/executive reporting into a defined package with consistent statistics (Georgia Annual Report scope).",
+      "candidate_ids": [
+        "CAND-00085",
+        "CAND-00086",
+        "CAND-00135"
+      ]
+    },
+    "issue_index": 99,
+    "retain": true,
+    "reason": "Board/executive report candidates are duplicated across documents; consolidate into a delivered board-report package with consistent stat definitions."
+  }
+]

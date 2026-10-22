@@ -1,0 +1,645 @@
+{
+  "title": "PINES Management Processes — Reporting and Administrative Tools",
+  "scope": "Reporting, analysis, batch administrative utilities and supporting infrastructure used by PINES staff, managers and administrators to manage collections, patrons, transactions and financial records across the consortium. This specification covers report content, batch item utilities, data access controls, operational constraints (OS, browsers, accessibility), and developer-provided metadata/documentation. It does not redefine OPAC patron-facing features except where reports read OPAC-created data.",
+  "glossary": [
+    {
+      "term": "report template",
+      "definition": "A saved, administrator-managed report definition that staff can run as-is or (where allowed) clone and modify."
+    },
+    {
+      "term": "background report",
+      "definition": "A report run as an asynchronous job on the server or reporting subsystem that does not block interactive clients."
+    },
+    {
+      "term": "item transfer",
+      "definition": "A batch operation that moves item records from one location to another (for pull lists, outreach, mobile libraries, temporary events, etc.)."
+    },
+    {
+      "term": "last copy",
+      "definition": "An item or bibliographic instance that, within the chosen scope (library or system), is the only copy owned by that scope."
+    },
+    {
+      "term": "OPAC",
+      "definition": "Online Public Access Catalog — the patron-facing web/catalog interface that creates holds and transactions which reports may read."
+    }
+  ],
+  "requirements": [
+    {
+      "name": "Material volume reporting",
+      "explanation": "The system shall provide reports that show the volume of material for a selected library or group of libraries at any point in time, including counts for new acquisitions, items on shelf (checked in) and items out in circulation, and allow breaking down results by category (examples: total items, holds count, adult fiction, board books). Categories shall be configurable per library and templates shall be able to expose custom categories for reuse. Additionally, the reporting capability shall explicitly support analysis of the collection and its use by patrons (circulation patterns and item-level usage) so catalogers and managers can evaluate collection use and inform acquisitions, redistribution and weeding decisions; this analysis must be possible at branch and system scopes and be exportable for further offline analysis. (Sources: DOC-001, DOC-010, DOC-015)",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Direct stakeholder request as a key monthly/board reporting need and repeated endorsement across working-group documents; added patron-usage analysis is similarly essential for collection management.",
+      "candidate_ids": [
+        "CAND-00001",
+        "CAND-00002",
+        "CAND-00003",
+        "CAND-00004",
+        "CAND-00094",
+        "CAND-00157",
+        "CAND-00173"
+      ]
+    },
+    {
+      "name": "System capacity interface",
+      "explanation": "The system shall provide a high-level interface displaying capacity and key metrics for all branches at once, with the ability to drill down to individual branch detail, sort and filter by region, library type or current load, display trend data (growth/shrink patterns), and export results to CSV for directors. The interface shall support grouping of locations where necessary to avoid overwhelming displays. In addition to the original capacity and trend features, the interface shall explicitly support analysis of branch capacity and optimal distribution of the collection (views and reports that help plan redistribution and placement of material across branches) to aid operational planning and collection balance decisions. (Sources: DOC-002, DOC-010, DOC-018) The capacity overview shall include color-coded visual status indicators (for example: green/yellow/red) to allow quick at-a-glance assessment of branch capacity. Because the source does not define numeric thresholds for the color mappings, those mappings shall be administrator-configurable and documented alongside the interface so implementers/operators are not required to invent threshold values. The capacity overview shall support grouping or aggregation of locations (for example by region or administrator-defined groups) and provide summarized/rolled-up views to avoid overcrowded displays when many branches are present; the interface shall also provide operational-planning views that help managers decide redistribution or resource-allocation across branches (for example summaries highlighting over- and under-utilized locations to support redistribution decisions). The high-level/summary view referenced by this interface must present key metrics in the summary (for example: capacity utilization, growth/shrink trend indicators, and high-level item/hold counts) so operators can assess branch status at-a-glance; these summary metrics must be visible in the overview and be linkable/drillable to the detailed branch views so directors and managers can move from the summary to branch-specific detail efficiently.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Expressed as a system-level need for cross-branch planning and explicitly requested by multiple stakeholders; branch-capacity analysis is an operational priority.",
+      "candidate_ids": [
+        "CAND-00007",
+        "CAND-00008",
+        "CAND-00095",
+        "CAND-00179",
+        "CAND-00174",
+        "CAND-00005",
+        "CAND-00009",
+        "CAND-00227",
+        "CAND-00276",
+        "CAND-00277",
+        "CAND-00006"
+      ]
+    },
+    {
+      "name": "Shelf-space utilization report",
+      "explanation": "The system shall produce a shelf-space report, per selected library or for the system, that compares for each genre and format: percentage of total circulations, percentage of the collection, and percentage of total shelf space; the report shall support side-by-side comparison across libraries and date-range filtering. Because shelf space may not be tracked directly, the requirement allows use of calculated estimates (e.g., item dimensions or item-count proxies) and requires the report to document the estimation method used. (Sources: DOC-003, DOC-010, DOC-015) The shelf-space report shall include, for branch-scoped outputs, an explicit system-average comparative value presented alongside the branch's results (for example: a system-average column, overlay or an explicit 'compare to system average' view) so branch managers can directly compare local percentages to the system-wide average; the documentation shall describe the scope and inclusion rules used to compute the system average (for example: which branches are included, whether branches with missing shelf-space estimates are excluded or imputed, and how estimation methods are applied across the system).",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Cataloging and collection managers requested this to support weeding/space decisions, and stakeholders emphasized per-branch and system views.",
+      "candidate_ids": [
+        "CAND-00012",
+        "CAND-00013",
+        "CAND-00014",
+        "CAND-00015",
+        "CAND-00096",
+        "CAND-00156",
+        "CAND-00185",
+        "CAND-00011"
+      ]
+    },
+    {
+      "name": "Batch item transfer utility",
+      "explanation": "The system shall provide a batch item transfer utility that allows staff with appropriate permissions to: build queries for candidate materials (and save those queries as templates), manually select items from query results, change selected items' location fields for transfer, generate pull/transit lists (printable), and optionally schedule or execute an automatic revert to original location based on elapsed time or event criteria. The utility shall support preview and confirmation before applying changes, an undo mechanism where feasible, printable transit labels and transfer delay alerts, and shall record transfer history for each item. Batch updates shall use transaction-safe processing and be efficient for very large collections. (Sources: DOC-004, DOC-010, DOC-015, DOC-019) The utility shall provide an explicit undo capability for batch transfer operations that allows authorized staff to reverse applied batch location changes; if full immediate reversal is not feasible the system shall provide an explicit rollback operation or a configurable undo window and shall document any limitations of the undo facility. Access to the batch transfer utility shall be controlled by role-based permissions; default authorized roles shall include managers, administrators and transfer coordinators, and the set of authorized roles shall be configurable by administrators. Time-based auto-revert behavior shall be implemented by a configurable scheduled task (operator-configurable frequency) that evaluates transfer records and applies time-based reversion; the system shall also support event-based triggers (for example: status changes such as 'sold' or 'checked out at destination') that can cancel or override scheduled reversion. The system shall implement explicit precedence rules (for example: a 'checked out at destination' event cancels a pending scheduled revert unless an administrator has explicitly configured otherwise) and shall document these precedence and override behaviors. To avoid long-running locks on large collections, batch update operations shall support chunked processing with a configurable batch size and shall provide progress and retry reporting so operators can monitor and recover interrupted jobs; these processing constraints and recommended defaults shall be documented. The transfer utility's selection and confirmation UX shall support multi-select controls (checkboxes), explicit select-all and clear-selection actions, persistent selection across paged results, range/bulk selection operations, and the ability to upload or import barcode/TCN lists to define bulk selections. The preview step shall present a concise human-readable summary (for example: number of items affected, source location(s), destination location(s), and scheduled execution time if any) and require an explicit confirmation action before applying changes. Every transfer operation (manual, scheduled or automatic) shall write an auditable transfer-log entry recording at minimum: operator identifier, timestamp, affected item identifiers, source location, destination location, transfer method (manual/scheduled/automatic), and any optional reason or triggering event; this transfer history must be queryable and reportable to support audit and recovery workflows. Time- or event-based auto-revert definitions shall be configurable per saved transfer (for example: revert after N days unless a specified event occurs) and shall support attaching event-trigger definitions (examples: status change such as 'sold', an explicit 'checked out at destination' event, or manual event markers) to saved transfers; the documented precedence rules shall state how event-based triggers and scheduled reverts interact (for example: a checked-out-at-destination event cancels a pending revert unless an administrator configures an override). In particular, the auto-revert behavior described for saved transfers may be implemented as a configurable scheduled task that periodically evaluates transfer records and applies time- or status-based reversion per the saved-transfer definition; implementers shall support configuring the scheduled frequency and document the scheduled-task behavior.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Multiple cataloging and branch staff identified this as critical for outreach, mobile services, and routine redistribution; technical staff noted batch/transaction safety is essential.",
+      "candidate_ids": [
+        "CAND-00016",
+        "CAND-00017",
+        "CAND-00018",
+        "CAND-00019",
+        "CAND-00020",
+        "CAND-00021",
+        "CAND-00022",
+        "CAND-00023",
+        "CAND-00024",
+        "CAND-00025",
+        "CAND-00026",
+        "CAND-00027",
+        "CAND-00028",
+        "CAND-00029",
+        "CAND-00030",
+        "CAND-00031",
+        "CAND-00098",
+        "CAND-00148",
+        "CAND-00229"
+      ]
+    },
+    {
+      "name": "Missing, damaged and in-transit reporting",
+      "explanation": "The system shall provide two related reports: (a) missing and damaged items report by branch with optional inclusion of condition notes (e.g., 'water damage', 'vandalism') and time-range filtering for trend analysis; and (b) an in-transit items report that lists items that have been in-transit more than X days (X configurable, default suggested 7 days), merging both transit-to and transit-from perspectives and allowing sorting by due date to prioritize follow-up. Both reports shall be runnable per branch and system-wide and shall support the specific operational need to list missing/damaged items per branch and to list items in-transit beyond a configurable threshold. The missing and damaged-items reports shall include aggregated counts grouped at the bibliographic/title level (per-title counts and a mechanism to flag or rank titles with repeated losses or damage over a selectable time range) so collection managers can identify problem titles. The reports shall also expose underlying item status fields (for example: missing, lost, long overdue), allow selection of which status values to include, and display each item's status in report outputs so counts and lists are interpretable. For in-transit detection the report shall support explicit transit-record conditions such as 'arrival_date is null and departure_date is more than X days ago' as a supported rule to identify items outstanding in transit beyond the configurable threshold; the documentation shall describe the exact transit-record fields and logic used to identify in-transit items. For in-transit detection the report shall support the stakeholder-proposed detection rule (for example: identify transit records where arrival_date is null and departure_date is more than X days ago) as a default or configurable option; the report shall permit administrators to configure alternative detection rules where local transit-record semantics differ and the documentation shall describe the exact transit-record fields and logic used to identify items outstanding in transit.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Front-line and delivery staff repeatedly requested both reports to manage inventory, reduce losses, and coordinate deliveries.",
+      "candidate_ids": [
+        "CAND-00034",
+        "CAND-00035",
+        "CAND-00036",
+        "CAND-00149",
+        "CAND-00150",
+        "CAND-00182",
+        "CAND-00183",
+        "CAND-00099",
+        "CAND-00100",
+        "CAND-00032",
+        "CAND-00230",
+        "CAND-00231",
+        "CAND-00232",
+        "CAND-00247",
+        "CAND-00033"
+      ]
+    },
+    {
+      "name": "Item record purging and last-copy protection",
+      "explanation": "The system shall provide reports and a safety-controlled utility to identify item records for purging using customizable criteria (status, time in status, last circulation dates, combinations of criteria), assist with batch status conversions, and provide an efficient mechanism to delete volume and copy entries and orphan bibliographic records. Critically, the system shall produce a 'last copy report' that flags items which are the last copy within a chosen scope (branch or system) so catalogers can avoid accidental deletion. Purging operations shall be driven from read-only candidate reports, require a separate explicit confirmation step, and create an audit trail recording who performed actions and when. The utility may be schedulable for recurring runs but must protect against accidental mass deletion. The requirement explicitly covers the requested utility and reports for identifying purge candidates based on customizable criteria such as status. The specification intentionally leaves the choice of automated versus manual purging as an operational decision: purging workflows may be manual operator-initiated actions, scheduled automated runs, or a combination provided that all purge operations are driven from read-only candidate reports, require an explicit confirmation step, create an auditable trail of who performed actions and when, and implement safeguards to prevent accidental mass deletion; the deployment documentation shall state which mode(s) are enabled. The 'last copy' reporting outputs shall explicitly support cataloging workflows by providing bibliographic identifiers and exportable bibliographic context (for example MARC identifiers or OCLC numbers and exportable metadata) so catalogers can safely locate and update WorldCat or other union-catalog entries; the developer documentation shall state this intended use-case and describe which fields are included to support those external cataloging edits. Batch status-conversion and purge-assist workflows driven from candidate reports shall include operational safety controls: a human-readable preview step summarizing number of items affected, source status(es), target status, and scope; a required explicit confirmation action before applying changes; an auditable log entry for every applied batch-status change capturing at minimum operator identifier, timestamp, affected item identifiers, source status, target status and optional reason; and either an immediate undo capability where feasible or a documented configurable undo/rollback window with stated limitations. To avoid long-running locks and to aid recovery, large batch status-change operations shall support chunked processing with a configurable chunk size, progress reporting, and retry/resume semantics. Role-based permissions shall control who may author, schedule or execute bulk status-conversion and purge operations, and administrators must be able to require an elevated confirmation/authorization step for bulk changes that exceed configured thresholds (for example: more than N items or more than X% of a branch's collection). For last-copy detection and reporting, the report shall support both branch-scoped and system-scoped modes: for each item record the system shall evaluate whether any other copies exist within the selected scope (branch or system) and, if none exist, flag the item as a last copy; the report shall expose bibliographic identifiers and exportable bibliographic context (for example MARC identifiers or OCLC numbers) to support cataloging follow-up, and the developer documentation shall describe any caching or replication delays and how those delays affect last-copy detection and reporting latency.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Cataloging and collection staff defined this as critical (last-copy protection named 'CRITICAL'), and stakeholders required safety/audit controls.",
+      "candidate_ids": [
+        "CAND-00037",
+        "CAND-00040",
+        "CAND-00041",
+        "CAND-00042",
+        "CAND-00043",
+        "CAND-00044",
+        "CAND-00045",
+        "CAND-00151",
+        "CAND-00152",
+        "CAND-00153",
+        "CAND-00154",
+        "CAND-00101",
+        "CAND-00233",
+        "CAND-00038",
+        "CAND-00039"
+      ]
+    },
+    {
+      "name": "Deletion-audit and deletion reporting",
+      "explanation": "The system shall log all successful and attempted (denied) deletions of records (item, patron, bibliographic) to an audit table via database triggers or equivalent, capturing record type, record identifier, user who attempted the deletion, timestamp, and the operator's location; a report interface shall enable aggregation of deletions by period, by user, by location and by type for auditing and compliance. The reporting capability must support counting and tracking deletions per location and for the system as a whole to support local and consortium-level audits. The deletion audit shall record the record's status immediately prior to deletion (for example a 'pre_deletion_status' field) and shall capture an optional operator-supplied deletion_reason where available; these values shall be persisted by the audit trigger (or equivalent) and exposed in the deletion-report interface alongside existing audit fields (record type, identifier, user, timestamp and operator location).",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Stakeholders require traceability for accountability and compliance; technical staff indicated database triggers are feasible and necessary.",
+      "candidate_ids": [
+        "CAND-00046",
+        "CAND-00048",
+        "CAND-00051",
+        "CAND-00052",
+        "CAND-00155",
+        "CAND-00102",
+        "CAND-00047",
+        "CAND-00049",
+        "CAND-00050",
+        "CAND-00234"
+      ]
+    },
+    {
+      "name": "Patron characteristics and demographic queries",
+      "explanation": "The system shall support limiting and grouping queries and reports by patron characteristics including configurable age ranges, zip code, county, home branch, patron type, and preferred language; it must support combined filters with AND/OR logic and include records with null/missing values rather than implicitly excluding them. Further, the reporting capability shall explicitly provide demographic-analysis facilities to support program planning (for example, cohort or zip/county-level breakdowns, configurable age-range buckets and language-based groupings) so outreach and program planners can target services based on patron population characteristics. (Sources: DOC-008, DOC-020) Demographic filters and groupings must be combinable with transaction- and activity-based criteria (for example: last-circulation date or inactivity windows such as 'no checkouts in the last N days') so queries like 'Juvenile patrons in zip 30505 with no checkouts in 6 months' are supported; this cross-filtering shall reference the Inactive Patrons reporting capability where appropriate. Data used to generate demographic statistics shall be anonymized prior to export or reporting; personally identifying information must be removed or aggregated so individuals cannot be re-identified, consistent with applicable laws and policies. Reports and statistics that include demographic breakdowns (for example transactions by geographical region and configurable age ranges) must anonymize or aggregate data prior to export or display so individual patrons cannot be re-identified; the documentation shall reference aggregation/suppression practices or thresholds to be determined for the deployment. Where patron age-range buckets are used, the system shall compute each patron's age at query time from the patron birth_date field and allow age brackets (buckets) to be defined and evaluated in the saved query so reports and saved templates reflect dynamic age ranges rather than requiring manual pre-computed age values.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Program planners and outreach staff explicitly requested these filters and groupings for program targeting; configurability and inclusion of nulls were emphasized and demographic-analysis support is similarly critical for planning.",
+      "candidate_ids": [
+        "CAND-00053",
+        "CAND-00054",
+        "CAND-00056",
+        "CAND-00057",
+        "CAND-00115",
+        "CAND-00222",
+        "CAND-00175",
+        "CAND-00186",
+        "CAND-00055",
+        "CAND-00093",
+        "CAND-00221",
+        "CAND-00235"
+      ]
+    },
+    {
+      "name": "Inactive patrons reporting and outreach export",
+      "explanation": "The system shall generate lists of patrons with no circulation or electronic activity in the last X days, where X is configurable (supporting at least 30, 90, 180, 365 and arbitrary values) and the report can be scoped to System, Home Library, County or other levels. The report shall optionally include current mailing addresses, flag or separate patrons with outstanding fines, allow exclusion rules (do-not-disturb, VIPs, staff, opt-outs), be exportable to CSV and be runnable as a background job for large patron sets. (Sources: DOC-009, DOC-020) The definition of 'electronic activity' used to determine inactivity shall explicitly include accessing digital collections (if integrated) in addition to OPAC login, online hold placement and online renewals. The inactive-patron report shall aggregate electronic-activity events that may be stored across multiple event tables (for example: OPAC logins, online hold placements, online renewals and digital-resource access records) into a single combined query/measure so the inactivity calculation correctly identifies patrons with no activity across all tracked event sources. The inactive-patron report shall explicitly include the ability to produce lists of patrons whose account 'status' field is set to an inactive value (for example: inactive, barred, etc.) and shall permit scoping and export of that list at System, Home Library, County or other configured levels. The documentation shall identify which status values are treated as inactive for reporting purposes and describe how inactive-status patrons interact with exclusion rules (do-not-disturb, opt-outs) and outreach exports. For very large patron sets the inactive-patron report shall support execution as a background job and provide mechanisms for caching report results or intermediate query results to avoid repeated expensive queries; the system documentation shall describe cache behavior, invalidation semantics and any recommended caching strategies for large-scale deployments. When executed at System scope the inactive-patron report shall provide aggregated counts grouped by patrons' Home Library and shall support ranking/sorting of those aggregates (for example: \"top N branches by inactive-patron count\"); these group-level aggregates shall be included in exported outputs. Additionally, a Home-Library scoped inactive-patron report shall support creating or recording cleanup assignments from the report UI or export/workflow mechanism (for example: assign a cleanup task to a branch or specific staff member, set an optional due date and track assignment status); assignments created from the report must be auditable (recording who created the assignment, timestamp, assignee and any due date) and queryable for follow-up. When run at System scope the inactive-patron report shall provide aggregated counts grouped by patrons' Home Library and shall support ranking/sorting of those aggregates so operators can identify branches with the most inactive patrons; when scoped to a Home Library the report shall support creating or recording cleanup assignments (assignee and optional due date) from the report UI and shall record assignment audit fields (creator, timestamp, assignee and any due date) so assignments are queryable and auditable.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Multiple libraries run these reports routinely for database cleanup and outreach; performance concerns require background processing.",
+      "candidate_ids": [
+        "CAND-00059",
+        "CAND-00061",
+        "CAND-00062",
+        "CAND-00063",
+        "CAND-00103",
+        "CAND-00058",
+        "CAND-00236",
+        "CAND-00259",
+        "CAND-00065",
+        "CAND-00060",
+        "CAND-00278",
+        "CAND-00279"
+      ]
+    },
+    {
+      "name": "Operating environment and scalability",
+      "explanation": "The system shall support a consortium-scale environment (example scale: 286 locations, ~17M annual circulations, large acquisition volumes), operate on Linux or Solaris servers, be usable via web-browser or Windows client, support IE 6.0+ and Firefox 2.0+ where web-based, and ensure report processing can occur without disrupting OPAC or circulation clients (by background processing, replicas or other architectural separation). The reporting and management processes must not constrain OPAC responsiveness or availability during peak operational periods, and shall explicitly document the supported server operating systems (Linux or Solaris) and architectural separation options (background jobs, reporting replicas or equivalent) used to prevent user-facing disruption. In addition, the specification shall record the deployment/operational assumption that Management Processes are consolidated at a central location and accept input from and provide services to multiple branches/locations (so design, capacity planning and failover considerations assume centralized management-process endpoints); this centralization assumption must be documented alongside the described architectural separation options so implementers and operators understand where services are hosted and how that affects latency, access control and scaling across the consortium. The reporting subsystem shall be designed to work with a fully-relational database schema (for example PostgreSQL); where performance or reproducible historical snapshots justify a separate reporting warehouse or denormalized reporting schema, those designs are permitted provided they are documented, isolated from the production transactional schema, and their synchronization/refresh behaviors are described in the deployment documentation. The reporting subsystem must operate in read-only mode with respect to OPAC data: it may query or replicate OPAC-created data but must not modify OPAC data or state. Historical deployment/operational details shall be recorded as deployment assumptions: historically the primary production environment ran Red Hat Enterprise Linux 5 on a server with dual quad-core CPUs and 32 GB RAM with PostgreSQL 8.3, and a secondary disaster-recovery/reporting site has historically run Solaris 10 on SPARC; these historical details shall be documented for operators and preserved as deployment assumptions where relevant. The deployment and operational-assumption section shall record the historical production environment details: a primary production host that historically ran Red Hat Enterprise Linux 5 on a dual quad-core CPU server with 32 GB RAM and PostgreSQL 8.3, and a secondary disaster-recovery/reporting site that historically ran Solaris 10 on SPARC hardware. The specification shall also record the assumption that Management Processes operate as part of an enterprise-level Library Automation System and shall preserve the documented recommendation to avoid denormalized reporting schemas that fight the relational model (preferring properly-written SQL, replicas or reporting-warehouse approaches where appropriate). The operating-environment and scale description shall also record the documented acquisition throughput literal from stakeholder evidence: 'purchasing and processing over 900,000 items per year' alongside the example scale of 286 locations and ~17M annual circulations. The specification shall reiterate that report processing must be achievable during open hours without disrupting OPAC or circulation clients (for example via background jobs, reporting replicas or equivalent architectural separation) and shall document the operational assumption that Management Processes are consolidated at a central location so implementers can account for latency, access control and scaling across the consortium. For operational clarity the document shall restate required host/platform support (Linux or Solaris), and web-access/browser compatibility constraints (usable via web-browser or Windows client and compatible with Internet Explorer 6.0+ and Firefox 2.0+ where web-based). Record the observed deployment-scale and product-version assumptions for operators: PINES currently operates the system across 286 library locations serving approximately 3.5 million patrons with a collection of approximately 9.6 million items, and the deployment note for the PINES environment records the production application version in use as 1.4.0.4; these figures shall be preserved as deployment-assumption documentation alongside the other historical environment details. Deployment documentation shall record the operational assumption that implementers may rely on the consortium's enterprise infrastructure (for example: redundant servers, backup systems and network connectivity) to meet availability and redundancy requirements; this assumption must be documented so operators understand where additional infrastructure investment may be required. (Source material supplied the numeric example scale and throughput figures and the requirement retains and documents those figures as deployment/operational assumptions.)",
+      "kind": "constraint",
+      "priority": "P1",
+      "priority_reason": "Technical constraints and scale were repeatedly called out by IT stakeholders and working-group materials; non-disruption of OPAC is essential to operations.",
+      "candidate_ids": [
+        "CAND-00205",
+        "CAND-00238",
+        "CAND-00265",
+        "CAND-00266",
+        "CAND-00267",
+        "CAND-00270",
+        "CAND-00272",
+        "CAND-00066",
+        "CAND-00067",
+        "CAND-00068",
+        "CAND-00069",
+        "CAND-00070",
+        "CAND-00160",
+        "CAND-00162",
+        "CAND-00167",
+        "CAND-00187",
+        "CAND-00199",
+        "CAND-00188",
+        "CAND-00189",
+        "CAND-00283",
+        "CAND-00284",
+        "CAND-00301",
+        "CAND-00303",
+        "CAND-00304",
+        "CAND-00307",
+        "CAND-00164"
+      ]
+    },
+    {
+      "name": "Accessibility, standards and platform constraints",
+      "explanation": "The system shall comply with accessibility requirements (support screen readers, screen magnification and other assistive technologies and produce standards-compliant HTML), use a fully relational database back-end, and provide development/training environments with migration capability to production. The reporting subsystem shall not constrain OPAC functionality or responsiveness. In keeping with stakeholder accessibility requirements, management processes shall explicitly be usable with screen-reading and screen-magnification software and other assistive technologies and shall produce standards-compliant HTML to permit assistive tools to function. The vendor shall explicitly document the use of a fully relational database back-end and shall provide mechanisms to migrate configurations and artifacts (export/import of templates, permission settings, saved queries and other configuration items) between development, training and production environments to support safe testing and staged rollouts; this migration capability must be described in developer and operational documentation so administrators can reproduce configurations across environments. The training and development environments must be isolated from production data so staff can experiment without risking production (for example by using separate datasets, scrubbed/anonymized data or strict write isolation). The migration/export/import mechanisms described shall support safely moving configurations and artifacts (templates, permission settings, saved queries and other configuration items) between isolated development, training and production environments, and the developer documentation shall describe safe procedures for these migrations. The accessibility requirement shall explicitly reference example assistive technologies used during testing and support (for example: JAWS and NVDA screen readers and ZoomText screen-magnification software) and shall require standards-compliant semantic HTML output with appropriate alt text, ARIA attributes and labels so screen-reading and screen-magnification tools can function with management-reporting interfaces and exported report pages. The developer documentation shall list tested assistive technologies and give guidance on accessible export formats and any known limitations. Stakeholders explicitly stated that Section 508 compliance is mandatory and the documentation shall record that legal requirement; the developer documentation shall list representative assistive technologies used during testing (for example JAWS and NVDA screen readers and ZoomText screen-magnification software) and require standards-compliant semantic HTML output with appropriate alt text, ARIA attributes and labels. The migration/export/import capability between development, training and production environments shall explicitly support moving report templates, permission settings, saved queries and other configuration artifacts and the developer documentation shall describe safe migration procedures, isolation practices (for example scrubbed/anonymized datasets for training) and any known limitations of these migration mechanisms. The system shall comply with Section 508 accessibility requirements; the developer documentation shall list representative assistive technologies used during testing (for example: JAWS and NVDA screen readers and ZoomText screen-magnification software), describe accessible export formats, and document any known limitations so administrators and accessibility testers can reproduce and verify compliance.",
+      "kind": "constraint",
+      "priority": "P1",
+      "priority_reason": "Legal accessibility obligations and architectural constraints were explicitly stated by multiple stakeholders and technical staff; compliance is essential.",
+      "candidate_ids": [
+        "CAND-00071",
+        "CAND-00073",
+        "CAND-00074",
+        "CAND-00076",
+        "CAND-00191",
+        "CAND-00192",
+        "CAND-00193",
+        "CAND-00194",
+        "CAND-00201",
+        "CAND-00202",
+        "CAND-00203",
+        "CAND-00268",
+        "CAND-00163",
+        "CAND-00166",
+        "CAND-00190",
+        "CAND-00302",
+        "CAND-00308",
+        "CAND-00072"
+      ]
+    },
+    {
+      "name": "Developer-provided data specifications, process descriptions and help",
+      "explanation": "The developer shall supply comprehensive data specifications (field names, types and relationships) for authority, bibliographic, order, item, hold/request and other records used by management reports; a high-level description of major processes (imports/exports, validation flows) and an online, hierarchical, cross-linked HTML help system. Error reporting shall include high-level and low-level, query-specific feedback for administrators. Concretely, the developer-supplied materials must include complete data specifications for authority, bibliographic, order, item and hold/request records, high-level descriptions of import/export and validation processes (including bibliographic record import/export and validation against authority sources), and an online hierarchical HTML help system that documents and illustrates management-reporting features and common administrative workflows. The system shall provide thorough front-end error reporting and feedback for Local and Global System Administrators, including both high-level user-facing messages and low-level, query-specific diagnostic feedback accessible from the administrative interface so administrators can diagnose and correct malformed queries, data-mapping problems, import/export failures and similar issues without relying solely on back-end logs. The developer documentation must describe error message formats and where detailed diagnostics are surfaced in the UI. Management Processes shall interface with external vendor systems using published APIs and/or automated transfers of standard-format data files (for example USMARC21 and EDIFACT); the developer must document supported integration methods, file formats, authentication approaches and expected synchronization/ingest behaviors. Administrative diagnostics shall include, at minimum, the failed SQL statement or query fragment, the implicated table and field(s), the database error code/type, and a human-readable explanation or suggested corrective action; the developer documentation shall describe where and how these diagnostics are surfaced in the administrative UI. The developer documentation shall explicitly describe dependencies on the Acquisitions and Cataloging modules (that is, which Management-Process reports rely on data structures provided by those modules) and shall document supported vendor-integration methods, including published APIs and standard-format file transfers (for example USMARC21 and EDIFACT). The documentation shall note that EDI/ordering data may be present for some vendors but cannot be assumed to be present at every library and shall describe how reports behave when those vendor datasets are missing. The online hierarchical HTML help system shall be full-text searchable and organized for ease of navigation (for example: index/table-of-contents, breadcrumbing and cross-links) so administrators and authors can locate topics quickly and reliably. The online HTML help system shall be usable with common assistive technologies (for example: screen readers and screen-magnification software) and the developer documentation for the help system shall list which assistive technologies were used during testing and describe how accessibility is supported. The help-system documentation shall describe where accessibility-related controls, semantics or landmarks (for example ARIA roles/landmarks, labels or other assistive hooks) are exposed in the help UI so administrators and accessibility testers can locate and verify accessibility features.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Staff need documentation and meaningful error feedback to author and troubleshoot reports; developer-provided specs, process descriptions and help were repeatedly required.",
+      "candidate_ids": [
+        "CAND-00077",
+        "CAND-00078",
+        "CAND-00079",
+        "CAND-00080",
+        "CAND-00206",
+        "CAND-00207",
+        "CAND-00195",
+        "CAND-00196",
+        "CAND-00197",
+        "CAND-00198",
+        "CAND-00200",
+        "CAND-00209",
+        "CAND-00237",
+        "CAND-00271",
+        "CAND-00273",
+        "CAND-00168",
+        "CAND-00208"
+      ]
+    },
+    {
+      "name": "Query tool and open-template reporting",
+      "explanation": "The system shall provide a user-friendly query/report designer across all record types (bib, item, patron, transaction, financial) that supports field selection, picklists, Boolean logic (AND/OR), configurable regular-expression use where appropriate, saved queries, and an 'open template' mode exposing all attributes for filtering and display. The open-template mode must expose attributes associated with circulation, patrons, items, bills and bibliographic records for both filtering and display so advanced users can construct fine-grained reports; administrators shall be able to restrict access to tables/fields. This capability must explicitly support the fine-grained reporting requirements described in stakeholder materials (Appendix-style fine-grained report support). The report/query designer shall be available via a web-based interface compatible with the supported browsers listed in the operating-environment requirements. The web-based designer shall allow saved templates and queries to include time-based circulation filters such as a 'last-circulated date' criterion so users can express and persist queries like 'haven't circulated in N months' as saved templates. The web-based query/report designer shall include user-friendly field-selection affordances such as drag-and-drop selection of fields into filter and display areas to simplify report construction for non-technical users; the open-template mode must expose MARC and other bibliographic fields (where present) for both filtering and display so advanced users may construct counts such as circulation-by-MARC-field and other fine-grained bibliographic queries.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Repeated user demand for a flexible query designer and open-template reporting across multiple documents and survey results; fine-grained access is required for advanced administrative reporting.",
+      "candidate_ids": [
+        "CAND-00081",
+        "CAND-00132",
+        "CAND-00082",
+        "CAND-00091",
+        "CAND-00119",
+        "CAND-00145",
+        "CAND-00228",
+        "CAND-00243",
+        "CAND-00246"
+      ]
+    },
+    {
+      "name": "Report templates, permissions and shared folders",
+      "explanation": "Administrators shall be able to create, publish and manage report templates; templates must be runnable as-is, clonable for modification, and support administrator limits on which filters/display fields can be altered. The system shall support fine-grained permissions for creating, cloning and running reports, and shared folders to manage access by role, workgroup or individual. Role-assignments must be administrable so permission changes follow role changes. The specification shall explicitly require fine-grained controls limiting who can create and clone reports and shall require shared-folder semantics that allow administrators to grant or deny execution, cloning or editing rights on specific templates or folders of templates to particular roles, workgroups or individuals; these shared-folder permissions must be documentable and manageable via the administrative UI so template visibility and editability can be maintained across organizational changes. Shared-folder and template permissions shall support scoping execution rights to particular data scopes (for example: restrict execution of a template to a staff member's branch, to a configured county, or to other configured data groups); administrators must be able to grant or deny execution, cloning or editing rights that are constrained to such data scopes and the administrative UI shall provide controls and auditability for configuring and tracking those scoped permissions. Administrators shall be able to configure template restrictions that prevent templates available to front-line staff from exposing deleted or purged records or other restricted data fields; templates intended for front-line staff must not allow enabling display of deleted/purged records unless an administrator with appropriate privilege explicitly grants that capability and documents that grant in the administrative UI. Administrators shall be able to prevent templates and cloned templates from exposing deleted or purged records or other protected status fields by configuring an administrator-controlled deny-list of display fields; the administrative UI shall make protected/blocked fields visible to administrators when authoring or editing templates and require an explicit administrative override to expose those fields.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "High priority across stakeholders for consistent board reports, controlled templates, and easy admin of permissions.",
+      "candidate_ids": [
+        "CAND-00084",
+        "CAND-00224",
+        "CAND-00225",
+        "CAND-00223",
+        "CAND-00134",
+        "CAND-00083",
+        "CAND-00133",
+        "CAND-00280"
+      ]
+    },
+    {
+      "name": "Report scheduling, queue visibility, prioritization and cancellation",
+      "explanation": "The system shall allow reports to be scheduled (ASAP, hourly, daily, weekly, monthly, yearly), run as background jobs, show queue position and status (waiting, running, completed, failed) to requestors, allow certain reports to be prioritized to jump ahead in queue, and permit cancellation of scheduled or running reports. Administrators shall be able to configure recurring reports and their recipients. The system must ensure reports can be queued and processed in the background to avoid disruption during open hours and shall provide queue visibility to requestors so users know expected completion or position. (Sources: DOC-010, DOC-012, DOC-019, DOC-020, DOC-016) The queue display shall show the report submission timestamp (when the job was submitted) and shall display an explicit numeric count of how many reports are ahead of the user's report in addition to status and position indicators; these fields shall be visible in the UI and available in status messages provided to requestors. Long-running and background report processing routines shall periodically check for cancellation signals (or otherwise provide a mechanism to detect and apply cancellation requests) so that user- or administrator-initiated cancellations can be honored in a timely manner; the system documentation shall describe expected cancellation semantics and typical latency for cancellation to take effect. The report scheduling UI shall permit users to multi-select multiple canned or saved reports and queue them to run together as background jobs; each queued job shall have its own queue position and status visible to the requestor and be cancelable individually. The queue display and job-status model shall show each job's submission timestamp and explicit numeric counts of reports ahead of that job, and queued multi-report submissions shall participate in the same prioritization, cancellation and cancellation-latency semantics documented for single-report jobs. The scheduling and queue UI shall allow requestors to see submission timestamp, queue position, job status (waiting, running, completed, failed) and an explicit numeric count of how many jobs are ahead of each job. The UI shall permit multi-selecting multiple canned or saved reports and queuing them to run together as background jobs while treating each queued report as an individually queued job with its own queue position, status and cancellation ability; multi-report submissions shall participate in the same prioritization and cancellation semantics as single-report jobs. Administrators shall be able to configure priority rules so certain authorized reports may jump ahead in the queue, and long-running/background processing routines shall periodically check for cancellation signals (or otherwise provide a mechanism to detect and apply cancellation requests) so user- or administrator-initiated cancellations can be honored in a timely manner; the documentation shall describe expected cancellation semantics and typical latency for cancellation to take effect.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Queue visibility and prioritization were repeatedly reported as operational needs to prevent user confusion and support directors' reporting needs; background processing to avoid disruption is high priority.",
+      "candidate_ids": [
+        "CAND-00299",
+        "CAND-00138",
+        "CAND-00139",
+        "CAND-00161",
+        "CAND-00212",
+        "CAND-00226"
+      ]
+    },
+    {
+      "name": "Report output formats, delivery and export",
+      "explanation": "Reports shall be exportable in CSV and HTML formats and provide reliable Excel-compatible output (or Excel export) for downstream use (pivot tables). The system shall support emailing report results to specified addresses (address book supported) and include the report selection criteria and report name in outputs. Export formats must preserve all null/blank fields and produce pivot-table-capable output. In particular, the vendor must support CSV exports explicitly to meet directors' spreadsheet needs and to permit integration with outreach systems that ingest CSV data. The system shall therefore explicitly document the supported export formats (CSV, HTML, and Excel-compatible output) and confirm preservation of null/blank fields in CSV exports. The system shall explicitly support Excel-compatible output, HTML and CSV exports and shall preserve null/blank fields in CSV exports. The system shall support emailing report results to specified addresses and shall provide an address-book facility for regularly used recipients. The UI shall permit editing recurring scheduled reports (for example, modify selections, schedule cadence and recipients) so recurring jobs can be maintained and adjusted via the administrative interface.",
+      "kind": "functional",
+      "priority": "P2",
+      "priority_reason": "Export and delivery features are important for directors and integrations; they were requested frequently but are not safety-critical relative to core reporting.",
+      "candidate_ids": [
+        "CAND-00213",
+        "CAND-00010",
+        "CAND-00064",
+        "CAND-00146",
+        "CAND-00210"
+      ]
+    },
+    {
+      "name": "Historical reporting and reporting warehouse",
+      "explanation": "The system shall support historical reporting requirements (snapshots for given dates/date ranges). Where required for performance and reproducible historical snapshots, a reporting warehouse or other archival mechanism shall be provided to retain historical state separate from production row-level changes. The system shall indicate whether a result is from a historical snapshot or real-time data. The reporting capability must explicitly support both historical (warehouse/snapshot) queries and real-time reporting modes; the system shall document which mode produced a given result and provide the historical-warehouse option for date-or-date-range selection as requested by stakeholders, and shall identify reports that must be run in real-time (for example, 'what's overdue today') versus those that may rely on snapshots. The historical-reporting capability shall explicitly include a 'snapshot bills' report that can reproduce bill/account state as of a selected past date or date-range; the system shall indicate whether returned results derive from a historical snapshot or from real-time data and shall document the snapshot creation, retention and retrieval behavior for bill/account snapshots.",
+      "kind": "functional",
+      "priority": "P2",
+      "priority_reason": "Users requested historical snapshots and technical staff indicated a warehouse may be required to provide this reliably without impacting production; supporting both real-time and historical modes addresses both operational and reporting needs.",
+      "candidate_ids": [
+        "CAND-00121",
+        "CAND-00122",
+        "CAND-00211",
+        "CAND-00274"
+      ]
+    },
+    {
+      "name": "Transaction reporting and types",
+      "explanation": "The system shall retain transaction history for a configurable period (transaction history retained X days configurable) while keeping monthly and annual aggregates indefinitely, and provide reports that group transactions by hour, terminal, branch and system; count types of check-in (book-drop, by terminal, by user/self-service) and check-out (staff checkout, self-checkout, staff renewal, self renewal, online renewals) individually and cumulatively; and produce transaction reports (holds placed, holds filled, check-outs) per patron, per library, per selected group, per system, or per county. Transaction reporting shall include activity reports that indicate traffic and volume of use (check-outs, check-ins, holds placed, holds filled) and support cross-tabulation across axes such as terminal, branch, library system, hour, patron age range, patron type and patron location to support detailed analysis. Archival and transaction-warehouse behavior for retained transactions must support anonymization or other measures required to protect patron privacy per applicable State Law while still providing useful demographic statistics and aggregates for planning and reporting. The system shall also provide holds-specific reporting and allow these reports at branch and system scope. Additionally, the reporting capability shall provide staff-productivity and workflow analysis derived from transaction metrics (for example, per-terminal and per-staff activity, time-based throughput metrics and comparisons) so managers can assess staffing and workflow efficiency; such staff-productivity reports must respect privacy/anonymization rules where required. (Sources: DOC-001, DOC-010, DOC-019) The reporting capability shall produce patron-behavior and predictive metrics such as average time-to-return per title and per branch, renewal rates and renewal likelihood per title/branch, percent renewals, and similar time-series/predictive aggregates; these metrics must be available with grouping and time-range options and be exportable for further analysis. The transaction-reporting capabilities shall support counts and groupings by circulation modifiers (for example: counts by circ-modifier where available) and by classification fields such as Dewey (for example: circulation count by Dewey ranges) where those bibliographic/classification values are available; reports shall be able to list items more than N days overdue together with available patron contact information (subject to privacy/anonymization rules) to support follow-up workflows; additionally the reporting subsystem shall include claims-returned and similar circulation-status event reporting so operational managers can track those workflows. The transaction-reporting capability shall explicitly include 'unfilled holds' and 'stale holds' reports that list holds not yet filled or not progressed within an operator-configurable stale-window, runnable at branch and system scopes and exportable for follow-up. Furthermore, check-in timestamps used for check-in reporting and time-series analyses shall exclude renewal events (that is, renewal actions shall not be treated as physical check-ins); the developer documentation shall define the exact event types that constitute renewals versus check-ins so reports and aggregates reflect true return activity. Transaction reporting shall include fines collected and patron registration events among the transaction event types available for grouping and reporting. The system shall provide reports on pre-overdue notices, overdue notices and holds notices sent (runnable at branch and system scope and exportable) so operational staff can audit and follow up on notice delivery activities.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Detailed transaction counting and grouping are core reporting needs used daily by branches and managers, and staff-productivity analysis is operationally important for staffing and workflow decisions.",
+      "candidate_ids": [
+        "CAND-00104",
+        "CAND-00105",
+        "CAND-00106",
+        "CAND-00107",
+        "CAND-00108",
+        "CAND-00109",
+        "CAND-00215",
+        "CAND-00216",
+        "CAND-00217",
+        "CAND-00218",
+        "CAND-00219",
+        "CAND-00220",
+        "CAND-00087",
+        "CAND-00088",
+        "CAND-00089",
+        "CAND-00116",
+        "CAND-00136",
+        "CAND-00176",
+        "CAND-00092",
+        "CAND-00244",
+        "CAND-00245",
+        "CAND-00250",
+        "CAND-00253",
+        "CAND-00262",
+        "CAND-00263",
+        "CAND-00275",
+        "CAND-00305",
+        "CAND-00306"
+      ]
+    },
+    {
+      "name": "Financial reporting and audit trail",
+      "explanation": "The system shall provide financial reports including value-of-items aggregations (using purchase price fields) for an entire collection or a selected portion, patron account balances by patron/home library/system, fines and charges accrued per period and per type, fines waived per period and branch, and payments by period and payment method. The system shall maintain an auditable ledger of patron payments that records which charges payments are applied to and shall support reconciliation and compliance with applicable accounting/archival retention policies. The reporting capability must explicitly include the ability to generate item-value reports (aggregated value of items for a given scope), support queries for patron accounts with balances greater than a configurable threshold (to identify accounts needing attention), and ensure reports and data archiving comply with standard accounting practice and applicable state, county and municipal auditing requirements. This requirement therefore also covers the system ability to track and verify financial transactions end-to-end (payment application, reconciliation and reporting) as an auditable function. (Sources: DOC-010, DOC-019) Financial reporting shall continue to support queries for patron accounts with balances greater than a configurable threshold. When a payment is processed at the front desk or other channel the system shall apply the payment and update the patron's account balance and related reports in near real-time so staff see the updated state without manual delay. The system shall report payments collected per library/branch and allow filtering and aggregation of payments by branch and time period. The system shall support and enforce configurable data-retention policies for financial and audit records and shall be capable of retaining specified records for 7 years where required by state or local law; administrators must be able to configure retention durations and the system must prevent premature deletion of retained records. The financial reporting capability shall support joining financial data attached to patron records and item records so combined queries and reconciliations may relate payments, fines and item-level charges across those data sources; reports shall break down payments by payment type (for example: cash, credit card, check and similar methods) to support daily reconciliation and auditing; reporting shall also support queries or lists driven by fine/charge-processing reasons (for example a 'fines stopped' or 'fines waived' reason) so operators can retrieve items or accounts filtered by those reasons; finally, the item-value reporting options shall include the ability to aggregate price/value by call-number ranges to support valuation analyses scoped by classification. The financial reporting capability shall include an enhanced 'Aged Debt' detailed report that provides configurable aging buckets, per-branch and per-account detail lines, and exportable outputs to support collections follow-up and reconciliations; this enhancement shall build on any partially-available existing aged-debt outputs and document the fields and calculations used to produce the aging detail.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Finance stakeholders explicitly required value and ledger capabilities and legal/audit compliance; tracking/verification of transactions is essential for accounting integrity.",
+      "candidate_ids": [
+        "CAND-00124",
+        "CAND-00125",
+        "CAND-00126",
+        "CAND-00127",
+        "CAND-00112",
+        "CAND-00113",
+        "CAND-00110",
+        "CAND-00111",
+        "CAND-00177",
+        "CAND-00128",
+        "CAND-00129",
+        "CAND-00130",
+        "CAND-00131",
+        "CAND-00239",
+        "CAND-00240",
+        "CAND-00249",
+        "CAND-00255",
+        "CAND-00264"
+      ]
+    },
+    {
+      "name": "Canned, on-demand and open-template report interfaces",
+      "explanation": "The system shall support three reporting interfaces: canned report templates (predefined templates runnable ASAP or scheduled), on-demand editable reports for preset categories, and open-template reporting exposing all attributes for advanced ad-hoc queries. Administrators shall be able to create, publish and manage report templates; templates must be runnable as-is, clonable for modification, and support administrator limits on which filters/display fields can be altered. Canned reports shall be discoverable with descriptive hover pop-ups and a delivered set of pre-written templates (including pre-defined board/external-consumer templates); canned templates shall support running by yesterday's data, last week, last month or last year. The specification shall explicitly require a delivered set of pre-defined board reports (for consumption by library boards and other external consumers) that expose the basic statistics required by common state reporting (for example, the Georgia Annual Report), and the canned interface shall support both immediate (ASAP) execution and recurring schedules as part of the shipped product. The system shall support the reporting definitions described in Appendix A and shall ship with delivered templates that implement those Appendix-A definitions (runnable and schedulable). If Appendix A includes machine-readable report definitions the vendor shall document compatibility or provide mapping guidance so implementers can reproduce the Appendix-A reports. The system shall provide a set of pre-defined board/executive report templates targeted to director-level and external-consumer needs; these templates shall be documented, discoverable, installable with the product, and schedulable by authorized users without requiring authorship rights. The shipped product shall include a delivered set of pre-defined canned report templates (installable with the product) implementing Appendix A and shall include the explicitly enumerated canned reports from the source materials, including at minimum: Checkout Count; Renewals Count; Non-Cataloged Count; Circulation Count by Shelving Location; Items Added Count; Items Deleted Count; Items Currently Checked Out; Items Overdue by X Days; Bib Records Count; Bib Records with No Volumes Attached; Patron Count; Patron Count by Home Library; Bills Currently Owed by Patrons; and Detailed Payments Received. Canned reports shall support immediate (ASAP) execution and recurring schedules and shall support selecting common past-data ranges (for example: yesterday, last week, last month, last year) as described in the source. The system shall also support on-demand reports for pre-selected criteria (for maintenance, collection development and similar uses) that authorized users may run as needed. Delivered board/executive templates shall include activity metrics (checkouts, check-ins, holds placed and holds filled) and support cross-tabulation of those metrics by terminal, branch, system, hour, patron age range, patron type and patron location to meet director-level reporting needs; the shipped product shall include the named canned report examples (including Checkout Count and Renewals Count) within the delivered template set. The canned-templates/quick-access UI shall display a hover-over descriptive pop-up for each canned report/template title containing a human-readable description of the report so users can discover what each template produces before running it. The quick-access designer shall include a field-selection affordance (for example checkboxes or similar 'check off' controls) enabling users to select arbitrary report fields or display sections to include in a run. The scheduling UI for canned or quick-access reports shall explicitly support the cadences: Run ASAP, Hourly, Daily, Weekly, Monthly and Yearly.",
+      "kind": "functional",
+      "priority": "P2",
+      "priority_reason": "Stakeholders asked for distinct modes (canned, on-demand, open-template) to cover common and ad-hoc needs; canned/pre-defined board reports were repeatedly requested for governance and external consumption.",
+      "candidate_ids": [
+        "CAND-00085",
+        "CAND-00086",
+        "CAND-00090",
+        "CAND-00117",
+        "CAND-00118",
+        "CAND-00135",
+        "CAND-00180",
+        "CAND-00285",
+        "CAND-00286",
+        "CAND-00287",
+        "CAND-00288",
+        "CAND-00289",
+        "CAND-00290",
+        "CAND-00291",
+        "CAND-00292",
+        "CAND-00293",
+        "CAND-00294",
+        "CAND-00295",
+        "CAND-00296",
+        "CAND-00297",
+        "CAND-00298",
+        "CAND-00120"
+      ]
+    },
+    {
+      "name": "Uncataloged material inventory and counting",
+      "explanation": "The system shall provide a minimal-labor workflow to record, distribute and count uncataloged material (e.g., paperback/children's board books) so those transactions contribute to circulation statistics and can be identified in reports while avoiding full cataloging overhead. (Sources: DOC-010, DOC-015) The uncataloged-material workflow shall minimize per-item processing time so branches can distribute these items rapidly, be operable with minimal branch labor, capture how uncataloged materials are being used, and ensure transactions for uncataloged items are counted and included in circulation statistics and exports (for example via a lightweight item-type or flag).  (Source wording preserved: \"quick distribution (we need to process these fast), minimal branch labor (we can't spend a lot of time per item), and ability to identify how the material is being used. We also need to count transactions and include them in circulation statistics and reports.\")",
+      "kind": "functional",
+      "priority": "P2",
+      "priority_reason": "Multiple branches identified uncataloged material handling as a practical need for rapid distribution and counting.",
+      "candidate_ids": [
+        "CAND-00097",
+        "CAND-00147"
+      ]
+    },
+    {
+      "name": "Data quality and bibliographic integrity reports",
+      "explanation": "The system shall provide data quality reports for identifying bibliographic and item anomalies such as bibliographic records with no volumes attached, records missing specific MARC fields, items with invalid item type or excessively long call numbers, items with zero use count or candidate weeding lists, and a mechanism to retrieve last-edit and last-circulation metadata separately. These outputs shall support generation of weeding candidate lists and related analytics so cataloging staff can perform weeding workflows efficiently; weeding reports shall be easy to run and export and shall be identified as frequently used operational reports. (Sources: DOC-010, DOC-015, DOC-020, DOC-018) Data-quality and weeding outputs shall include counts and listings that support cataloging workflows such as: an 'items edited' count and an auditable way to retrieve/edit-history metadata; lists of items filtered by total use/count thresholds; the ability to list items created within a specified creation-date range; analytics that report the age of the collection by call-number ranges; and counts of bibliographic records edited or added by user and by library so managers can audit contribution volumes and identify training or workflow issues.",
+      "kind": "functional",
+      "priority": "P2",
+      "priority_reason": "Cataloging staff require specialized data-quality and weeding reporting to maintain catalog integrity and support routine weeding decisions; users identified these as frequently used.",
+      "candidate_ids": [
+        "CAND-00114",
+        "CAND-00158",
+        "CAND-00181",
+        "CAND-00159",
+        "CAND-00184",
+        "CAND-00248",
+        "CAND-00251",
+        "CAND-00252",
+        "CAND-00254",
+        "CAND-00256",
+        "CAND-00257"
+      ]
+    },
+    {
+      "name": "Authentication and role-based access control",
+      "explanation": "The system shall support streamlined but optional staff login mechanisms (e.g., card-swipe) and also traditional username/password; every login must identify which staff member is logged in for auditing. User rights shall be defined and administered via roles/security groups (Staff, Local Admin, Library Manager, Global Admin) to simplify permission changes and to control report and template operations. Access control must support assignment at multiple granularities including individuals, workgroups and arbitrary staff groups so administrators can target permissions to operational groupings, and the system shall provide easy-to-use administrative facilities for creating, editing and reassigning roles and permissions to follow staff and organizational changes. The administrative facilities shall make it straightforward to change an individual's effective permissions by modifying their role assignments (so permission changes can be managed via role edits rather than per-user edits), and the system shall record role-assignment changes for audit purposes. Streamlined authentication mechanisms (for example: card-swipe) shall be convenience mechanisms that still result in individual authentication/identification and must not bypass individual authentication entirely; the system shall link the swipe to the authenticated staff identity in the audit trail so each action remains attributable to a specific individual. (Candidate CAND-00144 is assigned here to record provenance for the existing role/permission administration clauses.) The role model shall include a Patron (public/OPAC) role to represent public-facing access; patrons' OPAC-access activities shall be readable by reporting subsystems but patrons shall have no management/reporting write privileges. The specification shall treat the Patron/OPAC role as distinct from staff roles for scope and access-control purposes so OPAC activity is scoped for reporting but does not confer administrative permissions. Changes to a user's assigned role(s) shall propagate to their effective report and template permissions immediately (that is, changing someone from one role to another updates their effective permissions according to the role definitions without requiring manual per-user edits).  The system shall provide a delivered set of example/predefined role templates and suggested permission sets (for example: Front-desk staff with permission to run basic reports and limited filters; Department heads who can create and modify templates; System administrators with full reporting and permission administration rights) so implementers and administrators can adopt or adapt common role configurations. The administrative reporting facilities shall provide a staff-account audit/report that includes, for each staff account, the date of last password change to support security reviews and compliance audits. In addition, the permission taxonomy and delivered role templates shall explicitly include and document the Patron (public/OPAC) role so implementers can clearly distinguish patron-scoped read-only OPAC activities from staff management and reporting privileges. The system shall include session-security measures (for example: configurable inactivity timeouts, automatic screen-lock or explicit logout reminders) to reduce the risk of unattended logged-in terminals; streamlined login mechanisms (for example card-swipe) shall provide immediate access for the staff user but must still result in individual authentication/identification and be recorded in the audit trail so each action remains attributable to a specific individual. Implementers shall implement and document user rights and privileges using security groups and/or roles; the system shall support assignment of those security groups/roles at the granularity of individual users, workgroups and arbitrary staff groups so administrators can target permissions to operational groupings. Role/permission artifacts (role definitions, group assignments and permission mappings) shall be exportable/importable as part of the migration/export/import mechanisms required elsewhere in this specification so role definitions and assignments can be moved between development, training and production environments and reproduced during deployments.",
+      "kind": "functional",
+      "priority": "P1",
+      "priority_reason": "Operational security, auditability and local administrative ease were emphasized repeatedly; ease of role administration and flexible access groups are essential for day-to-day operations.",
+      "candidate_ids": [
+        "CAND-00140",
+        "CAND-00142",
+        "CAND-00143",
+        "CAND-00204",
+        "CAND-00141",
+        "CAND-00144",
+        "CAND-00165",
+        "CAND-00241",
+        "CAND-00242",
+        "CAND-00260",
+        "CAND-00269",
+        "CAND-00281",
+        "CAND-00282",
+        "CAND-00300",
+        "CAND-00075"
+      ]
+    },
+    {
+      "name": "Miscellaneous quick-access and fine-grained features",
+      "explanation": "The system shall support assorted usability and integration items requested repeatedly: ability to include selection criteria in outputs (report results shall display the date selection criteria and report name at the top or bottom of outputs to clarify context), upload text files (barcodes/TCNs) to filter reports, allow pivot-compatible exports, allow retrieval of MARC fields in single-row outputs, allow report result comparison columns (month-over-month, percent change), and provide an address-book for delivery recipients. The specification requires visible inclusion of the selection criteria in generated outputs to aid consumers in interpreting exported reports; consequently, the system shall provide the query selections along with results so users can see which filters or selections produced the returned rows. (Sources: DOC-010, DOC-015) The system shall support filtering by survey name (not only survey ID) by resolving survey names to internal IDs internally; the behavior for duplicate names, case-sensitivity and error handling when a name cannot be resolved shall be documented in the administrative documentation. Where survey-response datasets exist (for example: voter survey responses), the reporting subsystem shall support filtering and aggregation on those survey-response fields and shall document the behavior when such datasets are not present. The administrative documentation shall list which survey-response datasets (for example named surveys and their available response fields) are available to reporting and shall describe how the reporting UI and exports behave when a named survey's responses are unavailable.",
+      "kind": "functional",
+      "priority": "P2",
+      "priority_reason": "These features improve day-to-day usability for report consumers and were frequently requested; inclusion of query selections with results prevents misinterpretation of exported reports.",
+      "candidate_ids": [
+        "CAND-00123",
+        "CAND-00137",
+        "CAND-00214",
+        "CAND-00258"
+      ]
+    },
+    {
+      "name": "Holds purchase alert",
+      "explanation": "The system shall provide a 'holds purchase alert' facility that identifies titles with sustained unmet demand (for example high holds-per-copy ratios or a persistent queue of unfilled holds) to assist selectors and acquisitions staff. The alert criteria shall be operator-configurable (for example: holds-per-copy threshold, minimum number of distinct patrons with holds, maximum unfilled-hold age) and the alert shall be runnable per-branch or system scope, exportable (CSV/Excel-compatible), and schedulable as a background job. The documentation shall describe how the alert behaves when supporting acquisitions or EDI/order data are not available at a particular library.",
+      "kind": "functional",
+      "priority": "P2",
+      "priority_reason": "Assists selectors and acquisitions staff in addressing unmet patron demand; operationally useful though not safety-critical.",
+      "candidate_ids": [
+        "CAND-00261"
+      ]
+    }
+  ],
+  "blacklist": [
+    {
+      "name": "Document Reports Functionality",
+      "statement": "- Document optimal Reports functionality within a future Evergreen release and develop a list of requirements.",
+      "category": "out_of_scope",
+      "reason": "This is a project/working-group task (documenting future functionality) rather than a runtime software requirement. Project tasks belong in project-management artifacts (roadmap, work items) not in the product requirements; if a runtime capability is intended it must be specified as a concrete software requirement.",
+      "candidate_ids": [
+        "CAND-00169"
+      ]
+    },
+    {
+      "name": "Reports Testing Group",
+      "statement": "- Become the Reports testing group, through which all new Reports development would be filtered.",
+      "category": "out_of_scope",
+      "reason": "This is an organizational/governance assignment (testing-group role) rather than a software capability; it should be recorded in governance or project-plan documents, not as a runtime product requirement.",
+      "candidate_ids": [
+        "CAND-00170"
+      ]
+    },
+    {
+      "name": "Compile Executive Reports",
+      "statement": "- Compile a list of reports needed for an Executive Reports Interface.",
+      "category": "out_of_scope",
+      "reason": "This is a project deliverable / analysis task (compiling a list) rather than a software runtime obligation. If the intent is to require delivered executive templates, that should be expressed as concrete delivered-template requirements instead.",
+      "candidate_ids": [
+        "CAND-00171"
+      ]
+    },
+    {
+      "name": "Determine Templates",
+      "statement": "- Determine and create templates needed for all PINES libraries.",
+      "category": "out_of_scope",
+      "reason": "This is a project-authoring/operational task (creating templates for PINES) rather than a software behavior. If a shipped product obligation is intended (deliver templates), express that as a concrete requirement with the template list and fields.",
+      "candidate_ids": [
+        "CAND-00172"
+      ]
+    },
+    {
+      "name": "Iterative UI Specification",
+      "statement": "She mentioned that UI and data structures would require further specification using an iterative, prototype- oriented methodology.",
+      "category": "out_of_scope",
+      "reason": "This prescribes a design process/methodology rather than a runtime software requirement. Process and design-method guidance belong in project/process documentation; if a runtime deliverable is required (for example interactive prototypes), specify those deliverables explicitly.",
+      "candidate_ids": [
+        "CAND-00178"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "How should 'shelf space' be calculated when no explicit shelf-space field exists?",
+      "reason": "Stakeholders require a shelf-space percentage metric but multiple sources note the database does not track shelf space directly. The specification permits estimation but the exact algorithm (item dimensions, per-format average linear inches, or item-count proxy) was not decided.",
+      "candidate_ids": [
+        "CAND-00015"
+      ]
+    },
+    {
+      "question": "What scope and definitive metric(s) define 'capacity' for the capacity interface (e.g., physical shelf linear-feet, configured item limits, circulation processing capacity)?",
+      "reason": "Participants requested a system-wide capacity dashboard but asked different questions about what 'capacity' means. Implementation requires a stakeholder decision to select concrete metrics to display.",
+      "candidate_ids": [
+        "CAND-00067",
+        "CAND-00008"
+      ]
+    },
+    {
+      "question": "Which archival retention policy values shall the system enforce by default (e.g., transaction retention X days, financial archival years)?",
+      "reason": "Documents reference configurable retention and an example 7-year finance retention but did not lock specific defaults; this requires policy decision for defaults and guidance for configuration.",
+      "candidate_ids": [
+        "CAND-00131",
+        "CAND-00215"
+      ]
+    },
+    {
+      "question": "For auto-revert of transferred items: which event triggers or precedence rules should be supported (time-based first, event-based overrides, checked-out at destination to cancel auto-revert)?",
+      "reason": "Stakeholders asked for both time-based and event-based auto-revert behaviors, but interactions and precedence (e.g., revert after X days unless checked out at destination) were not fully specified.",
+      "candidate_ids": [
+        "CAND-00022",
+        "CAND-00027"
+      ]
+    },
+    {
+      "question": "Should historical reporting use a separate reporting replica with periodic snapshots, or a dedicated reporting warehouse mirroring the production schema?",
+      "reason": "Technical staff raised performance and reproducibility concerns; choice affects architecture, latency and complexity.",
+      "candidate_ids": [
+        "CAND-00121",
+        "CAND-00211",
+        "CAND-00205"
+      ]
+    }
+  ]
+}

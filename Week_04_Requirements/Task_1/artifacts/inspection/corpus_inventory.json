@@ -1,0 +1,147 @@
+{
+  "document_count": 20,
+  "chunk_count": 22,
+  "skipped_files": [],
+  "documents": [
+    {
+      "id": "DOC-001",
+      "path": "conversations/conv_pines014_material_volume.eml",
+      "characters": 4308,
+      "sha256": "7171c9cf4c3695773b0a63d6ddb45f8afa55885cdb5605beb11337e26e70f77f",
+      "lines": 113
+    },
+    {
+      "id": "DOC-002",
+      "path": "conversations/conv_pines015_capacity_interface.eml",
+      "characters": 3969,
+      "sha256": "5e209ce733ec1dfe55d75394cf4c9c8169291b7654dda112958ae33c6589012d",
+      "lines": 102
+    },
+    {
+      "id": "DOC-003",
+      "path": "conversations/conv_pines016_shelf_space.eml",
+      "characters": 5078,
+      "sha256": "476b2acea25db8c30aca3c399444684d0c90323294ee72d7436c16725bab9104",
+      "lines": 119
+    },
+    {
+      "id": "DOC-004",
+      "path": "conversations/conv_pines018_item_transfer.eml",
+      "characters": 7482,
+      "sha256": "42e9d374f4af35d14fb13b5d12e093ef43c260022f4cf9a7c1ff9c18927c1913",
+      "lines": 179
+    },
+    {
+      "id": "DOC-005",
+      "path": "conversations/conv_pines019_020_missing_intransit.eml",
+      "characters": 5026,
+      "sha256": "06277c9accc580f26c035d13f37f36fc4dce9224924fabdd3ba8413561e013b1",
+      "lines": 126
+    },
+    {
+      "id": "DOC-006",
+      "path": "conversations/conv_pines021_item_purging.eml",
+      "characters": 6137,
+      "sha256": "031e47dc1c52d97fb45d60f12b60a512642ba4d05a83c4f5519edec22091e5be",
+      "lines": 149
+    },
+    {
+      "id": "DOC-007",
+      "path": "conversations/conv_pines022_deletions.eml",
+      "characters": 4757,
+      "sha256": "9f00993bf51575573e6d3475138be76779582367f66283a7addf8f9b3dc2b3ba",
+      "lines": 124
+    },
+    {
+      "id": "DOC-008",
+      "path": "conversations/conv_pines023_patron_characteristics.eml",
+      "characters": 5083,
+      "sha256": "c7f96813dd0a858a8465d736479e5c7c670a89ad29064c3f93d5aba186210fd0",
+      "lines": 133
+    },
+    {
+      "id": "DOC-009",
+      "path": "conversations/conv_pines024_inactive_patrons.eml",
+      "characters": 5694,
+      "sha256": "a1c332ab4cc2919e0a4e51cc43038dff21cb662606c0f3e66cd21881a849467b",
+      "lines": 154
+    },
+    {
+      "id": "DOC-010",
+      "path": "early_draft_srs_galecia.txt",
+      "characters": 29557,
+      "sha256": "6116ff727dcfb1021f3e1480d48e694ab5ad533b5d346d5023f6ea8736fc3f03",
+      "lines": 678
+    },
+    {
+      "id": "DOC-011",
+      "path": "email_financial_reports.eml",
+      "characters": 5917,
+      "sha256": "530171325baf796d2cb860e3c1cd81b3d5c6ff3ccd200023d2bb83957cbfe50b",
+      "lines": 144
+    },
+    {
+      "id": "DOC-012",
+      "path": "email_report_features.eml",
+      "characters": 5221,
+      "sha256": "c1cbf3ee1a2bb49da58c4f901349a2edf0e1af051cdde6230f2421406ad6324f",
+      "lines": 128
+    },
+    {
+      "id": "DOC-013",
+      "path": "email_staff_login.eml",
+      "characters": 4283,
+      "sha256": "0d03f742f10e7469e03c83c36ee9dee65d62cf903d13239006b51b64b08b7f00",
+      "lines": 98
+    },
+    {
+      "id": "DOC-014",
+      "path": "evergreen_reference_2009.txt",
+      "characters": 9265,
+      "sha256": "eb115c87d4b919a0a299d4f79fdf2f644da0374942619d5d4d1658c417d96d41",
+      "lines": 228
+    },
+    {
+      "id": "DOC-015",
+      "path": "interview_cataloging_2009-05-08.txt",
+      "characters": 5900,
+      "sha256": "e4b3b19c6c61634e291712f374050f9b5f4367b93170619d31eaed46e20f52c1",
+      "lines": 130
+    },
+    {
+      "id": "DOC-016",
+      "path": "interview_sysadmin_2009-05-10.txt",
+      "characters": 5752,
+      "sha256": "fda777c641f28d4f05f287629d6b96787a3559ee12280246da9ee8345c3fecbe",
+      "lines": 123
+    },
+    {
+      "id": "DOC-017",
+      "path": "meeting_minutes/meeting_2009-03-15_minutes.txt",
+      "characters": 7219,
+      "sha256": "08cbd3ecab82e3e8e6357ffeb677f8dc608357bec50f6bcec391dfd2e481b3ae",
+      "lines": 139
+    },
+    {
+      "id": "DOC-018",
+      "path": "meeting_minutes/meeting_2009-07-20_minutes.txt",
+      "characters": 10567,
+      "sha256": "bcb7a84c633e9898921cea96a05b7ae97d341f9686fe93a6126027f1536a53e1",
+      "lines": 219
+    },
+    {
+      "id": "DOC-019",
+      "path": "meeting_tech_subcommittee_2009-06-30.txt",
+      "characters": 8185,
+      "sha256": "7fb4cc419dea729aa875e64b2ddcb1c58af5c2a1ea3ba4e80e72f654e5b32200",
+      "lines": 198
+    },
+    {
+      "id": "DOC-020",
+      "path": "survey_results_2009.txt",
+      "characters": 6135,
+      "sha256": "cc5bf9b6301b13553a1849853f7b5d3a408c9e339261c65dfa3b72e76ac09a81",
+      "lines": 143
+    }
+  ]
+}

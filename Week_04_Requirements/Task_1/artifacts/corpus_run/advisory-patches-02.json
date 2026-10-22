@@ -1,0 +1,104 @@
+[
+  {
+    "pending_ids": [
+      "CAND-00006",
+      "CAND-00011",
+      "CAND-00038",
+      "CAND-00039",
+      "CAND-00072",
+      "CAND-00138",
+      "CAND-00139",
+      "CAND-00161",
+      "CAND-00164",
+      "CAND-00212",
+      "CAND-00226"
+    ],
+    "patch": {
+      "requirements": [
+        {
+          "target_index": 1,
+          "name": "System capacity interface",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Expressed as a system-level need for cross-branch planning and explicitly requested by multiple stakeholders; branch-capacity analysis is an operational priority.",
+          "candidate_ids": [
+            "CAND-00006"
+          ],
+          "replacements": [],
+          "append_explanation": "The high-level/summary view referenced by this interface must present key metrics in the summary (for example: capacity utilization, growth/shrink trend indicators, and high-level item/hold counts) so operators can assess branch status at-a-glance; these summary metrics must be visible in the overview and be linkable/drillable to the detailed branch views so directors and managers can move from the summary to branch-specific detail efficiently."
+        },
+        {
+          "target_index": 2,
+          "name": "Shelf-space utilization report",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Cataloging and collection managers requested this to support weeding/space decisions, and stakeholders emphasized per-branch and system views.",
+          "candidate_ids": [
+            "CAND-00011"
+          ],
+          "replacements": [],
+          "append_explanation": "The shelf-space report shall include, for branch-scoped outputs, an explicit system-average comparative value presented alongside the branch's results (for example: a system-average column, overlay or an explicit 'compare to system average' view) so branch managers can directly compare local percentages to the system-wide average; the documentation shall describe the scope and inclusion rules used to compute the system average (for example: which branches are included, whether branches with missing shelf-space estimates are excluded or imputed, and how estimation methods are applied across the system)."
+        },
+        {
+          "target_index": 5,
+          "name": "Item record purging and last-copy protection",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Cataloging and collection staff defined this as critical (last-copy protection named 'CRITICAL'), and stakeholders required safety/audit controls.",
+          "candidate_ids": [
+            "CAND-00038",
+            "CAND-00039"
+          ],
+          "replacements": [],
+          "append_explanation": "Batch status-conversion and purge-assist workflows driven from candidate reports shall include operational safety controls: a human-readable preview step summarizing number of items affected, source status(es), target status, and scope; a required explicit confirmation action before applying changes; an auditable log entry for every applied batch-status change capturing at minimum operator identifier, timestamp, affected item identifiers, source status, target status and optional reason; and either an immediate undo capability where feasible or a documented configurable undo/rollback window with stated limitations. To avoid long-running locks and to aid recovery, large batch status-change operations shall support chunked processing with a configurable chunk size, progress reporting, and retry/resume semantics. Role-based permissions shall control who may author, schedule or execute bulk status-conversion and purge operations, and administrators must be able to require an elevated confirmation/authorization step for bulk changes that exceed configured thresholds (for example: more than N items or more than X% of a branch's collection). For last-copy detection and reporting, the report shall support both branch-scoped and system-scoped modes: for each item record the system shall evaluate whether any other copies exist within the selected scope (branch or system) and, if none exist, flag the item as a last copy; the report shall expose bibliographic identifiers and exportable bibliographic context (for example MARC identifiers or OCLC numbers) to support cataloging follow-up, and the developer documentation shall describe any caching or replication delays and how those delays affect last-copy detection and reporting latency."
+        },
+        {
+          "target_index": 9,
+          "name": "Operating environment and scalability",
+          "kind": "constraint",
+          "priority": "P1",
+          "priority_reason": "Technical constraints and scale were repeatedly called out by IT stakeholders and working-group materials; non-disruption of OPAC is essential to operations.",
+          "candidate_ids": [
+            "CAND-00164"
+          ],
+          "replacements": [
+            {
+              "old_text": "The reporting subsystem shall be designed to work with a fully-relational database schema (for example PostgreSQL) and avoid denormalized schemas that fight the relational model.",
+              "new_text": "The reporting subsystem shall be designed to work with a fully-relational database schema (for example PostgreSQL); where performance or reproducible historical snapshots justify a separate reporting warehouse or denormalized reporting schema, those designs are permitted provided they are documented, isolated from the production transactional schema, and their synchronization/refresh behaviors are described in the deployment documentation."
+            }
+          ],
+          "append_explanation": ""
+        },
+        {
+          "target_index": 10,
+          "name": "Accessibility, standards and platform constraints",
+          "kind": "constraint",
+          "priority": "P1",
+          "priority_reason": "Legal accessibility obligations and architectural constraints were explicitly stated by multiple stakeholders and technical staff; compliance is essential.",
+          "candidate_ids": [
+            "CAND-00072"
+          ],
+          "replacements": [],
+          "append_explanation": ""
+        },
+        {
+          "target_index": 14,
+          "name": "Report scheduling, queue visibility, prioritization and cancellation",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Queue visibility and prioritization were repeatedly reported as operational needs to prevent user confusion and support directors' reporting needs; background processing to avoid disruption is high priority.",
+          "candidate_ids": [
+            "CAND-00138",
+            "CAND-00139",
+            "CAND-00161",
+            "CAND-00212",
+            "CAND-00226"
+          ],
+          "replacements": [],
+          "append_explanation": "The scheduling and queue UI shall allow requestors to see submission timestamp, queue position, job status (waiting, running, completed, failed) and an explicit numeric count of how many jobs are ahead of each job. The UI shall permit multi-selecting multiple canned or saved reports and queuing them to run together as background jobs while treating each queued report as an individually queued job with its own queue position, status and cancellation ability; multi-report submissions shall participate in the same prioritization and cancellation semantics as single-report jobs. Administrators shall be able to configure priority rules so certain authorized reports may jump ahead in the queue, and long-running/background processing routines shall periodically check for cancellation signals (or otherwise provide a mechanism to detect and apply cancellation requests) so user- or administrator-initiated cancellations can be honored in a timely manner; the documentation shall describe expected cancellation semantics and typical latency for cancellation to take effect."
+        }
+      ],
+      "blacklist": []
+    }
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "pending_ids": [
+      "CAND-00019",
+      "CAND-00022",
+      "CAND-00023",
+      "CAND-00026",
+      "CAND-00033",
+      "CAND-00039",
+      "CAND-00065",
+      "CAND-00066",
+      "CAND-00067",
+      "CAND-00068",
+      "CAND-00069",
+      "CAND-00070",
+      "CAND-00134",
+      "CAND-00160",
+      "CAND-00162",
+      "CAND-00163",
+      "CAND-00166",
+      "CAND-00167",
+      "CAND-00187",
+      "CAND-00188",
+      "CAND-00189",
+      "CAND-00190",
+      "CAND-00199",
+      "CAND-00212"
+    ],
+    "patch": {
+      "requirements": [
+        {
+          "target_index": 3,
+          "name": "Batch item transfer utility",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Multiple cataloging and branch staff identified this as critical for outreach, mobile services, and routine redistribution; technical staff noted batch/transaction safety is essential.",
+          "candidate_ids": [
+            "CAND-00019",
+            "CAND-00022",
+            "CAND-00023",
+            "CAND-00026"
+          ],
+          "replacements": [],
+          "append_explanation": "The transfer utility's selection and confirmation UX shall support multi-select controls (checkboxes), explicit select-all and clear-selection actions, persistent selection across paged results, range/bulk selection operations, and the ability to upload or import barcode/TCN lists to define bulk selections. The preview step shall present a concise human-readable summary (for example: number of items affected, source location(s), destination location(s), and scheduled execution time if any) and require an explicit confirmation action before applying changes. Every transfer operation (manual, scheduled or automatic) shall write an auditable transfer-log entry recording at minimum: operator identifier, timestamp, affected item identifiers, source location, destination location, transfer method (manual/scheduled/automatic), and any optional reason or triggering event; this transfer history must be queryable and reportable to support audit and recovery workflows. Time- or event-based auto-revert definitions shall be configurable per saved transfer (for example: revert after N days unless a specified event occurs) and shall support attaching event-trigger definitions (examples: status change such as 'sold', an explicit 'checked out at destination' event, or manual event markers) to saved transfers; the documented precedence rules shall state how event-based triggers and scheduled reverts interact (for example: a checked-out-at-destination event cancels a pending revert unless an administrator configures an override)."
+        },
+        {
+          "target_index": 4,
+          "name": "Missing, damaged and in-transit reporting",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Front-line and delivery staff repeatedly requested both reports to manage inventory, reduce losses, and coordinate deliveries.",
+          "candidate_ids": [
+            "CAND-00033"
+          ],
+          "replacements": [],
+          "append_explanation": "For in-transit detection the report shall support the stakeholder-proposed detection rule (for example: identify transit records where arrival_date is null and departure_date is more than X days ago) as a default or configurable option; the report shall permit administrators to configure alternative detection rules where local transit-record semantics differ and the documentation shall describe the exact transit-record fields and logic used to identify items outstanding in transit."
+        },
+        {
+          "target_index": 5,
+          "name": "Item record purging and last-copy protection",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Cataloging and collection staff defined this as critical (last-copy protection named 'CRITICAL'), and stakeholders required safety/audit controls.",
+          "candidate_ids": [
+            "CAND-00039"
+          ],
+          "replacements": [],
+          "append_explanation": "The 'last copy' reporting outputs shall explicitly support cataloging workflows by providing bibliographic identifiers and exportable bibliographic context (for example MARC identifiers or OCLC numbers and exportable metadata) so catalogers can safely locate and update WorldCat or other union-catalog entries; the developer documentation shall state this intended use-case and describe which fields are included to support those external cataloging edits."
+        },
+        {
+          "target_index": 8,
+          "name": "Inactive patrons reporting and outreach export",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Multiple libraries run these reports routinely for database cleanup and outreach; performance concerns require background processing.",
+          "candidate_ids": [
+            "CAND-00065"
+          ],
+          "replacements": [],
+          "append_explanation": "For very large patron sets the inactive-patron report shall support execution as a background job and provide mechanisms for caching report results or intermediate query results to avoid repeated expensive queries; the system documentation shall describe cache behavior, invalidation semantics and any recommended caching strategies for large-scale deployments."
+        },
+        {
+          "target_index": 9,
+          "name": "Operating environment and scalability",
+          "kind": "constraint",
+          "priority": "P1",
+          "priority_reason": "Technical constraints and scale were repeatedly called out by IT stakeholders and working-group materials; non-disruption of OPAC is essential to operations.",
+          "candidate_ids": [
+            "CAND-00066",
+            "CAND-00067",
+            "CAND-00068",
+            "CAND-00069",
+            "CAND-00070",
+            "CAND-00160",
+            "CAND-00162",
+            "CAND-00167",
+            "CAND-00187",
+            "CAND-00199",
+            "CAND-00188",
+            "CAND-00189"
+          ],
+          "replacements": [],
+          "append_explanation": "The operating-environment and scale description shall also record the documented acquisition throughput literal from stakeholder evidence: 'purchasing and processing over 900,000 items per year' alongside the example scale of 286 locations and ~17M annual circulations. The specification shall reiterate that report processing must be achievable during open hours without disrupting OPAC or circulation clients (for example via background jobs, reporting replicas or equivalent architectural separation) and shall document the operational assumption that Management Processes are consolidated at a central location so implementers can account for latency, access control and scaling across the consortium. For operational clarity the document shall restate required host/platform support (Linux or Solaris), and web-access/browser compatibility constraints (usable via web-browser or Windows client and compatible with Internet Explorer 6.0+ and Firefox 2.0+ where web-based)."
+        },
+        {
+          "target_index": 10,
+          "name": "Accessibility, standards and platform constraints",
+          "kind": "constraint",
+          "priority": "P1",
+          "priority_reason": "Legal accessibility obligations and architectural constraints were explicitly stated by multiple stakeholders and technical staff; compliance is essential.",
+          "candidate_ids": [
+            "CAND-00163",
+            "CAND-00166",
+            "CAND-00190"
+          ],
+          "replacements": [],
+          "append_explanation": "Stakeholders explicitly stated that Section 508 compliance is mandatory and the documentation shall record that legal requirement; the developer documentation shall list representative assistive technologies used during testing (for example JAWS and NVDA screen readers and ZoomText screen-magnification software) and require standards-compliant semantic HTML output with appropriate alt text, ARIA attributes and labels. The migration/export/import capability between development, training and production environments shall explicitly support moving report templates, permission settings, saved queries and other configuration artifacts and the developer documentation shall describe safe migration procedures, isolation practices (for example scrubbed/anonymized datasets for training) and any known limitations of these migration mechanisms."
+        },
+        {
+          "target_index": 13,
+          "name": "Report templates, permissions and shared folders",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "High priority across stakeholders for consistent board reports, controlled templates, and easy admin of permissions.",
+          "candidate_ids": [
+            "CAND-00134"
+          ],
+          "replacements": [],
+          "append_explanation": "Shared-folder and template permissions shall support scoping execution rights to particular data scopes (for example: restrict execution of a template to a staff member's branch, to a configured county, or to other configured data groups); administrators must be able to grant or deny execution, cloning or editing rights that are constrained to such data scopes and the administrative UI shall provide controls and auditability for configuring and tracking those scoped permissions."
+        },
+        {
+          "target_index": 14,
+          "name": "Report scheduling, queue visibility, prioritization and cancellation",
+          "kind": "functional",
+          "priority": "P1",
+          "priority_reason": "Queue visibility and prioritization were repeatedly reported as operational needs to prevent user confusion and support directors' reporting needs; background processing to avoid disruption is high priority.",
+          "candidate_ids": [
+            "CAND-00212"
+          ],
+          "replacements": [],
+          "append_explanation": "Long-running and background report processing routines shall periodically check for cancellation signals (or otherwise provide a mechanism to detect and apply cancellation requests) so that user- or administrator-initiated cancellations can be honored in a timely manner; the system documentation shall describe expected cancellation semantics and typical latency for cancellation to take effect."
+        }
+      ],
+      "blacklist": []
+    }
+  }
+]

@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "purpose": "Reject the previously observed Local Admin-to-Material Volume association and accept the correct association.",
+  "pairs": [
+    {
+      "candidate": {
+        "name": "Material Volume Report",
+        "statement": "The system shall provide a Material Volume Report that shows, for a selected scope (branch or system) and date point, counts of items by acquisition status (new acquisitions), items on shelf (checked in), and items out in circulation. The report shall support categorical breakdowns (total items, holds, genres, formats) and customizable categories to suit local reporting needs.",
+        "kind": "functional",
+        "priority_hint": "high",
+        "evidence_quote": "- Local Admin (branch manager - can run reports, configure local settings)",
+        "id": "REGRESSION-UNSUPPORTED",
+        "document_id": "DOC-016",
+        "chunk_id": "DOC-016-AUDIT",
+        "start_line": 79,
+        "end_line": 79
+      },
+      "source_context": "- Local Admin (branch manager - can run reports, configure local settings)",
+      "disposition": "accepted",
+      "entry": {
+        "id": "REQ-0017",
+        "name": "Material Volume Report",
+        "explanation": "The system shall produce a Material Volume Report for a selected scope (branch or system) and date point that counts items by acquisition state (new acquisitions), items on shelf (checked in), and items out in circulation. The report shall support categorical breakdowns (total items, holds, genres, formats) and allow libraries to define/customize additional categories. Date filters shall allow historical snapshots for comparisons.",
+        "kind": "functional",
+        "priority": "P1",
+        "priority_reason": "Multiple stakeholders (managers, catalogers, board reporting) explicitly requested point-in-time and historical volume breakdowns as essential for board and collection management.",
+        "candidate_ids": [
+          "CAND-00001",
+          "CAND-00002",
+          "CAND-00003",
+          "CAND-00004",
+          "CAND-00005",
+          "CAND-00100",
+          "CAND-00196",
+          "CAND-00286",
+          "CAND-00319"
+        ]
+      }
+    },
+    {
+      "candidate": {
+        "name": "Local administrator configuration and reports",
+        "statement": "Local administrators shall be able to run reports and configure local settings.",
+        "kind": "functional",
+        "priority_hint": "high",
+        "evidence_quote": "- Local Admin (branch manager - can run reports, configure local settings)",
+        "id": "REGRESSION-WRONG",
+        "document_id": "DOC-016",
+        "chunk_id": "DOC-016-AUDIT",
+        "start_line": 79,
+        "end_line": 79
+      },
+      "source_context": "- Local Admin (branch manager - can run reports, configure local settings)",
+      "disposition": "accepted",
+      "entry": {
+        "id": "REQ-0017",
+        "name": "Material Volume Report",
+        "explanation": "The system shall produce a Material Volume Report for a selected scope (branch or system) and date point that counts items by acquisition state (new acquisitions), items on shelf (checked in), and items out in circulation. The report shall support categorical breakdowns (total items, holds, genres, formats) and allow libraries to define/customize additional categories. Date filters shall allow historical snapshots for comparisons.",
+        "kind": "functional",
+        "priority": "P1",
+        "priority_reason": "Multiple stakeholders (managers, catalogers, board reporting) explicitly requested point-in-time and historical volume breakdowns as essential for board and collection management.",
+        "candidate_ids": [
+          "CAND-00001",
+          "CAND-00002",
+          "CAND-00003",
+          "CAND-00004",
+          "CAND-00005",
+          "CAND-00100",
+          "CAND-00196",
+          "CAND-00286",
+          "CAND-00319"
+        ]
+      }
+    },
+    {
+      "candidate": {
+        "name": "Local administrator configuration and reports",
+        "statement": "Local administrators shall be able to run reports and configure local settings.",
+        "kind": "functional",
+        "priority_hint": "high",
+        "evidence_quote": "- Local Admin (branch manager - can run reports, configure local settings)",
+        "id": "REGRESSION-CORRECT",
+        "document_id": "DOC-016",
+        "chunk_id": "DOC-016-AUDIT",
+        "start_line": 79,
+        "end_line": 79
+      },
+      "source_context": "- Local Admin (branch manager - can run reports, configure local settings)",
+      "disposition": "accepted",
+      "entry": {
+        "name": "Local administrator configuration and reports",
+        "kind": "functional",
+        "priority": "P2",
+        "explanation": "The system shall allow local system administrators to configure local settings and run system reports. These elevated permissions shall support their responsibility for overseeing library processes at their assigned location.",
+        "priority_reason": "The source identifies these responsibilities for local administrators.",
+        "candidate_ids": []
+      }
+    }
+  ],
+  "assessments": [
+    {
+      "candidate_id": "REGRESSION-UNSUPPORTED",
+      "verdict": "unsupported",
+      "reason": "The supplied source quote only states that a Local Admin can run reports and configure local settings. It does not mention or support the specific Material Volume Report capabilities asserted in the candidate/paragraph: counts by acquisition state (new acquisitions), counts of items on shelf (checked in) and items out in circulation, categorical breakdowns (total items, holds, genres, formats), customizable categories, or date filters/historical snapshots. Those report details are not present in the quoted evidence and therefore are unsupported by this source fragment.",
+      "suggested_fix": "Either (a) attach or cite source text that explicitly specifies each of the report features (counts by acquisition state, checked-in vs out, breakdowns by holds/genres/formats, ability to define custom categories, and point-in-time date filters/historical snapshots), or (b) reduce the requirement to what the quoted evidence shows (e.g., “The system shall allow Local Admins to run reports and configure local settings”) and create separate, clearly sourced requirements for the specific Material Volume Report capabilities."
+    },
+    {
+      "candidate_id": "REGRESSION-WRONG",
+      "verdict": "wrong_requirement",
+      "reason": "The candidate statement concerns local-administrator permissions (ability to run reports and configure local settings). The assigned paragraph (REQ-0017) defines detailed content and behavior of a Material Volume Report. These are different needs: the candidate is about who may perform actions, while the paragraph is about what a specific report must provide.",
+      "suggested_fix": "Move this candidate to (or create) a separate requirement about local administrator privileges. For example: “The system shall allow local system administrators to configure local settings and run system reports.” Source the quoted text for that requirement. If the intent was to assert that local admins may run the Material Volume Report specifically, amend the paragraph to state that permission explicitly and provide supporting evidence."
+    },
+    {
+      "candidate_id": "REGRESSION-CORRECT",
+      "verdict": "covered",
+      "reason": "",
+      "suggested_fix": ""
+    }
+  ]
+}

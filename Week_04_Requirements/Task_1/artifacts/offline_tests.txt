@@ -1,0 +1,86 @@
+[test] gpt-4o-mini: completed
+[test] gpt-4o-mini: cache_hit
+[test] gpt-4o-mini: completed
+test_cache_reuses_only_identical_requests (test_network.NetworkTests.test_cache_reuses_only_identical_requests) ... ok
+test_chunking_does_not_drop_lines_and_makes_progress (test_network.NetworkTests.test_chunking_does_not_drop_lines_and_makes_progress) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 0 findings; 0 newly discovered candidates.
+Traceability 0: assessed 1 bindings; 0 need correction.
+test_dismissed_review_finding_retains_an_inspectable_reason (test_network.NetworkTests.test_dismissed_review_finding_retains_an_inspectable_reason) ... ok
+test_empty_optional_endpoint_uses_official_api (test_network.NetworkTests.test_empty_optional_endpoint_uses_official_api) ... ok
+test_evidence_repair_preserves_all_original_candidate_statements (test_network.NetworkTests.test_evidence_repair_preserves_all_original_candidate_statements) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 0 findings; 0 newly discovered candidates.
+Traceability 0: assessed 1 bindings; 0 need correction.
+Review 1: 0 findings; 0 newly discovered candidates.
+Traceability 1: assessed 2 bindings; 0 need correction.
+test_external_source_feedback_is_grounded_and_applied_once (test_network.NetworkTests.test_external_source_feedback_is_grounded_and_applied_once) ... ok
+test_fabricated_evidence_is_rejected (test_network.NetworkTests.test_fabricated_evidence_is_rejected) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 1 findings; 0 newly discovered candidates.
+Traceability 0: assessed 1 bindings; 0 need correction.
+Review 1: 1 findings; 0 newly discovered candidates.
+Traceability 1: assessed 1 bindings; 0 need correction.
+Review 2: 0 findings; 0 newly discovered candidates.
+Traceability 2: assessed 1 bindings; 0 need correction.
+test_full_source_rescans_can_be_bounded_without_stopping_feedback (test_network.NetworkTests.test_full_source_rescans_can_be_bounded_without_stopping_feedback) ... ok
+test_grounding_records_source_line_numbers (test_network.NetworkTests.test_grounding_records_source_line_numbers) ... ok
+test_grounding_repairs_only_presentation_and_saves_source_text (test_network.NetworkTests.test_grounding_repairs_only_presentation_and_saves_source_text) ... ok
+Targeted repair resolved 1 omitted or ambiguously assigned candidates.
+test_incremental_revision_preserves_an_unaffected_requirement (test_network.NetworkTests.test_incremental_revision_preserves_an_unaffected_requirement) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 0 findings; 0 newly discovered candidates.
+Traceability 0: assessed 0 bindings; 0 need correction.
+test_iteration_limit_exports_explicit_draft (test_network.NetworkTests.test_iteration_limit_exports_explicit_draft) ... ok
+test_mime_email_preserves_embedded_conversation (test_network.NetworkTests.test_mime_email_preserves_embedded_conversation) ... ok
+test_nested_files_and_unsupported_formats_are_reported (test_network.NetworkTests.test_nested_files_and_unsupported_formats_are_reported) ... ok
+Loaded 2 documents in 2 chunks.
+Extracted 2 source-grounded candidates.
+Review 0: 2 findings; 2 newly discovered candidates.
+Traceability 0: assessed 2 bindings; 0 need correction.
+Review 1: 0 findings; 0 newly discovered candidates.
+Traceability 1: assessed 4 bindings; 0 need correction.
+test_parallel_audits_preserve_source_order_for_new_ids (test_network.NetworkTests.test_parallel_audits_preserve_source_order_for_new_ids) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 0 findings; 0 newly discovered candidates.
+Traceability 0: assessed 0 bindings; 0 need correction.
+Review 1: 0 findings; 0 newly discovered candidates.
+Traceability 1: assessed 1 bindings; 0 need correction.
+test_real_compiled_graph_revises_on_deterministic_failure (test_network.NetworkTests.test_real_compiled_graph_revises_on_deterministic_failure) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 1 findings; 1 newly discovered candidates.
+Traceability 0: assessed 1 bindings; 0 need correction.
+Review 1: 0 findings; 0 newly discovered candidates.
+Traceability 1: assessed 2 bindings; 0 need correction.
+test_reviewer_can_recover_requirement_missed_by_extractor (test_network.NetworkTests.test_reviewer_can_recover_requirement_missed_by_extractor) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 0 findings; 0 newly discovered candidates.
+Traceability 0: assessed 1 bindings; 1 need correction.
+Review 1: 0 findings; 0 newly discovered candidates.
+Traceability 1: assessed 1 bindings; 0 need correction.
+test_semantic_binding_failure_triggers_editor_feedback (test_network.NetworkTests.test_semantic_binding_failure_triggers_editor_feedback) ... ok
+test_semantic_evidence_repair_keeps_identity_and_validates_the_new_quote (test_network.NetworkTests.test_semantic_evidence_repair_keeps_identity_and_validates_the_new_quote) ... ok
+Traceability 0: assessed 1 bindings; 0 need correction.
+test_source_finding_repairs_evidence_even_if_pairwise_review_accepts_it (test_network.NetworkTests.test_source_finding_repairs_evidence_even_if_pairwise_review_accepts_it) ... ok
+Traceability 2: assessed 2 bindings; 1 need correction.
+test_stabilized_audit_separates_rejections_and_reports_invalid_rejection (test_network.NetworkTests.test_stabilized_audit_separates_rejections_and_reports_invalid_rejection) ... ok
+Targeted repair resolved 1 omitted or ambiguously assigned candidates.
+test_targeted_disposition_repair_retains_existing_sources (test_network.NetworkTests.test_targeted_disposition_repair_retains_existing_sources) ... ok
+test_three_distinct_permitted_models_are_enforced (test_network.NetworkTests.test_three_distinct_permitted_models_are_enforced) ... ok
+Loaded 1 documents in 1 chunks.
+Extracted 1 source-grounded candidates.
+Review 0: 0 findings; 0 newly discovered candidates.
+test_traceability_audit_cannot_silently_omit_or_invent_ids (test_network.NetworkTests.test_traceability_audit_cannot_silently_omit_or_invent_ids) ... ok
+test_validator_rejects_unknown_and_unaccounted_candidates (test_network.NetworkTests.test_validator_rejects_unknown_and_unaccounted_candidates) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.619s
+
+OK

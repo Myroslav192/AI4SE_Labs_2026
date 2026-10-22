@@ -1,0 +1,197 @@
+[
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Duplicate In-transit reporting candidates: CAND-00033 and CAND-00100 both propose an In-transit items report; this overlaps with the Missing, damaged and in-transit reporting canonical requirement.",
+      "suggested_fix": "Consolidate in-transit reporting into a single canonical requirement; remove or de-duplicate the overlapping candidate entries; ensure cross-reference to the canonical requirement.",
+      "candidate_ids": [
+        "CAND-00033",
+        "CAND-00100"
+      ]
+    },
+    "issue_index": 0,
+    "retain": false,
+    "reason": "Not a spec defect — the in‑transit requirement is already captured by the consolidated \"Missing, damaged and in‑transit reporting\" requirement; multiple candidate entries are provenance, not separate runtime obligations."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Shelf-space utilization reporting is expressed by multiple candidates (CAND-00011, CAND-00156, CAND-00185) as separate shelf-space reports; they appear to cover the same metric set.",
+      "suggested_fix": "Consolidate shelf-space reporting into a single canonical requirement with agreed scope, and remove redundant candidate entries.",
+      "candidate_ids": [
+        "CAND-00011",
+        "CAND-00156",
+        "CAND-00185"
+      ]
+    },
+    "issue_index": 1,
+    "retain": false,
+    "reason": "Not a spec defect — shelf‑space requirements are consolidated in the Shelf‑space utilization requirement; multiple candidate entries are provenance/duplication in the ledger."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Last Copy Report appears in multiple candidate entries (CAND-00039 and CAND-00153) duplicating the same obligation across sources.",
+      "suggested_fix": "Consolidate into a single canonical last-copy reporting requirement; keep one canonical candidate.",
+      "candidate_ids": [
+        "CAND-00039",
+        "CAND-00153"
+      ]
+    },
+    "issue_index": 2,
+    "retain": false,
+    "reason": "Not a spec defect — the \"last copy\" obligation is already specified (Item record purging/last‑copy protection); duplicate candidate entries are provenance."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Batch item transfer utility is expressed by multiple candidates (CAND-00016 and CAND-00098) with overlapping capabilities (batch selection, transfer, undo).",
+      "suggested_fix": "Consolidate into a single canonical batch transfer capability; align UI/UX and auditing features; remove duplicate candidate.",
+      "candidate_ids": [
+        "CAND-00016",
+        "CAND-00098"
+      ]
+    },
+    "issue_index": 3,
+    "retain": false,
+    "reason": "Not a spec defect — batch transfer functionality is captured in the Batch item transfer utility requirement; multiple candidates are provenance, not separate requirements."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Purging/deletion audit and tracking is represented by multiple candidate entries (CAND-00046, CAND-00047, CAND-00049, CAND-00050, CAND-00051, CAND-00052) across sources.",
+      "suggested_fix": "Consolidate into a single canonical purge/delete auditing framework; ensure unified audit fields and safeguards.",
+      "candidate_ids": [
+        "CAND-00046",
+        "CAND-00047",
+        "CAND-00049",
+        "CAND-00050",
+        "CAND-00051",
+        "CAND-00052"
+      ]
+    },
+    "issue_index": 4,
+    "retain": false,
+    "reason": "Not a spec defect — deletion/purge audit requirements are consolidated in the Deletion‑audit and deletion reporting requirement; the candidate duplication is provenance."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Inactive-patrons reporting has multiple candidates (CAND-00059, CAND-00061, CAND-00062, CAND-00063, CAND-00103, CAND-00058, CAND-00236, CAND-00259, CAND-00065) that cover similar functionality (activity inactivity, exclusions, assignments, ranking).",
+      "suggested_fix": "Consolidate into a single canonical inactive-patrons reporting requirement with clear scope and audit/assignment features.",
+      "candidate_ids": [
+        "CAND-00059",
+        "CAND-00061",
+        "CAND-00062",
+        "CAND-00063",
+        "CAND-00103",
+        "CAND-00058",
+        "CAND-00236",
+        "CAND-00259",
+        "CAND-00065"
+      ]
+    },
+    "issue_index": 5,
+    "retain": false,
+    "reason": "Not a spec defect — inactive‑patron functionality and its variants are already captured by the Inactive patrons reporting requirement; multiple candidate entries are provenance."
+  },
+  {
+    "issue": {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Canned/on-demand/open-template reporting interfaces are represented by a large set of candidates (CAND-00085, CAND-00086, CAND-00090, CAND-00117, CAND-00118, CAND-00135, CAND-00180, CAND-00285 through CAND-00298, CAND-00120) describing board and executive reports and open templates.",
+      "suggested_fix": "Consolidate to a single canonical interface family for canned/on-demand/open-template reporting; specify exact shipped templates and access controls; remove duplicate candidates.",
+      "candidate_ids": [
+        "CAND-00085",
+        "CAND-00086",
+        "CAND-00090",
+        "CAND-00117",
+        "CAND-00118",
+        "CAND-00135",
+        "CAND-00180",
+        "CAND-00285",
+        "CAND-00286",
+        "CAND-00287",
+        "CAND-00288",
+        "CAND-00289",
+        "CAND-00290",
+        "CAND-00291",
+        "CAND-00292",
+        "CAND-00293",
+        "CAND-00294",
+        "CAND-00295",
+        "CAND-00296",
+        "CAND-00297",
+        "CAND-00298",
+        "CAND-00120"
+      ]
+    },
+    "issue_index": 6,
+    "retain": false,
+    "reason": "Not a spec defect — canned/on‑demand/open‑template interfaces are specified in a single requirement; the many candidate entries are provenance of the same obligation."
+  },
+  {
+    "issue": {
+      "category": "blacklist",
+      "severity": "warning",
+      "description": "Document Reports Functionality entry (CAND-00169) is marked out-of-scope (blacklisted) and should not be treated as an in-scope runtime requirement.",
+      "suggested_fix": "Move to project governance/backlog and remove from runtime requirement list.",
+      "candidate_ids": [
+        "CAND-00169"
+      ]
+    },
+    "issue_index": 7,
+    "retain": false,
+    "reason": "Correctly classified out‑of‑scope. CAND‑00169 is a project/governance task (blacklisted) and not a runtime software requirement to be added to the spec."
+  },
+  {
+    "issue": {
+      "category": "description",
+      "severity": "warning",
+      "description": "Shelf-space calculation method is ambiguous; the spec permits estimation but lacks an agreed algorithm (matches CAND-00015).",
+      "suggested_fix": "Require explicit estimation algorithm for shelf-space (dimensions, proxies, or alternative) and document methodology.",
+      "candidate_ids": [
+        "CAND-00015"
+      ]
+    },
+    "issue_index": 8,
+    "retain": true,
+    "reason": "Real defect/ambiguity — the spec permits estimated shelf‑space but does not require or define an explicit estimation algorithm or documented method; require a specified method and documentation of estimation rules and limitations."
+  },
+  {
+    "issue": {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Capacity metrics definition is ambiguous (which physical or system capacity metrics to display). It is referenced by CAND-00067 and CAND-00008 lacking a single definition.",
+      "suggested_fix": "Define a single, concrete set of capacity metrics (e.g., shelf space, item-count thresholds, load factors) and align all capacity-related candidates.",
+      "candidate_ids": [
+        "CAND-00067",
+        "CAND-00008"
+      ]
+    },
+    "issue_index": 9,
+    "retain": true,
+    "reason": "Real defect/ambiguity — the spec does not define which concrete metric(s) constitute branch \"capacity\"; it must require a defined set of capacity metrics (or a documented stakeholder decision process and mapping) and where thresholds are administratively configured."
+  },
+  {
+    "issue": {
+      "category": "terminology",
+      "severity": "warning",
+      "description": "Default archival retention policy values are not specified (CAND-00131 and CAND-00215 are open questions about policy defaults).",
+      "suggested_fix": "Decide and document default retention periods (e.g., 7 years for financial/audit data) and provide guidance for configuration.",
+      "candidate_ids": [
+        "CAND-00131",
+        "CAND-00215"
+      ]
+    },
+    "issue_index": 10,
+    "retain": true,
+    "reason": "Real defect/undecided item — default archival/retention policy values are left unspecified; the spec must state deployment defaults or require an explicit policy configuration and document recommended defaults (for financial/audit retention)."
+  }
+]

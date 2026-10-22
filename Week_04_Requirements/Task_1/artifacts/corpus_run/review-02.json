@@ -1,0 +1,60 @@
+{
+  "revision": 2,
+  "passed": false,
+  "candidate_count": 308,
+  "requirement_count": 25,
+  "source_document_audits": 0,
+  "traceability_assessments": 308,
+  "issues": [
+    {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Open-template reporting obligations appear in two canonical requirements: CAND-00081 (Query tool and open-template reporting) and CAND-00119 (Open Template Reporting). The overlap risks conflicting scope and permissions; consider consolidating into a single open-template requirement.",
+      "suggested_fix": "Choose one canonical open-template requirement and merge scope/permissions; remove one of the duplicates; ensure a single, traceable ID for open-template reporting.",
+      "candidate_ids": [
+        "CAND-00081",
+        "CAND-00119"
+      ]
+    },
+    {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "Audit/deletion auditing appears in multiple candidates (e.g., CAND-00043 Audit Trail for Purges; CAND-00049 Database Trigger for Deletions; CAND-00050 Deletion Interface). The duplication could cause inconsistent audit data or gaps.",
+      "suggested_fix": "Consolidate into a single deletion/audit requirement with explicit audit fields and a single mechanism (e.g., DB trigger + report interface) and map all related items to that canonical requirement.",
+      "candidate_ids": [
+        "CAND-00043",
+        "CAND-00049",
+        "CAND-00050"
+      ]
+    },
+    {
+      "category": "duplicate",
+      "severity": "warning",
+      "description": "In-transit reporting appears in several candidates with similar scope (CAND-00033; CAND-00100; CAND-00150): per-branch/system, configurable X days, and merging transit-to/from. This duplication may cause conflicting behavior.",
+      "suggested_fix": "Consolidate to a single In-Transit Items Report definition and reference it from related requirements; ensure the default detection rule and fields are consistent.",
+      "candidate_ids": [
+        "CAND-00033",
+        "CAND-00100",
+        "CAND-00150"
+      ]
+    },
+    {
+      "category": "provenance",
+      "severity": "error",
+      "description": "CAND-00075 / missing_detail: Source explicitly requires that user rights and privileges be controlled through security groups and/or 'roles' with control for individuals, workgroups and arbitrary staff groups. The assigned paragraph documents migration of permission settings and mentions access control generally, but does not explicitly state that access control must be implemented via security groups/roles nor preserve the specified granularity (individual, workgroup, arbitrary staff groups).",
+      "suggested_fix": "Update the assigned requirement text to explicitly state that user rights and privileges shall be implemented and documented using security groups and/or roles, and shall support assignment at the granularity named in the source (individual users, workgroups, and arbitrary staff groups). If there are constraints or alternate models allowed, list them and explain equivalence to roles (for example mapping to ACLs) and document migration/ export/import behavior for role/permission artifacts.",
+      "candidate_ids": [
+        "CAND-00075"
+      ]
+    },
+    {
+      "category": "provenance",
+      "severity": "error",
+      "description": "CAND-00120 / missing_detail: The assigned paragraph captures export formats, emailing/recipients, address-book and ability to edit recurring schedules but omits several material UI details requested in the candidate's source: (1) explicit hover-over descriptive pop-ups for canned-report titles, (2) the ability to 'check off any part of data you want' (fine-grained check/select UI for report fields), and (3) the explicit scheduling cadence list (Run ASAP, Hourly, Daily, Weekly, Monthly, Yearly) mentioned in the source.",
+      "suggested_fix": "Update the requirement paragraph to explicitly require: (a) hover-over descriptive pop-ups for canned-report/template titles showing human-readable descriptions; (b) a UI affordance to check/select arbitrary report fields/display sections ('check off any part of data you want'); and (c) support for the enumerated scheduling cadences (at minimum: Run ASAP, Hourly, Daily, Weekly, Monthly, Yearly) or otherwise state which cadence options are supported.",
+      "candidate_ids": [
+        "CAND-00120"
+      ]
+    }
+  ]
+}
