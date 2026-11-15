@@ -1,0 +1,245 @@
+{
+  "chunk_count": 55,
+  "chunks_sha256": "24bde3c13cd887b7ad32bfddae1f5dc96cfc6ee345ea857b02fcf868c1ee4a39",
+  "excluded": [
+    {
+      "path": ".git",
+      "reason": "excluded directory"
+    }
+  ],
+  "file_count": 28,
+  "files": [
+    {
+      "bytes": 4664,
+      "characters": 4664,
+      "lines": 220,
+      "parse_error": null,
+      "path": ".gitignore",
+      "sha256": "114f3cdc2057d610cbc810f69cbc4f195acec0cd15dd54e9b154cf5f6657fc24"
+    },
+    {
+      "bytes": 1124,
+      "characters": 1124,
+      "lines": 49,
+      "parse_error": null,
+      "path": "playground/playground/__init__.py",
+      "sha256": "864e225ea00f5461b5dbb593601dbea95281707f26344b37f753ec627cace29c"
+    },
+    {
+      "bytes": 2620,
+      "characters": 2620,
+      "lines": 85,
+      "parse_error": null,
+      "path": "playground/playground/base.py",
+      "sha256": "f3b0c31d3040417a90602a81f3c0d32d4332fd62cc29456f8ddf4239ce0e2a61"
+    },
+    {
+      "bytes": 2048,
+      "characters": 2048,
+      "lines": 60,
+      "parse_error": null,
+      "path": "playground/playground/decorators.py",
+      "sha256": "52a0d6afef8ceef0d8513a10b7042b7efdcedf062296ced1aad8d4abf4778a2e"
+    },
+    {
+      "bytes": 1410,
+      "characters": 1410,
+      "lines": 57,
+      "parse_error": null,
+      "path": "playground/playground/enums.py",
+      "sha256": "0f30a70a9abb5c5388a958f532398e6e24f080c922bdfdceb2d454e02c4ef2d6"
+    },
+    {
+      "bytes": 2084,
+      "characters": 2084,
+      "lines": 54,
+      "parse_error": null,
+      "path": "playground/playground/events.py",
+      "sha256": "01b9bed76b82398bd2098b97bc0d6e4c695a6be172efd8b690c4279cc9b7fcfa"
+    },
+    {
+      "bytes": 1639,
+      "characters": 1639,
+      "lines": 56,
+      "parse_error": null,
+      "path": "playground/playground/exceptions.py",
+      "sha256": "611173a43e7442caebf14889dd18c61596d3f4cb467aa90309d6fd30329111a2"
+    },
+    {
+      "bytes": 6222,
+      "characters": 6222,
+      "lines": 155,
+      "parse_error": null,
+      "path": "playground/playground/inventory.py",
+      "sha256": "db158e96d4a89e771ac6326a4ec3effc95a8dc8d89d583170b6531c7be6b2f2f"
+    },
+    {
+      "bytes": 9309,
+      "characters": 9309,
+      "lines": 268,
+      "parse_error": null,
+      "path": "playground/playground/models.py",
+      "sha256": "2c772a83dd8b22b26ed4915f55c4be3d27bbf31338916fdefe39296f0eecf2a8"
+    },
+    {
+      "bytes": 7386,
+      "characters": 7386,
+      "lines": 196,
+      "parse_error": null,
+      "path": "playground/playground/orders.py",
+      "sha256": "2c466aeeb0f5d1ea8c4b54b1d73891dabfa4de020226fa9cf3256e08be91d311"
+    },
+    {
+      "bytes": 2520,
+      "characters": 2520,
+      "lines": 68,
+      "parse_error": null,
+      "path": "playground/playground/pricing.py",
+      "sha256": "e2f71e5e624cb5dfb646f07e62e5d8c2dd5e2f3f37085a7035f44f1531338d37"
+    },
+    {
+      "bytes": 1957,
+      "characters": 1957,
+      "lines": 53,
+      "parse_error": null,
+      "path": "playground/playground/repository.py",
+      "sha256": "8b5e072e2f99aa700d32545503b06c2ce49e516191807532bee3ddf4e42be73b"
+    },
+    {
+      "bytes": 7551,
+      "characters": 7551,
+      "lines": 213,
+      "parse_error": null,
+      "path": "playground/playground/simulation.py",
+      "sha256": "9e04fbc1adbaebaeb7a9dfb5ed47b0dfe73d54de40421540d70e0974ee72adec"
+    },
+    {
+      "bytes": 2441,
+      "characters": 2441,
+      "lines": 77,
+      "parse_error": null,
+      "path": "playground/playground/util.py",
+      "sha256": "eef53ecde6dd51fe1603150d1e93b515be2da11766a3eb00ace2520f266a8cea"
+    },
+    {
+      "bytes": 0,
+      "characters": 0,
+      "lines": 0,
+      "parse_error": null,
+      "path": "playground/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 5346,
+      "characters": 5346,
+      "lines": 165,
+      "parse_error": null,
+      "path": "playground/tests/test_base.py",
+      "sha256": "b5a13fdaacda87d18f19f8f90e2fd036f90e4dbe58a5b1e6c7a27029d3f5ac0f"
+    },
+    {
+      "bytes": 4771,
+      "characters": 4771,
+      "lines": 183,
+      "parse_error": null,
+      "path": "playground/tests/test_decorators.py",
+      "sha256": "02dbb63cf67bd6fc5d3e7170e00c2e14ddae93539a46f180d77b621cdc0a0ea4"
+    },
+    {
+      "bytes": 3277,
+      "characters": 3277,
+      "lines": 83,
+      "parse_error": null,
+      "path": "playground/tests/test_enums.py",
+      "sha256": "8da5cd39198e5c1b8d2e0b6a6321fef2972f9385c3a6d1e95b7130aa6eb552b7"
+    },
+    {
+      "bytes": 6846,
+      "characters": 6846,
+      "lines": 177,
+      "parse_error": null,
+      "path": "playground/tests/test_events.py",
+      "sha256": "0fe77cb67c4b9a376f568d8f96869edee2391c23df6518f757c216ada80de672"
+    },
+    {
+      "bytes": 4117,
+      "characters": 4117,
+      "lines": 114,
+      "parse_error": null,
+      "path": "playground/tests/test_exceptions.py",
+      "sha256": "212908ec421126ecbab663a36194389afd6d4dd9ab53dee0f25ea8a1d9a39c56"
+    },
+    {
+      "bytes": 16431,
+      "characters": 16431,
+      "lines": 418,
+      "parse_error": null,
+      "path": "playground/tests/test_inventory.py",
+      "sha256": "2c89afe1055d45683ae34385dc45bdb6eae7113717503f1e52f18ed0394e7532"
+    },
+    {
+      "bytes": 19004,
+      "characters": 19004,
+      "lines": 497,
+      "parse_error": null,
+      "path": "playground/tests/test_models.py",
+      "sha256": "61a5a28b59b36d7e4c1498e55bc472cf128e4f9fb4255ace768ce5f75b542fb9"
+    },
+    {
+      "bytes": 16886,
+      "characters": 16886,
+      "lines": 413,
+      "parse_error": null,
+      "path": "playground/tests/test_orders.py",
+      "sha256": "6621992e2dfdcc968f0e8e32b8dd0efced381c2c813a2b8c0419700b02b46a2e"
+    },
+    {
+      "bytes": 2074,
+      "characters": 2074,
+      "lines": 74,
+      "parse_error": null,
+      "path": "playground/tests/test_package.py",
+      "sha256": "5b406a534c42b1487eb06d8cffc20b663bf942ecd575ece8cc887a64659912c2"
+    },
+    {
+      "bytes": 6759,
+      "characters": 6759,
+      "lines": 168,
+      "parse_error": null,
+      "path": "playground/tests/test_pricing.py",
+      "sha256": "879cdbc7a429fb33e4f35a639e57a42063890fd8a2b6829deff3550083aae81f"
+    },
+    {
+      "bytes": 5764,
+      "characters": 5764,
+      "lines": 170,
+      "parse_error": null,
+      "path": "playground/tests/test_repository.py",
+      "sha256": "0349a077693de93c753afa1f8950e66a8df4aa134b577a048cf032e9ed10eab4"
+    },
+    {
+      "bytes": 13431,
+      "characters": 13431,
+      "lines": 340,
+      "parse_error": null,
+      "path": "playground/tests/test_simulation.py",
+      "sha256": "9b7e8f8557d213a124a28650c681544f9ac9cbeee620c0cf4ef33388ad1b7d30"
+    },
+    {
+      "bytes": 6545,
+      "characters": 6545,
+      "lines": 183,
+      "parse_error": null,
+      "path": "playground/tests/test_util.py",
+      "sha256": "508a924540b3021202504c1bb93d87ba6bf60b761e4e0dafb3327d4a667f41dc"
+    }
+  ],
+  "git_status_porcelain": "",
+  "limits": {
+    "max_characters": 6000,
+    "max_lines": 120,
+    "overlap_lines": 0
+  },
+  "repository_commit": "b17f75374a6d63f0f245e472bb707e658c1b3cf7",
+  "schema_version": "ast-lines-v1"
+}

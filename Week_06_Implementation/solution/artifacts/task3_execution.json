@@ -1,0 +1,76 @@
+{
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "limits": {
+    "tokenizer_config_model_max_length": 512,
+    "sentence_transformer_max_seq_length": 256,
+    "tokenizer_model_max_length": 256,
+    "transformer_max_position_embeddings": 512,
+    "effective_input_tokens": 256,
+    "special_tokens_per_window": 2,
+    "payload_tokens_per_window": 254
+  },
+  "storage": {
+    "npz_path": "embeddings.npz",
+    "npz_sha256": "db95da059e47f7ffd3c6c81904b6adca6f543d866a2b34594a0ff45be8fdbed1",
+    "matrix_key": "embeddings",
+    "ids_key": "chunk_ids",
+    "row_order": "unchanged input JSONL order",
+    "shape": [
+      55,
+      384
+    ],
+    "dtype": "float32",
+    "ids_dtype": "<U64",
+    "allow_pickle": false,
+    "compressed_npz_bytes": 81640,
+    "matrix_uncompressed_bytes": 84480,
+    "ids_uncompressed_bytes": 14080
+  },
+  "statistics": {
+    "chunks": 55,
+    "source_tokens_without_special": {
+      "min": 253,
+      "median": 870,
+      "mean": 923.091,
+      "max": 1620,
+      "sum": 50770
+    },
+    "embedding_input_tokens_without_special": {
+      "min": 337,
+      "median": 986,
+      "mean": 1037.764,
+      "max": 1774,
+      "sum": 57077
+    },
+    "embedding_input_tokens_with_special_if_unsplit": {
+      "min": 339,
+      "median": 988,
+      "mean": 1039.764,
+      "max": 1776,
+      "sum": 57187
+    },
+    "window_model_input_tokens": {
+      "min": 35,
+      "median": 256,
+      "mean": 233.7,
+      "max": 256,
+      "sum": 64735
+    },
+    "total_windows": 277,
+    "multi_window_chunks": 55
+  },
+  "verification": {
+    "all_tokens_covered": true,
+    "all_windows_within_effective_limit": true,
+    "finite_values": true,
+    "unique_matching_ids": true,
+    "norm_min": 0.9999999403953552,
+    "norm_max": 1.0,
+    "norm_absolute_tolerance": 1e-05,
+    "save_reload_ids_and_values_exact": true,
+    "repeated_encoding_full_corpus": true,
+    "repeat_atol": 1e-06,
+    "repeat_rtol": 1e-05,
+    "repeat_max_absolute_difference": 0.0
+  }
+}

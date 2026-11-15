@@ -1,0 +1,11 @@
+--- a/playground/playground/enums.py
++++ b/playground/playground/enums.py
+@@ -44,7 +44,7 @@
+ 
+     @property
+     def is_terminal(self) -> bool:
+-        pass
++        return self in (self.__class__.SHIPPED, self.__class__.CANCELLED)
+ 
+ 
+ class EventType(Enum):

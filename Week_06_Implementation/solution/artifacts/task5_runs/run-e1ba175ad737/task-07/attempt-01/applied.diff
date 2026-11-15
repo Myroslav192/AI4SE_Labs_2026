@@ -1,0 +1,11 @@
+--- a/playground/playground/orders.py
++++ b/playground/playground/orders.py
+@@ -107,7 +107,7 @@
+         self._status = new_status
+ 
+     def __len__(self) -> int:
+-        pass
++        return len(self._items)
+ 
+     def __iter__(self) -> Iterator[LineItem]:
+         """Iterate over a tuple snapshot of the order's line items."""

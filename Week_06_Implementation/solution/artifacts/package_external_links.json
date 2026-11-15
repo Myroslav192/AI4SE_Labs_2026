@@ -1,0 +1,26 @@
+{
+  "check": "Opened reference pages using the web tool during packaging; no model inference endpoints called",
+  "results": [
+    {
+      "url": "https://developers.openai.com/api/docs/models/gpt-5-mini",
+      "result": "reference_page_opened"
+    },
+    {
+      "url": "https://developers.openai.com/api/reference/python/resources/responses/methods/create",
+      "result": "reference_page_opened"
+    },
+    {
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/tag/20261110",
+      "result": "reference_page_opened"
+    },
+    {
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "result": "reference_page_opened"
+    },
+    {
+      "url": "https://github.com/Neltharion59/AI4SE_Playground",
+      "result": "reference_page_opened"
+    }
+  ],
+  "http_status_codes": "Not exposed by the web tool; no HTTP status codes are asserted"
+}

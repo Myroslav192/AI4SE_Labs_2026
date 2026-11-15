@@ -1,0 +1,79 @@
+{
+  "result": "PASS",
+  "payload_files_including_manifest": 249,
+  "sha256_manifest_entries": 248,
+  "assignments_verified": 7,
+  "original_test_files_verified": 14,
+  "solved_source_files_verified": 28,
+  "frozen_source_files_reconstructed": 28,
+  "chunks": 55,
+  "embedding_shape": [
+    55,
+    384
+  ],
+  "embedding_load_allow_pickle": false,
+  "target_hits_at_5": 10,
+  "actual_generation_responses": 14,
+  "accepted_generated_methods": 10,
+  "preserved_rejections": [
+    "Response is not a standalone Python method definition",
+    "Existing docstring must be preserved; do not add a new docstring",
+    "Existing docstring must be preserved; do not add a new docstring",
+    "Existing docstring must be preserved; do not add a new docstring"
+  ],
+  "local_documentation_links_checked": 30,
+  "external_reference_urls_not_fetched": [
+    "https://developers.openai.com/api/docs/models/gpt-5-mini",
+    "https://developers.openai.com/api/reference/python/resources/responses/methods/create",
+    "https://github.com/astral-sh/python-build-standalone/releases/tag/20261110",
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2"
+  ],
+  "excluded_files_absent": true,
+  "configured_secret_check_performed": true,
+  "credential_signature_scan": "PASS",
+  "execution": {
+    "repository_tests": {
+      "tests": 481,
+      "failures": 0,
+      "errors": 0,
+      "exit_code": 0
+    },
+    "cli_help_checks": [
+      {
+        "entry_point": "solution/rag/chunk_repository.py",
+        "exit_code": 0
+      },
+      {
+        "entry_point": "solution/rag/verify_chunking.py",
+        "exit_code": 0
+      },
+      {
+        "entry_point": "solution/rag/embed_repository.py",
+        "exit_code": 0
+      },
+      {
+        "entry_point": "solution/rag/retrieve_chunks.py",
+        "exit_code": 0
+      },
+      {
+        "entry_point": "solution/rag/evaluate_retrieval.py",
+        "exit_code": 0
+      },
+      {
+        "entry_point": "solution/rag/solve_tasks.py",
+        "exit_code": 0
+      }
+    ],
+    "pipeline_offline_tests_exit_code": 0,
+    "actual_local_retrieval": {
+      "returned_chunks": 5,
+      "matches_saved_cli_ids": true,
+      "scores_within_atol_1e_minus_6_rtol_1e_minus_5": true
+    },
+    "interpreter_reused": "/home/myroslav/projects/SEwAI/Labs/Week_06/Week_06_Implementation/.venv/bin/python",
+    "existing_model_cache_reused": true,
+    "fresh_install_tested": false,
+    "generative_api_calls": 0
+  },
+  "phase": "candidate_archive_before_final_documentation"
+}

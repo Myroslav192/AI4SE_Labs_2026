@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "checks": [
+    "Source, documentation, and configuration included; Git, venvs (including custom name), caches, secrets, symlinks, binaries, non-UTF-8 text, and generated artifacts excluded",
+    "CRLF text and indentation reconstructed byte-for-byte",
+    "Decorator and small method kept together",
+    "Oversized method split into bounded whole-line windows",
+    "Oversized single line retained intact with explicit character-limit exception",
+    "Syntax-error source retained as text with recorded parse error",
+    "Fixture rerun produces byte-identical JSONL and manifest"
+  ],
+  "fixtures_location": "Temporary directory; cloned repository untouched"
+}

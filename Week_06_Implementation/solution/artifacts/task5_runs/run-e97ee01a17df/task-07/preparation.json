@@ -1,0 +1,534 @@
+{
+  "target": {
+    "file": "playground/playground/orders.py",
+    "class": "Order",
+    "method": "__len__",
+    "docstring": "        \"\"\"Return the number of line items.\"\"\""
+  },
+  "textual_task": "        \"\"\"Return the number of line items.\"\"\"",
+  "query": "Implement Order.__len__ in playground/playground/orders.py.\nRequired behavior: Return the number of line items.",
+  "query_encoding": {
+    "input_tokens_without_special": 28,
+    "input_tokens_with_special_if_unsplit": 30,
+    "window_token_ranges": [
+      [
+        0,
+        28
+      ]
+    ],
+    "window_model_input_tokens": [
+      30
+    ],
+    "window_weights_payload_tokens": [
+      28
+    ],
+    "window_count": 1,
+    "full_token_coverage": true
+  },
+  "requested_model": "gpt-5-mini",
+  "retrieved": [
+    {
+      "rank": 1,
+      "chunk_id": "8d3648d616a1d0ba7e2f8c7a1c802065e5a1237e0c0fd058434cf40f0e1e6477",
+      "score": 0.6118053882422352,
+      "path": "playground/playground/orders.py",
+      "start_line": 43,
+      "end_line": 124,
+      "symbols": [
+        {
+          "end_line": 122,
+          "kind": "class",
+          "name": "Order",
+          "start_line": 43
+        },
+        {
+          "end_line": 59,
+          "kind": "function",
+          "name": "Order.__init__",
+          "start_line": 46
+        },
+        {
+          "end_line": 64,
+          "kind": "function",
+          "name": "Order.order_id",
+          "start_line": 61
+        },
+        {
+          "end_line": 69,
+          "kind": "function",
+          "name": "Order.customer",
+          "start_line": 66
+        },
+        {
+          "end_line": 74,
+          "kind": "function",
+          "name": "Order.status",
+          "start_line": 71
+        },
+        {
+          "end_line": 79,
+          "kind": "function",
+          "name": "Order.items",
+          "start_line": 76
+        },
+        {
+          "end_line": 84,
+          "kind": "function",
+          "name": "Order.total",
+          "start_line": 81
+        },
+        {
+          "end_line": 96,
+          "kind": "function",
+          "name": "Order.add_item",
+          "start_line": 86
+        },
+        {
+          "end_line": 101,
+          "kind": "function",
+          "name": "Order.advance",
+          "start_line": 98
+        },
+        {
+          "end_line": 104,
+          "kind": "function",
+          "name": "Order.__len__",
+          "start_line": 103
+        },
+        {
+          "end_line": 108,
+          "kind": "function",
+          "name": "Order.__iter__",
+          "start_line": 106
+        },
+        {
+          "end_line": 114,
+          "kind": "function",
+          "name": "Order.__eq__",
+          "start_line": 110
+        },
+        {
+          "end_line": 118,
+          "kind": "function",
+          "name": "Order.__hash__",
+          "start_line": 116
+        },
+        {
+          "end_line": 122,
+          "kind": "function",
+          "name": "Order.__repr__",
+          "start_line": 120
+        }
+      ],
+      "enclosing_classes": [
+        "Order"
+      ],
+      "context_chunk_ids": [
+        "3ce4f90e28465b5e30a498f4a6a0582b5142a74dc47d2b755ae5c76810ab3e3e"
+      ],
+      "text": "class Order:\n    \"\"\"Customer order with items, status, and pricing.\"\"\"\n\n    def __init__(self, order_id: str, customer: Customer, pricing: PricingStrategy) -> None:\n        \"\"\"Create a new order in the NEW status for ``customer``.\"\"\"\n        if not isinstance(order_id, str) or order_id.strip() == \"\":\n            raise ValueError(\"order_id required\")\n        if not isinstance(customer, Customer):\n            raise TypeError(\"customer must be Customer\")\n        if not isinstance(pricing, PricingStrategy):\n            raise TypeError(\"pricing must be PricingStrategy\")\n        self._order_id = order_id\n        self._customer = customer\n        self._pricing = pricing\n        self._items: List[LineItem] = []\n        self._status: OrderStatus = OrderStatus.NEW\n        self._machine = OrderStateMachine()\n\n    @property\n    def order_id(self) -> str:\n        \"\"\"Return the order identity.\"\"\"\n        return self._order_id\n\n    @property\n    def customer(self) -> Customer:\n        \"\"\"Return the owning customer.\"\"\"\n        return self._customer\n\n    @property\n    def status(self) -> OrderStatus:\n        \"\"\"Return the current order status.\"\"\"\n        return self._status\n\n    @property\n    def items(self) -> Tuple[LineItem, ...]:\n        \"\"\"Return a tuple copy of the order's line items.\"\"\"\n        return tuple(self._items)\n\n    @property\n    def total(self) -> Money:\n        \"\"\"Return the total price of all line items under this order's pricing.\"\"\"\n        return self._pricing.price(self._items)\n\n    def add_item(self, item: LineItem) -> None:\n        \"\"\"Append ``item``, merging with an existing line for the same SKU.\"\"\"\n        if not isinstance(item, LineItem):\n            raise TypeError(\"item must be LineItem\")\n        if self._status is not OrderStatus.NEW:\n            raise InvalidTransitionError(self._status, OrderStatus.NEW)\n        for index, existing in enumerate(self._items):\n            if existing.sku == item.sku:\n                self._items[index] = existing.with_quantity(existing.quantity + item.quantity)\n                return\n        self._items.append(item)\n\n    def advance(self, target: OrderStatus) -> None:\n        \"\"\"Transition the order to ``target`` status, raising if not allowed.\"\"\"\n        new_status = self._machine.transition(self._status, target)\n        self._status = new_status\n\n    def __len__(self) -> int:\n        pass\n\n    def __iter__(self) -> Iterator[LineItem]:\n        \"\"\"Iterate over a tuple snapshot of the order's line items.\"\"\"\n        return iter(tuple(self._items))\n\n    def __eq__(self, other: object) -> bool:\n        \"\"\"Compare orders by identity.\"\"\"\n        if not isinstance(other, Order):\n            return NotImplemented\n        return self._order_id == other._order_id\n\n    def __hash__(self) -> int:\n        \"\"\"Hash by type name and order id.\"\"\"\n        return hash((\"Order\", self._order_id))\n\n    def __repr__(self) -> str:\n        \"\"\"Return a developer-friendly representation.\"\"\"\n        return f\"Order({self._order_id!r}, {self._status.value})\"\n\n\n"
+    },
+    {
+      "rank": 2,
+      "chunk_id": "33c2e9decd307925cddeacee96f05bd8607308bc840350a2abd41b5a3af33cfb",
+      "score": 0.598367693027674,
+      "path": "playground/playground/orders.py",
+      "start_line": 125,
+      "end_line": 196,
+      "symbols": [
+        {
+          "end_line": 164,
+          "kind": "class",
+          "name": "OrderBuilder",
+          "start_line": 125
+        },
+        {
+          "end_line": 136,
+          "kind": "function",
+          "name": "OrderBuilder.__init__",
+          "start_line": 128
+        },
+        {
+          "end_line": 141,
+          "kind": "function",
+          "name": "OrderBuilder.for_customer",
+          "start_line": 138
+        },
+        {
+          "end_line": 147,
+          "kind": "function",
+          "name": "OrderBuilder.add",
+          "start_line": 143
+        },
+        {
+          "end_line": 156,
+          "kind": "function",
+          "name": "OrderBuilder.build",
+          "start_line": 149
+        },
+        {
+          "end_line": 160,
+          "kind": "function",
+          "name": "OrderBuilder.__len__",
+          "start_line": 158
+        },
+        {
+          "end_line": 164,
+          "kind": "function",
+          "name": "OrderBuilder.__bool__",
+          "start_line": 162
+        },
+        {
+          "end_line": 196,
+          "kind": "class",
+          "name": "OrderLog",
+          "start_line": 167
+        },
+        {
+          "end_line": 172,
+          "kind": "function",
+          "name": "OrderLog.__init__",
+          "start_line": 170
+        },
+        {
+          "end_line": 181,
+          "kind": "function",
+          "name": "OrderLog.record",
+          "start_line": 174
+        },
+        {
+          "end_line": 184,
+          "kind": "function",
+          "name": "OrderLog.by_status",
+          "start_line": 183
+        },
+        {
+          "end_line": 188,
+          "kind": "function",
+          "name": "OrderLog.__getitem__",
+          "start_line": 186
+        },
+        {
+          "end_line": 192,
+          "kind": "function",
+          "name": "OrderLog.__len__",
+          "start_line": 190
+        },
+        {
+          "end_line": 196,
+          "kind": "function",
+          "name": "OrderLog.__iter__",
+          "start_line": 194
+        }
+      ],
+      "enclosing_classes": [
+        "OrderBuilder",
+        "OrderLog"
+      ],
+      "context_chunk_ids": [
+        "3ce4f90e28465b5e30a498f4a6a0582b5142a74dc47d2b755ae5c76810ab3e3e"
+      ],
+      "text": "class OrderBuilder:\n    \"\"\"Fluent construction of an :class:`Order`.\"\"\"\n\n    def __init__(self, customer: Customer, pricing: PricingStrategy) -> None:\n        \"\"\"Create a builder for ``customer`` and ``pricing``.\"\"\"\n        if not isinstance(customer, Customer):\n            raise TypeError(\"customer must be Customer\")\n        if not isinstance(pricing, PricingStrategy):\n            raise TypeError(\"pricing must be PricingStrategy\")\n        self._customer = customer\n        self._pricing = pricing\n        self._lines: List[Tuple[str, int, Money]] = []\n\n    @classmethod\n    def for_customer(cls, customer: Customer) -> OrderBuilder:\n        \"\"\"Create a builder with default :class:`FlatPricing` for ``customer``.\"\"\"\n        return cls(customer, FlatPricing())\n\n    def add(self, sku: str, quantity: int, unit_price: Money) -> OrderBuilder:\n        \"\"\"Record a line item and return self for chaining.\"\"\"\n        item = LineItem(sku, quantity, unit_price)\n        self._lines.append((item.sku, item.quantity, item.unit_price))\n        return self\n\n    def build(self, order_id: str) -> Order:\n        \"\"\"Construct and return the order; raises if no lines were recorded.\"\"\"\n        if len(self._lines) == 0:\n            raise ValueError(\"no items\")\n        order = Order(order_id, self._customer, self._pricing)\n        for sku, quantity, unit_price in self._lines:\n            order.add_item(LineItem(sku, quantity, unit_price))\n        return order\n\n    def __len__(self) -> int:\n        \"\"\"Return the number of recorded lines.\"\"\"\n        return len(self._lines)\n\n    def __bool__(self) -> bool:\n        \"\"\"Return True when at least one line has been recorded.\"\"\"\n        return len(self) > 0\n\n\nclass OrderLog:\n    \"\"\"Ordered, deduplicated record of orders; iterable.\"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Create an empty order log.\"\"\"\n        self._orders: List[Order] = []\n\n    def record(self, order: Order) -> None:\n        \"\"\"Append ``order``; raises if an order with the same id is already logged.\"\"\"\n        if not isinstance(order, Order):\n            raise TypeError(\"order must be Order\")\n        for existing in self._orders:\n            if existing.order_id == order.order_id:\n                raise DuplicateEntityError(order.order_id)\n        self._orders.append(order)\n\n    def by_status(self, status: OrderStatus) -> Iterator[Order]:\n        pass\n\n    def __getitem__(self, index: int) -> Order:\n        \"\"\"Return the order at ``index``.\"\"\"\n        return self._orders[index]\n\n    def __len__(self) -> int:\n        \"\"\"Return the number of logged orders.\"\"\"\n        return len(self._orders)\n\n    def __iter__(self) -> Iterator[Order]:\n        \"\"\"Iterate over the logged orders.\"\"\"\n        yield from list(self._orders)\n"
+    },
+    {
+      "rank": 3,
+      "chunk_id": "47b82b729fa80eeccdb8584e5f94780a4d912aa3f935075727f81689067df61d",
+      "score": 0.5019346015302188,
+      "path": "playground/tests/test_orders.py",
+      "start_line": 106,
+      "end_line": 225,
+      "symbols": [
+        {
+          "end_line": 144,
+          "kind": "class",
+          "name": "OrderAddItemTests",
+          "start_line": 106
+        },
+        {
+          "end_line": 108,
+          "kind": "function",
+          "name": "OrderAddItemTests.setUp",
+          "start_line": 107
+        },
+        {
+          "end_line": 114,
+          "kind": "function",
+          "name": "OrderAddItemTests.test_add_appends_new_sku",
+          "start_line": 110
+        },
+        {
+          "end_line": 120,
+          "kind": "function",
+          "name": "OrderAddItemTests.test_add_same_sku_merges_quantity",
+          "start_line": 116
+        },
+        {
+          "end_line": 127,
+          "kind": "function",
+          "name": "OrderAddItemTests.test_merge_keeps_position",
+          "start_line": 122
+        },
+        {
+          "end_line": 131,
+          "kind": "function",
+          "name": "OrderAddItemTests.test_non_line_item_rejected",
+          "start_line": 129
+        },
+        {
+          "end_line": 139,
+          "kind": "function",
+          "name": "OrderAddItemTests.test_add_after_advance_rejected",
+          "start_line": 133
+        },
+        {
+          "end_line": 144,
+          "kind": "function",
+          "name": "OrderAddItemTests.test_add_after_cancel_rejected",
+          "start_line": 141
+        },
+        {
+          "end_line": 181,
+          "kind": "class",
+          "name": "OrderAdvanceTests",
+          "start_line": 147
+        },
+        {
+          "end_line": 153,
+          "kind": "function",
+          "name": "OrderAdvanceTests.test_happy_path_to_shipped",
+          "start_line": 148
+        },
+        {
+          "end_line": 158,
+          "kind": "function",
+          "name": "OrderAdvanceTests.test_cancel_from_new",
+          "start_line": 155
+        },
+        {
+          "end_line": 164,
+          "kind": "function",
+          "name": "OrderAdvanceTests.test_cancel_from_reserved",
+          "start_line": 160
+        },
+        {
+          "end_line": 170,
+          "kind": "function",
+          "name": "OrderAdvanceTests.test_illegal_advance_raises_and_keeps_status",
+          "start_line": 166
+        },
+        {
+          "end_line": 176,
+          "kind": "function",
+          "name": "OrderAdvanceTests.test_advance_from_terminal_raises",
+          "start_line": 172
+        },
+        {
+          "end_line": 181,
+          "kind": "function",
+          "name": "OrderAdvanceTests.test_advance_to_same_status_raises",
+          "start_line": 178
+        },
+        {
+          "end_line": 198,
+          "kind": "class",
+          "name": "OrderTotalTests",
+          "start_line": 184
+        },
+        {
+          "end_line": 186,
+          "kind": "function",
+          "name": "OrderTotalTests.test_total_empty_is_zero",
+          "start_line": 185
+        },
+        {
+          "end_line": 191,
+          "kind": "function",
+          "name": "OrderTotalTests.test_total_uses_pricing_strategy",
+          "start_line": 188
+        },
+        {
+          "end_line": 198,
+          "kind": "function",
+          "name": "OrderTotalTests.test_total_reflects_merged_quantities_for_bulk_discount",
+          "start_line": 193
+        },
+        {
+          "end_line": 223,
+          "kind": "class",
+          "name": "OrderContainerTests",
+          "start_line": 201
+        },
+        {
+          "end_line": 205,
+          "kind": "function",
+          "name": "OrderContainerTests.setUp",
+          "start_line": 202
+        },
+        {
+          "end_line": 212,
+          "kind": "function",
+          "name": "OrderContainerTests.test_items_is_tuple_copy",
+          "start_line": 207
+        },
+        {
+          "end_line": 215,
+          "kind": "function",
+          "name": "OrderContainerTests.test_len",
+          "start_line": 214
+        },
+        {
+          "end_line": 218,
+          "kind": "function",
+          "name": "OrderContainerTests.test_iter_yields_line_items",
+          "start_line": 217
+        },
+        {
+          "end_line": 223,
+          "kind": "function",
+          "name": "OrderContainerTests.test_iter_is_snapshot",
+          "start_line": 220
+        }
+      ],
+      "enclosing_classes": [
+        "OrderAddItemTests",
+        "OrderAdvanceTests",
+        "OrderTotalTests",
+        "OrderContainerTests"
+      ],
+      "context_chunk_ids": [
+        "8d200f248b893ed433ab3106a333d19618b353cc13dc3981f9276b9c2a279a0c",
+        "8a7414305a2150bb2145a00d0af88869a38c798d52ae75db5417ac1ef86f6998"
+      ],
+      "text": "class OrderAddItemTests(unittest.TestCase):\n    def setUp(self) -> None:\n        self.order = _order()\n\n    def test_add_appends_new_sku(self) -> None:\n        self.order.add_item(LineItem(\"EL-1001\", 1, Money(250)))\n        self.order.add_item(LineItem(\"GR-2001\", 2, Money(100)))\n        self.assertEqual(len(self.order), 2)\n        self.assertEqual([i.sku for i in self.order.items], [\"EL-1001\", \"GR-2001\"])\n\n    def test_add_same_sku_merges_quantity(self) -> None:\n        self.order.add_item(LineItem(\"EL-1001\", 1, Money(250)))\n        self.order.add_item(LineItem(\"EL-1001\", 2, Money(250)))\n        self.assertEqual(len(self.order), 1)\n        self.assertEqual(self.order.items[0].quantity, 3)\n\n    def test_merge_keeps_position(self) -> None:\n        self.order.add_item(LineItem(\"AA-1\", 1, Money(1)))\n        self.order.add_item(LineItem(\"BB-1\", 1, Money(1)))\n        self.order.add_item(LineItem(\"AA-1\", 4, Money(1)))\n        self.assertEqual([i.sku for i in self.order.items], [\"AA-1\", \"BB-1\"])\n        self.assertEqual(self.order.items[0].quantity, 5)\n\n    def test_non_line_item_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            self.order.add_item((\"EL-1001\", 1, Money(1)))  # type: ignore[arg-type]\n\n    def test_add_after_advance_rejected(self) -> None:\n        self.order.add_item(LineItem(\"EL-1001\", 1, Money(1)))\n        self.order.advance(OrderStatus.RESERVED)\n        with self.assertRaises(InvalidTransitionError) as ctx:\n            self.order.add_item(LineItem(\"GR-2001\", 1, Money(1)))\n        self.assertIs(ctx.exception.source, OrderStatus.RESERVED)\n        self.assertIs(ctx.exception.target, OrderStatus.NEW)\n\n    def test_add_after_cancel_rejected(self) -> None:\n        self.order.advance(OrderStatus.CANCELLED)\n        with self.assertRaises(InvalidTransitionError):\n            self.order.add_item(LineItem(\"GR-2001\", 1, Money(1)))\n\n\nclass OrderAdvanceTests(unittest.TestCase):\n    def test_happy_path_to_shipped(self) -> None:\n        o = _order()\n        o.advance(OrderStatus.RESERVED)\n        self.assertIs(o.status, OrderStatus.RESERVED)\n        o.advance(OrderStatus.SHIPPED)\n        self.assertIs(o.status, OrderStatus.SHIPPED)\n\n    def test_cancel_from_new(self) -> None:\n        o = _order()\n        o.advance(OrderStatus.CANCELLED)\n        self.assertIs(o.status, OrderStatus.CANCELLED)\n\n    def test_cancel_from_reserved(self) -> None:\n        o = _order()\n        o.advance(OrderStatus.RESERVED)\n        o.advance(OrderStatus.CANCELLED)\n        self.assertIs(o.status, OrderStatus.CANCELLED)\n\n    def test_illegal_advance_raises_and_keeps_status(self) -> None:\n        o = _order()\n        with self.assertRaises(InvalidTransitionError):\n            o.advance(OrderStatus.SHIPPED)\n        self.assertIs(o.status, OrderStatus.NEW)\n\n    def test_advance_from_terminal_raises(self) -> None:\n        o = _order()\n        o.advance(OrderStatus.CANCELLED)\n        with self.assertRaises(InvalidTransitionError):\n            o.advance(OrderStatus.RESERVED)\n\n    def test_advance_to_same_status_raises(self) -> None:\n        o = _order()\n        with self.assertRaises(InvalidTransitionError):\n            o.advance(OrderStatus.NEW)\n\n\nclass OrderTotalTests(unittest.TestCase):\n    def test_total_empty_is_zero(self) -> None:\n        self.assertEqual(_order().total, Money(0))\n\n    def test_total_uses_pricing_strategy(self) -> None:\n        o = _order(pricing=FlatPricing(800))\n        o.add_item(LineItem(\"EL-1001\", 1, Money(1000)))\n        self.assertEqual(o.total, Money(1080))\n\n    def test_total_reflects_merged_quantities_for_bulk_discount(self) -> None:\n        o = _order(pricing=BulkDiscountPricing(FlatPricing(), 3, 10))\n        o.add_item(LineItem(\"EL-1001\", 1, Money(100)))\n        o.add_item(LineItem(\"EL-1001\", 2, Money(100)))\n        # 3 units at 100 = 300, 10% off = 270\n        self.assertEqual(o.total, Money(270))\n\n\nclass OrderContainerTests(unittest.TestCase):\n    def setUp(self) -> None:\n        self.order = _order()\n        self.order.add_item(LineItem(\"EL-1001\", 1, Money(1)))\n        self.order.add_item(LineItem(\"GR-2001\", 2, Money(1)))\n\n    def test_items_is_tuple_copy(self) -> None:\n        items = self.order.items\n        self.assertIsInstance(items, tuple)\n        self.order.add_item(LineItem(\"HW-3001\", 1, Money(1)))\n        self.assertEqual(len(items), 2)\n        self.assertEqual(len(self.order.items), 3)\n\n    def test_len(self) -> None:\n        self.assertEqual(len(self.order), 2)\n\n    def test_iter_yields_line_items(self) -> None:\n        self.assertEqual([i.sku for i in self.order], [\"EL-1001\", \"GR-2001\"])\n\n    def test_iter_is_snapshot(self) -> None:\n        it = iter(self.order)\n        self.order.add_item(LineItem(\"HW-3001\", 1, Money(1)))\n        self.assertEqual(len(list(it)), 2)\n\n\n"
+    },
+    {
+      "rank": 4,
+      "chunk_id": "82e4e3fc4f04f5f95670d1241d7308a72b4421153c75864cb81d467329217386",
+      "score": 0.4386413198725684,
+      "path": "playground/playground/simulation.py",
+      "start_line": 1,
+      "end_line": 81,
+      "symbols": [
+        {
+          "end_line": 79,
+          "kind": "class",
+          "name": "SimulationReport",
+          "start_line": 22
+        },
+        {
+          "end_line": 28,
+          "kind": "function",
+          "name": "SimulationReport.__init__",
+          "start_line": 25
+        },
+        {
+          "end_line": 33,
+          "kind": "function",
+          "name": "SimulationReport.orders_created",
+          "start_line": 30
+        },
+        {
+          "end_line": 38,
+          "kind": "function",
+          "name": "SimulationReport.orders_shipped",
+          "start_line": 35
+        },
+        {
+          "end_line": 43,
+          "kind": "function",
+          "name": "SimulationReport.orders_cancelled",
+          "start_line": 40
+        },
+        {
+          "end_line": 48,
+          "kind": "function",
+          "name": "SimulationReport.rejected_out_of_stock",
+          "start_line": 45
+        },
+        {
+          "end_line": 53,
+          "kind": "function",
+          "name": "SimulationReport.revenue",
+          "start_line": 50
+        },
+        {
+          "end_line": 59,
+          "kind": "function",
+          "name": "SimulationReport.record",
+          "start_line": 55
+        },
+        {
+          "end_line": 65,
+          "kind": "function",
+          "name": "SimulationReport.add_revenue",
+          "start_line": 61
+        },
+        {
+          "end_line": 75,
+          "kind": "function",
+          "name": "SimulationReport.summary",
+          "start_line": 67
+        },
+        {
+          "end_line": 79,
+          "kind": "function",
+          "name": "SimulationReport.__str__",
+          "start_line": 77
+        }
+      ],
+      "enclosing_classes": [
+        "SimulationReport"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Order simulation and report containers.\"\"\"\n\nfrom __future__ import annotations\n\nimport random\nfrom typing import Dict, List, Optional\n\nfrom .base import PricingStrategy\nfrom .enums import Category, EventType, OrderStatus\nfrom .events import EventBus\nfrom .exceptions import OutOfStockError\nfrom .inventory import InventoryLedger, Warehouse\nfrom .models import Customer, Money, Product\nfrom .orders import Order, OrderBuilder, OrderLog\nfrom .pricing import FlatPricing\nfrom .repository import InMemoryRepository\nfrom .util import ensure_positive_int, format_cents\n\n_REPORT_KINDS = (\"created\", \"shipped\", \"cancelled\", \"rejected\")\n\n\nclass SimulationReport:\n    \"\"\"Plain result container for a simulation run.\"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Initialise all counters and revenue to zero.\"\"\"\n        self._counts: Dict[str, int] = {kind: 0 for kind in _REPORT_KINDS}\n        self._revenue: Money = Money(0)\n\n    @property\n    def orders_created(self) -> int:\n        \"\"\"Return the number of orders created.\"\"\"\n        return self._counts[\"created\"]\n\n    @property\n    def orders_shipped(self) -> int:\n        \"\"\"Return the number of orders shipped.\"\"\"\n        return self._counts[\"shipped\"]\n\n    @property\n    def orders_cancelled(self) -> int:\n        \"\"\"Return the number of orders cancelled.\"\"\"\n        return self._counts[\"cancelled\"]\n\n    @property\n    def rejected_out_of_stock(self) -> int:\n        \"\"\"Return the number of steps rejected for insufficient stock.\"\"\"\n        return self._counts[\"rejected\"]\n\n    @property\n    def revenue(self) -> Money:\n        \"\"\"Return the total revenue earned by shipped orders.\"\"\"\n        return self._revenue\n\n    def record(self, kind: str) -> None:\n        \"\"\"Increment the counter for ``kind``; raises if the kind is unknown.\"\"\"\n        if kind not in _REPORT_KINDS:\n            raise ValueError(f\"unknown report kind: {kind!r}\")\n        self._counts[kind] += 1\n\n    def add_revenue(self, amount: Money) -> None:\n        \"\"\"Add ``amount`` to the total revenue.\"\"\"\n        if not isinstance(amount, Money):\n            raise TypeError(\"amount must be Money\")\n        self._revenue = self._revenue + amount\n\n    def summary(self) -> Dict[str, object]:\n        \"\"\"Return a dictionary summary of counts and formatted revenue.\"\"\"\n        return {\n            \"orders_created\": self.orders_created,\n            \"orders_shipped\": self.orders_shipped,\n            \"orders_cancelled\": self.orders_cancelled,\n            \"rejected_out_of_stock\": self.rejected_out_of_stock,\n            \"revenue\": format_cents(self._revenue.cents),\n        }\n\n    def __str__(self) -> str:\n        \"\"\"Render the summary as one ``key: value`` line per entry.\"\"\"\n        return \"\\n\".join(f\"{key}: {value}\" for key, value in self.summary().items())\n\n\n"
+    },
+    {
+      "rank": 5,
+      "chunk_id": "3ce4f90e28465b5e30a498f4a6a0582b5142a74dc47d2b755ae5c76810ab3e3e",
+      "score": 0.427033152603763,
+      "path": "playground/playground/orders.py",
+      "start_line": 1,
+      "end_line": 42,
+      "symbols": [
+        {
+          "end_line": 40,
+          "kind": "class",
+          "name": "OrderStateMachine",
+          "start_line": 14
+        },
+        {
+          "end_line": 29,
+          "kind": "function",
+          "name": "OrderStateMachine.allowed_from",
+          "start_line": 24
+        },
+        {
+          "end_line": 33,
+          "kind": "function",
+          "name": "OrderStateMachine.can_transition",
+          "start_line": 31
+        },
+        {
+          "end_line": 36,
+          "kind": "function",
+          "name": "OrderStateMachine.transition",
+          "start_line": 35
+        },
+        {
+          "end_line": 40,
+          "kind": "function",
+          "name": "OrderStateMachine.__call__",
+          "start_line": 38
+        }
+      ],
+      "enclosing_classes": [
+        "OrderStateMachine"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Order state-machine, order aggregates, builder, and log.\"\"\"\n\nfrom __future__ import annotations\n\nfrom typing import Dict, FrozenSet, Iterator, List, Tuple\n\nfrom .base import PricingStrategy\nfrom .enums import OrderStatus\nfrom .exceptions import DuplicateEntityError, InvalidTransitionError\nfrom .models import Customer, LineItem, Money\nfrom .pricing import FlatPricing\n\n\nclass OrderStateMachine:\n    \"\"\"Legal OrderStatus transitions, data-driven via TRANSITIONS.\"\"\"\n\n    TRANSITIONS: Dict[OrderStatus, FrozenSet[OrderStatus]] = {\n        OrderStatus.NEW: frozenset({OrderStatus.RESERVED, OrderStatus.CANCELLED}),\n        OrderStatus.RESERVED: frozenset({OrderStatus.SHIPPED, OrderStatus.CANCELLED}),\n        OrderStatus.SHIPPED: frozenset(),\n        OrderStatus.CANCELLED: frozenset(),\n    }\n\n    @staticmethod\n    def allowed_from(status: OrderStatus) -> FrozenSet[OrderStatus]:\n        \"\"\"Return the set of statuses reachable from ``status``.\"\"\"\n        if not isinstance(status, OrderStatus):\n            raise TypeError(\"status must be OrderStatus\")\n        return OrderStateMachine.TRANSITIONS[status]\n\n    def can_transition(self, source: OrderStatus, target: OrderStatus) -> bool:\n        \"\"\"Return whether ``target`` is reachable from ``source``.\"\"\"\n        return target in OrderStateMachine.allowed_from(source)\n\n    def transition(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:\n        pass\n\n    def __call__(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:\n        \"\"\"Convenience alias for :meth:`transition`.\"\"\"\n        return self.transition(source, target)\n\n\n"
+    }
+  ],
+  "status": "prepared",
+  "attempts": [],
+  "api_calls": 0
+}

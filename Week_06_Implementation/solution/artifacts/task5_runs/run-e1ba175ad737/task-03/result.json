@@ -1,0 +1,491 @@
+{
+  "target": {
+    "file": "playground/playground/inventory.py",
+    "class": "Warehouse",
+    "method": "stock_report",
+    "docstring": "        \"\"\"Return a mapping of SKU to available quantity.\"\"\""
+  },
+  "textual_task": "        \"\"\"Return a mapping of SKU to available quantity.\"\"\"",
+  "query": "Implement Warehouse.stock_report in playground/playground/inventory.py.\nRequired behavior: Return a mapping of SKU to available quantity.",
+  "query_encoding": {
+    "input_tokens_without_special": 29,
+    "input_tokens_with_special_if_unsplit": 31,
+    "window_token_ranges": [
+      [
+        0,
+        29
+      ]
+    ],
+    "window_model_input_tokens": [
+      31
+    ],
+    "window_weights_payload_tokens": [
+      29
+    ],
+    "window_count": 1,
+    "full_token_coverage": true
+  },
+  "requested_model": "gpt-5-mini",
+  "retrieved": [
+    {
+      "rank": 1,
+      "chunk_id": "54a1bbe7401e8958c55af8ea072bf0f04ec44e6315c1acb5bb5a95b10979b268",
+      "score": 0.6273474227530798,
+      "path": "playground/playground/inventory.py",
+      "start_line": 84,
+      "end_line": 155,
+      "symbols": [
+        {
+          "end_line": 121,
+          "kind": "class",
+          "name": "ReservationContext",
+          "start_line": 84
+        },
+        {
+          "end_line": 92,
+          "kind": "function",
+          "name": "ReservationContext.__init__",
+          "start_line": 87
+        },
+        {
+          "end_line": 97,
+          "kind": "function",
+          "name": "ReservationContext.state",
+          "start_line": 94
+        },
+        {
+          "end_line": 103,
+          "kind": "function",
+          "name": "ReservationContext.__enter__",
+          "start_line": 99
+        },
+        {
+          "end_line": 110,
+          "kind": "function",
+          "name": "ReservationContext.__exit__",
+          "start_line": 105
+        },
+        {
+          "end_line": 117,
+          "kind": "function",
+          "name": "ReservationContext.commit",
+          "start_line": 112
+        },
+        {
+          "end_line": 121,
+          "kind": "function",
+          "name": "ReservationContext.__repr__",
+          "start_line": 119
+        },
+        {
+          "end_line": 155,
+          "kind": "class",
+          "name": "Warehouse",
+          "start_line": 124
+        },
+        {
+          "end_line": 135,
+          "kind": "function",
+          "name": "Warehouse.__init__",
+          "start_line": 127
+        },
+        {
+          "end_line": 139,
+          "kind": "function",
+          "name": "Warehouse.identity",
+          "start_line": 137
+        },
+        {
+          "end_line": 144,
+          "kind": "function",
+          "name": "Warehouse.ledger",
+          "start_line": 141
+        },
+        {
+          "end_line": 148,
+          "kind": "function",
+          "name": "Warehouse.receive",
+          "start_line": 146
+        },
+        {
+          "end_line": 151,
+          "kind": "function",
+          "name": "Warehouse.stock_report",
+          "start_line": 150
+        },
+        {
+          "end_line": 155,
+          "kind": "function",
+          "name": "Warehouse.__repr__",
+          "start_line": 153
+        }
+      ],
+      "enclosing_classes": [
+        "ReservationContext",
+        "Warehouse"
+      ],
+      "context_chunk_ids": [
+        "563a1f03fb3eefdfdc6131910c673b47d358c015b9a2bbd4180f82fb9a3610d7"
+      ],
+      "text": "class ReservationContext:\n    \"\"\"Context manager for a reservation; releases on exit unless committed.\"\"\"\n\n    def __init__(self, ledger: InventoryLedger, sku: str, quantity: int) -> None:\n        \"\"\"Create a held reservation for ``quantity`` of ``sku`` in ``ledger``.\"\"\"\n        self._ledger = ledger\n        self._sku = sku\n        self._quantity = quantity\n        self._state = \"held\"\n\n    @property\n    def state(self) -> str:\n        \"\"\"Return the current reservation state.\"\"\"\n        return self._state\n\n    def __enter__(self) -> ReservationContext:\n        \"\"\"Enter the context; raises if the reservation is not in the held state.\"\"\"\n        if self._state != \"held\":\n            raise InvalidTransitionError(self._state, \"held\")\n        return self\n\n    def __exit__(self, exc_type: object, exc: object, tb: object) -> bool:\n        \"\"\"Release the reservation on exit unless it was committed.\"\"\"\n        if self._state == \"held\":\n            self._ledger.release(self._sku, self._quantity)\n            self._state = \"released\"\n        return False\n\n    def commit(self) -> None:\n        \"\"\"Commit the reservation, decrementing stock; raises if not held.\"\"\"\n        if self._state != \"held\":\n            raise InvalidTransitionError(self._state, \"committed\")\n        self._ledger.commit(self._sku, self._quantity)\n        self._state = \"committed\"\n\n    def __repr__(self) -> str:\n        \"\"\"Return a developer-friendly representation.\"\"\"\n        return f\"ReservationContext({self._sku!r}, {self._quantity}, {self._state!r})\"\n\n\nclass Warehouse(Entity):\n    \"\"\"Named location owning an :class:`InventoryLedger`.\"\"\"\n\n    def __init__(self, warehouse_id: str, name: str, ledger: InventoryLedger) -> None:\n        \"\"\"Create a warehouse with the given id, name, and ledger.\"\"\"\n        if not isinstance(warehouse_id, str) or warehouse_id.strip() == \"\":\n            raise ValueError(\"warehouse_id required\")\n        if not isinstance(ledger, InventoryLedger):\n            raise TypeError(\"ledger must be InventoryLedger\")\n        self._warehouse_id = warehouse_id\n        self._name = name\n        self._ledger = ledger\n\n    def identity(self) -> str:\n        \"\"\"Return the warehouse_id as the entity identity.\"\"\"\n        return self._warehouse_id\n\n    @property\n    def ledger(self) -> InventoryLedger:\n        \"\"\"Return the warehouse inventory ledger.\"\"\"\n        return self._ledger\n\n    def receive(self, sku: str, quantity: int) -> int:\n        \"\"\"Add stock to the warehouse ledger; return the new on-hand total.\"\"\"\n        return self._ledger.add_stock(sku, quantity)\n\n    def stock_report(self) -> Dict[str, int]:\n        pass\n\n    def __repr__(self) -> str:\n        \"\"\"Return a developer-friendly representation.\"\"\"\n        return f\"Warehouse({self._warehouse_id!r}, {self._name!r})\"\n"
+    },
+    {
+      "rank": 2,
+      "chunk_id": "563a1f03fb3eefdfdc6131910c673b47d358c015b9a2bbd4180f82fb9a3610d7",
+      "score": 0.6121541530759183,
+      "path": "playground/playground/inventory.py",
+      "start_line": 1,
+      "end_line": 83,
+      "symbols": [
+        {
+          "end_line": 81,
+          "kind": "class",
+          "name": "InventoryLedger",
+          "start_line": 12
+        },
+        {
+          "end_line": 21,
+          "kind": "function",
+          "name": "InventoryLedger.__init__",
+          "start_line": 15
+        },
+        {
+          "end_line": 28,
+          "kind": "function",
+          "name": "InventoryLedger._require_sku",
+          "start_line": 23
+        },
+        {
+          "end_line": 35,
+          "kind": "function",
+          "name": "InventoryLedger.add_stock",
+          "start_line": 30
+        },
+        {
+          "end_line": 40,
+          "kind": "function",
+          "name": "InventoryLedger.available",
+          "start_line": 37
+        },
+        {
+          "end_line": 50,
+          "kind": "function",
+          "name": "InventoryLedger.reserve",
+          "start_line": 42
+        },
+        {
+          "end_line": 59,
+          "kind": "function",
+          "name": "InventoryLedger.release",
+          "start_line": 52
+        },
+        {
+          "end_line": 69,
+          "kind": "function",
+          "name": "InventoryLedger.commit",
+          "start_line": 61
+        },
+        {
+          "end_line": 72,
+          "kind": "function",
+          "name": "InventoryLedger.__contains__",
+          "start_line": 71
+        },
+        {
+          "end_line": 76,
+          "kind": "function",
+          "name": "InventoryLedger.__len__",
+          "start_line": 74
+        },
+        {
+          "end_line": 81,
+          "kind": "function",
+          "name": "InventoryLedger.__iter__",
+          "start_line": 78
+        }
+      ],
+      "enclosing_classes": [
+        "InventoryLedger"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Inventory ledger and warehouse location.\"\"\"\n\nfrom __future__ import annotations\n\nfrom typing import Dict, Iterator\n\nfrom .base import Entity, Repository\nfrom .exceptions import InvalidTransitionError, OutOfStockError, UnknownSKUError\nfrom .util import ensure_positive_int, normalize_sku\n\n\nclass InventoryLedger:\n    \"\"\"Tracks on-hand and reserved quantities per SKU.\"\"\"\n\n    def __init__(self, product_repo: Repository) -> None:\n        \"\"\"Create a ledger backed by ``product_repo`` for SKU validation.\"\"\"\n        if not isinstance(product_repo, Repository):\n            raise TypeError(\"product_repo must be a Repository\")\n        self._product_repo = product_repo\n        self._on_hand: Dict[str, int] = {}\n        self._reserved: Dict[str, int] = {}\n\n    def _require_sku(self, sku: str) -> str:\n        \"\"\"Normalise ``sku`` and raise ``UnknownSKUError`` if it is unregistered.\"\"\"\n        sku = normalize_sku(sku)\n        if sku not in self._product_repo:\n            raise UnknownSKUError(sku)\n        return sku\n\n    def add_stock(self, sku: str, quantity: int) -> int:\n        \"\"\"Add ``quantity`` to on-hand stock for ``sku``; return the new total.\"\"\"\n        quantity = ensure_positive_int(quantity, \"quantity\")\n        sku = self._require_sku(sku)\n        self._on_hand[sku] = self._on_hand.get(sku, 0) + quantity\n        return self._on_hand[sku]\n\n    def available(self, sku: str) -> int:\n        \"\"\"Return on-hand minus reserved for ``sku``.\"\"\"\n        sku = self._require_sku(sku)\n        return self._on_hand.get(sku, 0) - self._reserved.get(sku, 0)\n\n    def reserve(self, sku: str, quantity: int) -> ReservationContext:\n        \"\"\"Reserve ``quantity`` of ``sku`` and return a context that can commit or release it.\"\"\"\n        quantity = ensure_positive_int(quantity, \"quantity\")\n        sku = self._require_sku(sku)\n        avail = self.available(sku)\n        if quantity > avail:\n            raise OutOfStockError(sku, quantity, avail)\n        self._reserved[sku] = self._reserved.get(sku, 0) + quantity\n        return ReservationContext(self, sku, quantity)\n\n    def release(self, sku: str, quantity: int) -> None:\n        \"\"\"Release ``quantity`` previously reserved for ``sku``.\"\"\"\n        quantity = ensure_positive_int(quantity, \"quantity\")\n        sku = self._require_sku(sku)\n        reserved = self._reserved.get(sku, 0)\n        if quantity > reserved:\n            raise InvalidTransitionError(reserved, quantity)\n        self._reserved[sku] = reserved - quantity\n\n    def commit(self, sku: str, quantity: int) -> None:\n        \"\"\"Commit ``quantity`` of ``sku``: decrement both reserved and on-hand.\"\"\"\n        quantity = ensure_positive_int(quantity, \"quantity\")\n        sku = self._require_sku(sku)\n        reserved = self._reserved.get(sku, 0)\n        if quantity > reserved:\n            raise InvalidTransitionError(reserved, quantity)\n        self._reserved[sku] = reserved - quantity\n        self._on_hand[sku] = self._on_hand.get(sku, 0) - quantity\n\n    def __contains__(self, sku: object) -> bool:\n        pass\n\n    def __len__(self) -> int:\n        \"\"\"Return the number of SKUs with positive on-hand stock.\"\"\"\n        return sum(1 for qty in self._on_hand.values() if qty > 0)\n\n    def __iter__(self) -> Iterator[str]:\n        \"\"\"Iterate over SKUs with positive on-hand stock, in sorted order.\"\"\"\n        for sku in sorted(k for k, v in self._on_hand.items() if v > 0):\n            yield sku\n\n\n"
+    },
+    {
+      "rank": 3,
+      "chunk_id": "e38b631231f1b5417caed56b0aa4432bea556d78693a70c675c9175b732547b2",
+      "score": 0.6050262738366347,
+      "path": "playground/playground/simulation.py",
+      "start_line": 191,
+      "end_line": 213,
+      "symbols": [
+        {
+          "end_line": 201,
+          "kind": "function",
+          "name": "build_default_warehouse",
+          "start_line": 191
+        },
+        {
+          "end_line": 213,
+          "kind": "function",
+          "name": "run_simulation",
+          "start_line": 204
+        }
+      ],
+      "enclosing_classes": [],
+      "context_chunk_ids": [
+        "82e4e3fc4f04f5f95670d1241d7308a72b4421153c75864cb81d467329217386"
+      ],
+      "text": "def build_default_warehouse() -> Warehouse:\n    \"\"\"Create a warehouse stocked with three products (20 units each).\"\"\"\n    repo = InMemoryRepository(Product)\n    repo.add(Product(\"EL-1001\", \"Headphones\", Category.ELECTRONICS, Money(2500)))\n    repo.add(Product(\"GR-2001\", \"Coffee Beans\", Category.GROCERY, Money(300)))\n    repo.add(Product(\"HW-3001\", \"Hammer\", Category.HARDWARE, Money(1200)))\n    ledger = InventoryLedger(repo)\n    warehouse = Warehouse(\"WH-1\", \"Main\", ledger)\n    for sku in (\"EL-1001\", \"GR-2001\", \"HW-3001\"):\n        warehouse.receive(sku, 20)\n    return warehouse\n\n\ndef run_simulation(seed: int, steps: int) -> SimulationReport:\n    \"\"\"Build the default warehouse, then run a seeded simulation for ``steps``.\"\"\"\n    if isinstance(seed, bool) or not isinstance(seed, int):\n        raise TypeError(\"seed must be int\")\n    steps = ensure_positive_int(steps, \"steps\")\n    warehouse = build_default_warehouse()\n    sim = Simulation(warehouse, FlatPricing(tax_bps=800), seed=seed)\n    sim.add_customer(Customer(\"C-1\", \"Customer One\", Money(1000000)))\n    sim.add_customer(Customer(\"C-2\", \"Customer Two\", Money(50000)))\n    return sim.run(steps)\n"
+    },
+    {
+      "rank": 4,
+      "chunk_id": "b5a1ad01514930e0ac5d9b7803f8a9bd776ba1f80cdaaa7093ad4640456c9da6",
+      "score": 0.5624740023085356,
+      "path": "playground/tests/test_inventory.py",
+      "start_line": 1,
+      "end_line": 92,
+      "symbols": [
+        {
+          "end_line": 23,
+          "kind": "function",
+          "name": "_make_repo",
+          "start_line": 19
+        },
+        {
+          "end_line": 33,
+          "kind": "class",
+          "name": "InventoryLedgerConstructionTests",
+          "start_line": 26
+        },
+        {
+          "end_line": 29,
+          "kind": "function",
+          "name": "InventoryLedgerConstructionTests.test_requires_repository",
+          "start_line": 27
+        },
+        {
+          "end_line": 33,
+          "kind": "function",
+          "name": "InventoryLedgerConstructionTests.test_accepts_repository",
+          "start_line": 31
+        },
+        {
+          "end_line": 90,
+          "kind": "class",
+          "name": "InventoryLedgerStockTests",
+          "start_line": 36
+        },
+        {
+          "end_line": 38,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.setUp",
+          "start_line": 37
+        },
+        {
+          "end_line": 42,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_add_stock_returns_new_on_hand",
+          "start_line": 40
+        },
+        {
+          "end_line": 46,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_add_stock_normalizes_sku",
+          "start_line": 44
+        },
+        {
+          "end_line": 51,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_add_stock_unknown_sku",
+          "start_line": 48
+        },
+        {
+          "end_line": 55,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_add_stock_invalid_sku_chars",
+          "start_line": 53
+        },
+        {
+          "end_line": 59,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_add_stock_invalid_quantity_bool",
+          "start_line": 57
+        },
+        {
+          "end_line": 63,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_add_stock_zero_quantity",
+          "start_line": 61
+        },
+        {
+          "end_line": 68,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_quantity_validated_before_sku",
+          "start_line": 65
+        },
+        {
+          "end_line": 71,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_available_defaults_to_zero_when_no_stock",
+          "start_line": 70
+        },
+        {
+          "end_line": 75,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_available_unknown_sku",
+          "start_line": 73
+        },
+        {
+          "end_line": 79,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_available_normalizes",
+          "start_line": 77
+        },
+        {
+          "end_line": 82,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_require_sku_returns_normalized",
+          "start_line": 81
+        },
+        {
+          "end_line": 86,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_require_sku_unknown_raises",
+          "start_line": 84
+        },
+        {
+          "end_line": 90,
+          "kind": "function",
+          "name": "InventoryLedgerStockTests.test_require_sku_malformed_raises_value_error",
+          "start_line": 88
+        }
+      ],
+      "enclosing_classes": [
+        "InventoryLedgerConstructionTests",
+        "InventoryLedgerStockTests"
+      ],
+      "context_chunk_ids": [
+        "9ae4a9972c4e45a27ffa064de1587912efd9aa307d9357a535d5066a7367ca83"
+      ],
+      "text": "\"\"\"Unit tests for the inventory module.\"\"\"\nfrom __future__ import annotations\n\nimport unittest\n\nfrom playground.base import Repository\nfrom playground.enums import Category\nfrom playground.exceptions import (\n    InvalidTransitionError,\n    InventoryError,\n    OutOfStockError,\n    UnknownSKUError,\n)\nfrom playground.inventory import InventoryLedger, ReservationContext, Warehouse\nfrom playground.models import Money, Product\nfrom playground.repository import InMemoryRepository\n\n\ndef _make_repo() -> InMemoryRepository:\n    repo = InMemoryRepository(Product)\n    repo.add(Product(\"EL-1001\", \"Headphones\", Category.ELECTRONICS, Money(2500)))\n    repo.add(Product(\"GR-2001\", \"Beans\", Category.GROCERY, Money(300)))\n    return repo\n\n\nclass InventoryLedgerConstructionTests(unittest.TestCase):\n    def test_requires_repository(self) -> None:\n        with self.assertRaises(TypeError):\n            InventoryLedger({})  # type: ignore[arg-type]\n\n    def test_accepts_repository(self) -> None:\n        ledger = InventoryLedger(_make_repo())\n        self.assertEqual(len(ledger), 0)\n\n\nclass InventoryLedgerStockTests(unittest.TestCase):\n    def setUp(self) -> None:\n        self.ledger = InventoryLedger(_make_repo())\n\n    def test_add_stock_returns_new_on_hand(self) -> None:\n        self.assertEqual(self.ledger.add_stock(\"EL-1001\", 5), 5)\n        self.assertEqual(self.ledger.add_stock(\"EL-1001\", 3), 8)\n\n    def test_add_stock_normalizes_sku(self) -> None:\n        self.assertEqual(self.ledger.add_stock(\" el-1001 \", 2), 2)\n        self.assertEqual(self.ledger.available(\"EL-1001\"), 2)\n\n    def test_add_stock_unknown_sku(self) -> None:\n        with self.assertRaises(UnknownSKUError) as ctx:\n            self.ledger.add_stock(\"ZZ-9999\", 1)\n        self.assertEqual(ctx.exception.sku, \"ZZ-9999\")\n\n    def test_add_stock_invalid_sku_chars(self) -> None:\n        with self.assertRaises(ValueError):\n            self.ledger.add_stock(\"EL_1001\", 1)\n\n    def test_add_stock_invalid_quantity_bool(self) -> None:\n        with self.assertRaises(TypeError):\n            self.ledger.add_stock(\"EL-1001\", True)  # type: ignore[arg-type]\n\n    def test_add_stock_zero_quantity(self) -> None:\n        with self.assertRaises(ValueError):\n            self.ledger.add_stock(\"EL-1001\", 0)\n\n    def test_quantity_validated_before_sku(self) -> None:\n        # Bad quantity on an unknown SKU must raise the quantity error first.\n        with self.assertRaises(ValueError):\n            self.ledger.add_stock(\"ZZ-9999\", 0)\n\n    def test_available_defaults_to_zero_when_no_stock(self) -> None:\n        self.assertEqual(self.ledger.available(\"EL-1001\"), 0)\n\n    def test_available_unknown_sku(self) -> None:\n        with self.assertRaises(UnknownSKUError):\n            self.ledger.available(\"ZZ-9999\")\n\n    def test_available_normalizes(self) -> None:\n        self.ledger.add_stock(\"GR-2001\", 4)\n        self.assertEqual(self.ledger.available(\"gr-2001\"), 4)\n\n    def test_require_sku_returns_normalized(self) -> None:\n        self.assertEqual(self.ledger._require_sku(\" gr-2001 \"), \"GR-2001\")\n\n    def test_require_sku_unknown_raises(self) -> None:\n        with self.assertRaises(UnknownSKUError):\n            self.ledger._require_sku(\"GR-9999\")\n\n    def test_require_sku_malformed_raises_value_error(self) -> None:\n        with self.assertRaises(ValueError):\n            self.ledger._require_sku(\"x\")\n\n\n"
+    },
+    {
+      "rank": 5,
+      "chunk_id": "24a2d0ff498d72825d4147154146bfa59e3efc3349557d85bdfdac1fdb84db56",
+      "score": 0.5578187613484655,
+      "path": "playground/playground/exceptions.py",
+      "start_line": 1,
+      "end_line": 56,
+      "symbols": [
+        {
+          "end_line": 9,
+          "kind": "class",
+          "name": "PlaygroundError",
+          "start_line": 6
+        },
+        {
+          "end_line": 15,
+          "kind": "class",
+          "name": "InventoryError",
+          "start_line": 12
+        },
+        {
+          "end_line": 28,
+          "kind": "class",
+          "name": "OutOfStockError",
+          "start_line": 18
+        },
+        {
+          "end_line": 28,
+          "kind": "function",
+          "name": "OutOfStockError.__init__",
+          "start_line": 21
+        },
+        {
+          "end_line": 37,
+          "kind": "class",
+          "name": "UnknownSKUError",
+          "start_line": 31
+        },
+        {
+          "end_line": 37,
+          "kind": "function",
+          "name": "UnknownSKUError.__init__",
+          "start_line": 34
+        },
+        {
+          "end_line": 46,
+          "kind": "class",
+          "name": "DuplicateEntityError",
+          "start_line": 40
+        },
+        {
+          "end_line": 46,
+          "kind": "function",
+          "name": "DuplicateEntityError.__init__",
+          "start_line": 43
+        },
+        {
+          "end_line": 56,
+          "kind": "class",
+          "name": "InvalidTransitionError",
+          "start_line": 49
+        },
+        {
+          "end_line": 56,
+          "kind": "function",
+          "name": "InvalidTransitionError.__init__",
+          "start_line": 52
+        }
+      ],
+      "enclosing_classes": [
+        "PlaygroundError",
+        "InventoryError",
+        "OutOfStockError",
+        "UnknownSKUError",
+        "DuplicateEntityError",
+        "InvalidTransitionError"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Exception hierarchy for the playground package.\"\"\"\n\nfrom __future__ import annotations\n\n\nclass PlaygroundError(Exception):\n    \"\"\"Root of the playground exception hierarchy.\"\"\"\n\n    pass\n\n\nclass InventoryError(PlaygroundError):\n    \"\"\"Generic inventory failure.\"\"\"\n\n    pass\n\n\nclass OutOfStockError(InventoryError):\n    \"\"\"Requested quantity exceeds available stock.\"\"\"\n\n    def __init__(self, sku: str, requested: int, available: int) -> None:\n        \"\"\"Store the SKU, requested amount, and available amount.\"\"\"\n        self.sku = sku\n        self.requested = requested\n        self.available = available\n        super().__init__(\n            f\"insufficient stock for {sku}: requested {requested}, available {available}\"\n        )\n\n\nclass UnknownSKUError(InventoryError):\n    \"\"\"SKU is not registered in the product repository.\"\"\"\n\n    def __init__(self, sku: str) -> None:\n        \"\"\"Store the unknown SKU.\"\"\"\n        self.sku = sku\n        super().__init__(f\"unknown SKU: {sku}\")\n\n\nclass DuplicateEntityError(PlaygroundError):\n    \"\"\"Identity already exists in a repository.\"\"\"\n\n    def __init__(self, key: str) -> None:\n        \"\"\"Store the duplicate identity key.\"\"\"\n        self.key = key\n        super().__init__(f\"duplicate entity: {key}\")\n\n\nclass InvalidTransitionError(PlaygroundError):\n    \"\"\"Illegal status transition or modification of a closed object.\"\"\"\n\n    def __init__(self, source: object, target: object) -> None:\n        \"\"\"Store the source and target of the invalid transition.\"\"\"\n        self.source = source\n        self.target = target\n        super().__init__(f\"invalid transition: {source!r} -> {target!r}\")\n"
+    }
+  ],
+  "status": "applied",
+  "attempts": [
+    {
+      "generation_attempt": 1,
+      "transport": [
+        {
+          "transport_attempt": 1,
+          "status": "response_received",
+          "response_id": "resp_0664ca271fa542e2016afa07b4813087d2ab3978aac79e14e7"
+        }
+      ],
+      "status": "applied",
+      "response_id": "resp_0664ca271fa542e2016afa07b4813087d2ab3978aac79e14e7",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "response_status": "completed",
+      "usage": {
+        "input_tokens": 4113,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          }
+        },
+        "output_tokens": 896,
+        "output_tokens_details": {
+          "reasoning_tokens": 832
+        },
+        "total_tokens": 5009
+      },
+      "incomplete_details": null,
+      "validation": "passed",
+      "before_sha256": "5fdf644cc0f08c9a925df150c58cf601df1e44edad8621362efcd074b18ec4db",
+      "after_sha256": "563001acdfdf36df8cd890b1436a62cb9e8245b40f10a2c5e56fff7cb5368589"
+    }
+  ],
+  "api_calls": 1
+}

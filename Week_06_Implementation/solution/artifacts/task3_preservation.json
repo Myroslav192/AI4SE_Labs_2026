@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "protected_file_count": 17,
+  "protected_sha256": {
+    "../Task_1/Task_1.md": "db0186d0d20542f4a36d6a8afe5503c313147193880020eeaa7e3382db6a2802",
+    "../Task_2/Task_2.md": "3c64878c3a08c9974475a6304e162c23267b3e88eed1f4a4e1f81c1cfe6a6691",
+    "../Task_3/Task_3.md": "de63a36300c4880acd8a34860439e5f13093cd78840193bb08c608222480c27a",
+    "../Task_4/Task_4.md": "c48a7a6b6961be2696e8a75fe190aeee72b1fb99df0e59b54eaeb38f8fce5434",
+    "../Task_5/Task_5.md": "ee8f286e4e6490718e573f2f2178898a661e8d01b4e47368dc1cafca44976e2e",
+    "../Task_6_Bonus/Bonus_Task_1.md": "c84e1a3960c9e6525a84dd74442ae99015ced40204d0ace556801fff23ae5ab3",
+    "../missing_code.json": "23daff0708d0d3866ddbb436ecfc2c16c294ca7f8e5591937b70c680898094b0",
+    "solution/artifacts/baseline_tests.json": "908723a0bc1e4ef6e16673333e06e0b673276cc6af4a029250bcc007636521b1",
+    "solution/artifacts/baseline_tests.log": "cd3d299bcda25cace571cb6fa163acd1e43a77c5ba67b5cb5538a4fcdf1cd137",
+    "solution/artifacts/chunks.jsonl": "24bde3c13cd887b7ad32bfddae1f5dc96cfc6ee345ea857b02fcf868c1ee4a39",
+    "solution/artifacts/chunks.manifest.json": "c89a37ea129a4e509af4499164cfdbd3944b1946b4aba20c8cfe580c8b9b18a0",
+    "solution/artifacts/task2_edge_checks.json": "5ef68a6a0f5337a00c7ba3252c82e2995788ba4d3f22c8da529aa070ffe7c7e9",
+    "solution/artifacts/task2_verification.json": "c71834fad3bef7bb884a87a8c9856ae5e7ddd02046a40ec194228e7f05ddf5f8",
+    "solution/rag/chunk_repository.py": "afa4fe5895b6e927fa88d29cf34c12619fb6d7b4eb80354de7002d9839ed07a0",
+    "solution/rag/verify_chunking.py": "bf7634aa161eb5fef8128e6588d79ff80517db8685bcaa3002669186412d79eb",
+    "solution/reports/task1_cloning.md": "a8f924936338e72fd42849c7b4b54abd5b2c1b1a6b0159261bad22785364d832",
+    "solution/reports/task2_chunking.md": "6efcd5e2ea3af13c347b681fd8d834639594085d3cf32b9b9acb89f342ff12c8"
+  },
+  "all_protected_files_unchanged": true,
+  "all_source_file_hashes_match_task2": true,
+  "missing_methods_still_pass": 10,
+  "git_working_tree_clean": true,
+  "git_metadata_present": true
+}

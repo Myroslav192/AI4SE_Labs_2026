@@ -1,0 +1,32 @@
+{
+  "generation_attempt": 1,
+  "transport": [
+    {
+      "transport_attempt": 1,
+      "status": "response_received",
+      "response_id": "resp_006081c6c021c09e016afa07dec49487d2834f7728c51f8acc"
+    }
+  ],
+  "status": "validation_failed",
+  "response_id": "resp_006081c6c021c09e016afa07dec49487d2834f7728c51f8acc",
+  "returned_model": "gpt-5-mini-2025-08-07",
+  "response_status": "completed",
+  "usage": {
+    "input_tokens": 5908,
+    "input_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 0
+      }
+    },
+    "output_tokens": 705,
+    "output_tokens_details": {
+      "reasoning_tokens": 576
+    },
+    "total_tokens": 6613
+  },
+  "incomplete_details": null,
+  "validation": "Existing docstring must be preserved; do not add a new docstring"
+}

@@ -1,0 +1,15 @@
+test_independent_cosines_and_tie_breaker (test_retrieval.RankingTests.test_independent_cosines_and_tie_breaker) ... ok
+test_invalid_vectors_and_duplicate_ids (test_retrieval.RankingTests.test_invalid_vectors_and_duplicate_ids) ... ok
+test_positive_n_distinctness_and_large_n (test_retrieval.RankingTests.test_positive_n_distinctness_and_large_n) ... ok
+test_corrupt_and_incompatible_artifacts_fail_before_model_loading (test_retrieval.RetrievalTests.test_corrupt_and_incompatible_artifacts_fail_before_model_loading) ... ok
+test_long_query_uses_compatible_complete_windows (test_retrieval.RetrievalTests.test_long_query_uses_compatible_complete_windows) ... You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+ok
+test_real_cli_results_match_function_and_scalar_scores (test_retrieval.RetrievalTests.test_real_cli_results_match_function_and_scalar_scores) ... ok
+test_repeated_search_large_n_and_invalid_arguments (test_retrieval.RetrievalTests.test_repeated_search_large_n_and_invalid_arguments) ... ok
+test_saved_evaluation_queries_rankings_and_original_target_spans (test_retrieval.RetrievalTests.test_saved_evaluation_queries_rankings_and_original_target_spans) ... ok
+test_task_query_builder_preserves_supplied_behavior (test_retrieval.RetrievalTests.test_task_query_builder_preserves_supplied_behavior) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.532s
+
+OK

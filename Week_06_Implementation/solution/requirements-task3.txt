@@ -1,0 +1,9 @@
+# Tested on CPython 3.12.16 / Linux x86_64. CPU-only PyTorch wheel.
+# Install: .venv/bin/python -m pip install -r solution/requirements-task3.txt
+# For the exact tested transitive versions, install requirements-task3.lock.txt.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.9.1+cpu
+numpy==2.3.5
+sentence-transformers==5.1.2
+transformers==4.57.3
+huggingface-hub==0.36.0

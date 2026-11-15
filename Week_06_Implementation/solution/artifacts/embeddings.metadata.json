@@ -1,0 +1,2809 @@
+{
+  "corpus_statistics": {
+    "chunks": 55,
+    "embedding_input_tokens_with_special_if_unsplit": {
+      "max": 1776,
+      "mean": 1039.764,
+      "median": 988,
+      "min": 339,
+      "sum": 57187
+    },
+    "embedding_input_tokens_without_special": {
+      "max": 1774,
+      "mean": 1037.764,
+      "median": 986,
+      "min": 337,
+      "sum": 57077
+    },
+    "multi_window_chunks": 55,
+    "source_tokens_without_special": {
+      "max": 1620,
+      "mean": 923.091,
+      "median": 870,
+      "min": 253,
+      "sum": 50770
+    },
+    "total_windows": 277,
+    "window_model_input_tokens": {
+      "max": 256,
+      "mean": 233.7,
+      "median": 256,
+      "min": 35,
+      "sum": 64735
+    }
+  },
+  "dependencies": {
+    "Jinja2": "3.1.6",
+    "MarkupSafe": "3.0.4",
+    "PyYAML": "6.0.3",
+    "certifi": "2026.10.23",
+    "charset-normalizer": "3.5.2",
+    "cloudpickle": "3.1.2",
+    "filelock": "4.2.10",
+    "fsspec": "2026.9.0",
+    "hf-xet": "1.8.0",
+    "huggingface-hub": "0.36.0",
+    "idna": "3.20",
+    "joblib": "1.6.0",
+    "mpmath": "1.3.0",
+    "narwhals": "2.28.0",
+    "networkx": "3.7",
+    "numpy": "2.3.5",
+    "packaging": "26.3",
+    "pillow": "13.0.0",
+    "pip": "26.3",
+    "regex": "2026.11.15",
+    "requests": "2.34.2",
+    "safetensors": "0.8.0",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "sentence-transformers": "5.1.2",
+    "setuptools": "84.2.1",
+    "sympy": "1.14.0",
+    "threadpoolctl": "3.8.0",
+    "tokenizers": "0.22.2",
+    "torch": "2.9.1+cpu",
+    "tqdm": "4.70.1",
+    "transformers": "4.57.3",
+    "typing_extensions": "4.16.0",
+    "urllib3": "2.8.0"
+  },
+  "encoding": {
+    "aggregation": "payload-token-count-weighted mean of L2-normalized window vectors, then L2 normalization",
+    "attention_implementation": "eager",
+    "batch_size": 16,
+    "cpu_threads": 2,
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "limits": {
+      "effective_input_tokens": 256,
+      "payload_tokens_per_window": 254,
+      "sentence_transformer_max_seq_length": 256,
+      "special_tokens_per_window": 2,
+      "tokenizer_config_model_max_length": 512,
+      "tokenizer_model_max_length": 256,
+      "transformer_max_position_embeddings": 512
+    },
+    "normalization": "L2, per window and after aggregation",
+    "overlap_payload_tokens": 32,
+    "stride_payload_tokens": 222
+  },
+  "input_representation": {
+    "original_text_unchanged": true,
+    "prefix": "Path and line range; all enclosing class names; first six distinct non-class symbol names in source order, with omitted count; blank line; Source:",
+    "prefix_repeated_per_window": false,
+    "query_representation": "plain query text via TextEncoder.from_metadata(...).encode_texts([...])",
+    "tokenization": "complete assembled text, add_special_tokens=False, truncation=False; exact token IDs are windowed without decoding",
+    "version": "path-classes-first6-symbols-original-source-v1"
+  },
+  "model": {
+    "dimensions": 384,
+    "identifier": "sentence-transformers/all-MiniLM-L6-v2",
+    "modules": [
+      "Transformer",
+      "Pooling",
+      "Normalize"
+    ],
+    "resolved_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "tokenizer_class": "BertTokenizerFast",
+    "tokenizer_lowercase": true
+  },
+  "rows": [
+    {
+      "chunk_id": "7499554ab2fc7e412fc74d3f4e706bd5c727ace8d73486717a964c022a9a5fb9",
+      "embedding_text_sha256": "58ef89bdedb4af2134a87506bf685d9c1497d572209eea059eee574570f00f15",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 733,
+      "input_tokens_without_special": 731,
+      "path": ".gitignore",
+      "prefix": "Path: .gitignore (lines 1-120)\nClasses: (none)\nSymbols: (none)\n\nSource:\n",
+      "row": 0,
+      "source_tokens_without_special": 706,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        67
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          731
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        65
+      ]
+    },
+    {
+      "chunk_id": "5106c86e680f4c9fd1221fb19c0b7039c196552a1baded35eafcd7709e591b21",
+      "embedding_text_sha256": "e9510bea2bd3171129c36f3088c342fcee001ac3061979cd869743bcd3a73cc5",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 711,
+      "input_tokens_without_special": 709,
+      "path": ".gitignore",
+      "prefix": "Path: .gitignore (lines 121-220)\nClasses: (none)\nSymbols: (none)\n\nSource:\n",
+      "row": 1,
+      "source_tokens_without_special": 684,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        45
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          709
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        43
+      ]
+    },
+    {
+      "chunk_id": "5baa6f944da9cefc3345ee0b7c3776297e3f51802ffd714bd32643fa1b8e4bb4",
+      "embedding_text_sha256": "3beeaf1bfd53c1b8b97cb2a4846608fb90aa407ec96558d23d5bd80f583e96a2",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 339,
+      "input_tokens_without_special": 337,
+      "path": "playground/playground/__init__.py",
+      "prefix": "Path: playground/playground/__init__.py (lines 1-49)\nClasses: (none)\nSymbols: (none)\n\nSource:\n",
+      "row": 2,
+      "source_tokens_without_special": 304,
+      "window_count": 2,
+      "window_model_input_tokens": [
+        256,
+        117
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          337
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        115
+      ]
+    },
+    {
+      "chunk_id": "1055d0a192de5ec89e637222282c641df3adba63a6155ea45b2765d290776fdf",
+      "embedding_text_sha256": "e8d2ee68d3644a1e5c0e3f77bc38a35585a60d42e925faf66c87034da4c61947",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 826,
+      "input_tokens_without_special": 824,
+      "path": "playground/playground/base.py",
+      "prefix": "Path: playground/playground/base.py (lines 1-85)\nClasses: Entity, PricingStrategy, Repository\nSymbols: Entity.identity, Entity.__eq__, Entity.__hash__, Entity.__repr__, PricingStrategy.price, PricingStrategy.__call__ (+6 more in source)\n\nSource:\n",
+      "row": 3,
+      "source_tokens_without_special": 740,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        160
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          824
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        158
+      ]
+    },
+    {
+      "chunk_id": "d76b738e9bfa4d04240ae23ef0dd355e58e538263803be6a6f3c075c7028417e",
+      "embedding_text_sha256": "bf6342588031b079cd6ba48dfc675614d4bfdcb14c41f52e56bfb4fa01e7cb5d",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 701,
+      "input_tokens_without_special": 699,
+      "path": "playground/playground/decorators.py",
+      "prefix": "Path: playground/playground/decorators.py (lines 1-60)\nClasses: AuditTrail\nSymbols: AuditTrail.__init__, AuditTrail.__call__, AuditTrail.__call__.wrapper, AuditTrail.entries, AuditTrail.clear, AuditTrail.__len__\n\nSource:\n",
+      "row": 4,
+      "source_tokens_without_special": 618,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        35
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          699
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        33
+      ]
+    },
+    {
+      "chunk_id": "6359741171c535398c82e0f729528b5f4746a4046e10813bb07b6bbc625b8477",
+      "embedding_text_sha256": "913daf8ec6eaf1ba4e53f956aba7393c4aef391808377acea1cfd4dc0de1e7c9",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 405,
+      "input_tokens_without_special": 403,
+      "path": "playground/playground/enums.py",
+      "prefix": "Path: playground/playground/enums.py (lines 1-57)\nClasses: Category, OrderStatus, EventType\nSymbols: Category.from_label, Category.__str__, OrderStatus.is_terminal\n\nSource:\n",
+      "row": 5,
+      "source_tokens_without_special": 350,
+      "window_count": 2,
+      "window_model_input_tokens": [
+        256,
+        183
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          403
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        181
+      ]
+    },
+    {
+      "chunk_id": "f2952a653caae2e77ffac53bc48de3931080a078a9fefbf356dd60e6beba690f",
+      "embedding_text_sha256": "039f66ac800fe5cfc3bb2b212c7654606103ba52d4e1c1051f4c9ab2592b501f",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 661,
+      "input_tokens_without_special": 659,
+      "path": "playground/playground/events.py",
+      "prefix": "Path: playground/playground/events.py (lines 1-54)\nClasses: EventBus\nSymbols: EventBus.__init__, EventBus.subscribe, EventBus.unsubscribe, EventBus.publish, EventBus.__len__, EventBus.__contains__\n\nSource:\n",
+      "row": 6,
+      "source_tokens_without_special": 588,
+      "window_count": 3,
+      "window_model_input_tokens": [
+        256,
+        256,
+        217
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          659
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        215
+      ]
+    },
+    {
+      "chunk_id": "24a2d0ff498d72825d4147154146bfa59e3efc3349557d85bdfdac1fdb84db56",
+      "embedding_text_sha256": "2cd149488c9a02ba0ed38845bd4ea9cb1b183b041f0211f6034e124d19610604",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 569,
+      "input_tokens_without_special": 567,
+      "path": "playground/playground/exceptions.py",
+      "prefix": "Path: playground/playground/exceptions.py (lines 1-56)\nClasses: PlaygroundError, InventoryError, OutOfStockError, UnknownSKUError, DuplicateEntityError, InvalidTransitionError\nSymbols: OutOfStockError.__init__, UnknownSKUError.__init__, DuplicateEntityError.__init__, InvalidTransitionError.__init__\n\nSource:\n",
+      "row": 7,
+      "source_tokens_without_special": 463,
+      "window_count": 3,
+      "window_model_input_tokens": [
+        256,
+        256,
+        125
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          567
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        123
+      ]
+    },
+    {
+      "chunk_id": "563a1f03fb3eefdfdc6131910c673b47d358c015b9a2bbd4180f82fb9a3610d7",
+      "embedding_text_sha256": "3bebc1414f73dea5bb8fd69776d715c54c0c572263d331b278a6cd71dbe1ff69",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1131,
+      "input_tokens_without_special": 1129,
+      "path": "playground/playground/inventory.py",
+      "prefix": "Path: playground/playground/inventory.py (lines 1-83)\nClasses: InventoryLedger\nSymbols: InventoryLedger.__init__, InventoryLedger._require_sku, InventoryLedger.add_stock, InventoryLedger.available, InventoryLedger.reserve, InventoryLedger.release (+4 more in source)\n\nSource:\n",
+      "row": 8,
+      "source_tokens_without_special": 1051,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        243
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1129
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        241
+      ]
+    },
+    {
+      "chunk_id": "54a1bbe7401e8958c55af8ea072bf0f04ec44e6315c1acb5bb5a95b10979b268",
+      "embedding_text_sha256": "095d01c667d8b7c2b8f17fde6f0677ca7155dd0e9368b5965074f01e67deff1b",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 879,
+      "input_tokens_without_special": 877,
+      "path": "playground/playground/inventory.py",
+      "prefix": "Path: playground/playground/inventory.py (lines 84-155)\nClasses: ReservationContext, Warehouse\nSymbols: ReservationContext.__init__, ReservationContext.state, ReservationContext.__enter__, ReservationContext.__exit__, ReservationContext.commit, ReservationContext.__repr__ (+6 more in source)\n\nSource:\n",
+      "row": 9,
+      "source_tokens_without_special": 790,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        213
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          877
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        211
+      ]
+    },
+    {
+      "chunk_id": "034bd4d0dc0887cf8a0087504bffa39caf711b190314d4c5bd6972f7a89a15c3",
+      "embedding_text_sha256": "e5d51ea5ac3301807fcdf418ecf708f5e788dc11280abe0dc2795815e8b8d906",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1008,
+      "input_tokens_without_special": 1006,
+      "path": "playground/playground/models.py",
+      "prefix": "Path: playground/playground/models.py (lines 1-93)\nClasses: Money\nSymbols: Money.__init__, Money.cents, Money.__add__, Money.__sub__, Money.__mul__, Money.__rmul__ (+7 more in source)\n\nSource:\n",
+      "row": 10,
+      "source_tokens_without_special": 930,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        120
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1006
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        118
+      ]
+    },
+    {
+      "chunk_id": "e244dee088dc74d4a50829d203de47368365792d0ea23772ccd06cbed373741e",
+      "embedding_text_sha256": "9b3b71b83cf50a9de23c2aedccaa02e4deddaec9d4f049f5a5d2850ffea97420",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 778,
+      "input_tokens_without_special": 776,
+      "path": "playground/playground/models.py",
+      "prefix": "Path: playground/playground/models.py (lines 94-164)\nClasses: Product\nSymbols: Product.__init__, Product.sku, Product.name, Product.category, Product.unit_price, Product.identity (+3 more in source)\n\nSource:\n",
+      "row": 11,
+      "source_tokens_without_special": 715,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        112
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          776
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        110
+      ]
+    },
+    {
+      "chunk_id": "0cd500a7dac4a35456f98ce2352af4a4ae293ed369d555338a90e0ddbf3d84d5",
+      "embedding_text_sha256": "cf0b8140be502fd1a7cf79ee2ced886dc3ae0d88a3cfc25f5b6fed5c6cfdac06",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1079,
+      "input_tokens_without_special": 1077,
+      "path": "playground/playground/models.py",
+      "prefix": "Path: playground/playground/models.py (lines 165-268)\nClasses: LineItem, Customer\nSymbols: LineItem.__init__, LineItem.sku, LineItem.quantity, LineItem.unit_price, LineItem.subtotal, LineItem.with_quantity (+11 more in source)\n\nSource:\n",
+      "row": 12,
+      "source_tokens_without_special": 996,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        191
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1077
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        189
+      ]
+    },
+    {
+      "chunk_id": "3ce4f90e28465b5e30a498f4a6a0582b5142a74dc47d2b755ae5c76810ab3e3e",
+      "embedding_text_sha256": "7320e5bc9d93c1a2f0cb3875c43f93b45b934b0489c8d6bf99225c0c96005fe8",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 496,
+      "input_tokens_without_special": 494,
+      "path": "playground/playground/orders.py",
+      "prefix": "Path: playground/playground/orders.py (lines 1-42)\nClasses: OrderStateMachine\nSymbols: OrderStateMachine.allowed_from, OrderStateMachine.can_transition, OrderStateMachine.transition, OrderStateMachine.__call__\n\nSource:\n",
+      "row": 13,
+      "source_tokens_without_special": 433,
+      "window_count": 3,
+      "window_model_input_tokens": [
+        256,
+        256,
+        52
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          494
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        50
+      ]
+    },
+    {
+      "chunk_id": "8d3648d616a1d0ba7e2f8c7a1c802065e5a1237e0c0fd058434cf40f0e1e6477",
+      "embedding_text_sha256": "cd1719853e771b19045f7bc05665e21279c3a7a1484ec57d6230ee56b35bedd2",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 921,
+      "input_tokens_without_special": 919,
+      "path": "playground/playground/orders.py",
+      "prefix": "Path: playground/playground/orders.py (lines 43-124)\nClasses: Order\nSymbols: Order.__init__, Order.order_id, Order.customer, Order.status, Order.items, Order.total (+7 more in source)\n\nSource:\n",
+      "row": 14,
+      "source_tokens_without_special": 859,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        255
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          919
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        253
+      ]
+    },
+    {
+      "chunk_id": "33c2e9decd307925cddeacee96f05bd8607308bc840350a2abd41b5a3af33cfb",
+      "embedding_text_sha256": "ef1c6e4ebcdc5bb401297a7bb8995621c05d0049c84feacf5d76b2ee031ff6f1",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 894,
+      "input_tokens_without_special": 892,
+      "path": "playground/playground/orders.py",
+      "prefix": "Path: playground/playground/orders.py (lines 125-196)\nClasses: OrderBuilder, OrderLog\nSymbols: OrderBuilder.__init__, OrderBuilder.for_customer, OrderBuilder.add, OrderBuilder.build, OrderBuilder.__len__, OrderBuilder.__bool__ (+6 more in source)\n\nSource:\n",
+      "row": 15,
+      "source_tokens_without_special": 799,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        228
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          892
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        226
+      ]
+    },
+    {
+      "chunk_id": "32833129a7ab43e6e4ee0a81650bba2b8a70dec308dd1e59cf7a7f76497458e0",
+      "embedding_text_sha256": "7709c2309451c37675971afb50370020dc21a3f02395c9f295d2fc8b4723078f",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 818,
+      "input_tokens_without_special": 816,
+      "path": "playground/playground/pricing.py",
+      "prefix": "Path: playground/playground/pricing.py (lines 1-68)\nClasses: FlatPricing, BulkDiscountPricing\nSymbols: FlatPricing.__init__, FlatPricing.tax_bps, FlatPricing.price, BulkDiscountPricing.__init__, BulkDiscountPricing.threshold, BulkDiscountPricing.percent_off (+2 more in source)\n\nSource:\n",
+      "row": 16,
+      "source_tokens_without_special": 718,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        152
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          816
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        150
+      ]
+    },
+    {
+      "chunk_id": "b9f65c4d616df59031ebb4f8d77896215f17efe6f5c3c93b0b903ba874984fe2",
+      "embedding_text_sha256": "c6acc8caae246a9e9ca2e4da32a00c5829f8a6d4d2ea91414ba8e805c70f103b",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 691,
+      "input_tokens_without_special": 689,
+      "path": "playground/playground/repository.py",
+      "prefix": "Path: playground/playground/repository.py (lines 1-53)\nClasses: InMemoryRepository\nSymbols: InMemoryRepository.__init__, InMemoryRepository.add, InMemoryRepository.get, InMemoryRepository.remove, InMemoryRepository.__contains__, InMemoryRepository.__len__ (+1 more in source)\n\nSource:\n",
+      "row": 17,
+      "source_tokens_without_special": 574,
+      "window_count": 3,
+      "window_model_input_tokens": [
+        256,
+        256,
+        247
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          689
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        245
+      ]
+    },
+    {
+      "chunk_id": "82e4e3fc4f04f5f95670d1241d7308a72b4421153c75864cb81d467329217386",
+      "embedding_text_sha256": "bfaf7f18a0202589853f1d81613664a7f660d7890a8b4e4cefcfce3829bcfceb",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 828,
+      "input_tokens_without_special": 826,
+      "path": "playground/playground/simulation.py",
+      "prefix": "Path: playground/playground/simulation.py (lines 1-81)\nClasses: SimulationReport\nSymbols: SimulationReport.__init__, SimulationReport.orders_created, SimulationReport.orders_shipped, SimulationReport.orders_cancelled, SimulationReport.rejected_out_of_stock, SimulationReport.revenue (+4 more in source)\n\nSource:\n",
+      "row": 18,
+      "source_tokens_without_special": 742,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        162
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          826
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        160
+      ]
+    },
+    {
+      "chunk_id": "c47261e5fe0963403d569e1c0d5763f6a70f836e04f053522b319770cf43fadd",
+      "embedding_text_sha256": "c9e6f986628371b0d3b5a4c08c96644d1c7ed8421f317751cb3c10a80c128f63",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 962,
+      "input_tokens_without_special": 960,
+      "path": "playground/playground/simulation.py",
+      "prefix": "Path: playground/playground/simulation.py (lines 82-190)\nClasses: Simulation\nSymbols: Simulation.__init__, Simulation.log, Simulation.report, Simulation.bus, Simulation.add_customer, Simulation.step (+1 more in source)\n\nSource:\n",
+      "row": 19,
+      "source_tokens_without_special": 900,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        74
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          960
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        72
+      ]
+    },
+    {
+      "chunk_id": "e38b631231f1b5417caed56b0aa4432bea556d78693a70c675c9175b732547b2",
+      "embedding_text_sha256": "9f8e4535f962a5eb7d4c27f4edbdd45f6ddb4ed283853871be5b94db0aadb09e",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 411,
+      "input_tokens_without_special": 409,
+      "path": "playground/playground/simulation.py",
+      "prefix": "Path: playground/playground/simulation.py (lines 191-213)\nClasses: (none)\nSymbols: build_default_warehouse, run_simulation\n\nSource:\n",
+      "row": 20,
+      "source_tokens_without_special": 375,
+      "window_count": 2,
+      "window_model_input_tokens": [
+        256,
+        189
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          409
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        187
+      ]
+    },
+    {
+      "chunk_id": "e4e233d055585e9ba0940da390efc2aa4596073b5936ccb23a4b37622b3fe90a",
+      "embedding_text_sha256": "740b9a99bb9b933413554ec07ec5891b264bb8ed3abf49b27c685ab0fb8717fe",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 769,
+      "input_tokens_without_special": 767,
+      "path": "playground/playground/util.py",
+      "prefix": "Path: playground/playground/util.py (lines 1-77)\nClasses: (none)\nSymbols: normalize_sku, format_cents, ensure_positive_int, chunked\n\nSource:\n",
+      "row": 21,
+      "source_tokens_without_special": 723,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        103
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          767
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        101
+      ]
+    },
+    {
+      "chunk_id": "8c27df6c5ac99238e042dbf763aee9a60db688e8deac8f7bc85fa5f15d74df40",
+      "embedding_text_sha256": "9f193fb8e7a01d2aaf0974018a7aef5e8c32eacbb1759c8df77a0fc7abdf7e8d",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1387,
+      "input_tokens_without_special": 1385,
+      "path": "playground/tests/test_base.py",
+      "prefix": "Path: playground/tests/test_base.py (lines 1-109)\nClasses: _Thing, _OtherThing, EntityTests, EntityTests.test_subclass_without_identity_is_abstract.Incomplete, _FlatPricing, PricingStrategyTests\nSymbols: _Thing.__init__, _Thing.identity, _OtherThing.__init__, _OtherThing.identity, EntityTests.test_is_abstract, EntityTests.test_subclass_without_identity_is_abstract (+17 more in source)\n\nSource:\n",
+      "row": 22,
+      "source_tokens_without_special": 1255,
+      "window_count": 7,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        55
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1385
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        53
+      ]
+    },
+    {
+      "chunk_id": "172b434af8b9d71c2b9d1c95820e42e5431a6306d27bc09c1ae24386aafa43b5",
+      "embedding_text_sha256": "3fe4be9a14ed46b8b20c3f657ea601ebeb80057f101aaedbffdb4e820a1a7d5f",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 677,
+      "input_tokens_without_special": 675,
+      "path": "playground/tests/test_base.py",
+      "prefix": "Path: playground/tests/test_base.py (lines 110-165)\nClasses: _DictRepository, RepositoryTests, RepositoryTests.test_contains_uses_get._Spy\nSymbols: _DictRepository.__init__, _DictRepository.add, _DictRepository.get, _DictRepository.remove, _DictRepository.__iter__, _DictRepository.__len__ (+6 more in source)\n\nSource:\n",
+      "row": 23,
+      "source_tokens_without_special": 545,
+      "window_count": 3,
+      "window_model_input_tokens": [
+        256,
+        256,
+        233
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          675
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        231
+      ]
+    },
+    {
+      "chunk_id": "f82e58edf6d3e6d7eeef21f39bf462002cc7c5ae7f0fe296e0dad6acbac8a204",
+      "embedding_text_sha256": "ee587700408dc08b2b523b0adaf83d6355d2408b9fc81d97957417beb42af429",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 383,
+      "input_tokens_without_special": 381,
+      "path": "playground/tests/test_decorators.py",
+      "prefix": "Path: playground/tests/test_decorators.py (lines 1-30)\nClasses: AuditTrailConstructionTests\nSymbols: AuditTrailConstructionTests.test_default_label_and_empty, AuditTrailConstructionTests.test_custom_label_accepted, AuditTrailConstructionTests.test_non_str_label_rejected, AuditTrailConstructionTests.test_empty_label_rejected, AuditTrailConstructionTests.test_blank_label_rejected\n\nSource:\n",
+      "row": 24,
+      "source_tokens_without_special": 253,
+      "window_count": 2,
+      "window_model_input_tokens": [
+        256,
+        161
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          381
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        159
+      ]
+    },
+    {
+      "chunk_id": "25a9ebad880c5ee521cb1c34a9c6a4ec48495a115caed9c38a390a4dc7281625",
+      "embedding_text_sha256": "48ededf173ff57bf82ca7cfcc167951fb78b090259ab35cf46ff32175c31c5e6",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 991,
+      "input_tokens_without_special": 989,
+      "path": "playground/tests/test_decorators.py",
+      "prefix": "Path: playground/tests/test_decorators.py (lines 31-136)\nClasses: AuditTrailCallTests\nSymbols: AuditTrailCallTests.test_non_callable_rejected, AuditTrailCallTests.test_success_records_ok_and_returns_result, AuditTrailCallTests.test_success_records_ok_and_returns_result.add, AuditTrailCallTests.test_exception_records_error_and_reraises, AuditTrailCallTests.test_exception_records_error_and_reraises.fail, AuditTrailCallTests.test_error_type_name_reflects_exception_class (+13 more in source)\n\nSource:\n",
+      "row": 25,
+      "source_tokens_without_special": 820,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        103
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          989
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        101
+      ]
+    },
+    {
+      "chunk_id": "0cd95ba0895237e84f8fe2806fadbe2e62695f23ccd3341880e515c015c05018",
+      "embedding_text_sha256": "d20a1c1c00558adcdb9c58fc3c4b602f1e64349b5d23419869653298306151f3",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 492,
+      "input_tokens_without_special": 490,
+      "path": "playground/tests/test_decorators.py",
+      "prefix": "Path: playground/tests/test_decorators.py (lines 137-183)\nClasses: AuditTrailEntriesClearTests\nSymbols: AuditTrailEntriesClearTests.test_entries_is_snapshot_tuple, AuditTrailEntriesClearTests.test_entries_is_snapshot_tuple.f, AuditTrailEntriesClearTests.test_clear_empties, AuditTrailEntriesClearTests.test_clear_empties.f, AuditTrailEntriesClearTests.test_clear_on_empty_is_noop, AuditTrailEntriesClearTests.test_recording_resumes_after_clear (+1 more in source)\n\nSource:\n",
+      "row": 26,
+      "source_tokens_without_special": 329,
+      "window_count": 3,
+      "window_model_input_tokens": [
+        256,
+        256,
+        48
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          490
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        46
+      ]
+    },
+    {
+      "chunk_id": "b6d3eba29a6cabac1c2adeb51101c2640c93504d4fcfcc9a68d4c22a4480e329",
+      "embedding_text_sha256": "bd267f30bdcd888890c11d2005dde7c2b7d814aabc39d4415d53c87ce5d6dbb9",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1089,
+      "input_tokens_without_special": 1087,
+      "path": "playground/tests/test_enums.py",
+      "prefix": "Path: playground/tests/test_enums.py (lines 1-83)\nClasses: CategoryTests, OrderStatusTests, EventTypeTests\nSymbols: CategoryTests.test_member_values, CategoryTests.test_from_label_exact_match, CategoryTests.test_from_label_strips_and_lowercases, CategoryTests.test_from_label_resolves_every_member, CategoryTests.test_from_label_non_str_raises_type_error, CategoryTests.test_from_label_unknown_raises_value_error (+9 more in source)\n\nSource:\n",
+      "row": 27,
+      "source_tokens_without_special": 944,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        201
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1087
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        199
+      ]
+    },
+    {
+      "chunk_id": "bbc09c2a49cca7e1f5b296d54f098be95db0c2e51b911f2197afad7017a7087b",
+      "embedding_text_sha256": "d04aa53156861add1792de61a3eff446a13593d9122ec045fb88b30953cff02e",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1140,
+      "input_tokens_without_special": 1138,
+      "path": "playground/tests/test_events.py",
+      "prefix": "Path: playground/tests/test_events.py (lines 1-86)\nClasses: EventBusSubscribeTests, EventBusUnsubscribeTests\nSymbols: EventBusSubscribeTests.setUp, EventBusSubscribeTests.test_starts_empty, EventBusSubscribeTests.test_subscribe_registers_handler, EventBusSubscribeTests.test_subscribe_non_event_type_rejected, EventBusSubscribeTests.test_subscribe_non_callable_rejected, EventBusSubscribeTests.test_same_handler_twice_counted_twice (+11 more in source)\n\nSource:\n",
+      "row": 28,
+      "source_tokens_without_special": 982,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        252
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1138
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        250
+      ]
+    },
+    {
+      "chunk_id": "0187e3085f4d905b9d71814d3af7aa6ef120f7f818d553c1b91eb7fa424856a8",
+      "embedding_text_sha256": "f7464f039a5bce85abd5550e00d838deb1658640a9c1416aeab8fea42faa2a2c",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1292,
+      "input_tokens_without_special": 1290,
+      "path": "playground/tests/test_events.py",
+      "prefix": "Path: playground/tests/test_events.py (lines 87-177)\nClasses: EventBusPublishTests, EventBusContainsTests\nSymbols: EventBusPublishTests.setUp, EventBusPublishTests.test_publish_no_handlers_returns_zero, EventBusPublishTests.test_publish_calls_handler_with_payload, EventBusPublishTests.test_publish_only_matching_type, EventBusPublishTests.test_handlers_called_in_subscription_order, EventBusPublishTests.test_publish_non_event_type_rejected (+12 more in source)\n\nSource:\n",
+      "row": 29,
+      "source_tokens_without_special": 1136,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        182
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1290
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        180
+      ]
+    },
+    {
+      "chunk_id": "2d67dc45e82c8e58591277ff793a156f749e7956fc5af200d85df826015f0dd3",
+      "embedding_text_sha256": "3d691c59809cf9ae54eb608d8f235435366d009bbee081250e9d92bfe01fb06f",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1438,
+      "input_tokens_without_special": 1436,
+      "path": "playground/tests/test_exceptions.py",
+      "prefix": "Path: playground/tests/test_exceptions.py (lines 1-114)\nClasses: ExceptionHierarchyTests, OutOfStockErrorTests, UnknownSKUErrorTests, DuplicateEntityErrorTests, InvalidTransitionErrorTests\nSymbols: ExceptionHierarchyTests.test_root_derives_from_exception, ExceptionHierarchyTests.test_inventory_error_derives_from_root, ExceptionHierarchyTests.test_out_of_stock_derives_from_inventory_error, ExceptionHierarchyTests.test_unknown_sku_derives_from_inventory_error, ExceptionHierarchyTests.test_duplicate_entity_derives_from_root_only, ExceptionHierarchyTests.test_invalid_transition_derives_from_root_only (+9 more in source)\n\nSource:\n",
+      "row": 30,
+      "source_tokens_without_special": 1245,
+      "window_count": 7,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        106
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1436
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        104
+      ]
+    },
+    {
+      "chunk_id": "b5a1ad01514930e0ac5d9b7803f8a9bd776ba1f80cdaaa7093ad4640456c9da6",
+      "embedding_text_sha256": "1ce696284b71423c1f6c2fda0bb7132e491c4346a90d3bc6fccb8d2c3889b238",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1188,
+      "input_tokens_without_special": 1186,
+      "path": "playground/tests/test_inventory.py",
+      "prefix": "Path: playground/tests/test_inventory.py (lines 1-92)\nClasses: InventoryLedgerConstructionTests, InventoryLedgerStockTests\nSymbols: _make_repo, InventoryLedgerConstructionTests.test_requires_repository, InventoryLedgerConstructionTests.test_accepts_repository, InventoryLedgerStockTests.setUp, InventoryLedgerStockTests.test_add_stock_returns_new_on_hand, InventoryLedgerStockTests.test_add_stock_normalizes_sku (+11 more in source)\n\nSource:\n",
+      "row": 31,
+      "source_tokens_without_special": 1053,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        78
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1186
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        76
+      ]
+    },
+    {
+      "chunk_id": "7f00627f539192964cdf7f72da4b14b3d44965e4983c05c25874c9bca12be7a9",
+      "embedding_text_sha256": "a9a2fb4b8174d882e32606feed8351336d335c0ba2953c95cd645bdf847461ca",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1732,
+      "input_tokens_without_special": 1730,
+      "path": "playground/tests/test_inventory.py",
+      "prefix": "Path: playground/tests/test_inventory.py (lines 93-207)\nClasses: InventoryLedgerReserveTests, InventoryLedgerReleaseCommitTests\nSymbols: InventoryLedgerReserveTests.setUp, InventoryLedgerReserveTests.test_reserve_returns_context_and_reduces_available, InventoryLedgerReserveTests.test_reserve_exact_available_allowed, InventoryLedgerReserveTests.test_reserve_over_available_raises_out_of_stock, InventoryLedgerReserveTests.test_reserve_considers_existing_reservations, InventoryLedgerReserveTests.test_reserve_unknown_sku (+15 more in source)\n\nSource:\n",
+      "row": 32,
+      "source_tokens_without_special": 1567,
+      "window_count": 8,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        178
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1586
+        ],
+        [
+          1554,
+          1730
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        176
+      ]
+    },
+    {
+      "chunk_id": "3b30af3aa6dea628466774f41874157be77ed225bf10b18a9f5af43217d46cbb",
+      "embedding_text_sha256": "7fd0075d543ebff1fabffa2d72189305d81e6d3cbe20cb01f7ef727c3730f4a9",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 925,
+      "input_tokens_without_special": 923,
+      "path": "playground/tests/test_inventory.py",
+      "prefix": "Path: playground/tests/test_inventory.py (lines 208-262)\nClasses: InventoryLedgerContainsLenIterTests\nSymbols: InventoryLedgerContainsLenIterTests.setUp, InventoryLedgerContainsLenIterTests.test_contains_non_str_false, InventoryLedgerContainsLenIterTests.test_contains_malformed_string_false, InventoryLedgerContainsLenIterTests.test_contains_normalized_present, InventoryLedgerContainsLenIterTests.test_contains_valid_but_unstocked_false, InventoryLedgerContainsLenIterTests.test_contains_present_even_if_zero_on_hand_after_commit (+5 more in source)\n\nSource:\n",
+      "row": 33,
+      "source_tokens_without_special": 750,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        37
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          923
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        35
+      ]
+    },
+    {
+      "chunk_id": "5c5cc5bec11b2671fe5f5084b364ef84e284586d66cbcfc0be69131ea0655d9c",
+      "embedding_text_sha256": "f2543c32c8551324a696e790d794ec218494f713ca5a7027d9fd6b8975777ce6",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1294,
+      "input_tokens_without_special": 1292,
+      "path": "playground/tests/test_inventory.py",
+      "prefix": "Path: playground/tests/test_inventory.py (lines 263-356)\nClasses: ReservationContextTests\nSymbols: ReservationContextTests.setUp, ReservationContextTests.test_initial_state_held, ReservationContextTests.test_enter_returns_self, ReservationContextTests.test_exit_without_commit_releases, ReservationContextTests.test_commit_inside_block_keeps_stock_consumed, ReservationContextTests.test_exception_inside_block_releases_and_propagates (+8 more in source)\n\nSource:\n",
+      "row": 34,
+      "source_tokens_without_special": 1163,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        184
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1292
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        182
+      ]
+    },
+    {
+      "chunk_id": "9ae4a9972c4e45a27ffa064de1587912efd9aa307d9357a535d5066a7367ca83",
+      "embedding_text_sha256": "acdc2dea84465667ae9b4530162706fbc38d39c21f396200ab68323bf8c08b98",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 897,
+      "input_tokens_without_special": 895,
+      "path": "playground/tests/test_inventory.py",
+      "prefix": "Path: playground/tests/test_inventory.py (lines 357-418)\nClasses: WarehouseTests, InventoryErrorHierarchyTests\nSymbols: WarehouseTests.setUp, WarehouseTests.test_identity, WarehouseTests.test_ledger_property, WarehouseTests.test_empty_id_rejected, WarehouseTests.test_non_str_id_rejected, WarehouseTests.test_non_ledger_rejected (+8 more in source)\n\nSource:\n",
+      "row": 35,
+      "source_tokens_without_special": 789,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        231
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          895
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        229
+      ]
+    },
+    {
+      "chunk_id": "bc944eff65c112c40f564c37c6fcbf16f7895ec15596392ca18b35b538b1b22b",
+      "embedding_text_sha256": "3702f391b3f19d91b70d462ee78a052fdd0aafc2987b99a4e10ad83de9a37136",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1103,
+      "input_tokens_without_special": 1101,
+      "path": "playground/tests/test_models.py",
+      "prefix": "Path: playground/tests/test_models.py (lines 1-92)\nClasses: MoneyConstructionTests, MoneyArithmeticTests\nSymbols: MoneyConstructionTests.test_default_is_zero, MoneyConstructionTests.test_stores_cents, MoneyConstructionTests.test_bool_rejected, MoneyConstructionTests.test_float_rejected, MoneyConstructionTests.test_str_rejected, MoneyConstructionTests.test_negative_rejected (+15 more in source)\n\nSource:\n",
+      "row": 36,
+      "source_tokens_without_special": 968,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        215
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1101
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        213
+      ]
+    },
+    {
+      "chunk_id": "235a7cfeebdb85e50249f2822b9e04adf5e03b87f7de9ce537aaa7f170edccec",
+      "embedding_text_sha256": "f1278471960c12b72fe8c995313e076f642ba52fdc18ed1f603bc1b233b11e86",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1602,
+      "input_tokens_without_special": 1600,
+      "path": "playground/tests/test_models.py",
+      "prefix": "Path: playground/tests/test_models.py (lines 93-209)\nClasses: MoneyComparisonTests, MoneyMiscTests, ProductTests\nSymbols: MoneyComparisonTests.test_eq_same_cents, MoneyComparisonTests.test_eq_different_cents, MoneyComparisonTests.test_eq_non_money_is_false, MoneyComparisonTests.test_eq_non_money_returns_not_implemented, MoneyComparisonTests.test_ne, MoneyComparisonTests.test_lt_true (+23 more in source)\n\nSource:\n",
+      "row": 37,
+      "source_tokens_without_special": 1456,
+      "window_count": 8,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        48
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1586
+        ],
+        [
+          1554,
+          1600
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        46
+      ]
+    },
+    {
+      "chunk_id": "7d4f7be92e0afa1e1ad9d8ee8d21c70394f65189265c5f2aa17f205805325088",
+      "embedding_text_sha256": "2ec41314ddbdcd1316954f64ae4b816877c76113fc73e58e72ff075375b82099",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1583,
+      "input_tokens_without_special": 1581,
+      "path": "playground/tests/test_models.py",
+      "prefix": "Path: playground/tests/test_models.py (lines 210-326)\nClasses: ProductTests\nSymbols: ProductTests.test_non_str_name_rejected, ProductTests.test_blank_name_rejected, ProductTests.test_non_category_rejected, ProductTests.test_non_money_price_rejected, ProductTests.test_read_only_properties, ProductTests.test_identity_is_sku (+14 more in source)\n\nSource:\n",
+      "row": 38,
+      "source_tokens_without_special": 1470,
+      "window_count": 7,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        251
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1581
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        249
+      ]
+    },
+    {
+      "chunk_id": "c2b435d546ba1faa04e4f33fa29205fac737835fd8bd8099e4472495d71ddd7a",
+      "embedding_text_sha256": "393e700191dfb7b6d9205107da3b32d88f884d6b13d669a264e9cd3083b262be",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1232,
+      "input_tokens_without_special": 1230,
+      "path": "playground/tests/test_models.py",
+      "prefix": "Path: playground/tests/test_models.py (lines 327-402)\nClasses: ProductTests, LineItemTests\nSymbols: ProductTests.test_is_valid_name_strips_before_measuring, LineItemTests.test_stores_fields, LineItemTests.test_subtotal, LineItemTests.test_invalid_sku_propagates, LineItemTests.test_bool_quantity_rejected, LineItemTests.test_zero_quantity_rejected (+10 more in source)\n\nSource:\n",
+      "row": 39,
+      "source_tokens_without_special": 1103,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        122
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1230
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        120
+      ]
+    },
+    {
+      "chunk_id": "237ed12592134d57dc8b0fd1a2332cd56439e7a8f93589b82be53b767368ed02",
+      "embedding_text_sha256": "50889077b385273171fdac8f8d393cda715001dddc95ab0f497806696f37ead5",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1444,
+      "input_tokens_without_special": 1442,
+      "path": "playground/tests/test_models.py",
+      "prefix": "Path: playground/tests/test_models.py (lines 403-497)\nClasses: CustomerTests\nSymbols: CustomerTests.test_default_credit_limit_and_balance, CustomerTests.test_constructor_stores_fields, CustomerTests.test_default_limit_not_shared_across_instances_semantics, CustomerTests.test_empty_customer_id_rejected, CustomerTests.test_non_str_customer_id_rejected, CustomerTests.test_empty_name_rejected (+13 more in source)\n\nSource:\n",
+      "row": 40,
+      "source_tokens_without_special": 1316,
+      "window_count": 7,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        112
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1442
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        110
+      ]
+    },
+    {
+      "chunk_id": "8d200f248b893ed433ab3106a333d19618b353cc13dc3981f9276b9c2a279a0c",
+      "embedding_text_sha256": "a664d756aa4b4afe25105d507cca924b8b1cb361fa9b1a23bbed73227426ab04",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1457,
+      "input_tokens_without_special": 1455,
+      "path": "playground/tests/test_orders.py",
+      "prefix": "Path: playground/tests/test_orders.py (lines 1-105)\nClasses: OrderStateMachineTests, OrderConstructionTests\nSymbols: _customer, _order, OrderStateMachineTests.test_new_can_reach_reserved_and_cancelled, OrderStateMachineTests.test_new_cannot_ship_directly, OrderStateMachineTests.test_reserved_can_ship_or_cancel, OrderStateMachineTests.test_reserved_cannot_return_to_new (+13 more in source)\n\nSource:\n",
+      "row": 41,
+      "source_tokens_without_special": 1329,
+      "window_count": 7,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        125
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1455
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        123
+      ]
+    },
+    {
+      "chunk_id": "47b82b729fa80eeccdb8584e5f94780a4d912aa3f935075727f81689067df61d",
+      "embedding_text_sha256": "d65621d6f9ad7d5cd99af279c3998fa849aaf429a5c2d0a3e9bd93be27e86dab",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1776,
+      "input_tokens_without_special": 1774,
+      "path": "playground/tests/test_orders.py",
+      "prefix": "Path: playground/tests/test_orders.py (lines 106-225)\nClasses: OrderAddItemTests, OrderAdvanceTests, OrderTotalTests, OrderContainerTests\nSymbols: OrderAddItemTests.setUp, OrderAddItemTests.test_add_appends_new_sku, OrderAddItemTests.test_add_same_sku_merges_quantity, OrderAddItemTests.test_merge_keeps_position, OrderAddItemTests.test_non_line_item_rejected, OrderAddItemTests.test_add_after_advance_rejected (+15 more in source)\n\nSource:\n",
+      "row": 42,
+      "source_tokens_without_special": 1620,
+      "window_count": 8,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        222
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1586
+        ],
+        [
+          1554,
+          1774
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        220
+      ]
+    },
+    {
+      "chunk_id": "557c00791846951cf698115330f23b74a857086488bbbb89afbfde9eb82c1b2c",
+      "embedding_text_sha256": "f1c2cadd07b2aeb8a8c561f74db177b031bdcee11420f48311b3991c84428b49",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1725,
+      "input_tokens_without_special": 1723,
+      "path": "playground/tests/test_orders.py",
+      "prefix": "Path: playground/tests/test_orders.py (lines 226-332)\nClasses: OrderEqualityTests, OrderBuilderTests, OrderBuilderTests.test_for_customer_is_classmethod_returning_subclass._Sub\nSymbols: OrderEqualityTests.test_equal_by_order_id, OrderEqualityTests.test_not_equal_different_id, OrderEqualityTests.test_eq_non_order_returns_not_implemented, OrderEqualityTests.test_hash_by_id, OrderEqualityTests.test_repr_includes_status, OrderBuilderTests.test_constructor_type_checks (+11 more in source)\n\nSource:\n",
+      "row": 43,
+      "source_tokens_without_special": 1552,
+      "window_count": 8,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        171
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1586
+        ],
+        [
+          1554,
+          1723
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        169
+      ]
+    },
+    {
+      "chunk_id": "8a7414305a2150bb2145a00d0af88869a38c798d52ae75db5417ac1ef86f6998",
+      "embedding_text_sha256": "b2d749c399e6d43458d3d397b7c1f3c93375c5ce855844efc6becdfa45f3f5ee",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1325,
+      "input_tokens_without_special": 1323,
+      "path": "playground/tests/test_orders.py",
+      "prefix": "Path: playground/tests/test_orders.py (lines 333-413)\nClasses: OrderLogTests\nSymbols: OrderLogTests.setUp, OrderLogTests.test_starts_empty, OrderLogTests.test_record_appends_in_order, OrderLogTests.test_record_non_order_rejected, OrderLogTests.test_record_duplicate_id_rejected, OrderLogTests.test_getitem_negative_index (+7 more in source)\n\nSource:\n",
+      "row": 44,
+      "source_tokens_without_special": 1208,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        215
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1323
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        213
+      ]
+    },
+    {
+      "chunk_id": "ab3013c0b277191cec67891d63891919dd8b8a53bbf46b626571a501e6bbc9a9",
+      "embedding_text_sha256": "7a1803c2b55f81d16c5e10a739756ed2c9ab4a3bc308f2ad8ee121071bfee9f0",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 722,
+      "input_tokens_without_special": 720,
+      "path": "playground/tests/test_package.py",
+      "prefix": "Path: playground/tests/test_package.py (lines 1-74)\nClasses: PackageInitTests\nSymbols: PackageInitTests.test_version, PackageInitTests.test_all_matches_expected_exports, PackageInitTests.test_every_export_resolves, PackageInitTests.test_reexports_are_the_defining_objects, PackageInitTests.test_import_has_no_output_side_effects, PackageInitTests.test_reload_keeps_version\n\nSource:\n",
+      "row": 45,
+      "source_tokens_without_special": 603,
+      "window_count": 4,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        56
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          720
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        54
+      ]
+    },
+    {
+      "chunk_id": "a5661adc1d288c80c6eaded5ff1af15425d13e5a8e91af63dfa41f8269cceea7",
+      "embedding_text_sha256": "ef6744e84fbeb385088186725193be42e9480f69662eb4756e36747eaa8db0d9",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1626,
+      "input_tokens_without_special": 1624,
+      "path": "playground/tests/test_pricing.py",
+      "prefix": "Path: playground/tests/test_pricing.py (lines 1-117)\nClasses: FlatPricingConstructionTests, FlatPricingPriceTests, BulkDiscountConstructionTests\nSymbols: FlatPricingConstructionTests.test_default_tax_is_zero, FlatPricingConstructionTests.test_stores_tax, FlatPricingConstructionTests.test_boundaries_accepted, FlatPricingConstructionTests.test_bool_rejected, FlatPricingConstructionTests.test_float_rejected, FlatPricingConstructionTests.test_negative_rejected (+19 more in source)\n\nSource:\n",
+      "row": 46,
+      "source_tokens_without_special": 1465,
+      "window_count": 8,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        72
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1586
+        ],
+        [
+          1554,
+          1624
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        70
+      ]
+    },
+    {
+      "chunk_id": "2d71139270454983e9281c04233f26cea00da50ef09babdf408e821c678fb14d",
+      "embedding_text_sha256": "1955d4a080f1438b6ec892c622ac9cd269c16ae45adc3f27c08cce58cd2756a6",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 941,
+      "input_tokens_without_special": 939,
+      "path": "playground/tests/test_pricing.py",
+      "prefix": "Path: playground/tests/test_pricing.py (lines 118-168)\nClasses: BulkDiscountPriceTests\nSymbols: BulkDiscountPriceTests.test_below_threshold_returns_base_total, BulkDiscountPriceTests.test_at_threshold_applies_discount, BulkDiscountPriceTests.test_quantity_summed_across_lines, BulkDiscountPriceTests.test_zero_percent_returns_base_even_above_threshold, BulkDiscountPriceTests.test_discount_uses_floor_division, BulkDiscountPriceTests.test_full_discount_yields_zero (+3 more in source)\n\nSource:\n",
+      "row": 47,
+      "source_tokens_without_special": 778,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        53
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          939
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        51
+      ]
+    },
+    {
+      "chunk_id": "f10f2f761a45e76d58e5c3cddde16aabf8f2df0eac1f22c0cce017e72c22aadb",
+      "embedding_text_sha256": "9adc1664ccf208068c0cd0aec6038b5220351c5c317bdd9f61b0d408037086e6",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1344,
+      "input_tokens_without_special": 1342,
+      "path": "playground/tests/test_repository.py",
+      "prefix": "Path: playground/tests/test_repository.py (lines 1-109)\nClasses: _Item, _Other, InMemoryRepositoryConstructionTests, InMemoryRepositoryAddTests, InMemoryRepositoryAddTests.test_subclass_instances_accepted._Sub, InMemoryRepositoryGetRemoveTests\nSymbols: _Item.__init__, _Item.identity, _Other.identity, InMemoryRepositoryConstructionTests.test_is_repository, InMemoryRepositoryConstructionTests.test_non_type_rejected, InMemoryRepositoryConstructionTests.test_new_repo_is_empty (+13 more in source)\n\nSource:\n",
+      "row": 48,
+      "source_tokens_without_special": 1152,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        234
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1342
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        232
+      ]
+    },
+    {
+      "chunk_id": "42a590e575dd0cea7b353927916c77031939967f5bf34cfd49032844f0d651c4",
+      "embedding_text_sha256": "13a2a6b1864432a00661734910969a23723a72fcb149d3744e3bf3699421760f",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 988,
+      "input_tokens_without_special": 986,
+      "path": "playground/tests/test_repository.py",
+      "prefix": "Path: playground/tests/test_repository.py (lines 110-170)\nClasses: InMemoryRepositoryContainsTests, InMemoryRepositoryLenIterTests, InMemoryRepositoryWithProductsTests\nSymbols: InMemoryRepositoryContainsTests.setUp, InMemoryRepositoryContainsTests.test_contains_present, InMemoryRepositoryContainsTests.test_contains_absent, InMemoryRepositoryContainsTests.test_contains_non_str_is_false, InMemoryRepositoryContainsTests.test_contains_does_not_use_get, InMemoryRepositoryLenIterTests.test_len_counts_items (+5 more in source)\n\nSource:\n",
+      "row": 49,
+      "source_tokens_without_special": 791,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        100
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          986
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        98
+      ]
+    },
+    {
+      "chunk_id": "1c8616be5a688276fcd56189ed8bc47cfa4de10860052ac7d865be09ae951b91",
+      "embedding_text_sha256": "73b8c576d7ab8838aa56817a1f43293c6bbe99ec6019ecd8c927e8bf3de70927",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 982,
+      "input_tokens_without_special": 980,
+      "path": "playground/tests/test_simulation.py",
+      "prefix": "Path: playground/tests/test_simulation.py (lines 1-101)\nClasses: SimulationReportTests\nSymbols: SimulationReportTests.test_defaults, SimulationReportTests.test_record_created, SimulationReportTests.test_record_shipped, SimulationReportTests.test_record_cancelled, SimulationReportTests.test_record_rejected, SimulationReportTests.test_record_unknown_kind_rejected (+6 more in source)\n\nSource:\n",
+      "row": 50,
+      "source_tokens_without_special": 870,
+      "window_count": 5,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        94
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          980
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        92
+      ]
+    },
+    {
+      "chunk_id": "cea8eecd187d1d08368a03c551b27a4cd8d78ad5d46c1c8bb7fc95ee0d847b5e",
+      "embedding_text_sha256": "158269291835e14cc4993e9ede326baf454f60abdb74b7c555ebe277e5f1a9b7",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1729,
+      "input_tokens_without_special": 1727,
+      "path": "playground/tests/test_simulation.py",
+      "prefix": "Path: playground/tests/test_simulation.py (lines 102-221)\nClasses: SimulationConstructionTests, SimulationStepTests\nSymbols: SimulationConstructionTests.test_warehouse_type_checked, SimulationConstructionTests.test_pricing_type_checked, SimulationConstructionTests.test_creates_default_bus_and_collaborators, SimulationConstructionTests.test_uses_supplied_bus, SimulationConstructionTests.test_no_customers_step_returns_none, SimulationConstructionTests.test_add_customer_non_customer_rejected (+8 more in source)\n\nSource:\n",
+      "row": 51,
+      "source_tokens_without_special": 1576,
+      "window_count": 8,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        175
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1586
+        ],
+        [
+          1554,
+          1727
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        173
+      ]
+    },
+    {
+      "chunk_id": "0ab7b66cdcf8d8b2ff3fe34cf6ab3f754a49cf30fbe425a83537453278b2c6e1",
+      "embedding_text_sha256": "a1a1e492889a6005815640cc5641d5c0476c4aa3d5dfe0e1c3ebc1ccd87a7303",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1642,
+      "input_tokens_without_special": 1640,
+      "path": "playground/tests/test_simulation.py",
+      "prefix": "Path: playground/tests/test_simulation.py (lines 222-340)\nClasses: SimulationStepTests, SimulationRunTests, BuildDefaultWarehouseTests, RunSimulationTests\nSymbols: SimulationStepTests.test_rejected_when_reserve_fails, SimulationStepTests.test_rejected_when_reserve_fails.always_out_of_stock, SimulationStepTests.test_reserved_event_payload_fields, SimulationStepTests.test_terminal_event_published_once_per_step, SimulationStepTests.test_same_seed_is_reproducible, SimulationStepTests.test_same_seed_is_reproducible.run (+12 more in source)\n\nSource:\n",
+      "row": 52,
+      "source_tokens_without_special": 1471,
+      "window_count": 8,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        88
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1364
+        ],
+        [
+          1332,
+          1586
+        ],
+        [
+          1554,
+          1640
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        254,
+        86
+      ]
+    },
+    {
+      "chunk_id": "783ad43e0cd691e4a3c4f467c2ba38f1c6fac4ba2d7688125242c8f448d1442c",
+      "embedding_text_sha256": "a6d025185c18dc9f0bcc9f55505f2cb1ac13d898fc2a1cefbef6f64086eff6ab",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1235,
+      "input_tokens_without_special": 1233,
+      "path": "playground/tests/test_util.py",
+      "prefix": "Path: playground/tests/test_util.py (lines 1-97)\nClasses: NormalizeSkuTests, FormatCentsTests\nSymbols: NormalizeSkuTests.test_uppercases_and_strips, NormalizeSkuTests.test_accepts_minimum_length, NormalizeSkuTests.test_accepts_maximum_length, NormalizeSkuTests.test_rejects_below_minimum_length, NormalizeSkuTests.test_rejects_above_maximum_length, NormalizeSkuTests.test_length_checked_after_strip (+16 more in source)\n\nSource:\n",
+      "row": 53,
+      "source_tokens_without_special": 1100,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        125
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1233
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        123
+      ]
+    },
+    {
+      "chunk_id": "0bff1ccd32b70029936ab74607fc7bf5d88b58a106d7abfc018b305399d21976",
+      "embedding_text_sha256": "3b791bd11ae8abdee715d12dd4d20f047c1c67e6e1923f4b05d07d6779984360",
+      "full_token_coverage": true,
+      "input_tokens_with_special_if_unsplit": 1196,
+      "input_tokens_without_special": 1194,
+      "path": "playground/tests/test_util.py",
+      "prefix": "Path: playground/tests/test_util.py (lines 98-183)\nClasses: EnsurePositiveIntTests, ChunkedTests\nSymbols: EnsurePositiveIntTests.test_returns_value_when_positive, EnsurePositiveIntTests.test_bool_rejected_with_name_in_message, EnsurePositiveIntTests.test_false_rejected, EnsurePositiveIntTests.test_float_rejected, EnsurePositiveIntTests.test_str_rejected, EnsurePositiveIntTests.test_none_rejected (+14 more in source)\n\nSource:\n",
+      "row": 54,
+      "source_tokens_without_special": 1053,
+      "window_count": 6,
+      "window_model_input_tokens": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        86
+      ],
+      "window_token_ranges": [
+        [
+          0,
+          254
+        ],
+        [
+          222,
+          476
+        ],
+        [
+          444,
+          698
+        ],
+        [
+          666,
+          920
+        ],
+        [
+          888,
+          1142
+        ],
+        [
+          1110,
+          1194
+        ]
+      ],
+      "window_weights_payload_tokens": [
+        254,
+        254,
+        254,
+        254,
+        254,
+        84
+      ]
+    }
+  ],
+  "runtime": {
+    "machine": "x86_64",
+    "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.16 (main, Nov 11 2026, 00:15:59) [Clang 23.1.3 ]"
+  },
+  "schema_version": "local-chunk-embeddings-v1",
+  "source": {
+    "chunks_path": "chunks.jsonl",
+    "chunks_sha256": "24bde3c13cd887b7ad32bfddae1f5dc96cfc6ee345ea857b02fcf868c1ee4a39",
+    "manifest_path": "chunks.manifest.json",
+    "manifest_sha256": "c89a37ea129a4e509af4499164cfdbd3944b1946b4aba20c8cfe580c8b9b18a0",
+    "repository_commit": "b17f75374a6d63f0f245e472bb707e658c1b3cf7"
+  },
+  "storage": {
+    "allow_pickle": false,
+    "compressed_npz_bytes": 81640,
+    "dtype": "float32",
+    "ids_dtype": "<U64",
+    "ids_key": "chunk_ids",
+    "ids_uncompressed_bytes": 14080,
+    "matrix_key": "embeddings",
+    "matrix_uncompressed_bytes": 84480,
+    "npz_path": "embeddings.npz",
+    "npz_sha256": "db95da059e47f7ffd3c6c81904b6adca6f543d866a2b34594a0ff45be8fdbed1",
+    "row_order": "unchanged input JSONL order",
+    "shape": [
+      55,
+      384
+    ]
+  },
+  "verification": {
+    "all_tokens_covered": true,
+    "all_windows_within_effective_limit": true,
+    "finite_values": true,
+    "norm_absolute_tolerance": 1e-05,
+    "norm_max": 1.0,
+    "norm_min": 0.9999999403953552,
+    "repeat_atol": 1e-06,
+    "repeat_max_absolute_difference": 0.0,
+    "repeat_rtol": 1e-05,
+    "repeated_encoding_full_corpus": true,
+    "save_reload_ids_and_values_exact": true,
+    "unique_matching_ids": true
+  }
+}

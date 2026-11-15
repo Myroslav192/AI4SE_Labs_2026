@@ -1,0 +1,12 @@
+test_actual_storage_and_provenance (test_embeddings.EmbeddingTests.test_actual_storage_and_provenance) ... ok
+test_every_actual_token_is_covered_with_bounded_windows (test_embeddings.EmbeddingTests.test_every_actual_token_is_covered_with_bounded_windows) ... ok
+test_loader_rejects_mismatched_chunks_and_storage (test_embeddings.EmbeddingTests.test_loader_rejects_mismatched_chunks_and_storage) ... ok
+test_long_actual_chunk_matches_independent_window_aggregation (test_embeddings.EmbeddingTests.test_long_actual_chunk_matches_independent_window_aggregation) ... ok
+test_pinned_cpu_query_encoder_matches_standard_short_encoding (test_embeddings.EmbeddingTests.test_pinned_cpu_query_encoder_matches_standard_short_encoding) ... You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+ok
+test_window_boundary_cases_and_invalid_inputs (test_embeddings.EmbeddingTests.test_window_boundary_cases_and_invalid_inputs) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.932s
+
+OK

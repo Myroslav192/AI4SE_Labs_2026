@@ -1,0 +1,17 @@
+--- a/playground/playground/orders.py
++++ b/playground/playground/orders.py
+@@ -33,7 +33,13 @@
+         return target in OrderStateMachine.allowed_from(source)
+ 
+     def transition(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:
+-        pass
++        if not isinstance(source, OrderStatus):
++            raise TypeError("source must be OrderStatus")
++        if not isinstance(target, OrderStatus):
++            raise TypeError("target must be OrderStatus")
++        if self.can_transition(source, target):
++            return target
++        raise InvalidTransitionError(source, target)
+ 
+     def __call__(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:
+         """Convenience alias for :meth:`transition`."""

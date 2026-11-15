@@ -1,0 +1,545 @@
+{
+  "target": {
+    "file": "playground/playground/enums.py",
+    "class": "OrderStatus",
+    "method": "is_terminal",
+    "docstring": "    \"\"\"True when the status ends further transitions.\"\"\""
+  },
+  "textual_task": "    \"\"\"True when the status ends further transitions.\"\"\"",
+  "query": "Implement OrderStatus.is_terminal in playground/playground/enums.py.\nRequired behavior: True when the status ends further transitions.",
+  "query_encoding": {
+    "input_tokens_without_special": 30,
+    "input_tokens_with_special_if_unsplit": 32,
+    "window_token_ranges": [
+      [
+        0,
+        30
+      ]
+    ],
+    "window_model_input_tokens": [
+      32
+    ],
+    "window_weights_payload_tokens": [
+      30
+    ],
+    "window_count": 1,
+    "full_token_coverage": true
+  },
+  "requested_model": "gpt-5-mini",
+  "retrieved": [
+    {
+      "rank": 1,
+      "chunk_id": "3ce4f90e28465b5e30a498f4a6a0582b5142a74dc47d2b755ae5c76810ab3e3e",
+      "score": 0.5960970780271581,
+      "path": "playground/playground/orders.py",
+      "start_line": 1,
+      "end_line": 42,
+      "symbols": [
+        {
+          "end_line": 40,
+          "kind": "class",
+          "name": "OrderStateMachine",
+          "start_line": 14
+        },
+        {
+          "end_line": 29,
+          "kind": "function",
+          "name": "OrderStateMachine.allowed_from",
+          "start_line": 24
+        },
+        {
+          "end_line": 33,
+          "kind": "function",
+          "name": "OrderStateMachine.can_transition",
+          "start_line": 31
+        },
+        {
+          "end_line": 36,
+          "kind": "function",
+          "name": "OrderStateMachine.transition",
+          "start_line": 35
+        },
+        {
+          "end_line": 40,
+          "kind": "function",
+          "name": "OrderStateMachine.__call__",
+          "start_line": 38
+        }
+      ],
+      "enclosing_classes": [
+        "OrderStateMachine"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Order state-machine, order aggregates, builder, and log.\"\"\"\n\nfrom __future__ import annotations\n\nfrom typing import Dict, FrozenSet, Iterator, List, Tuple\n\nfrom .base import PricingStrategy\nfrom .enums import OrderStatus\nfrom .exceptions import DuplicateEntityError, InvalidTransitionError\nfrom .models import Customer, LineItem, Money\nfrom .pricing import FlatPricing\n\n\nclass OrderStateMachine:\n    \"\"\"Legal OrderStatus transitions, data-driven via TRANSITIONS.\"\"\"\n\n    TRANSITIONS: Dict[OrderStatus, FrozenSet[OrderStatus]] = {\n        OrderStatus.NEW: frozenset({OrderStatus.RESERVED, OrderStatus.CANCELLED}),\n        OrderStatus.RESERVED: frozenset({OrderStatus.SHIPPED, OrderStatus.CANCELLED}),\n        OrderStatus.SHIPPED: frozenset(),\n        OrderStatus.CANCELLED: frozenset(),\n    }\n\n    @staticmethod\n    def allowed_from(status: OrderStatus) -> FrozenSet[OrderStatus]:\n        \"\"\"Return the set of statuses reachable from ``status``.\"\"\"\n        if not isinstance(status, OrderStatus):\n            raise TypeError(\"status must be OrderStatus\")\n        return OrderStateMachine.TRANSITIONS[status]\n\n    def can_transition(self, source: OrderStatus, target: OrderStatus) -> bool:\n        \"\"\"Return whether ``target`` is reachable from ``source``.\"\"\"\n        return target in OrderStateMachine.allowed_from(source)\n\n    def transition(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:\n        pass\n\n    def __call__(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:\n        \"\"\"Convenience alias for :meth:`transition`.\"\"\"\n        return self.transition(source, target)\n\n\n"
+    },
+    {
+      "rank": 2,
+      "chunk_id": "6359741171c535398c82e0f729528b5f4746a4046e10813bb07b6bbc625b8477",
+      "score": 0.5205715657263178,
+      "path": "playground/playground/enums.py",
+      "start_line": 1,
+      "end_line": 57,
+      "symbols": [
+        {
+          "end_line": 34,
+          "kind": "class",
+          "name": "Category",
+          "start_line": 8
+        },
+        {
+          "end_line": 30,
+          "kind": "function",
+          "name": "Category.from_label",
+          "start_line": 16
+        },
+        {
+          "end_line": 34,
+          "kind": "function",
+          "name": "Category.__str__",
+          "start_line": 32
+        },
+        {
+          "end_line": 47,
+          "kind": "class",
+          "name": "OrderStatus",
+          "start_line": 37
+        },
+        {
+          "end_line": 47,
+          "kind": "function",
+          "name": "OrderStatus.is_terminal",
+          "start_line": 45
+        },
+        {
+          "end_line": 57,
+          "kind": "class",
+          "name": "EventType",
+          "start_line": 50
+        }
+      ],
+      "enclosing_classes": [
+        "Category",
+        "OrderStatus",
+        "EventType"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Enumerations used throughout the playground package.\"\"\"\n\nfrom __future__ import annotations\n\nfrom enum import Enum\n\n\nclass Category(Enum):\n    \"\"\"Product categories within the warehouse catalogue.\"\"\"\n\n    ELECTRONICS = \"electronics\"\n    GROCERY = \"grocery\"\n    APPAREL = \"apparel\"\n    HARDWARE = \"hardware\"\n\n    @classmethod\n    def from_label(cls, label: str) -> \"Category\":\n        \"\"\"Resolve a category from its lowercase label string.\n\n        Raises:\n            TypeError: if ``label`` is not a string.\n            ValueError: if no member has a matching value.\n        \"\"\"\n        if not isinstance(label, str):\n            raise TypeError(\"category label must be str\")\n        key = label.strip().lower()\n        for member in cls:\n            if member.value == key:\n                return member\n        raise ValueError(f\"unknown category: {label!r}\")\n\n    def __str__(self) -> str:\n        \"\"\"Return the category's value as its string form.\"\"\"\n        return self.value\n\n\nclass OrderStatus(Enum):\n    \"\"\"Lifecycle stages for an order.\"\"\"\n\n    NEW = \"new\"\n    RESERVED = \"reserved\"\n    SHIPPED = \"shipped\"\n    CANCELLED = \"cancelled\"\n\n    @property\n    def is_terminal(self) -> bool:\n        pass\n\n\nclass EventType(Enum):\n    \"\"\"Event bus topics published by simulation activity.\"\"\"\n\n    STOCK_ADDED = 1\n    STOCK_RESERVED = 2\n    STOCK_RELEASED = 3\n    ORDER_SHIPPED = 4\n    ORDER_CANCELLED = 5\n"
+    },
+    {
+      "rank": 3,
+      "chunk_id": "8d3648d616a1d0ba7e2f8c7a1c802065e5a1237e0c0fd058434cf40f0e1e6477",
+      "score": 0.4613923584822978,
+      "path": "playground/playground/orders.py",
+      "start_line": 43,
+      "end_line": 124,
+      "symbols": [
+        {
+          "end_line": 122,
+          "kind": "class",
+          "name": "Order",
+          "start_line": 43
+        },
+        {
+          "end_line": 59,
+          "kind": "function",
+          "name": "Order.__init__",
+          "start_line": 46
+        },
+        {
+          "end_line": 64,
+          "kind": "function",
+          "name": "Order.order_id",
+          "start_line": 61
+        },
+        {
+          "end_line": 69,
+          "kind": "function",
+          "name": "Order.customer",
+          "start_line": 66
+        },
+        {
+          "end_line": 74,
+          "kind": "function",
+          "name": "Order.status",
+          "start_line": 71
+        },
+        {
+          "end_line": 79,
+          "kind": "function",
+          "name": "Order.items",
+          "start_line": 76
+        },
+        {
+          "end_line": 84,
+          "kind": "function",
+          "name": "Order.total",
+          "start_line": 81
+        },
+        {
+          "end_line": 96,
+          "kind": "function",
+          "name": "Order.add_item",
+          "start_line": 86
+        },
+        {
+          "end_line": 101,
+          "kind": "function",
+          "name": "Order.advance",
+          "start_line": 98
+        },
+        {
+          "end_line": 104,
+          "kind": "function",
+          "name": "Order.__len__",
+          "start_line": 103
+        },
+        {
+          "end_line": 108,
+          "kind": "function",
+          "name": "Order.__iter__",
+          "start_line": 106
+        },
+        {
+          "end_line": 114,
+          "kind": "function",
+          "name": "Order.__eq__",
+          "start_line": 110
+        },
+        {
+          "end_line": 118,
+          "kind": "function",
+          "name": "Order.__hash__",
+          "start_line": 116
+        },
+        {
+          "end_line": 122,
+          "kind": "function",
+          "name": "Order.__repr__",
+          "start_line": 120
+        }
+      ],
+      "enclosing_classes": [
+        "Order"
+      ],
+      "context_chunk_ids": [
+        "3ce4f90e28465b5e30a498f4a6a0582b5142a74dc47d2b755ae5c76810ab3e3e"
+      ],
+      "text": "class Order:\n    \"\"\"Customer order with items, status, and pricing.\"\"\"\n\n    def __init__(self, order_id: str, customer: Customer, pricing: PricingStrategy) -> None:\n        \"\"\"Create a new order in the NEW status for ``customer``.\"\"\"\n        if not isinstance(order_id, str) or order_id.strip() == \"\":\n            raise ValueError(\"order_id required\")\n        if not isinstance(customer, Customer):\n            raise TypeError(\"customer must be Customer\")\n        if not isinstance(pricing, PricingStrategy):\n            raise TypeError(\"pricing must be PricingStrategy\")\n        self._order_id = order_id\n        self._customer = customer\n        self._pricing = pricing\n        self._items: List[LineItem] = []\n        self._status: OrderStatus = OrderStatus.NEW\n        self._machine = OrderStateMachine()\n\n    @property\n    def order_id(self) -> str:\n        \"\"\"Return the order identity.\"\"\"\n        return self._order_id\n\n    @property\n    def customer(self) -> Customer:\n        \"\"\"Return the owning customer.\"\"\"\n        return self._customer\n\n    @property\n    def status(self) -> OrderStatus:\n        \"\"\"Return the current order status.\"\"\"\n        return self._status\n\n    @property\n    def items(self) -> Tuple[LineItem, ...]:\n        \"\"\"Return a tuple copy of the order's line items.\"\"\"\n        return tuple(self._items)\n\n    @property\n    def total(self) -> Money:\n        \"\"\"Return the total price of all line items under this order's pricing.\"\"\"\n        return self._pricing.price(self._items)\n\n    def add_item(self, item: LineItem) -> None:\n        \"\"\"Append ``item``, merging with an existing line for the same SKU.\"\"\"\n        if not isinstance(item, LineItem):\n            raise TypeError(\"item must be LineItem\")\n        if self._status is not OrderStatus.NEW:\n            raise InvalidTransitionError(self._status, OrderStatus.NEW)\n        for index, existing in enumerate(self._items):\n            if existing.sku == item.sku:\n                self._items[index] = existing.with_quantity(existing.quantity + item.quantity)\n                return\n        self._items.append(item)\n\n    def advance(self, target: OrderStatus) -> None:\n        \"\"\"Transition the order to ``target`` status, raising if not allowed.\"\"\"\n        new_status = self._machine.transition(self._status, target)\n        self._status = new_status\n\n    def __len__(self) -> int:\n        pass\n\n    def __iter__(self) -> Iterator[LineItem]:\n        \"\"\"Iterate over a tuple snapshot of the order's line items.\"\"\"\n        return iter(tuple(self._items))\n\n    def __eq__(self, other: object) -> bool:\n        \"\"\"Compare orders by identity.\"\"\"\n        if not isinstance(other, Order):\n            return NotImplemented\n        return self._order_id == other._order_id\n\n    def __hash__(self) -> int:\n        \"\"\"Hash by type name and order id.\"\"\"\n        return hash((\"Order\", self._order_id))\n\n    def __repr__(self) -> str:\n        \"\"\"Return a developer-friendly representation.\"\"\"\n        return f\"Order({self._order_id!r}, {self._status.value})\"\n\n\n"
+    },
+    {
+      "rank": 4,
+      "chunk_id": "8d200f248b893ed433ab3106a333d19618b353cc13dc3981f9276b9c2a279a0c",
+      "score": 0.44989287407505085,
+      "path": "playground/tests/test_orders.py",
+      "start_line": 1,
+      "end_line": 105,
+      "symbols": [
+        {
+          "end_line": 15,
+          "kind": "function",
+          "name": "_customer",
+          "start_line": 14
+        },
+        {
+          "end_line": 19,
+          "kind": "function",
+          "name": "_order",
+          "start_line": 18
+        },
+        {
+          "end_line": 72,
+          "kind": "class",
+          "name": "OrderStateMachineTests",
+          "start_line": 22
+        },
+        {
+          "end_line": 26,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_new_can_reach_reserved_and_cancelled",
+          "start_line": 23
+        },
+        {
+          "end_line": 29,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_new_cannot_ship_directly",
+          "start_line": 28
+        },
+        {
+          "end_line": 34,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_reserved_can_ship_or_cancel",
+          "start_line": 31
+        },
+        {
+          "end_line": 37,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_reserved_cannot_return_to_new",
+          "start_line": 36
+        },
+        {
+          "end_line": 44,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_terminal_states_have_no_outgoing",
+          "start_line": 39
+        },
+        {
+          "end_line": 49,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_allowed_from_returns_frozenset",
+          "start_line": 46
+        },
+        {
+          "end_line": 52,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_allowed_from_terminal_is_empty",
+          "start_line": 51
+        },
+        {
+          "end_line": 56,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_allowed_from_non_status_raises",
+          "start_line": 54
+        },
+        {
+          "end_line": 60,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_transition_returns_target_when_legal",
+          "start_line": 58
+        },
+        {
+          "end_line": 66,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_transition_illegal_raises",
+          "start_line": 62
+        },
+        {
+          "end_line": 72,
+          "kind": "function",
+          "name": "OrderStateMachineTests.test_call_is_alias_for_transition",
+          "start_line": 68
+        },
+        {
+          "end_line": 103,
+          "kind": "class",
+          "name": "OrderConstructionTests",
+          "start_line": 75
+        },
+        {
+          "end_line": 82,
+          "kind": "function",
+          "name": "OrderConstructionTests.test_initial_state",
+          "start_line": 76
+        },
+        {
+          "end_line": 86,
+          "kind": "function",
+          "name": "OrderConstructionTests.test_empty_order_id_rejected",
+          "start_line": 84
+        },
+        {
+          "end_line": 90,
+          "kind": "function",
+          "name": "OrderConstructionTests.test_non_str_order_id_rejected",
+          "start_line": 88
+        },
+        {
+          "end_line": 94,
+          "kind": "function",
+          "name": "OrderConstructionTests.test_non_customer_rejected",
+          "start_line": 92
+        },
+        {
+          "end_line": 98,
+          "kind": "function",
+          "name": "OrderConstructionTests.test_non_pricing_rejected",
+          "start_line": 96
+        },
+        {
+          "end_line": 103,
+          "kind": "function",
+          "name": "OrderConstructionTests.test_customer_property",
+          "start_line": 100
+        }
+      ],
+      "enclosing_classes": [
+        "OrderStateMachineTests",
+        "OrderConstructionTests"
+      ],
+      "context_chunk_ids": [
+        "8a7414305a2150bb2145a00d0af88869a38c798d52ae75db5417ac1ef86f6998"
+      ],
+      "text": "\"\"\"Unit tests for the orders module.\"\"\"\nfrom __future__ import annotations\n\nimport unittest\n\nfrom playground.base import PricingStrategy\nfrom playground.enums import OrderStatus\nfrom playground.exceptions import DuplicateEntityError, InvalidTransitionError\nfrom playground.models import Customer, LineItem, Money\nfrom playground.orders import Order, OrderBuilder, OrderLog, OrderStateMachine\nfrom playground.pricing import BulkDiscountPricing, FlatPricing\n\n\ndef _customer() -> Customer:\n    return Customer(\"C-1\", \"Alice\", Money(1000000))\n\n\ndef _order(order_id: str = \"ORD-1\", pricing: PricingStrategy | None = None) -> Order:\n    return Order(order_id, _customer(), pricing or FlatPricing())\n\n\nclass OrderStateMachineTests(unittest.TestCase):\n    def test_new_can_reach_reserved_and_cancelled(self) -> None:\n        sm = OrderStateMachine()\n        self.assertTrue(sm.can_transition(OrderStatus.NEW, OrderStatus.RESERVED))\n        self.assertTrue(sm.can_transition(OrderStatus.NEW, OrderStatus.CANCELLED))\n\n    def test_new_cannot_ship_directly(self) -> None:\n        self.assertFalse(OrderStateMachine().can_transition(OrderStatus.NEW, OrderStatus.SHIPPED))\n\n    def test_reserved_can_ship_or_cancel(self) -> None:\n        sm = OrderStateMachine()\n        self.assertTrue(sm.can_transition(OrderStatus.RESERVED, OrderStatus.SHIPPED))\n        self.assertTrue(sm.can_transition(OrderStatus.RESERVED, OrderStatus.CANCELLED))\n\n    def test_reserved_cannot_return_to_new(self) -> None:\n        self.assertFalse(OrderStateMachine().can_transition(OrderStatus.RESERVED, OrderStatus.NEW))\n\n    def test_terminal_states_have_no_outgoing(self) -> None:\n        sm = OrderStateMachine()\n        for source in (OrderStatus.SHIPPED, OrderStatus.CANCELLED):\n            for target in OrderStatus:\n                with self.subTest(source=source, target=target):\n                    self.assertFalse(sm.can_transition(source, target))\n\n    def test_allowed_from_returns_frozenset(self) -> None:\n        allowed = OrderStateMachine.allowed_from(OrderStatus.NEW)\n        self.assertIsInstance(allowed, frozenset)\n        self.assertEqual(allowed, frozenset({OrderStatus.RESERVED, OrderStatus.CANCELLED}))\n\n    def test_allowed_from_terminal_is_empty(self) -> None:\n        self.assertEqual(OrderStateMachine.allowed_from(OrderStatus.SHIPPED), frozenset())\n\n    def test_allowed_from_non_status_raises(self) -> None:\n        with self.assertRaises(TypeError):\n            OrderStateMachine.allowed_from(\"new\")  # type: ignore[arg-type]\n\n    def test_transition_returns_target_when_legal(self) -> None:\n        sm = OrderStateMachine()\n        self.assertIs(sm.transition(OrderStatus.NEW, OrderStatus.RESERVED), OrderStatus.RESERVED)\n\n    def test_transition_illegal_raises(self) -> None:\n        with self.assertRaises(InvalidTransitionError) as ctx:\n            OrderStateMachine().transition(OrderStatus.NEW, OrderStatus.SHIPPED)\n        self.assertIs(ctx.exception.source, OrderStatus.NEW)\n        self.assertIs(ctx.exception.target, OrderStatus.SHIPPED)\n\n    def test_call_is_alias_for_transition(self) -> None:\n        sm = OrderStateMachine()\n        self.assertIs(sm(OrderStatus.RESERVED, OrderStatus.SHIPPED), OrderStatus.SHIPPED)\n        with self.assertRaises(InvalidTransitionError):\n            sm(OrderStatus.SHIPPED, OrderStatus.NEW)\n\n\nclass OrderConstructionTests(unittest.TestCase):\n    def test_initial_state(self) -> None:\n        o = _order(\"ORD-9\")\n        self.assertEqual(o.order_id, \"ORD-9\")\n        self.assertEqual(o.customer.customer_id, \"C-1\")\n        self.assertIs(o.status, OrderStatus.NEW)\n        self.assertEqual(o.items, ())\n        self.assertEqual(len(o), 0)\n\n    def test_empty_order_id_rejected(self) -> None:\n        with self.assertRaises(ValueError):\n            Order(\"  \", _customer(), FlatPricing())\n\n    def test_non_str_order_id_rejected(self) -> None:\n        with self.assertRaises(ValueError):\n            Order(None, _customer(), FlatPricing())  # type: ignore[arg-type]\n\n    def test_non_customer_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Order(\"ORD-1\", \"alice\", FlatPricing())  # type: ignore[arg-type]\n\n    def test_non_pricing_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Order(\"ORD-1\", _customer(), lambda items: Money(0))  # type: ignore[arg-type]\n\n    def test_customer_property(self) -> None:\n        c = _customer()\n        o = Order(\"ORD-1\", c, FlatPricing())\n        self.assertIs(o.customer, c)\n\n\n"
+    },
+    {
+      "rank": 5,
+      "chunk_id": "8a7414305a2150bb2145a00d0af88869a38c798d52ae75db5417ac1ef86f6998",
+      "score": 0.38540338704632804,
+      "path": "playground/tests/test_orders.py",
+      "start_line": 333,
+      "end_line": 413,
+      "symbols": [
+        {
+          "end_line": 409,
+          "kind": "class",
+          "name": "OrderLogTests",
+          "start_line": 333
+        },
+        {
+          "end_line": 335,
+          "kind": "function",
+          "name": "OrderLogTests.setUp",
+          "start_line": 334
+        },
+        {
+          "end_line": 339,
+          "kind": "function",
+          "name": "OrderLogTests.test_starts_empty",
+          "start_line": 337
+        },
+        {
+          "end_line": 347,
+          "kind": "function",
+          "name": "OrderLogTests.test_record_appends_in_order",
+          "start_line": 341
+        },
+        {
+          "end_line": 351,
+          "kind": "function",
+          "name": "OrderLogTests.test_record_non_order_rejected",
+          "start_line": 349
+        },
+        {
+          "end_line": 358,
+          "kind": "function",
+          "name": "OrderLogTests.test_record_duplicate_id_rejected",
+          "start_line": 353
+        },
+        {
+          "end_line": 363,
+          "kind": "function",
+          "name": "OrderLogTests.test_getitem_negative_index",
+          "start_line": 360
+        },
+        {
+          "end_line": 367,
+          "kind": "function",
+          "name": "OrderLogTests.test_getitem_out_of_range_raises_index_error",
+          "start_line": 365
+        },
+        {
+          "end_line": 372,
+          "kind": "function",
+          "name": "OrderLogTests.test_iter_yields_in_insertion_order",
+          "start_line": 369
+        },
+        {
+          "end_line": 379,
+          "kind": "function",
+          "name": "OrderLogTests.test_iter_is_generator_snapshot_taken_on_first_next",
+          "start_line": 374
+        },
+        {
+          "end_line": 388,
+          "kind": "function",
+          "name": "OrderLogTests.test_iter_snapshot_isolated_after_first_next",
+          "start_line": 381
+        },
+        {
+          "end_line": 399,
+          "kind": "function",
+          "name": "OrderLogTests.test_by_status_filters",
+          "start_line": 390
+        },
+        {
+          "end_line": 404,
+          "kind": "function",
+          "name": "OrderLogTests.test_by_status_is_lazy_generator",
+          "start_line": 401
+        },
+        {
+          "end_line": 409,
+          "kind": "function",
+          "name": "OrderLogTests.test_by_status_non_status_raises_on_first_next",
+          "start_line": 406
+        }
+      ],
+      "enclosing_classes": [
+        "OrderLogTests"
+      ],
+      "context_chunk_ids": [
+        "8d200f248b893ed433ab3106a333d19618b353cc13dc3981f9276b9c2a279a0c"
+      ],
+      "text": "class OrderLogTests(unittest.TestCase):\n    def setUp(self) -> None:\n        self.log = OrderLog()\n\n    def test_starts_empty(self) -> None:\n        self.assertEqual(len(self.log), 0)\n        self.assertEqual(list(self.log), [])\n\n    def test_record_appends_in_order(self) -> None:\n        a, b = _order(\"ORD-1\"), _order(\"ORD-2\")\n        self.log.record(a)\n        self.log.record(b)\n        self.assertEqual(len(self.log), 2)\n        self.assertIs(self.log[0], a)\n        self.assertIs(self.log[1], b)\n\n    def test_record_non_order_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            self.log.record(\"ORD-1\")  # type: ignore[arg-type]\n\n    def test_record_duplicate_id_rejected(self) -> None:\n        self.log.record(_order(\"ORD-1\"))\n        with self.assertRaises(DuplicateEntityError) as ctx:\n            self.log.record(_order(\"ORD-1\"))\n        self.assertEqual(ctx.exception.key, \"ORD-1\")\n        self.assertEqual(len(self.log), 1)\n\n    def test_getitem_negative_index(self) -> None:\n        self.log.record(_order(\"ORD-1\"))\n        self.log.record(_order(\"ORD-2\"))\n        self.assertEqual(self.log[-1].order_id, \"ORD-2\")\n\n    def test_getitem_out_of_range_raises_index_error(self) -> None:\n        with self.assertRaises(IndexError):\n            self.log[0]\n\n    def test_iter_yields_in_insertion_order(self) -> None:\n        self.log.record(_order(\"ORD-2\"))\n        self.log.record(_order(\"ORD-1\"))\n        self.assertEqual([o.order_id for o in self.log], [\"ORD-2\", \"ORD-1\"])\n\n    def test_iter_is_generator_snapshot_taken_on_first_next(self) -> None:\n        # __iter__ is a generator (yield from list(...)), so the copy happens on first next().\n        self.log.record(_order(\"ORD-1\"))\n        it = iter(self.log)\n        self.log.record(_order(\"ORD-2\"))\n        self.assertEqual([o.order_id for o in it], [\"ORD-1\", \"ORD-2\"])\n\n    def test_iter_snapshot_isolated_after_first_next(self) -> None:\n        self.log.record(_order(\"ORD-1\"))\n        self.log.record(_order(\"ORD-2\"))\n        it = iter(self.log)\n        first = next(it)\n        self.log.record(_order(\"ORD-3\"))\n        self.assertEqual(first.order_id, \"ORD-1\")\n        self.assertEqual([o.order_id for o in it], [\"ORD-2\"])\n\n    def test_by_status_filters(self) -> None:\n        a, b, c = _order(\"ORD-1\"), _order(\"ORD-2\"), _order(\"ORD-3\")\n        for o in (a, b, c):\n            self.log.record(o)\n        b.advance(OrderStatus.CANCELLED)\n        c.advance(OrderStatus.RESERVED)\n        self.assertEqual([o.order_id for o in self.log.by_status(OrderStatus.NEW)], [\"ORD-1\"])\n        self.assertEqual([o.order_id for o in self.log.by_status(OrderStatus.CANCELLED)], [\"ORD-2\"])\n        self.assertEqual([o.order_id for o in self.log.by_status(OrderStatus.RESERVED)], [\"ORD-3\"])\n        self.assertEqual(list(self.log.by_status(OrderStatus.SHIPPED)), [])\n\n    def test_by_status_is_lazy_generator(self) -> None:\n        gen = self.log.by_status(OrderStatus.NEW)\n        self.assertFalse(hasattr(gen, \"__len__\"))\n        self.assertEqual(list(gen), [])\n\n    def test_by_status_non_status_raises_on_first_next(self) -> None:\n        gen = self.log.by_status(\"new\")  # type: ignore[arg-type]\n        with self.assertRaises(TypeError):\n            next(gen)\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    }
+  ],
+  "status": "applied",
+  "attempts": [
+    {
+      "generation_attempt": 1,
+      "transport": [
+        {
+          "transport_attempt": 1,
+          "status": "response_received",
+          "response_id": "resp_015f8f6ad41dc734016afa078a8b8c87d28969e57e74890f7b"
+        }
+      ],
+      "status": "validation_failed",
+      "response_id": "resp_015f8f6ad41dc734016afa078a8b8c87d28969e57e74890f7b",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "response_status": "completed",
+      "usage": {
+        "input_tokens": 4418,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          }
+        },
+        "output_tokens": 1081,
+        "output_tokens_details": {
+          "reasoning_tokens": 1024
+        },
+        "total_tokens": 5499
+      },
+      "incomplete_details": null,
+      "validation": "Response is not a standalone Python method definition"
+    },
+    {
+      "generation_attempt": 2,
+      "transport": [
+        {
+          "transport_attempt": 1,
+          "status": "response_received",
+          "response_id": "resp_08aebb64a87e4f0e016afa079b0f8487d2a4c0ee65cfe65334"
+        }
+      ],
+      "status": "applied",
+      "response_id": "resp_08aebb64a87e4f0e016afa079b0f8487d2a4c0ee65cfe65334",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "response_status": "completed",
+      "usage": {
+        "input_tokens": 4468,
+        "input_tokens_details": {
+          "cached_tokens": 4352,
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          }
+        },
+        "output_tokens": 722,
+        "output_tokens_details": {
+          "reasoning_tokens": 640
+        },
+        "total_tokens": 5190
+      },
+      "incomplete_details": null,
+      "validation": "passed",
+      "before_sha256": "0f30a70a9abb5c5388a958f532398e6e24f080c922bdfdceb2d454e02c4ef2d6",
+      "after_sha256": "212bb9450f06b179c8f30fcec5f3b7e59a7dfda2c3d88e2778cca6a2b6fad87b"
+    }
+  ],
+  "api_calls": 2
+}

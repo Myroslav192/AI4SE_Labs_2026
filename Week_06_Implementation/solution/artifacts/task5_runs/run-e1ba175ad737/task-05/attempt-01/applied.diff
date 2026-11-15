@@ -1,0 +1,15 @@
+--- a/playground/playground/orders.py
++++ b/playground/playground/orders.py
+@@ -187,7 +187,11 @@
+         self._orders.append(order)
+ 
+     def by_status(self, status: OrderStatus) -> Iterator[Order]:
+-        pass
++        if not isinstance(status, OrderStatus):
++            raise TypeError("status must be OrderStatus")
++        for order in list(self._orders):
++            if order.status == status:
++                yield order
+ 
+     def __getitem__(self, index: int) -> Order:
+         """Return the order at ``index``."""

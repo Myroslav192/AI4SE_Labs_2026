@@ -1,0 +1,11 @@
+--- a/playground/playground/models.py
++++ b/playground/playground/models.py
+@@ -88,7 +88,7 @@
+         return format_cents(self._cents)
+ 
+     def __bool__(self) -> bool:
+-        pass
++        return self._cents != 0
+ 
+ 
+ class Product(Entity):

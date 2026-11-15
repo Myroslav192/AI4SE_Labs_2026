@@ -1,0 +1,132 @@
+{
+  "result": "PASS",
+  "repository_commit": "b17f75374a6d63f0f245e472bb707e658c1b3cf7",
+  "files": 28,
+  "nonempty_files": 27,
+  "empty_files": [
+    "playground/tests/__init__.py"
+  ],
+  "source_lines": 4596,
+  "source_bytes": 164226,
+  "chunks": 55,
+  "chunks_per_file": {
+    ".gitignore": 2,
+    "playground/playground/__init__.py": 1,
+    "playground/playground/base.py": 1,
+    "playground/playground/decorators.py": 1,
+    "playground/playground/enums.py": 1,
+    "playground/playground/events.py": 1,
+    "playground/playground/exceptions.py": 1,
+    "playground/playground/inventory.py": 2,
+    "playground/playground/models.py": 3,
+    "playground/playground/orders.py": 3,
+    "playground/playground/pricing.py": 1,
+    "playground/playground/repository.py": 1,
+    "playground/playground/simulation.py": 3,
+    "playground/playground/util.py": 1,
+    "playground/tests/test_base.py": 2,
+    "playground/tests/test_decorators.py": 3,
+    "playground/tests/test_enums.py": 1,
+    "playground/tests/test_events.py": 2,
+    "playground/tests/test_exceptions.py": 1,
+    "playground/tests/test_inventory.py": 5,
+    "playground/tests/test_models.py": 5,
+    "playground/tests/test_orders.py": 4,
+    "playground/tests/test_package.py": 1,
+    "playground/tests/test_pricing.py": 2,
+    "playground/tests/test_repository.py": 2,
+    "playground/tests/test_simulation.py": 3,
+    "playground/tests/test_util.py": 2
+  },
+  "chunk_lines": {
+    "min": 23,
+    "median": 85,
+    "mean": 83.56,
+    "max": 120
+  },
+  "chunk_characters": {
+    "min": 869,
+    "median": 3075,
+    "mean": 2985.93,
+    "max": 5450
+  },
+  "fallback_chunks": 2,
+  "size_exceptions": [],
+  "fitting_functions_preserved": 698,
+  "missing_methods": [
+    {
+      "symbol": "OrderStatus.is_terminal",
+      "path": "playground/playground/enums.py",
+      "start_line": 46,
+      "end_line": 47,
+      "chunk_id": "6359741171c535398c82e0f729528b5f4746a4046e10813bb07b6bbc625b8477"
+    },
+    {
+      "symbol": "InventoryLedger.__contains__",
+      "path": "playground/playground/inventory.py",
+      "start_line": 71,
+      "end_line": 72,
+      "chunk_id": "563a1f03fb3eefdfdc6131910c673b47d358c015b9a2bbd4180f82fb9a3610d7"
+    },
+    {
+      "symbol": "Warehouse.stock_report",
+      "path": "playground/playground/inventory.py",
+      "start_line": 150,
+      "end_line": 151,
+      "chunk_id": "54a1bbe7401e8958c55af8ea072bf0f04ec44e6315c1acb5bb5a95b10979b268"
+    },
+    {
+      "symbol": "OrderStateMachine.transition",
+      "path": "playground/playground/orders.py",
+      "start_line": 35,
+      "end_line": 36,
+      "chunk_id": "3ce4f90e28465b5e30a498f4a6a0582b5142a74dc47d2b755ae5c76810ab3e3e"
+    },
+    {
+      "symbol": "OrderLog.by_status",
+      "path": "playground/playground/orders.py",
+      "start_line": 183,
+      "end_line": 184,
+      "chunk_id": "33c2e9decd307925cddeacee96f05bd8607308bc840350a2abd41b5a3af33cfb"
+    },
+    {
+      "symbol": "Customer.can_afford",
+      "path": "playground/playground/models.py",
+      "start_line": 261,
+      "end_line": 262,
+      "chunk_id": "0cd500a7dac4a35456f98ce2352af4a4ae293ed369d555338a90e0ddbf3d84d5"
+    },
+    {
+      "symbol": "Order.__len__",
+      "path": "playground/playground/orders.py",
+      "start_line": 103,
+      "end_line": 104,
+      "chunk_id": "8d3648d616a1d0ba7e2f8c7a1c802065e5a1237e0c0fd058434cf40f0e1e6477"
+    },
+    {
+      "symbol": "BulkDiscountPricing.price",
+      "path": "playground/playground/pricing.py",
+      "start_line": 63,
+      "end_line": 64,
+      "chunk_id": "32833129a7ab43e6e4ee0a81650bba2b8a70dec308dd1e59cf7a7f76497458e0"
+    },
+    {
+      "symbol": "EventBus.__contains__",
+      "path": "playground/playground/events.py",
+      "start_line": 53,
+      "end_line": 54,
+      "chunk_id": "f2952a653caae2e77ffac53bc48de3931080a078a9fefbf356dd60e6beba690f"
+    },
+    {
+      "symbol": "Money.__bool__",
+      "path": "playground/playground/models.py",
+      "start_line": 90,
+      "end_line": 91,
+      "chunk_id": "034bd4d0dc0887cf8a0087504bffa39caf711b190314d4c5bd6972f7a89a15c3"
+    }
+  ],
+  "parse_errors": [],
+  "second_run_jsonl_identical": true,
+  "second_run_manifest_identical": true,
+  "chunks_sha256": "24bde3c13cd887b7ad32bfddae1f5dc96cfc6ee345ea857b02fcf868c1ee4a39"
+}

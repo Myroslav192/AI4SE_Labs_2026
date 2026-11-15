@@ -1,0 +1,11 @@
+--- a/playground/playground/events.py
++++ b/playground/playground/events.py
+@@ -51,4 +51,7 @@
+         return sum(len(handlers) for handlers in self._handlers.values())
+ 
+     def __contains__(self, event_type: object) -> bool:
+-        pass
++        if not isinstance(event_type, EventType):
++            return False
++        handlers = self._handlers.get(event_type, [])
++        return bool(handlers)

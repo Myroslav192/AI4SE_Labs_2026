@@ -1,0 +1,135 @@
+{
+  "status": "pending_or_failed",
+  "requested_model": "gpt-5-mini",
+  "endpoint": "Responses API",
+  "base_url_override_configured": false,
+  "credentials_present": false,
+  "sdk_version": "2.8.1",
+  "transport_retries_per_generation": 2,
+  "max_regenerations_per_task": 2,
+  "task_count": 10,
+  "applied": 0,
+  "api_calls": 0,
+  "tasks": [
+    {
+      "target": {
+        "file": "playground/playground/enums.py",
+        "class": "OrderStatus",
+        "method": "is_terminal",
+        "docstring": "    \"\"\"True when the status ends further transitions.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/inventory.py",
+        "class": "InventoryLedger",
+        "method": "__contains__",
+        "docstring": "        \"\"\"Return whether ``sku`` normalises to a SKU with positive on-hand stock.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/inventory.py",
+        "class": "Warehouse",
+        "method": "stock_report",
+        "docstring": "        \"\"\"Return a mapping of SKU to available quantity.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/orders.py",
+        "class": "OrderStateMachine",
+        "method": "transition",
+        "docstring": "        \"\"\"Return ``target`` if the transition is allowed, else raise.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/orders.py",
+        "class": "OrderLog",
+        "method": "by_status",
+        "docstring": "        \"\"\"Yield orders whose status matches ``status``.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/models.py",
+        "class": "Customer",
+        "method": "can_afford",
+        "docstring": "        \"\"\"Return True if ``balance + total`` does not exceed the credit limit.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/orders.py",
+        "class": "Order",
+        "method": "__len__",
+        "docstring": "        \"\"\"Return the number of line items.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/pricing.py",
+        "class": "BulkDiscountPricing",
+        "method": "price",
+        "docstring": "        \"\"\"Return the base price, less the discount if the quantity qualifies.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/events.py",
+        "class": "EventBus",
+        "method": "__contains__",
+        "docstring": "        \"\"\"Return whether any handlers are registered for ``event_type``.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    },
+    {
+      "target": {
+        "file": "playground/playground/models.py",
+        "class": "Money",
+        "method": "__bool__",
+        "docstring": "        \"\"\"Return True when the amount is non-zero.\"\"\""
+      },
+      "status": "blocked_missing_credentials",
+      "api_calls": 0
+    }
+  ],
+  "changed_files": [],
+  "only_target_method_bodies_changed": true,
+  "frozen_inputs_sha256": {
+    "../missing_code.json": "23daff0708d0d3866ddbb436ecfc2c16c294ca7f8e5591937b70c680898094b0",
+    "solution/artifacts/chunks.jsonl": "24bde3c13cd887b7ad32bfddae1f5dc96cfc6ee345ea857b02fcf868c1ee4a39",
+    "solution/artifacts/embeddings.npz": "db95da059e47f7ffd3c6c81904b6adca6f543d866a2b34594a0ff45be8fdbed1",
+    "solution/artifacts/embeddings.metadata.json": "7a49890245433651389f1008ea3593583fce54a5e4323f81f27a9b0a002539cd",
+    "solution/artifacts/chunks.manifest.json": "c89a37ea129a4e509af4499164cfdbd3944b1946b4aba20c8cfe580c8b9b18a0"
+  },
+  "frozen_inputs_unchanged": true,
+  "repository_tests": {
+    "status": "not_run_no_generated_changes",
+    "exit_code": null,
+    "baseline": {
+      "tests": 481,
+      "failures": 35,
+      "errors": 17,
+      "skipped": 0
+    }
+  }
+}

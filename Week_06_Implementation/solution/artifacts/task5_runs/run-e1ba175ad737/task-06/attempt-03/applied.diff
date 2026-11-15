@@ -1,0 +1,13 @@
+--- a/playground/playground/models.py
++++ b/playground/playground/models.py
+@@ -259,7 +259,9 @@
+         return self._customer_id
+ 
+     def can_afford(self, total: Money) -> bool:
+-        pass
++        if not isinstance(total, Money):
++            raise TypeError("total must be Money")
++        return (self._balance + total) <= self._credit_limit
+ 
+     def charge(self, total: Money) -> None:
+         """Increase the balance by ``total``, raising if the limit would be exceeded."""

@@ -1,0 +1,145 @@
+diff --git a/playground/playground/enums.py b/playground/playground/enums.py
+index 6ddeb61..3c0c5d1 100644
+--- a/playground/playground/enums.py
++++ b/playground/playground/enums.py
+@@ -44,7 +44,7 @@ class OrderStatus(Enum):
+ 
+     @property
+     def is_terminal(self) -> bool:
+-        pass
++        return self in (self.__class__.SHIPPED, self.__class__.CANCELLED)
+ 
+ 
+ class EventType(Enum):
+diff --git a/playground/playground/events.py b/playground/playground/events.py
+index 33ce0a9..19fad4a 100644
+--- a/playground/playground/events.py
++++ b/playground/playground/events.py
+@@ -51,4 +51,7 @@ class EventBus:
+         return sum(len(handlers) for handlers in self._handlers.values())
+ 
+     def __contains__(self, event_type: object) -> bool:
+-        pass
++        if not isinstance(event_type, EventType):
++            return False
++        handlers = self._handlers.get(event_type, [])
++        return bool(handlers)
+diff --git a/playground/playground/inventory.py b/playground/playground/inventory.py
+index 50ac6c7..45dbe62 100644
+--- a/playground/playground/inventory.py
++++ b/playground/playground/inventory.py
+@@ -69,7 +69,18 @@ class InventoryLedger:
+         self._on_hand[sku] = self._on_hand.get(sku, 0) - quantity
+ 
+     def __contains__(self, sku: object) -> bool:
+-        pass
++        if not isinstance(sku, str):
++            return False
++        try:
++            normalized = normalize_sku(sku)
++        except ValueError:
++            return False
++        # If SKU is not known to the product repository, it's not contained.
++        if normalized not in self._product_repo:
++            return False
++        # Presence in the ledger is defined by existence of the key in _on_hand,
++        # even if the quantity is zero (e.g. after a full commit).
++        return normalized in self._on_hand
+ 
+     def __len__(self) -> int:
+         """Return the number of SKUs with positive on-hand stock."""
+@@ -148,7 +159,7 @@ class Warehouse(Entity):
+         return self._ledger.add_stock(sku, quantity)
+ 
+     def stock_report(self) -> Dict[str, int]:
+-        pass
++        return {sku: self._ledger.available(sku) for sku in self._ledger}
+ 
+     def __repr__(self) -> str:
+         """Return a developer-friendly representation."""
+diff --git a/playground/playground/models.py b/playground/playground/models.py
+index f95aea9..88052c8 100644
+--- a/playground/playground/models.py
++++ b/playground/playground/models.py
+@@ -88,7 +88,7 @@ class Money:
+         return format_cents(self._cents)
+ 
+     def __bool__(self) -> bool:
+-        pass
++        return self._cents != 0
+ 
+ 
+ class Product(Entity):
+@@ -259,7 +259,9 @@ class Customer(Entity):
+         return self._customer_id
+ 
+     def can_afford(self, total: Money) -> bool:
+-        pass
++        if not isinstance(total, Money):
++            raise TypeError("total must be Money")
++        return (self._balance + total) <= self._credit_limit
+ 
+     def charge(self, total: Money) -> None:
+         """Increase the balance by ``total``, raising if the limit would be exceeded."""
+diff --git a/playground/playground/orders.py b/playground/playground/orders.py
+index db2e0aa..c132fe2 100644
+--- a/playground/playground/orders.py
++++ b/playground/playground/orders.py
+@@ -33,7 +33,13 @@ class OrderStateMachine:
+         return target in OrderStateMachine.allowed_from(source)
+ 
+     def transition(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:
+-        pass
++        if not isinstance(source, OrderStatus):
++            raise TypeError("source must be OrderStatus")
++        if not isinstance(target, OrderStatus):
++            raise TypeError("target must be OrderStatus")
++        if self.can_transition(source, target):
++            return target
++        raise InvalidTransitionError(source, target)
+ 
+     def __call__(self, source: OrderStatus, target: OrderStatus) -> OrderStatus:
+         """Convenience alias for :meth:`transition`."""
+@@ -101,7 +107,7 @@ class Order:
+         self._status = new_status
+ 
+     def __len__(self) -> int:
+-        pass
++        return len(self._items)
+ 
+     def __iter__(self) -> Iterator[LineItem]:
+         """Iterate over a tuple snapshot of the order's line items."""
+@@ -181,7 +187,11 @@ class OrderLog:
+         self._orders.append(order)
+ 
+     def by_status(self, status: OrderStatus) -> Iterator[Order]:
+-        pass
++        if not isinstance(status, OrderStatus):
++            raise TypeError("status must be OrderStatus")
++        for order in list(self._orders):
++            if order.status == status:
++                yield order
+ 
+     def __getitem__(self, index: int) -> Order:
+         """Return the order at ``index``."""
+diff --git a/playground/playground/pricing.py b/playground/playground/pricing.py
+index 5e1ab44..558c61a 100644
+--- a/playground/playground/pricing.py
++++ b/playground/playground/pricing.py
+@@ -61,7 +61,15 @@ class BulkDiscountPricing(PricingStrategy):
+         return self._percent_off
+ 
+     def price(self, items: Sequence[LineItem]) -> Money:
+-        pass
++        total_qty = 0
++        for it in items:
++            # assume LineItem exposes a .quantity attribute
++            total_qty += it.quantity
++        base_total = self._base.price(items)
++        if total_qty < self._threshold or self._percent_off == 0:
++            return base_total
++        discount_cents = base_total.cents * self._percent_off // 100
++        return Money(base_total.cents - discount_cents)
+ 
+     def __repr__(self) -> str:
+         """Return a developer-friendly representation."""

@@ -1,0 +1,556 @@
+{
+  "target": {
+    "file": "playground/playground/events.py",
+    "class": "EventBus",
+    "method": "__contains__",
+    "docstring": "        \"\"\"Return whether any handlers are registered for ``event_type``.\"\"\""
+  },
+  "textual_task": "        \"\"\"Return whether any handlers are registered for ``event_type``.\"\"\"",
+  "query": "Implement EventBus.__contains__ in playground/playground/events.py.\nRequired behavior: Return whether any handlers are registered for ``event_type``.",
+  "query_encoding": {
+    "input_tokens_without_special": 38,
+    "input_tokens_with_special_if_unsplit": 40,
+    "window_token_ranges": [
+      [
+        0,
+        38
+      ]
+    ],
+    "window_model_input_tokens": [
+      40
+    ],
+    "window_weights_payload_tokens": [
+      38
+    ],
+    "window_count": 1,
+    "full_token_coverage": true
+  },
+  "requested_model": "gpt-5-mini",
+  "retrieved": [
+    {
+      "rank": 1,
+      "chunk_id": "f2952a653caae2e77ffac53bc48de3931080a078a9fefbf356dd60e6beba690f",
+      "score": 0.6790780839564883,
+      "path": "playground/playground/events.py",
+      "start_line": 1,
+      "end_line": 54,
+      "symbols": [
+        {
+          "end_line": 54,
+          "kind": "class",
+          "name": "EventBus",
+          "start_line": 11
+        },
+        {
+          "end_line": 16,
+          "kind": "function",
+          "name": "EventBus.__init__",
+          "start_line": 14
+        },
+        {
+          "end_line": 24,
+          "kind": "function",
+          "name": "EventBus.subscribe",
+          "start_line": 18
+        },
+        {
+          "end_line": 32,
+          "kind": "function",
+          "name": "EventBus.unsubscribe",
+          "start_line": 26
+        },
+        {
+          "end_line": 47,
+          "kind": "function",
+          "name": "EventBus.publish",
+          "start_line": 34
+        },
+        {
+          "end_line": 51,
+          "kind": "function",
+          "name": "EventBus.__len__",
+          "start_line": 49
+        },
+        {
+          "end_line": 54,
+          "kind": "function",
+          "name": "EventBus.__contains__",
+          "start_line": 53
+        }
+      ],
+      "enclosing_classes": [
+        "EventBus"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Synchronous in-process event bus for the playground package.\"\"\"\n\nfrom __future__ import annotations\n\nfrom collections.abc import Mapping\nfrom typing import Callable, Dict, List\n\nfrom .enums import EventType\n\n\nclass EventBus:\n    \"\"\"Synchronous publish/subscribe keyed by :class:`EventType`.\"\"\"\n\n    def __init__(self) -> None:\n        \"\"\"Initialise an empty handler registry.\"\"\"\n        self._handlers: Dict[EventType, List[Callable[..., None]]] = {}\n\n    def subscribe(self, event_type: EventType, handler: Callable[..., None]) -> None:\n        \"\"\"Register ``handler`` to be called when ``event_type`` is published.\"\"\"\n        if not isinstance(event_type, EventType):\n            raise TypeError(\"event_type must be EventType\")\n        if not callable(handler):\n            raise TypeError(\"handler must be callable\")\n        self._handlers.setdefault(event_type, []).append(handler)\n\n    def unsubscribe(self, event_type: EventType, handler: Callable[..., None]) -> bool:\n        \"\"\"Remove ``handler`` from ``event_type``; return whether it was present.\"\"\"\n        handlers = self._handlers.get(event_type, [])\n        if handler not in handlers:\n            return False\n        handlers.remove(handler)\n        return True\n\n    def publish(self, event_type: EventType, payload: Mapping[str, object]) -> int:\n        \"\"\"Invoke every handler subscribed to ``event_type`` with ``payload``.\n\n        Returns the number of handlers invoked.\n        \"\"\"\n        if not isinstance(event_type, EventType):\n            raise TypeError(\"event_type must be EventType\")\n        if not isinstance(payload, Mapping):\n            raise TypeError(\"payload must be a Mapping\")\n        count = 0\n        for handler in list(self._handlers.get(event_type, [])):\n            handler(payload)\n            count += 1\n        return count\n\n    def __len__(self) -> int:\n        \"\"\"Return the total number of registered handlers across all event types.\"\"\"\n        return sum(len(handlers) for handlers in self._handlers.values())\n\n    def __contains__(self, event_type: object) -> bool:\n        pass\n"
+    },
+    {
+      "rank": 2,
+      "chunk_id": "bbc09c2a49cca7e1f5b296d54f098be95db0c2e51b911f2197afad7017a7087b",
+      "score": 0.5504353223719467,
+      "path": "playground/tests/test_events.py",
+      "start_line": 1,
+      "end_line": 86,
+      "symbols": [
+        {
+          "end_line": 44,
+          "kind": "class",
+          "name": "EventBusSubscribeTests",
+          "start_line": 11
+        },
+        {
+          "end_line": 13,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.setUp",
+          "start_line": 12
+        },
+        {
+          "end_line": 17,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.test_starts_empty",
+          "start_line": 15
+        },
+        {
+          "end_line": 22,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.test_subscribe_registers_handler",
+          "start_line": 19
+        },
+        {
+          "end_line": 26,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.test_subscribe_non_event_type_rejected",
+          "start_line": 24
+        },
+        {
+          "end_line": 30,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.test_subscribe_non_callable_rejected",
+          "start_line": 28
+        },
+        {
+          "end_line": 38,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.test_same_handler_twice_counted_twice",
+          "start_line": 32
+        },
+        {
+          "end_line": 34,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.test_same_handler_twice_counted_twice.h",
+          "start_line": 33
+        },
+        {
+          "end_line": 44,
+          "kind": "function",
+          "name": "EventBusSubscribeTests.test_len_sums_across_types",
+          "start_line": 40
+        },
+        {
+          "end_line": 84,
+          "kind": "class",
+          "name": "EventBusUnsubscribeTests",
+          "start_line": 47
+        },
+        {
+          "end_line": 49,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.setUp",
+          "start_line": 48
+        },
+        {
+          "end_line": 57,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_registered_returns_true",
+          "start_line": 51
+        },
+        {
+          "end_line": 53,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_registered_returns_true.h",
+          "start_line": 52
+        },
+        {
+          "end_line": 60,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_unknown_handler_returns_false",
+          "start_line": 59
+        },
+        {
+          "end_line": 68,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_wrong_type_returns_false",
+          "start_line": 62
+        },
+        {
+          "end_line": 64,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_wrong_type_returns_false.h",
+          "start_line": 63
+        },
+        {
+          "end_line": 81,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_removes_first_occurrence_only",
+          "start_line": 70
+        },
+        {
+          "end_line": 74,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_removes_first_occurrence_only.h",
+          "start_line": 73
+        },
+        {
+          "end_line": 84,
+          "kind": "function",
+          "name": "EventBusUnsubscribeTests.test_unsubscribe_on_unknown_type_returns_false",
+          "start_line": 83
+        }
+      ],
+      "enclosing_classes": [
+        "EventBusSubscribeTests",
+        "EventBusUnsubscribeTests"
+      ],
+      "context_chunk_ids": [
+        "0187e3085f4d905b9d71814d3af7aa6ef120f7f818d553c1b91eb7fa424856a8"
+      ],
+      "text": "\"\"\"Unit tests for the events module.\"\"\"\nfrom __future__ import annotations\n\nimport unittest\nfrom typing import List, Mapping\n\nfrom playground.enums import EventType\nfrom playground.events import EventBus\n\n\nclass EventBusSubscribeTests(unittest.TestCase):\n    def setUp(self) -> None:\n        self.bus = EventBus()\n\n    def test_starts_empty(self) -> None:\n        self.assertEqual(len(self.bus), 0)\n        self.assertNotIn(EventType.STOCK_ADDED, self.bus)\n\n    def test_subscribe_registers_handler(self) -> None:\n        self.bus.subscribe(EventType.STOCK_ADDED, lambda p: None)\n        self.assertEqual(len(self.bus), 1)\n        self.assertIn(EventType.STOCK_ADDED, self.bus)\n\n    def test_subscribe_non_event_type_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            self.bus.subscribe(1, lambda p: None)  # type: ignore[arg-type]\n\n    def test_subscribe_non_callable_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            self.bus.subscribe(EventType.STOCK_ADDED, \"not callable\")  # type: ignore[arg-type]\n\n    def test_same_handler_twice_counted_twice(self) -> None:\n        def h(p: Mapping[str, object]) -> None:\n            pass\n\n        self.bus.subscribe(EventType.STOCK_ADDED, h)\n        self.bus.subscribe(EventType.STOCK_ADDED, h)\n        self.assertEqual(len(self.bus), 2)\n\n    def test_len_sums_across_types(self) -> None:\n        self.bus.subscribe(EventType.STOCK_ADDED, lambda p: None)\n        self.bus.subscribe(EventType.ORDER_SHIPPED, lambda p: None)\n        self.bus.subscribe(EventType.ORDER_SHIPPED, lambda p: None)\n        self.assertEqual(len(self.bus), 3)\n\n\nclass EventBusUnsubscribeTests(unittest.TestCase):\n    def setUp(self) -> None:\n        self.bus = EventBus()\n\n    def test_unsubscribe_registered_returns_true(self) -> None:\n        def h(p: Mapping[str, object]) -> None:\n            pass\n\n        self.bus.subscribe(EventType.STOCK_ADDED, h)\n        self.assertTrue(self.bus.unsubscribe(EventType.STOCK_ADDED, h))\n        self.assertEqual(len(self.bus), 0)\n\n    def test_unsubscribe_unknown_handler_returns_false(self) -> None:\n        self.assertFalse(self.bus.unsubscribe(EventType.STOCK_ADDED, lambda p: None))\n\n    def test_unsubscribe_wrong_type_returns_false(self) -> None:\n        def h(p: Mapping[str, object]) -> None:\n            pass\n\n        self.bus.subscribe(EventType.STOCK_ADDED, h)\n        self.assertFalse(self.bus.unsubscribe(EventType.ORDER_SHIPPED, h))\n        self.assertEqual(len(self.bus), 1)\n\n    def test_unsubscribe_removes_first_occurrence_only(self) -> None:\n        calls: List[str] = []\n\n        def h(p: Mapping[str, object]) -> None:\n            calls.append(\"h\")\n\n        self.bus.subscribe(EventType.STOCK_ADDED, h)\n        self.bus.subscribe(EventType.STOCK_ADDED, h)\n        self.assertTrue(self.bus.unsubscribe(EventType.STOCK_ADDED, h))\n        self.assertEqual(len(self.bus), 1)\n        self.bus.publish(EventType.STOCK_ADDED, {})\n        self.assertEqual(calls, [\"h\"])\n\n    def test_unsubscribe_on_unknown_type_returns_false(self) -> None:\n        self.assertFalse(self.bus.unsubscribe(EventType.ORDER_CANCELLED, lambda p: None))\n\n\n"
+    },
+    {
+      "rank": 3,
+      "chunk_id": "0187e3085f4d905b9d71814d3af7aa6ef120f7f818d553c1b91eb7fa424856a8",
+      "score": 0.5107104270782947,
+      "path": "playground/tests/test_events.py",
+      "start_line": 87,
+      "end_line": 177,
+      "symbols": [
+        {
+          "end_line": 149,
+          "kind": "class",
+          "name": "EventBusPublishTests",
+          "start_line": 87
+        },
+        {
+          "end_line": 90,
+          "kind": "function",
+          "name": "EventBusPublishTests.setUp",
+          "start_line": 88
+        },
+        {
+          "end_line": 93,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_publish_no_handlers_returns_zero",
+          "start_line": 92
+        },
+        {
+          "end_line": 99,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_publish_calls_handler_with_payload",
+          "start_line": 95
+        },
+        {
+          "end_line": 104,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_publish_only_matching_type",
+          "start_line": 101
+        },
+        {
+          "end_line": 111,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_handlers_called_in_subscription_order",
+          "start_line": 106
+        },
+        {
+          "end_line": 115,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_publish_non_event_type_rejected",
+          "start_line": 113
+        },
+        {
+          "end_line": 119,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_publish_non_mapping_payload_rejected",
+          "start_line": 117
+        },
+        {
+          "end_line": 126,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_publish_accepts_any_mapping",
+          "start_line": 121
+        },
+        {
+          "end_line": 134,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_handler_exception_propagates",
+          "start_line": 128
+        },
+        {
+          "end_line": 130,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_handler_exception_propagates.boom",
+          "start_line": 129
+        },
+        {
+          "end_line": 149,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_handler_unsubscribing_during_publish_does_not_skip",
+          "start_line": 136
+        },
+        {
+          "end_line": 141,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_handler_unsubscribing_during_publish_does_not_skip.first",
+          "start_line": 139
+        },
+        {
+          "end_line": 144,
+          "kind": "function",
+          "name": "EventBusPublishTests.test_handler_unsubscribing_during_publish_does_not_skip.second",
+          "start_line": 143
+        },
+        {
+          "end_line": 173,
+          "kind": "class",
+          "name": "EventBusContainsTests",
+          "start_line": 152
+        },
+        {
+          "end_line": 154,
+          "kind": "function",
+          "name": "EventBusContainsTests.test_contains_false_without_handlers",
+          "start_line": 153
+        },
+        {
+          "end_line": 159,
+          "kind": "function",
+          "name": "EventBusContainsTests.test_contains_true_with_handler",
+          "start_line": 156
+        },
+        {
+          "end_line": 169,
+          "kind": "function",
+          "name": "EventBusContainsTests.test_contains_false_after_all_unsubscribed",
+          "start_line": 161
+        },
+        {
+          "end_line": 165,
+          "kind": "function",
+          "name": "EventBusContainsTests.test_contains_false_after_all_unsubscribed.h",
+          "start_line": 164
+        },
+        {
+          "end_line": 173,
+          "kind": "function",
+          "name": "EventBusContainsTests.test_contains_non_event_type_is_false",
+          "start_line": 171
+        }
+      ],
+      "enclosing_classes": [
+        "EventBusPublishTests",
+        "EventBusContainsTests"
+      ],
+      "context_chunk_ids": [
+        "bbc09c2a49cca7e1f5b296d54f098be95db0c2e51b911f2197afad7017a7087b"
+      ],
+      "text": "class EventBusPublishTests(unittest.TestCase):\n    def setUp(self) -> None:\n        self.bus = EventBus()\n        self.received: List[Mapping[str, object]] = []\n\n    def test_publish_no_handlers_returns_zero(self) -> None:\n        self.assertEqual(self.bus.publish(EventType.STOCK_ADDED, {}), 0)\n\n    def test_publish_calls_handler_with_payload(self) -> None:\n        self.bus.subscribe(EventType.STOCK_ADDED, self.received.append)\n        payload = {\"sku\": \"EL-1001\"}\n        self.assertEqual(self.bus.publish(EventType.STOCK_ADDED, payload), 1)\n        self.assertEqual(self.received, [payload])\n\n    def test_publish_only_matching_type(self) -> None:\n        self.bus.subscribe(EventType.STOCK_ADDED, self.received.append)\n        self.bus.publish(EventType.ORDER_SHIPPED, {\"x\": 1})\n        self.assertEqual(self.received, [])\n\n    def test_handlers_called_in_subscription_order(self) -> None:\n        order: List[str] = []\n        self.bus.subscribe(EventType.STOCK_ADDED, lambda p: order.append(\"first\"))\n        self.bus.subscribe(EventType.STOCK_ADDED, lambda p: order.append(\"second\"))\n        self.assertEqual(self.bus.publish(EventType.STOCK_ADDED, {}), 2)\n        self.assertEqual(order, [\"first\", \"second\"])\n\n    def test_publish_non_event_type_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            self.bus.publish(\"STOCK_ADDED\", {})  # type: ignore[arg-type]\n\n    def test_publish_non_mapping_payload_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            self.bus.publish(EventType.STOCK_ADDED, [\"x\"])  # type: ignore[arg-type]\n\n    def test_publish_accepts_any_mapping(self) -> None:\n        from types import MappingProxyType\n\n        self.bus.subscribe(EventType.STOCK_ADDED, self.received.append)\n        self.bus.publish(EventType.STOCK_ADDED, MappingProxyType({\"a\": 1}))\n        self.assertEqual(len(self.received), 1)\n\n    def test_handler_exception_propagates(self) -> None:\n        def boom(p: Mapping[str, object]) -> None:\n            raise RuntimeError(\"handler failed\")\n\n        self.bus.subscribe(EventType.STOCK_ADDED, boom)\n        with self.assertRaises(RuntimeError):\n            self.bus.publish(EventType.STOCK_ADDED, {})\n\n    def test_handler_unsubscribing_during_publish_does_not_skip(self) -> None:\n        calls: List[str] = []\n\n        def first(p: Mapping[str, object]) -> None:\n            calls.append(\"first\")\n            self.bus.unsubscribe(EventType.STOCK_ADDED, first)\n\n        def second(p: Mapping[str, object]) -> None:\n            calls.append(\"second\")\n\n        self.bus.subscribe(EventType.STOCK_ADDED, first)\n        self.bus.subscribe(EventType.STOCK_ADDED, second)\n        self.assertEqual(self.bus.publish(EventType.STOCK_ADDED, {}), 2)\n        self.assertEqual(calls, [\"first\", \"second\"])\n\n\nclass EventBusContainsTests(unittest.TestCase):\n    def test_contains_false_without_handlers(self) -> None:\n        self.assertNotIn(EventType.ORDER_SHIPPED, EventBus())\n\n    def test_contains_true_with_handler(self) -> None:\n        bus = EventBus()\n        bus.subscribe(EventType.ORDER_SHIPPED, lambda p: None)\n        self.assertIn(EventType.ORDER_SHIPPED, bus)\n\n    def test_contains_false_after_all_unsubscribed(self) -> None:\n        bus = EventBus()\n\n        def h(p: Mapping[str, object]) -> None:\n            pass\n\n        bus.subscribe(EventType.ORDER_SHIPPED, h)\n        bus.unsubscribe(EventType.ORDER_SHIPPED, h)\n        self.assertNotIn(EventType.ORDER_SHIPPED, bus)\n\n    def test_contains_non_event_type_is_false(self) -> None:\n        self.assertNotIn(\"ORDER_SHIPPED\", EventBus())\n        self.assertNotIn(4, EventBus())\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    {
+      "rank": 4,
+      "chunk_id": "ab3013c0b277191cec67891d63891919dd8b8a53bbf46b626571a501e6bbc9a9",
+      "score": 0.3767342322519688,
+      "path": "playground/tests/test_package.py",
+      "start_line": 1,
+      "end_line": 74,
+      "symbols": [
+        {
+          "end_line": 70,
+          "kind": "class",
+          "name": "PackageInitTests",
+          "start_line": 40
+        },
+        {
+          "end_line": 42,
+          "kind": "function",
+          "name": "PackageInitTests.test_version",
+          "start_line": 41
+        },
+        {
+          "end_line": 45,
+          "kind": "function",
+          "name": "PackageInitTests.test_all_matches_expected_exports",
+          "start_line": 44
+        },
+        {
+          "end_line": 50,
+          "kind": "function",
+          "name": "PackageInitTests.test_every_export_resolves",
+          "start_line": 47
+        },
+        {
+          "end_line": 59,
+          "kind": "function",
+          "name": "PackageInitTests.test_reexports_are_the_defining_objects",
+          "start_line": 52
+        },
+        {
+          "end_line": 66,
+          "kind": "function",
+          "name": "PackageInitTests.test_import_has_no_output_side_effects",
+          "start_line": 61
+        },
+        {
+          "end_line": 70,
+          "kind": "function",
+          "name": "PackageInitTests.test_reload_keeps_version",
+          "start_line": 68
+        }
+      ],
+      "enclosing_classes": [
+        "PackageInitTests"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Unit tests for the playground package public API.\"\"\"\nfrom __future__ import annotations\n\nimport importlib\nimport io\nimport unittest\nfrom contextlib import redirect_stderr, redirect_stdout\n\nimport playground\n\n\nEXPECTED_EXPORTS = [\n    \"__version__\",\n    \"Money\",\n    \"Product\",\n    \"LineItem\",\n    \"Customer\",\n    \"Warehouse\",\n    \"Order\",\n    \"OrderBuilder\",\n    \"OrderLog\",\n    \"FlatPricing\",\n    \"BulkDiscountPricing\",\n    \"EventBus\",\n    \"AuditTrail\",\n    \"Simulation\",\n    \"PlaygroundError\",\n    \"InventoryError\",\n    \"OutOfStockError\",\n    \"UnknownSKUError\",\n    \"DuplicateEntityError\",\n    \"InvalidTransitionError\",\n    \"Category\",\n    \"OrderStatus\",\n    \"EventType\",\n    \"run_simulation\",\n]\n\n\nclass PackageInitTests(unittest.TestCase):\n    def test_version(self) -> None:\n        self.assertEqual(playground.__version__, \"0.1.0\")\n\n    def test_all_matches_expected_exports(self) -> None:\n        self.assertEqual(sorted(playground.__all__), sorted(EXPECTED_EXPORTS))\n\n    def test_every_export_resolves(self) -> None:\n        for name in playground.__all__:\n            with self.subTest(name=name):\n                self.assertTrue(hasattr(playground, name))\n\n    def test_reexports_are_the_defining_objects(self) -> None:\n        from playground.models import Money\n        from playground.exceptions import PlaygroundError\n        from playground.simulation import run_simulation\n\n        self.assertIs(playground.Money, Money)\n        self.assertIs(playground.PlaygroundError, PlaygroundError)\n        self.assertIs(playground.run_simulation, run_simulation)\n\n    def test_import_has_no_output_side_effects(self) -> None:\n        out, err = io.StringIO(), io.StringIO()\n        with redirect_stdout(out), redirect_stderr(err):\n            importlib.reload(playground)\n        self.assertEqual(out.getvalue(), \"\")\n        self.assertEqual(err.getvalue(), \"\")\n\n    def test_reload_keeps_version(self) -> None:\n        reloaded = importlib.reload(playground)\n        self.assertEqual(reloaded.__version__, \"0.1.0\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    {
+      "rank": 5,
+      "chunk_id": "25a9ebad880c5ee521cb1c34a9c6a4ec48495a115caed9c38a390a4dc7281625",
+      "score": 0.35848550703017235,
+      "path": "playground/tests/test_decorators.py",
+      "start_line": 31,
+      "end_line": 136,
+      "symbols": [
+        {
+          "end_line": 134,
+          "kind": "class",
+          "name": "AuditTrailCallTests",
+          "start_line": 31
+        },
+        {
+          "end_line": 35,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_non_callable_rejected",
+          "start_line": 32
+        },
+        {
+          "end_line": 45,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_success_records_ok_and_returns_result",
+          "start_line": 37
+        },
+        {
+          "end_line": 42,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_success_records_ok_and_returns_result.add",
+          "start_line": 40
+        },
+        {
+          "end_line": 56,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_exception_records_error_and_reraises",
+          "start_line": 47
+        },
+        {
+          "end_line": 52,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_exception_records_error_and_reraises.fail",
+          "start_line": 50
+        },
+        {
+          "end_line": 67,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_error_type_name_reflects_exception_class",
+          "start_line": 58
+        },
+        {
+          "end_line": 63,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_error_type_name_reflects_exception_class.boom",
+          "start_line": 61
+        },
+        {
+          "end_line": 78,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_wrapper_preserves_metadata",
+          "start_line": 69
+        },
+        {
+          "end_line": 75,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_wrapper_preserves_metadata.documented",
+          "start_line": 72
+        },
+        {
+          "end_line": 87,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_passes_args_and_kwargs",
+          "start_line": 80
+        },
+        {
+          "end_line": 85,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_passes_args_and_kwargs.f",
+          "start_line": 83
+        },
+        {
+          "end_line": 108,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_multiple_calls_accumulate_in_order",
+          "start_line": 89
+        },
+        {
+          "end_line": 94,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_multiple_calls_accumulate_in_order.ok",
+          "start_line": 92
+        },
+        {
+          "end_line": 98,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_multiple_calls_accumulate_in_order.bad",
+          "start_line": 96
+        },
+        {
+          "end_line": 123,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_same_trail_shared_between_functions",
+          "start_line": 110
+        },
+        {
+          "end_line": 115,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_same_trail_shared_between_functions.one",
+          "start_line": 113
+        },
+        {
+          "end_line": 119,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_same_trail_shared_between_functions.two",
+          "start_line": 117
+        },
+        {
+          "end_line": 134,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_base_exception_not_caught_but_not_recorded",
+          "start_line": 125
+        },
+        {
+          "end_line": 130,
+          "kind": "function",
+          "name": "AuditTrailCallTests.test_base_exception_not_caught_but_not_recorded.interrupt",
+          "start_line": 128
+        }
+      ],
+      "enclosing_classes": [
+        "AuditTrailCallTests"
+      ],
+      "context_chunk_ids": [
+        "f82e58edf6d3e6d7eeef21f39bf462002cc7c5ae7f0fe296e0dad6acbac8a204",
+        "0cd95ba0895237e84f8fe2806fadbe2e62695f23ccd3341880e515c015c05018"
+      ],
+      "text": "class AuditTrailCallTests(unittest.TestCase):\n    def test_non_callable_rejected(self) -> None:\n        trail = AuditTrail()\n        with self.assertRaises(TypeError):\n            trail(42)  # type: ignore[arg-type]\n\n    def test_success_records_ok_and_returns_result(self) -> None:\n        trail = AuditTrail(\"audit\")\n\n        @trail\n        def add(a: int, b: int) -> int:\n            return a + b\n\n        self.assertEqual(add(2, 3), 5)\n        self.assertEqual(trail.entries, (\"audit:add:ok\",))\n\n    def test_exception_records_error_and_reraises(self) -> None:\n        trail = AuditTrail(\"audit\")\n\n        @trail\n        def fail() -> None:\n            raise ValueError(\"bad\")\n\n        with self.assertRaises(ValueError):\n            fail()\n        self.assertEqual(trail.entries, (\"audit:fail:error:ValueError\",))\n\n    def test_error_type_name_reflects_exception_class(self) -> None:\n        trail = AuditTrail(\"t\")\n\n        @trail\n        def boom() -> None:\n            raise KeyError(\"x\")\n\n        with self.assertRaises(KeyError):\n            boom()\n        self.assertEqual(trail.entries, (\"t:boom:error:KeyError\",))\n\n    def test_wrapper_preserves_metadata(self) -> None:\n        trail = AuditTrail()\n\n        @trail\n        def documented(x: int) -> int:\n            \"\"\"Doc string.\"\"\"\n            return x\n\n        self.assertEqual(documented.__name__, \"documented\")\n        self.assertEqual(documented.__doc__, \"Doc string.\")\n\n    def test_passes_args_and_kwargs(self) -> None:\n        trail = AuditTrail()\n\n        @trail\n        def f(a: int, *rest: int, key: str = \"k\") -> str:\n            return f\"{a}-{len(rest)}-{key}\"\n\n        self.assertEqual(f(1, 2, 3, key=\"z\"), \"1-2-z\")\n\n    def test_multiple_calls_accumulate_in_order(self) -> None:\n        trail = AuditTrail(\"x\")\n\n        @trail\n        def ok() -> None:\n            return None\n\n        @trail\n        def bad() -> None:\n            raise RuntimeError()\n\n        ok()\n        with self.assertRaises(RuntimeError):\n            bad()\n        ok()\n        self.assertEqual(\n            trail.entries,\n            (\"x:ok:ok\", \"x:bad:error:RuntimeError\", \"x:ok:ok\"),\n        )\n        self.assertEqual(len(trail), 3)\n\n    def test_same_trail_shared_between_functions(self) -> None:\n        trail = AuditTrail(\"s\")\n\n        @trail\n        def one() -> int:\n            return 1\n\n        @trail\n        def two() -> int:\n            return 2\n\n        one()\n        two()\n        self.assertEqual(trail.entries, (\"s:one:ok\", \"s:two:ok\"))\n\n    def test_base_exception_not_caught_but_not_recorded(self) -> None:\n        trail = AuditTrail()\n\n        @trail\n        def interrupt() -> None:\n            raise KeyboardInterrupt()\n\n        with self.assertRaises(KeyboardInterrupt):\n            interrupt()\n        self.assertEqual(trail.entries, ())\n\n\n"
+    }
+  ],
+  "status": "prepared",
+  "attempts": [],
+  "api_calls": 0
+}

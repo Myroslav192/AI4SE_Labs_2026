@@ -1,0 +1,18 @@
+test_atomic_body_only_edit_preserves_headers_docs_surroundings_and_mode (test_solving.EditingTests.test_atomic_body_only_edit_preserves_headers_docs_surroundings_and_mode) ... ok
+test_escape_symlink_and_concurrent_edit_rejected (test_solving.EditingTests.test_escape_symlink_and_concurrent_edit_rejected) ... ok
+test_invalid_unrelated_incomplete_or_mismatched_responses_rejected (test_solving.EditingTests.test_invalid_unrelated_incomplete_or_mismatched_responses_rejected) ... ok
+test_multiline_literal_values_survive_indentation_conversion (test_solving.EditingTests.test_multiline_literal_values_survive_indentation_conversion) ... ok
+test_positions_recomputed_after_earlier_edits (test_solving.EditingTests.test_positions_recomputed_after_earlier_edits) ... ok
+test_returned_code_is_not_executed_during_patching (test_solving.EditingTests.test_returned_code_is_not_executed_during_patching) ... ok
+test_auth_error_is_sanitized_not_retried_or_applied (test_solving.PipelineTests.test_auth_error_is_sanitized_not_retried_or_applied) ... ok
+test_code_regeneration_keeps_same_five_chunks_and_records_feedback (test_solving.PipelineTests.test_code_regeneration_keeps_same_five_chunks_and_records_feedback) ... ok
+test_configuration_uses_only_explicit_local_env_and_enforces_allowlist (test_solving.PipelineTests.test_configuration_uses_only_explicit_local_env_and_enforces_allowlist) ... ok
+test_incomplete_responses_are_not_applied_and_attempts_are_bounded (test_solving.PipelineTests.test_incomplete_responses_are_not_applied_and_attempts_are_bounded) ... ok
+test_missing_credentials_prepares_only_and_never_modifies_source (test_solving.PipelineTests.test_missing_credentials_prepares_only_and_never_modifies_source) ... ok
+test_sdk_protocol_and_body_edit_with_explicit_mock_transport (test_solving.PipelineTests.test_sdk_protocol_and_body_edit_with_explicit_mock_transport) ... ok
+test_transport_retry_is_not_code_regeneration (test_solving.PipelineTests.test_transport_retry_is_not_code_regeneration) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.586s
+
+OK

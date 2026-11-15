@@ -1,0 +1,205 @@
+{
+  "status": "PASS",
+  "actual_run_directory": "solution/artifacts/task5_runs/run-e1ba175ad737",
+  "all_ten_methods_real_generated": true,
+  "all_applied_bodies_match_actual_model_responses": true,
+  "all_edits_reconstruct_from_saved_responses": true,
+  "all_attempts_same_five_frozen_chunks": true,
+  "all_queries_and_chunk_ids_match_task4": true,
+  "only_target_method_bodies_changed": true,
+  "changed_source_files": [
+    "playground/playground/enums.py",
+    "playground/playground/events.py",
+    "playground/playground/inventory.py",
+    "playground/playground/models.py",
+    "playground/playground/orders.py",
+    "playground/playground/pricing.py"
+  ],
+  "tests_and_unrelated_production_source_unchanged": true,
+  "all_previous_assignment_and_evidence_files_unchanged": true,
+  "protected_sha256": {
+    "solution/requirements-task3.lock.txt": "315cade6c9059b2a585a35bdf0aa0c5fdfdcb207b359851d1c94a35db4a67695",
+    "solution/requirements-task3.txt": "00a02aefbe37318fb23d2131fc8d3b5c134449ae343efd708aa9cd009b323d92",
+    "solution/reports/task3_embeddings.md": "ff745c87a18db6ec34a23d4ea58c06dde88e7b64de1516564c6dc5676a697f40",
+    "solution/reports/task2_chunking.md": "6efcd5e2ea3af13c347b681fd8d834639594085d3cf32b9b9acb89f342ff12c8",
+    "solution/reports/task4_retrieval.md": "2b32782d4804087aa97eb3010de6f05ef7ea5da9d7c027cacd4eca337e9fb596",
+    "solution/reports/task1_cloning.md": "a8f924936338e72fd42849c7b4b54abd5b2c1b1a6b0159261bad22785364d832",
+    "solution/rag/retrieve_chunks.py": "c08a47e740b6ed5a2c90b9a059bf9b839b39cc15c270e77c6e2ffe39b6ba18bd",
+    "solution/rag/verify_chunking.py": "bf7634aa161eb5fef8128e6588d79ff80517db8685bcaa3002669186412d79eb",
+    "solution/rag/local_embeddings.py": "624e99f9623311d797f0f87d81854a711ba65d6b99a20142a7137fab86c5df9c",
+    "solution/rag/chunk_repository.py": "afa4fe5895b6e927fa88d29cf34c12619fb6d7b4eb80354de7002d9839ed07a0",
+    "solution/rag/evaluate_retrieval.py": "53377802cd5b405e92868ed16075be11dabf95feab500e6185fa7d49732bd721",
+    "solution/rag/embed_repository.py": "ca82969b79a495c3a39567fd7d8396b2dfe0d59f9fd0dde950eefdc79ded5b9c",
+    "solution/artifacts/task4_verification.json": "1d4db25155af501f859b1ba5af2f6504bdb6650d982813a9795ad25a2bbbfaa0",
+    "solution/artifacts/task4_tests.log": "4279561620990d23a5572fd08623a0b867cb45d584f2ddaba93d6fec10c35ccc",
+    "solution/artifacts/task3_execution.json": "a989360c4473b8ae218b1a3949eada9a7ed4a5b19143fb93455ba3e822e280b7",
+    "solution/artifacts/embeddings.metadata.json": "7a49890245433651389f1008ea3593583fce54a5e4323f81f27a9b0a002539cd",
+    "solution/artifacts/task3_tests.log": "a6c94b738fa511d23ef74e2b2daeb2c302e3233a4873599cc07bfd2a5cba3b70",
+    "solution/artifacts/chunks.jsonl": "24bde3c13cd887b7ad32bfddae1f5dc96cfc6ee345ea857b02fcf868c1ee4a39",
+    "solution/artifacts/embeddings.npz": "db95da059e47f7ffd3c6c81904b6adca6f543d866a2b34594a0ff45be8fdbed1",
+    "solution/artifacts/chunks.manifest.json": "c89a37ea129a4e509af4499164cfdbd3944b1946b4aba20c8cfe580c8b9b18a0",
+    "solution/artifacts/task3_preservation.json": "4b284621187e416e0e248c1015a9b59c02c0c3e38f3bd35a565b5aba080169f9",
+    "solution/artifacts/baseline_tests.log": "cd3d299bcda25cace571cb6fa163acd1e43a77c5ba67b5cb5538a4fcdf1cd137",
+    "solution/artifacts/task2_edge_checks.json": "5ef68a6a0f5337a00c7ba3252c82e2995788ba4d3f22c8da529aa070ffe7c7e9",
+    "solution/artifacts/task4_cli_example.json": "b6fad5796e7594d8934ea0084ee66dd61df88ac718bd9691b8220c05694a2874",
+    "solution/artifacts/retrieval_evaluation.json": "f530d044192a621824a316991a0ee9471edde593e879a3667fc1389752d08369",
+    "solution/artifacts/task2_verification.json": "c71834fad3bef7bb884a87a8c9856ae5e7ddd02046a40ec194228e7f05ddf5f8",
+    "solution/artifacts/baseline_tests.json": "908723a0bc1e4ef6e16673333e06e0b673276cc6af4a029250bcc007636521b1",
+    "solution/rag/tests/test_embeddings.py": "5cf259708478a1547397136357305126ddd1e580f3743230ba1529511d127bc1",
+    "solution/rag/tests/test_retrieval.py": "122e7d5a4829d79c663cad5760367aa9cac20b59e74894ff943725594fccf80a",
+    "../Task_1/Task_1.md": "db0186d0d20542f4a36d6a8afe5503c313147193880020eeaa7e3382db6a2802",
+    "../Task_2/Task_2.md": "3c64878c3a08c9974475a6304e162c23267b3e88eed1f4a4e1f81c1cfe6a6691",
+    "../Task_3/Task_3.md": "de63a36300c4880acd8a34860439e5f13093cd78840193bb08c608222480c27a",
+    "../Task_4/Task_4.md": "c48a7a6b6961be2696e8a75fe190aeee72b1fb99df0e59b54eaeb38f8fce5434",
+    "../Task_5/Task_5.md": "ee8f286e4e6490718e573f2f2178898a661e8d01b4e47368dc1cafca44976e2e",
+    "../Task_6_Bonus/Bonus_Task_1.md": "c84e1a3960c9e6525a84dd74442ae99015ced40204d0ace556801fff23ae5ab3",
+    "../missing_code.json": "23daff0708d0d3866ddbb436ecfc2c16c294ca7f8e5591937b70c680898094b0"
+  },
+  "configured_credential_absent_from_deliverables": true,
+  "actual_api_calls": 14,
+  "transport_retries_used": 0,
+  "usage_totals_from_actual_responses": {
+    "input_tokens": 71443,
+    "output_tokens": 11732,
+    "total_tokens": 83175,
+    "reasoning_tokens": 10432,
+    "cached_input_tokens": 21888
+  },
+  "returned_models": [
+    "gpt-5-mini-2025-08-07"
+  ],
+  "rejected_generation_attempts": [
+    {
+      "method": "OrderStatus.is_terminal",
+      "attempt": 1,
+      "validation": "Response is not a standalone Python method definition"
+    },
+    {
+      "method": "Customer.can_afford",
+      "attempt": 1,
+      "validation": "Existing docstring must be preserved; do not add a new docstring"
+    },
+    {
+      "method": "Customer.can_afford",
+      "attempt": 2,
+      "validation": "Existing docstring must be preserved; do not add a new docstring"
+    },
+    {
+      "method": "Money.__bool__",
+      "attempt": 1,
+      "validation": "Existing docstring must be preserved; do not add a new docstring"
+    }
+  ],
+  "methods": [
+    {
+      "method": "OrderStatus.is_terminal",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 2,
+      "response_id": "resp_08aebb64a87e4f0e016afa079b0f8487d2a4c0ee65cfe65334",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "684b28709316469a3f2641efe6cf477e08863f7e191340b53a63d594606763a1"
+    },
+    {
+      "method": "InventoryLedger.__contains__",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 1,
+      "response_id": "resp_036a5c4a3ed76198016afa07a5f55087d2be23951c7abc9347",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "717c2a9695272115b128e590318e13be1be75fa564315cb4fe4e41a589596227"
+    },
+    {
+      "method": "Warehouse.stock_report",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 1,
+      "response_id": "resp_0664ca271fa542e2016afa07b4813087d2ab3978aac79e14e7",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "61d12d9f3ed1248fa2e487964331ffe7d50ab30b5a3e044ac88981756ba51f25"
+    },
+    {
+      "method": "OrderStateMachine.transition",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 1,
+      "response_id": "resp_0815fcd74d2f0c89016afa07c0b31087d28227a92850f1c5d2",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "3a51611b839c1676ea7c65bdb09218cca7500e939e9903c9e4c36d634ca996f0"
+    },
+    {
+      "method": "OrderLog.by_status",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 1,
+      "response_id": "resp_0333eac8ce9e6c75016afa07d24dfc87d28926dde079513a88",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "d571ffa069c61430f448750a4589c2ffb32e31185ea906d6a2f674a656d8a594"
+    },
+    {
+      "method": "Customer.can_afford",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 3,
+      "response_id": "resp_03128466a454a6bc016afa07f17c4487d2a7ba79292a3ed84b",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "5b0a7e8186b75caacb50934a7b33f4df1496e3544faa240a637decb3ab54d563"
+    },
+    {
+      "method": "Order.__len__",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 1,
+      "response_id": "resp_0cfdc17f9c39445f016afa07f8c17087d2a0c8e0c04d594392",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "511364f51047f279a16b33a8b6de37b83b14ef47d8903afb1588e8d1b74d8e5c"
+    },
+    {
+      "method": "BulkDiscountPricing.price",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 1,
+      "response_id": "resp_0b9c050927b189f6016afa07fdc05887d2b49aa6f19284c0fe",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "38a9e3d58cee4c3f2ebab10b6687b41788ad4177770d9236fc010e22cd47b7bb"
+    },
+    {
+      "method": "EventBus.__contains__",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 1,
+      "response_id": "resp_09cd8dba6cd5a0ea016afa080b6d2887d2b28b2fec99cd081f",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "32d10713d7fafaceb9d24ceaa4580060a1dc54382f8d089fd365bcd0e7732a8d"
+    },
+    {
+      "method": "Money.__bool__",
+      "status": "real_generated_and_applied",
+      "generation_attempts": 2,
+      "response_id": "resp_05361d2a026bd1fb016afa081a938087d28878751676f429c7",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "accepted_code_sha256": "76f71b67a14ce1826759ba5e76eadf0eee74963c219b5936f22758ad8e538d77"
+    }
+  ],
+  "repository_tests": {
+    "status": "executed_after_generation",
+    "exit_code": 0,
+    "tests": 481,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": [
+      "/home/myroslav/projects/SEwAI/Labs/Week_06/Week_06_Implementation/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "working_directory": "cloned repository/playground",
+    "failures_and_errors": [],
+    "baseline": {
+      "tests": 481,
+      "failures": 35,
+      "errors": 17,
+      "skipped": 0
+    },
+    "delta_from_baseline": {
+      "tests": 0,
+      "failures": -35,
+      "errors": -17
+    }
+  }
+}

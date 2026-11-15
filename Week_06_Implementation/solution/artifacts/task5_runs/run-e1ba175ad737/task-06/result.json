@@ -1,0 +1,797 @@
+{
+  "target": {
+    "file": "playground/playground/models.py",
+    "class": "Customer",
+    "method": "can_afford",
+    "docstring": "        \"\"\"Return True if ``balance + total`` does not exceed the credit limit.\"\"\""
+  },
+  "textual_task": "        \"\"\"Return True if ``balance + total`` does not exceed the credit limit.\"\"\"",
+  "query": "Implement Customer.can_afford in playground/playground/models.py.\nRequired behavior: Return True if ``balance + total`` does not exceed the credit limit.",
+  "query_encoding": {
+    "input_tokens_without_special": 36,
+    "input_tokens_with_special_if_unsplit": 38,
+    "window_token_ranges": [
+      [
+        0,
+        36
+      ]
+    ],
+    "window_model_input_tokens": [
+      38
+    ],
+    "window_weights_payload_tokens": [
+      36
+    ],
+    "window_count": 1,
+    "full_token_coverage": true
+  },
+  "requested_model": "gpt-5-mini",
+  "retrieved": [
+    {
+      "rank": 1,
+      "chunk_id": "237ed12592134d57dc8b0fd1a2332cd56439e7a8f93589b82be53b767368ed02",
+      "score": 0.6151565062306596,
+      "path": "playground/tests/test_models.py",
+      "start_line": 403,
+      "end_line": 497,
+      "symbols": [
+        {
+          "end_line": 493,
+          "kind": "class",
+          "name": "CustomerTests",
+          "start_line": 403
+        },
+        {
+          "end_line": 407,
+          "kind": "function",
+          "name": "CustomerTests.test_default_credit_limit_and_balance",
+          "start_line": 404
+        },
+        {
+          "end_line": 414,
+          "kind": "function",
+          "name": "CustomerTests.test_constructor_stores_fields",
+          "start_line": 409
+        },
+        {
+          "end_line": 418,
+          "kind": "function",
+          "name": "CustomerTests.test_default_limit_not_shared_across_instances_semantics",
+          "start_line": 416
+        },
+        {
+          "end_line": 423,
+          "kind": "function",
+          "name": "CustomerTests.test_empty_customer_id_rejected",
+          "start_line": 420
+        },
+        {
+          "end_line": 427,
+          "kind": "function",
+          "name": "CustomerTests.test_non_str_customer_id_rejected",
+          "start_line": 425
+        },
+        {
+          "end_line": 432,
+          "kind": "function",
+          "name": "CustomerTests.test_empty_name_rejected",
+          "start_line": 429
+        },
+        {
+          "end_line": 436,
+          "kind": "function",
+          "name": "CustomerTests.test_non_str_name_rejected",
+          "start_line": 434
+        },
+        {
+          "end_line": 440,
+          "kind": "function",
+          "name": "CustomerTests.test_non_money_credit_limit_rejected",
+          "start_line": 438
+        },
+        {
+          "end_line": 443,
+          "kind": "function",
+          "name": "CustomerTests.test_identity_is_customer_id",
+          "start_line": 442
+        },
+        {
+          "end_line": 447,
+          "kind": "function",
+          "name": "CustomerTests.test_equality_by_customer_id",
+          "start_line": 445
+        },
+        {
+          "end_line": 451,
+          "kind": "function",
+          "name": "CustomerTests.test_can_afford_true_within_limit",
+          "start_line": 449
+        },
+        {
+          "end_line": 455,
+          "kind": "function",
+          "name": "CustomerTests.test_can_afford_false_over_limit",
+          "start_line": 453
+        },
+        {
+          "end_line": 461,
+          "kind": "function",
+          "name": "CustomerTests.test_can_afford_accounts_for_existing_balance",
+          "start_line": 457
+        },
+        {
+          "end_line": 465,
+          "kind": "function",
+          "name": "CustomerTests.test_can_afford_non_money_rejected",
+          "start_line": 463
+        },
+        {
+          "end_line": 472,
+          "kind": "function",
+          "name": "CustomerTests.test_charge_increases_balance",
+          "start_line": 467
+        },
+        {
+          "end_line": 479,
+          "kind": "function",
+          "name": "CustomerTests.test_charge_exceeding_limit_raises_and_keeps_balance",
+          "start_line": 474
+        },
+        {
+          "end_line": 484,
+          "kind": "function",
+          "name": "CustomerTests.test_charge_exactly_to_limit_allowed",
+          "start_line": 481
+        },
+        {
+          "end_line": 488,
+          "kind": "function",
+          "name": "CustomerTests.test_charge_non_money_propagates_type_error",
+          "start_line": 486
+        },
+        {
+          "end_line": 493,
+          "kind": "function",
+          "name": "CustomerTests.test_read_only_properties",
+          "start_line": 490
+        }
+      ],
+      "enclosing_classes": [
+        "CustomerTests"
+      ],
+      "context_chunk_ids": [
+        "bc944eff65c112c40f564c37c6fcbf16f7895ec15596392ca18b35b538b1b22b"
+      ],
+      "text": "class CustomerTests(unittest.TestCase):\n    def test_default_credit_limit_and_balance(self) -> None:\n        c = Customer(\"C-1\", \"Alice\")\n        self.assertEqual(c.credit_limit, Money(0))\n        self.assertEqual(c.balance, Money(0))\n\n    def test_constructor_stores_fields(self) -> None:\n        c = Customer(\"C-1\", \"Alice\", Money(1000))\n        self.assertEqual(c.customer_id, \"C-1\")\n        self.assertEqual(c.name, \"Alice\")\n        self.assertEqual(c.credit_limit, Money(1000))\n        self.assertIsInstance(c, Entity)\n\n    def test_default_limit_not_shared_across_instances_semantics(self) -> None:\n        # Money is immutable, so the shared default is safe; verify value semantics.\n        self.assertEqual(Customer(\"C-1\", \"A\").credit_limit, Customer(\"C-2\", \"B\").credit_limit)\n\n    def test_empty_customer_id_rejected(self) -> None:\n        with self.assertRaises(ValueError) as ctx:\n            Customer(\"   \", \"Alice\")\n        self.assertEqual(str(ctx.exception), \"customer_id required\")\n\n    def test_non_str_customer_id_rejected(self) -> None:\n        with self.assertRaises(ValueError):\n            Customer(None, \"Alice\")  # type: ignore[arg-type]\n\n    def test_empty_name_rejected(self) -> None:\n        with self.assertRaises(ValueError) as ctx:\n            Customer(\"C-1\", \"\")\n        self.assertEqual(str(ctx.exception), \"name required\")\n\n    def test_non_str_name_rejected(self) -> None:\n        with self.assertRaises(ValueError):\n            Customer(\"C-1\", 5)  # type: ignore[arg-type]\n\n    def test_non_money_credit_limit_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Customer(\"C-1\", \"Alice\", 1000)  # type: ignore[arg-type]\n\n    def test_identity_is_customer_id(self) -> None:\n        self.assertEqual(Customer(\"C-9\", \"Z\").identity(), \"C-9\")\n\n    def test_equality_by_customer_id(self) -> None:\n        self.assertEqual(Customer(\"C-1\", \"A\"), Customer(\"C-1\", \"B\"))\n        self.assertNotEqual(Customer(\"C-1\", \"A\"), Customer(\"C-2\", \"A\"))\n\n    def test_can_afford_true_within_limit(self) -> None:\n        c = Customer(\"C-1\", \"A\", Money(1000))\n        self.assertTrue(c.can_afford(Money(1000)))\n\n    def test_can_afford_false_over_limit(self) -> None:\n        c = Customer(\"C-1\", \"A\", Money(1000))\n        self.assertFalse(c.can_afford(Money(1001)))\n\n    def test_can_afford_accounts_for_existing_balance(self) -> None:\n        c = Customer(\"C-1\", \"A\", Money(1000))\n        c.charge(Money(600))\n        self.assertTrue(c.can_afford(Money(400)))\n        self.assertFalse(c.can_afford(Money(401)))\n\n    def test_can_afford_non_money_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Customer(\"C-1\", \"A\", Money(1)).can_afford(1)  # type: ignore[arg-type]\n\n    def test_charge_increases_balance(self) -> None:\n        c = Customer(\"C-1\", \"A\", Money(1000))\n        c.charge(Money(300))\n        self.assertEqual(c.balance, Money(300))\n        c.charge(Money(200))\n        self.assertEqual(c.balance, Money(500))\n\n    def test_charge_exceeding_limit_raises_and_keeps_balance(self) -> None:\n        c = Customer(\"C-1\", \"A\", Money(100))\n        with self.assertRaises(ValueError) as ctx:\n            c.charge(Money(101))\n        self.assertEqual(str(ctx.exception), \"credit limit exceeded\")\n        self.assertEqual(c.balance, Money(0))\n\n    def test_charge_exactly_to_limit_allowed(self) -> None:\n        c = Customer(\"C-1\", \"A\", Money(100))\n        c.charge(Money(100))\n        self.assertEqual(c.balance, Money(100))\n\n    def test_charge_non_money_propagates_type_error(self) -> None:\n        with self.assertRaises(TypeError):\n            Customer(\"C-1\", \"A\", Money(100)).charge(5)  # type: ignore[arg-type]\n\n    def test_read_only_properties(self) -> None:\n        c = Customer(\"C-1\", \"A\")\n        with self.assertRaises(AttributeError):\n            c.balance = Money(5)  # type: ignore[misc]\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    {
+      "rank": 2,
+      "chunk_id": "0cd500a7dac4a35456f98ce2352af4a4ae293ed369d555338a90e0ddbf3d84d5",
+      "score": 0.5977936126661352,
+      "path": "playground/playground/models.py",
+      "start_line": 165,
+      "end_line": 268,
+      "symbols": [
+        {
+          "end_line": 218,
+          "kind": "class",
+          "name": "LineItem",
+          "start_line": 165
+        },
+        {
+          "end_line": 176,
+          "kind": "function",
+          "name": "LineItem.__init__",
+          "start_line": 168
+        },
+        {
+          "end_line": 181,
+          "kind": "function",
+          "name": "LineItem.sku",
+          "start_line": 178
+        },
+        {
+          "end_line": 186,
+          "kind": "function",
+          "name": "LineItem.quantity",
+          "start_line": 183
+        },
+        {
+          "end_line": 191,
+          "kind": "function",
+          "name": "LineItem.unit_price",
+          "start_line": 188
+        },
+        {
+          "end_line": 196,
+          "kind": "function",
+          "name": "LineItem.subtotal",
+          "start_line": 193
+        },
+        {
+          "end_line": 200,
+          "kind": "function",
+          "name": "LineItem.with_quantity",
+          "start_line": 198
+        },
+        {
+          "end_line": 210,
+          "kind": "function",
+          "name": "LineItem.__eq__",
+          "start_line": 202
+        },
+        {
+          "end_line": 214,
+          "kind": "function",
+          "name": "LineItem.__hash__",
+          "start_line": 212
+        },
+        {
+          "end_line": 218,
+          "kind": "function",
+          "name": "LineItem.__repr__",
+          "start_line": 216
+        },
+        {
+          "end_line": 268,
+          "kind": "class",
+          "name": "Customer",
+          "start_line": 221
+        },
+        {
+          "end_line": 235,
+          "kind": "function",
+          "name": "Customer.__init__",
+          "start_line": 224
+        },
+        {
+          "end_line": 240,
+          "kind": "function",
+          "name": "Customer.customer_id",
+          "start_line": 237
+        },
+        {
+          "end_line": 245,
+          "kind": "function",
+          "name": "Customer.name",
+          "start_line": 242
+        },
+        {
+          "end_line": 250,
+          "kind": "function",
+          "name": "Customer.credit_limit",
+          "start_line": 247
+        },
+        {
+          "end_line": 255,
+          "kind": "function",
+          "name": "Customer.balance",
+          "start_line": 252
+        },
+        {
+          "end_line": 259,
+          "kind": "function",
+          "name": "Customer.identity",
+          "start_line": 257
+        },
+        {
+          "end_line": 262,
+          "kind": "function",
+          "name": "Customer.can_afford",
+          "start_line": 261
+        },
+        {
+          "end_line": 268,
+          "kind": "function",
+          "name": "Customer.charge",
+          "start_line": 264
+        }
+      ],
+      "enclosing_classes": [
+        "LineItem",
+        "Customer"
+      ],
+      "context_chunk_ids": [
+        "034bd4d0dc0887cf8a0087504bffa39caf711b190314d4c5bd6972f7a89a15c3"
+      ],
+      "text": "class LineItem:\n    \"\"\"One SKU with quantity and unit price.\"\"\"\n\n    def __init__(self, sku: str, quantity: int, unit_price: Money) -> None:\n        \"\"\"Create a line item after validating its SKU, quantity, and price.\"\"\"\n        sku = normalize_sku(sku)\n        quantity = ensure_positive_int(quantity, \"quantity\")\n        if not isinstance(unit_price, Money):\n            raise TypeError(\"unit_price must be Money\")\n        self._sku = sku\n        self._quantity = quantity\n        self._unit_price = unit_price\n\n    @property\n    def sku(self) -> str:\n        \"\"\"Return the line item SKU.\"\"\"\n        return self._sku\n\n    @property\n    def quantity(self) -> int:\n        \"\"\"Return the line item quantity.\"\"\"\n        return self._quantity\n\n    @property\n    def unit_price(self) -> Money:\n        \"\"\"Return the unit price.\"\"\"\n        return self._unit_price\n\n    @property\n    def subtotal(self) -> Money:\n        \"\"\"Return the line item subtotal (unit price times quantity).\"\"\"\n        return self._unit_price * self._quantity\n\n    def with_quantity(self, quantity: int) -> LineItem:\n        \"\"\"Return a copy of this line item with a new quantity.\"\"\"\n        return LineItem(self._sku, quantity, self._unit_price)\n\n    def __eq__(self, other: object) -> bool:\n        \"\"\"Compare SKU, quantity, and unit price for equality.\"\"\"\n        if not isinstance(other, LineItem):\n            return NotImplemented\n        return (self._sku, self._quantity, self._unit_price) == (\n            other._sku,\n            other._quantity,\n            other._unit_price,\n        )\n\n    def __hash__(self) -> int:\n        \"\"\"Hash by SKU and quantity.\"\"\"\n        return hash((self._sku, self._quantity))\n\n    def __repr__(self) -> str:\n        \"\"\"Return a developer-friendly representation.\"\"\"\n        return f\"LineItem({self._sku!r}, {self._quantity}, {self._unit_price!r})\"\n\n\nclass Customer(Entity):\n    \"\"\"Buyer with a credit limit. Balance is the amount owed.\"\"\"\n\n    def __init__(self, customer_id: str, name: str, credit_limit: Money = Money(0)) -> None:\n        \"\"\"Create a customer with the given identity, name, and credit limit.\"\"\"\n        if not isinstance(customer_id, str) or customer_id.strip() == \"\":\n            raise ValueError(\"customer_id required\")\n        if not isinstance(name, str) or name.strip() == \"\":\n            raise ValueError(\"name required\")\n        if not isinstance(credit_limit, Money):\n            raise TypeError(\"credit_limit must be Money\")\n        self._customer_id = customer_id\n        self._name = name\n        self._credit_limit = credit_limit\n        self._balance = Money(0)\n\n    @property\n    def customer_id(self) -> str:\n        \"\"\"Return the customer identity.\"\"\"\n        return self._customer_id\n\n    @property\n    def name(self) -> str:\n        \"\"\"Return the customer name.\"\"\"\n        return self._name\n\n    @property\n    def credit_limit(self) -> Money:\n        \"\"\"Return the credit limit.\"\"\"\n        return self._credit_limit\n\n    @property\n    def balance(self) -> Money:\n        \"\"\"Return the current outstanding balance.\"\"\"\n        return self._balance\n\n    def identity(self) -> str:\n        \"\"\"Return the customer_id as the entity identity.\"\"\"\n        return self._customer_id\n\n    def can_afford(self, total: Money) -> bool:\n        pass\n\n    def charge(self, total: Money) -> None:\n        \"\"\"Increase the balance by ``total``, raising if the limit would be exceeded.\"\"\"\n        if not self.can_afford(total):\n            raise ValueError(\"credit limit exceeded\")\n        self._balance = self._balance + total\n"
+    },
+    {
+      "rank": 3,
+      "chunk_id": "bc944eff65c112c40f564c37c6fcbf16f7895ec15596392ca18b35b538b1b22b",
+      "score": 0.469408423341122,
+      "path": "playground/tests/test_models.py",
+      "start_line": 1,
+      "end_line": 92,
+      "symbols": [
+        {
+          "end_line": 38,
+          "kind": "class",
+          "name": "MoneyConstructionTests",
+          "start_line": 11
+        },
+        {
+          "end_line": 13,
+          "kind": "function",
+          "name": "MoneyConstructionTests.test_default_is_zero",
+          "start_line": 12
+        },
+        {
+          "end_line": 16,
+          "kind": "function",
+          "name": "MoneyConstructionTests.test_stores_cents",
+          "start_line": 15
+        },
+        {
+          "end_line": 20,
+          "kind": "function",
+          "name": "MoneyConstructionTests.test_bool_rejected",
+          "start_line": 18
+        },
+        {
+          "end_line": 24,
+          "kind": "function",
+          "name": "MoneyConstructionTests.test_float_rejected",
+          "start_line": 22
+        },
+        {
+          "end_line": 28,
+          "kind": "function",
+          "name": "MoneyConstructionTests.test_str_rejected",
+          "start_line": 26
+        },
+        {
+          "end_line": 33,
+          "kind": "function",
+          "name": "MoneyConstructionTests.test_negative_rejected",
+          "start_line": 30
+        },
+        {
+          "end_line": 38,
+          "kind": "function",
+          "name": "MoneyConstructionTests.test_cents_is_read_only",
+          "start_line": 35
+        },
+        {
+          "end_line": 90,
+          "kind": "class",
+          "name": "MoneyArithmeticTests",
+          "start_line": 41
+        },
+        {
+          "end_line": 43,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_add",
+          "start_line": 42
+        },
+        {
+          "end_line": 47,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_add_non_money_raises_type_error",
+          "start_line": 45
+        },
+        {
+          "end_line": 50,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_sub",
+          "start_line": 49
+        },
+        {
+          "end_line": 53,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_sub_to_zero_allowed",
+          "start_line": 52
+        },
+        {
+          "end_line": 57,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_sub_non_money_raises_type_error",
+          "start_line": 55
+        },
+        {
+          "end_line": 62,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_sub_negative_result_raises_value_error",
+          "start_line": 59
+        },
+        {
+          "end_line": 65,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_mul_by_int",
+          "start_line": 64
+        },
+        {
+          "end_line": 68,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_mul_by_zero",
+          "start_line": 67
+        },
+        {
+          "end_line": 72,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_mul_bool_rejected",
+          "start_line": 70
+        },
+        {
+          "end_line": 76,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_mul_float_rejected",
+          "start_line": 74
+        },
+        {
+          "end_line": 80,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_mul_negative_rejected",
+          "start_line": 78
+        },
+        {
+          "end_line": 83,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_rmul_supports_int_on_left",
+          "start_line": 82
+        },
+        {
+          "end_line": 86,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_rmul_delegates_to_mul",
+          "start_line": 85
+        },
+        {
+          "end_line": 90,
+          "kind": "function",
+          "name": "MoneyArithmeticTests.test_rmul_invalid_factor_rejected",
+          "start_line": 88
+        }
+      ],
+      "enclosing_classes": [
+        "MoneyConstructionTests",
+        "MoneyArithmeticTests"
+      ],
+      "context_chunk_ids": [
+        "237ed12592134d57dc8b0fd1a2332cd56439e7a8f93589b82be53b767368ed02"
+      ],
+      "text": "\"\"\"Unit tests for the models module.\"\"\"\nfrom __future__ import annotations\n\nimport unittest\n\nfrom playground.base import Entity\nfrom playground.enums import Category\nfrom playground.models import Customer, LineItem, Money, Product\n\n\nclass MoneyConstructionTests(unittest.TestCase):\n    def test_default_is_zero(self) -> None:\n        self.assertEqual(Money().cents, 0)\n\n    def test_stores_cents(self) -> None:\n        self.assertEqual(Money(1234).cents, 1234)\n\n    def test_bool_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(True)  # type: ignore[arg-type]\n\n    def test_float_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(1.5)  # type: ignore[arg-type]\n\n    def test_str_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(\"100\")  # type: ignore[arg-type]\n\n    def test_negative_rejected(self) -> None:\n        with self.assertRaises(ValueError) as ctx:\n            Money(-1)\n        self.assertEqual(str(ctx.exception), \"money cannot be negative\")\n\n    def test_cents_is_read_only(self) -> None:\n        m = Money(5)\n        with self.assertRaises(AttributeError):\n            m.cents = 10  # type: ignore[misc]\n\n\nclass MoneyArithmeticTests(unittest.TestCase):\n    def test_add(self) -> None:\n        self.assertEqual(Money(100) + Money(250), Money(350))\n\n    def test_add_non_money_raises_type_error(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(1) + 1  # type: ignore[operator]\n\n    def test_sub(self) -> None:\n        self.assertEqual(Money(500) - Money(120), Money(380))\n\n    def test_sub_to_zero_allowed(self) -> None:\n        self.assertEqual(Money(5) - Money(5), Money(0))\n\n    def test_sub_non_money_raises_type_error(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(5) - 1  # type: ignore[operator]\n\n    def test_sub_negative_result_raises_value_error(self) -> None:\n        with self.assertRaises(ValueError) as ctx:\n            Money(1) - Money(2)\n        self.assertEqual(str(ctx.exception), \"subtraction would be negative\")\n\n    def test_mul_by_int(self) -> None:\n        self.assertEqual(Money(250) * 3, Money(750))\n\n    def test_mul_by_zero(self) -> None:\n        self.assertEqual(Money(250) * 0, Money(0))\n\n    def test_mul_bool_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(5) * True  # type: ignore[operator]\n\n    def test_mul_float_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(5) * 1.5  # type: ignore[operator]\n\n    def test_mul_negative_rejected(self) -> None:\n        with self.assertRaises(ValueError):\n            Money(5) * -1\n\n    def test_rmul_supports_int_on_left(self) -> None:\n        self.assertEqual(3 * Money(250), Money(750))\n\n    def test_rmul_delegates_to_mul(self) -> None:\n        self.assertEqual(Money(4).__rmul__(2), Money(4).__mul__(2))\n\n    def test_rmul_invalid_factor_rejected(self) -> None:\n        with self.assertRaises(TypeError):\n            Money(4).__rmul__(True)  # type: ignore[arg-type]\n\n\n"
+    },
+    {
+      "rank": 4,
+      "chunk_id": "034bd4d0dc0887cf8a0087504bffa39caf711b190314d4c5bd6972f7a89a15c3",
+      "score": 0.46794937301487877,
+      "path": "playground/playground/models.py",
+      "start_line": 1,
+      "end_line": 93,
+      "symbols": [
+        {
+          "end_line": 91,
+          "kind": "class",
+          "name": "Money",
+          "start_line": 12
+        },
+        {
+          "end_line": 21,
+          "kind": "function",
+          "name": "Money.__init__",
+          "start_line": 15
+        },
+        {
+          "end_line": 26,
+          "kind": "function",
+          "name": "Money.cents",
+          "start_line": 23
+        },
+        {
+          "end_line": 32,
+          "kind": "function",
+          "name": "Money.__add__",
+          "start_line": 28
+        },
+        {
+          "end_line": 46,
+          "kind": "function",
+          "name": "Money.__sub__",
+          "start_line": 34
+        },
+        {
+          "end_line": 54,
+          "kind": "function",
+          "name": "Money.__mul__",
+          "start_line": 48
+        },
+        {
+          "end_line": 58,
+          "kind": "function",
+          "name": "Money.__rmul__",
+          "start_line": 56
+        },
+        {
+          "end_line": 64,
+          "kind": "function",
+          "name": "Money.__eq__",
+          "start_line": 60
+        },
+        {
+          "end_line": 70,
+          "kind": "function",
+          "name": "Money.__lt__",
+          "start_line": 66
+        },
+        {
+          "end_line": 76,
+          "kind": "function",
+          "name": "Money.__le__",
+          "start_line": 72
+        },
+        {
+          "end_line": 80,
+          "kind": "function",
+          "name": "Money.__hash__",
+          "start_line": 78
+        },
+        {
+          "end_line": 84,
+          "kind": "function",
+          "name": "Money.__repr__",
+          "start_line": 82
+        },
+        {
+          "end_line": 88,
+          "kind": "function",
+          "name": "Money.__str__",
+          "start_line": 86
+        },
+        {
+          "end_line": 91,
+          "kind": "function",
+          "name": "Money.__bool__",
+          "start_line": 90
+        }
+      ],
+      "enclosing_classes": [
+        "Money"
+      ],
+      "context_chunk_ids": [],
+      "text": "\"\"\"Core domain models: money, products, line items, and customers.\"\"\"\n\nfrom __future__ import annotations\n\nfrom typing import Mapping\n\nfrom .base import Entity\nfrom .enums import Category\nfrom .util import ensure_positive_int, format_cents, normalize_sku\n\n\nclass Money:\n    \"\"\"Immutable integer-cents amount.\"\"\"\n\n    def __init__(self, cents: int = 0) -> None:\n        \"\"\"Create a monetary amount; cents must be a non-negative ``int``.\"\"\"\n        if isinstance(cents, bool) or not isinstance(cents, int):\n            raise TypeError(\"cents must be int\")\n        if cents < 0:\n            raise ValueError(\"money cannot be negative\")\n        self._cents = cents\n\n    @property\n    def cents(self) -> int:\n        \"\"\"Return the stored cents value.\"\"\"\n        return self._cents\n\n    def __add__(self, other: Money) -> Money:\n        \"\"\"Return a new Money equal to ``self + other``.\"\"\"\n        if not isinstance(other, Money):\n            raise TypeError(\"can only add Money to Money\")\n        return Money(self._cents + other._cents)\n\n    def __sub__(self, other: Money) -> Money:\n        \"\"\"Return a new Money equal to ``self - other``.\n\n        Raises:\n            TypeError: if ``other`` is not :class:`Money`.\n            ValueError: if the result would be negative.\n        \"\"\"\n        if not isinstance(other, Money):\n            raise TypeError(\"can only subtract Money from Money\")\n        difference = self._cents - other._cents\n        if difference < 0:\n            raise ValueError(\"subtraction would be negative\")\n        return Money(difference)\n\n    def __mul__(self, factor: int) -> Money:\n        \"\"\"Return ``self`` multiplied by a non-negative integer.\"\"\"\n        if isinstance(factor, bool) or not isinstance(factor, int):\n            raise TypeError(\"factor must be int\")\n        if factor < 0:\n            raise ValueError(\"factor cannot be negative\")\n        return Money(self._cents * factor)\n\n    def __rmul__(self, factor: int) -> Money:\n        \"\"\"Support ``factor * Money`` by delegating to :meth:`__mul__`.\"\"\"\n        return self.__mul__(factor)\n\n    def __eq__(self, other: object) -> bool:\n        \"\"\"Return True if ``other`` is Money with equal cents.\"\"\"\n        if not isinstance(other, Money):\n            return NotImplemented\n        return self._cents == other._cents\n\n    def __lt__(self, other: Money) -> bool:\n        \"\"\"Return True if ``self`` is strictly less than ``other``.\"\"\"\n        if not isinstance(other, Money):\n            return NotImplemented\n        return self._cents < other._cents\n\n    def __le__(self, other: Money) -> bool:\n        \"\"\"Return True if ``self`` is less than or equal to ``other``.\"\"\"\n        if not isinstance(other, Money):\n            return NotImplemented\n        return self._cents <= other._cents\n\n    def __hash__(self) -> int:\n        \"\"\"Hash by the type name and cents value.\"\"\"\n        return hash((\"Money\", self._cents))\n\n    def __repr__(self) -> str:\n        \"\"\"Return a developer-friendly representation.\"\"\"\n        return f\"Money({self._cents})\"\n\n    def __str__(self) -> str:\n        \"\"\"Render the amount as a ``$X.YY`` string.\"\"\"\n        return format_cents(self._cents)\n\n    def __bool__(self) -> bool:\n        pass\n\n\n"
+    },
+    {
+      "rank": 5,
+      "chunk_id": "557c00791846951cf698115330f23b74a857086488bbbb89afbfde9eb82c1b2c",
+      "score": 0.4177457752044281,
+      "path": "playground/tests/test_orders.py",
+      "start_line": 226,
+      "end_line": 332,
+      "symbols": [
+        {
+          "end_line": 245,
+          "kind": "class",
+          "name": "OrderEqualityTests",
+          "start_line": 226
+        },
+        {
+          "end_line": 228,
+          "kind": "function",
+          "name": "OrderEqualityTests.test_equal_by_order_id",
+          "start_line": 227
+        },
+        {
+          "end_line": 231,
+          "kind": "function",
+          "name": "OrderEqualityTests.test_not_equal_different_id",
+          "start_line": 230
+        },
+        {
+          "end_line": 235,
+          "kind": "function",
+          "name": "OrderEqualityTests.test_eq_non_order_returns_not_implemented",
+          "start_line": 233
+        },
+        {
+          "end_line": 239,
+          "kind": "function",
+          "name": "OrderEqualityTests.test_hash_by_id",
+          "start_line": 237
+        },
+        {
+          "end_line": 245,
+          "kind": "function",
+          "name": "OrderEqualityTests.test_repr_includes_status",
+          "start_line": 241
+        },
+        {
+          "end_line": 330,
+          "kind": "class",
+          "name": "OrderBuilderTests",
+          "start_line": 248
+        },
+        {
+          "end_line": 253,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_constructor_type_checks",
+          "start_line": 249
+        },
+        {
+          "end_line": 260,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_for_customer_uses_flat_pricing",
+          "start_line": 255
+        },
+        {
+          "end_line": 266,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_for_customer_is_classmethod_returning_subclass",
+          "start_line": 262
+        },
+        {
+          "end_line": 264,
+          "kind": "class",
+          "name": "OrderBuilderTests.test_for_customer_is_classmethod_returning_subclass._Sub",
+          "start_line": 263
+        },
+        {
+          "end_line": 270,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_add_returns_self_for_chaining",
+          "start_line": 268
+        },
+        {
+          "end_line": 280,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_add_validates_via_line_item",
+          "start_line": 272
+        },
+        {
+          "end_line": 286,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_add_normalizes_sku",
+          "start_line": 282
+        },
+        {
+          "end_line": 291,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_build_empty_raises",
+          "start_line": 288
+        },
+        {
+          "end_line": 300,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_build_produces_order_with_lines",
+          "start_line": 293
+        },
+        {
+          "end_line": 307,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_build_merges_duplicate_skus",
+          "start_line": 302
+        },
+        {
+          "end_line": 316,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_build_twice_creates_independent_orders",
+          "start_line": 309
+        },
+        {
+          "end_line": 322,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_build_propagates_bad_order_id",
+          "start_line": 318
+        },
+        {
+          "end_line": 330,
+          "kind": "function",
+          "name": "OrderBuilderTests.test_len_and_bool",
+          "start_line": 324
+        }
+      ],
+      "enclosing_classes": [
+        "OrderEqualityTests",
+        "OrderBuilderTests",
+        "OrderBuilderTests.test_for_customer_is_classmethod_returning_subclass._Sub"
+      ],
+      "context_chunk_ids": [
+        "8d200f248b893ed433ab3106a333d19618b353cc13dc3981f9276b9c2a279a0c",
+        "8a7414305a2150bb2145a00d0af88869a38c798d52ae75db5417ac1ef86f6998"
+      ],
+      "text": "class OrderEqualityTests(unittest.TestCase):\n    def test_equal_by_order_id(self) -> None:\n        self.assertEqual(_order(\"ORD-1\"), _order(\"ORD-1\"))\n\n    def test_not_equal_different_id(self) -> None:\n        self.assertNotEqual(_order(\"ORD-1\"), _order(\"ORD-2\"))\n\n    def test_eq_non_order_returns_not_implemented(self) -> None:\n        self.assertIs(_order().__eq__(\"ORD-1\"), NotImplemented)\n        self.assertFalse(_order(\"ORD-1\") == \"ORD-1\")\n\n    def test_hash_by_id(self) -> None:\n        self.assertEqual(hash(_order(\"ORD-1\")), hash((\"Order\", \"ORD-1\")))\n        self.assertEqual(len({_order(\"ORD-1\"), _order(\"ORD-1\")}), 1)\n\n    def test_repr_includes_status(self) -> None:\n        o = _order(\"ORD-7\")\n        self.assertEqual(repr(o), \"Order('ORD-7', new)\")\n        o.advance(OrderStatus.CANCELLED)\n        self.assertEqual(repr(o), \"Order('ORD-7', cancelled)\")\n\n\nclass OrderBuilderTests(unittest.TestCase):\n    def test_constructor_type_checks(self) -> None:\n        with self.assertRaises(TypeError):\n            OrderBuilder(\"alice\", FlatPricing())  # type: ignore[arg-type]\n        with self.assertRaises(TypeError):\n            OrderBuilder(_customer(), object())  # type: ignore[arg-type]\n\n    def test_for_customer_uses_flat_pricing(self) -> None:\n        builder = OrderBuilder.for_customer(_customer())\n        builder.add(\"EL-1001\", 1, Money(1000))\n        order = builder.build(\"ORD-1\")\n        self.assertIsInstance(order._pricing, FlatPricing)\n        self.assertEqual(order.total, Money(1000))\n\n    def test_for_customer_is_classmethod_returning_subclass(self) -> None:\n        class _Sub(OrderBuilder):\n            pass\n\n        self.assertIsInstance(_Sub.for_customer(_customer()), _Sub)\n\n    def test_add_returns_self_for_chaining(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing())\n        self.assertIs(b.add(\"EL-1001\", 1, Money(1)), b)\n\n    def test_add_validates_via_line_item(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing())\n        with self.assertRaises(ValueError):\n            b.add(\"x\", 1, Money(1))\n        with self.assertRaises(ValueError):\n            b.add(\"EL-1001\", 0, Money(1))\n        with self.assertRaises(TypeError):\n            b.add(\"EL-1001\", 1, 5)  # type: ignore[arg-type]\n        self.assertEqual(len(b), 0)\n\n    def test_add_normalizes_sku(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing())\n        b.add(\" el-1001 \", 1, Money(1))\n        order = b.build(\"ORD-1\")\n        self.assertEqual(order.items[0].sku, \"EL-1001\")\n\n    def test_build_empty_raises(self) -> None:\n        with self.assertRaises(ValueError) as ctx:\n            OrderBuilder(_customer(), FlatPricing()).build(\"ORD-1\")\n        self.assertEqual(str(ctx.exception), \"no items\")\n\n    def test_build_produces_order_with_lines(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing(0))\n        b.add(\"EL-1001\", 2, Money(250)).add(\"GR-2001\", 1, Money(300))\n        order = b.build(\"ORD-5\")\n        self.assertIsInstance(order, Order)\n        self.assertEqual(order.order_id, \"ORD-5\")\n        self.assertIs(order.status, OrderStatus.NEW)\n        self.assertEqual(order.total, Money(800))\n\n    def test_build_merges_duplicate_skus(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing())\n        b.add(\"EL-1001\", 1, Money(100)).add(\"EL-1001\", 2, Money(100))\n        order = b.build(\"ORD-1\")\n        self.assertEqual(len(order), 1)\n        self.assertEqual(order.items[0].quantity, 3)\n\n    def test_build_twice_creates_independent_orders(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing())\n        b.add(\"EL-1001\", 1, Money(1))\n        o1 = b.build(\"ORD-1\")\n        b.add(\"GR-2001\", 1, Money(1))\n        o2 = b.build(\"ORD-2\")\n        self.assertEqual(len(o1), 1)\n        self.assertEqual(len(o2), 2)\n\n    def test_build_propagates_bad_order_id(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing())\n        b.add(\"EL-1001\", 1, Money(1))\n        with self.assertRaises(ValueError):\n            b.build(\"\")\n\n    def test_len_and_bool(self) -> None:\n        b = OrderBuilder(_customer(), FlatPricing())\n        self.assertEqual(len(b), 0)\n        self.assertFalse(b)\n        b.add(\"EL-1001\", 1, Money(1))\n        self.assertEqual(len(b), 1)\n        self.assertTrue(b)\n\n\n"
+    }
+  ],
+  "status": "applied",
+  "attempts": [
+    {
+      "generation_attempt": 1,
+      "transport": [
+        {
+          "transport_attempt": 1,
+          "status": "response_received",
+          "response_id": "resp_006081c6c021c09e016afa07dec49487d2834f7728c51f8acc"
+        }
+      ],
+      "status": "validation_failed",
+      "response_id": "resp_006081c6c021c09e016afa07dec49487d2834f7728c51f8acc",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "response_status": "completed",
+      "usage": {
+        "input_tokens": 5908,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          }
+        },
+        "output_tokens": 705,
+        "output_tokens_details": {
+          "reasoning_tokens": 576
+        },
+        "total_tokens": 6613
+      },
+      "incomplete_details": null,
+      "validation": "Existing docstring must be preserved; do not add a new docstring"
+    },
+    {
+      "generation_attempt": 2,
+      "transport": [
+        {
+          "transport_attempt": 1,
+          "status": "response_received",
+          "response_id": "resp_0792bf4bee6c5b65016afa07e752e487d2834f29a799f16728"
+        }
+      ],
+      "status": "validation_failed",
+      "response_id": "resp_0792bf4bee6c5b65016afa07e752e487d2834f29a799f16728",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "response_status": "completed",
+      "usage": {
+        "input_tokens": 6005,
+        "input_tokens_details": {
+          "cached_tokens": 5760,
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          }
+        },
+        "output_tokens": 812,
+        "output_tokens_details": {
+          "reasoning_tokens": 704
+        },
+        "total_tokens": 6817
+      },
+      "incomplete_details": null,
+      "validation": "Existing docstring must be preserved; do not add a new docstring"
+    },
+    {
+      "generation_attempt": 3,
+      "transport": [
+        {
+          "transport_attempt": 1,
+          "status": "response_received",
+          "response_id": "resp_03128466a454a6bc016afa07f17c4487d2a7ba79292a3ed84b"
+        }
+      ],
+      "status": "applied",
+      "response_id": "resp_03128466a454a6bc016afa07f17c4487d2a7ba79292a3ed84b",
+      "returned_model": "gpt-5-mini-2025-08-07",
+      "response_status": "completed",
+      "usage": {
+        "input_tokens": 6005,
+        "input_tokens_details": {
+          "cached_tokens": 5888,
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          }
+        },
+        "output_tokens": 576,
+        "output_tokens_details": {
+          "reasoning_tokens": 512
+        },
+        "total_tokens": 6581
+      },
+      "incomplete_details": null,
+      "validation": "passed",
+      "before_sha256": "2c772a83dd8b22b26ed4915f55c4be3d27bbf31338916fdefe39296f0eecf2a8",
+      "after_sha256": "798a978b3332cfe6b0e6adf1930b9cb0c8a4f764b56fa1fefea25432b43c913f"
+    }
+  ],
+  "api_calls": 3
+}

@@ -1,0 +1,34 @@
+{
+  "generation_attempt": 1,
+  "transport": [
+    {
+      "transport_attempt": 1,
+      "status": "response_received",
+      "response_id": "resp_036a5c4a3ed76198016afa07a5f55087d2be23951c7abc9347"
+    }
+  ],
+  "status": "applied",
+  "response_id": "resp_036a5c4a3ed76198016afa07a5f55087d2be23951c7abc9347",
+  "returned_model": "gpt-5-mini-2025-08-07",
+  "response_status": "completed",
+  "usage": {
+    "input_tokens": 4450,
+    "input_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 0
+      }
+    },
+    "output_tokens": 1379,
+    "output_tokens_details": {
+      "reasoning_tokens": 1216
+    },
+    "total_tokens": 5829
+  },
+  "incomplete_details": null,
+  "validation": "passed",
+  "before_sha256": "db158e96d4a89e771ac6326a4ec3effc95a8dc8d89d583170b6531c7be6b2f2f",
+  "after_sha256": "5fdf644cc0f08c9a925df150c58cf601df1e44edad8621362efcd074b18ec4db"
+}

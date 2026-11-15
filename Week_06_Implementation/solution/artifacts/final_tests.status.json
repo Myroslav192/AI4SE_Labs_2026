@@ -1,0 +1,30 @@
+{
+  "status": "executed_after_generation",
+  "exit_code": 0,
+  "tests": 481,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "command": [
+    "/home/myroslav/projects/SEwAI/Labs/Week_06/Week_06_Implementation/.venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "working_directory": "cloned repository/playground",
+  "failures_and_errors": [],
+  "baseline": {
+    "tests": 481,
+    "failures": 35,
+    "errors": 17,
+    "skipped": 0
+  },
+  "delta_from_baseline": {
+    "tests": 0,
+    "failures": -35,
+    "errors": -17
+  }
+}

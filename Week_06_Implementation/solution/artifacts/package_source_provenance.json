@@ -1,0 +1,43 @@
+{
+  "assignments": {
+    "Assignments/Task_1/Task_1.md": "db0186d0d20542f4a36d6a8afe5503c313147193880020eeaa7e3382db6a2802",
+    "Assignments/Task_2/Task_2.md": "3c64878c3a08c9974475a6304e162c23267b3e88eed1f4a4e1f81c1cfe6a6691",
+    "Assignments/Task_3/Task_3.md": "de63a36300c4880acd8a34860439e5f13093cd78840193bb08c608222480c27a",
+    "Assignments/Task_4/Task_4.md": "c48a7a6b6961be2696e8a75fe190aeee72b1fb99df0e59b54eaeb38f8fce5434",
+    "Assignments/Task_5/Task_5.md": "ee8f286e4e6490718e573f2f2178898a661e8d01b4e47368dc1cafca44976e2e",
+    "Assignments/Task_6_Bonus/Bonus_Task_1.md": "c84e1a3960c9e6525a84dd74442ae99015ced40204d0ace556801fff23ae5ab3",
+    "Assignments/missing_code.json": "23daff0708d0d3866ddbb436ecfc2c16c294ca7f8e5591937b70c680898094b0"
+  },
+  "original_repository_url": "https://github.com/Neltharion59/AI4SE_Playground",
+  "original_source_commit": "b17f75374a6d63f0f245e472bb707e658c1b3cf7",
+  "solved_source": {
+    "solution/AI4SE_Playground/.gitignore": "114f3cdc2057d610cbc810f69cbc4f195acec0cd15dd54e9b154cf5f6657fc24",
+    "solution/AI4SE_Playground/playground/playground/__init__.py": "864e225ea00f5461b5dbb593601dbea95281707f26344b37f753ec627cace29c",
+    "solution/AI4SE_Playground/playground/playground/base.py": "f3b0c31d3040417a90602a81f3c0d32d4332fd62cc29456f8ddf4239ce0e2a61",
+    "solution/AI4SE_Playground/playground/playground/decorators.py": "52a0d6afef8ceef0d8513a10b7042b7efdcedf062296ced1aad8d4abf4778a2e",
+    "solution/AI4SE_Playground/playground/playground/enums.py": "212bb9450f06b179c8f30fcec5f3b7e59a7dfda2c3d88e2778cca6a2b6fad87b",
+    "solution/AI4SE_Playground/playground/playground/events.py": "afb0af15a833301ce876bf4f569a041392e0d13cbae3ab701655d0bbe62ffcc4",
+    "solution/AI4SE_Playground/playground/playground/exceptions.py": "611173a43e7442caebf14889dd18c61596d3f4cb467aa90309d6fd30329111a2",
+    "solution/AI4SE_Playground/playground/playground/inventory.py": "563001acdfdf36df8cd890b1436a62cb9e8245b40f10a2c5e56fff7cb5368589",
+    "solution/AI4SE_Playground/playground/playground/models.py": "3c8937b1e6d548958219bb025879ab22658e96686e27590c3b2575370a6b3e6e",
+    "solution/AI4SE_Playground/playground/playground/orders.py": "c5a3b61e3da2f55f70558886feb3321cf990b91ae6cbcf0c9ede10c9d994f079",
+    "solution/AI4SE_Playground/playground/playground/pricing.py": "12f31bd9804bf32fc9e4cbc42c03fc40df73f8b81a877147dfd0e3030a195de5",
+    "solution/AI4SE_Playground/playground/playground/repository.py": "8b5e072e2f99aa700d32545503b06c2ce49e516191807532bee3ddf4e42be73b",
+    "solution/AI4SE_Playground/playground/playground/simulation.py": "9e04fbc1adbaebaeb7a9dfb5ed47b0dfe73d54de40421540d70e0974ee72adec",
+    "solution/AI4SE_Playground/playground/playground/util.py": "eef53ecde6dd51fe1603150d1e93b515be2da11766a3eb00ace2520f266a8cea",
+    "solution/AI4SE_Playground/playground/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "solution/AI4SE_Playground/playground/tests/test_base.py": "b5a13fdaacda87d18f19f8f90e2fd036f90e4dbe58a5b1e6c7a27029d3f5ac0f",
+    "solution/AI4SE_Playground/playground/tests/test_decorators.py": "02dbb63cf67bd6fc5d3e7170e00c2e14ddae93539a46f180d77b621cdc0a0ea4",
+    "solution/AI4SE_Playground/playground/tests/test_enums.py": "8da5cd39198e5c1b8d2e0b6a6321fef2972f9385c3a6d1e95b7130aa6eb552b7",
+    "solution/AI4SE_Playground/playground/tests/test_events.py": "0fe77cb67c4b9a376f568d8f96869edee2391c23df6518f757c216ada80de672",
+    "solution/AI4SE_Playground/playground/tests/test_exceptions.py": "212908ec421126ecbab663a36194389afd6d4dd9ab53dee0f25ea8a1d9a39c56",
+    "solution/AI4SE_Playground/playground/tests/test_inventory.py": "2c89afe1055d45683ae34385dc45bdb6eae7113717503f1e52f18ed0394e7532",
+    "solution/AI4SE_Playground/playground/tests/test_models.py": "61a5a28b59b36d7e4c1498e55bc472cf128e4f9fb4255ace768ce5f75b542fb9",
+    "solution/AI4SE_Playground/playground/tests/test_orders.py": "6621992e2dfdcc968f0e8e32b8dd0efced381c2c813a2b8c0419700b02b46a2e",
+    "solution/AI4SE_Playground/playground/tests/test_package.py": "5b406a534c42b1487eb06d8cffc20b663bf942ecd575ece8cc887a64659912c2",
+    "solution/AI4SE_Playground/playground/tests/test_pricing.py": "879cdbc7a429fb33e4f35a639e57a42063890fd8a2b6829deff3550083aae81f",
+    "solution/AI4SE_Playground/playground/tests/test_repository.py": "0349a077693de93c753afa1f8950e66a8df4aa134b577a048cf032e9ed10eab4",
+    "solution/AI4SE_Playground/playground/tests/test_simulation.py": "9b7e8f8557d213a124a28650c681544f9ac9cbeee620c0cf4ef33388ad1b7d30",
+    "solution/AI4SE_Playground/playground/tests/test_util.py": "508a924540b3021202504c1bb93d87ba6bf60b761e4e0dafb3327d4a667f41dc"
+  }
+}

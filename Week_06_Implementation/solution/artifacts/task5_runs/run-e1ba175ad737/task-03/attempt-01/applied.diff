@@ -1,0 +1,11 @@
+--- a/playground/playground/inventory.py
++++ b/playground/playground/inventory.py
+@@ -159,7 +159,7 @@
+         return self._ledger.add_stock(sku, quantity)
+ 
+     def stock_report(self) -> Dict[str, int]:
+-        pass
++        return {sku: self._ledger.available(sku) for sku in self._ledger}
+ 
+     def __repr__(self) -> str:
+         """Return a developer-friendly representation."""
